@@ -68,7 +68,7 @@
   },
   {
    "id": "capitals-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما الدولة التي يُعدّ علمها الوطني الوحيد في العالم غير المستطيل الشكل؟",
    "a": "نيبال",
@@ -84,7 +84,7 @@
   },
   {
    "id": "capitals-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما الدولة الأوروبية الحبيسة التي لا تحدّها إلا دول حبيسة مثلها؟",
    "a": "ليختنشتاين",
@@ -99,7 +99,7 @@
   },
   {
    "id": "capitals-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اسم عملة جمهورية جنوب أفريقيا؟",
    "a": "الراند",
@@ -114,7 +114,7 @@
   },
   {
    "id": "capitals-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما النهر الأوروبي الذي يمر بأربع عواصم منها فيينا وبودابست؟",
    "a": "الدانوب",
@@ -129,7 +129,7 @@
   },
   {
    "id": "capitals-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما عاصمة أستراليا؟",
    "a": "كانبرا",
@@ -144,7 +144,7 @@
   },
   {
    "id": "capitals-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما المدينة التي حلّت محل لاغوس عاصمةً لنيجيريا؟",
    "a": "أبوجا",
@@ -159,7 +159,7 @@
   },
   {
    "id": "capitals-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما الدولة التي تحيط بها جنوب أفريقيا من جميع الجهات؟",
    "a": "ليسوتو",
@@ -175,7 +175,7 @@
   },
   {
    "id": "capitals-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما الدولة الأوروبية التي تُلقب ببلاد الألف بحيرة؟",
    "a": "فنلندا",
@@ -190,7 +190,7 @@
   },
   {
    "id": "capitals-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما الدولة العربية التي يُلقبها أهلها بالخضراء؟",
    "a": "تونس",
@@ -205,7 +205,7 @@
   },
   {
    "id": "capitals-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما عاصمة جزر القمر، العضو في جامعة الدول العربية؟",
    "a": "موروني",
@@ -221,7 +221,7 @@
   },
   {
    "id": "capitals-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما عاصمة موريتانيا؟",
    "a": "نواكشوط",
@@ -236,7 +236,7 @@
   },
   {
    "id": "capitals-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي دولة يقع جبل كليمنجارو، أعلى جبل في أفريقيا؟",
    "a": "تنزانيا",
@@ -251,7 +251,7 @@
   },
   {
    "id": "capitals-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما أكبر دولة في أفريقيا من حيث المساحة منذ انفصال جنوب السودان عام 2011؟",
    "a": "الجزائر",
@@ -266,7 +266,7 @@
   },
   {
    "id": "capitals-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما عاصمة تركيا؟",
    "a": "أنقرة",
@@ -281,7 +281,7 @@
   },
   {
    "id": "capitals-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما الدولة التي يظهر على علمها الوطني بندقية كلاشنكوف؟",
    "a": "موزمبيق",
@@ -296,7 +296,7 @@
   },
   {
    "id": "capitals-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما عاصمة إريتريا؟",
    "a": "أسمرة",
@@ -311,7 +311,7 @@
   },
   {
    "id": "capitals-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما المضيق الذي يفصل بين المغرب وإسبانيا؟",
    "a": "مضيق جبل طارق",
@@ -327,7 +327,7 @@
   },
   {
    "id": "capitals-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما المدينة التي أصبحت عاصمة ميانمار بدلًا من يانغون؟",
    "a": "نايبيداو",
@@ -342,7 +342,7 @@
   },
   {
    "id": "capitals-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اسم عملة تايلاند؟",
    "a": "البات",
@@ -357,7 +357,7 @@
   },
   {
    "id": "capitals-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما الدولة الجزرية التي تُلقب بأرض النار والجليد؟",
    "a": "آيسلندا",
