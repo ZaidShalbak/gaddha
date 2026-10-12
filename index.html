@@ -75,27 +75,68 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .cc[aria-pressed="false"]:hover{opacity:1}
 .full .cc[aria-pressed="false"]{opacity:.4}
 
-/* home */
-.home{display:flex;flex-direction:column;gap:22px;padding-bottom:20px}
-.hero-card{order:-1;position:relative;overflow:hidden;border-radius:28px;background:var(--grad);color:#fff;padding:22px 20px 0;min-height:clamp(280px,52vw,560px)}
-.hero-card .ghost{position:absolute;inset-inline-end:-10px;top:-30px;font-weight:900;font-size:clamp(210px,40vw,420px);line-height:1;color:rgba(255,255,255,.09);pointer-events:none}
-.hero-card .dot{position:absolute;inset-inline-end:24px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--b)}
-.hero-card p{position:relative;font-weight:900;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.25}
-.fan{position:absolute;bottom:-14px;inset-inline:14px;display:flex;justify-content:space-between;gap:6px}
-.mini{width:23%;max-width:160px;border-radius:16px;overflow:hidden;background:#fff;border:3px solid #fff;box-shadow:0 12px 26px rgba(0,0,0,.25);display:flex;flex-direction:column}
-.mini .art{aspect-ratio:1;display:grid;place-items:center;background:var(--cbg)}
-.mini .art svg{width:76%;height:auto}
-.mini .nm{background:var(--ink);color:#fff;font-size:clamp(9px,1.4vw,14px);font-weight:800;text-align:center;padding:5px 2px 18px}
-.mini:nth-child(1){transform:rotate(7deg) translateY(16px)}.mini:nth-child(2){transform:rotate(-4deg)}.mini:nth-child(3){transform:rotate(3deg) translateY(-6px)}.mini:nth-child(4){transform:rotate(-8deg) translateY(14px)}
-.home-text{display:flex;flex-direction:column;gap:14px}
-.home-text .kicker{align-self:flex-start;background:var(--gt);color:var(--g1);box-shadow:none}
-.home-text h1{font-weight:900;font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.08}
-.home-text .lead{color:var(--mut);font-size:1.02em;line-height:1.8;max-width:32em}
-.home-text .row .btn{flex:1 1 auto}
+/* home: site header + hero banner */
+#home{gap:0}
+body{overflow-x:hidden}
+.full{margin-inline:calc(50% - 50vw);width:100vw}
+.wrap{max-width:1360px;margin-inline:auto;padding-inline:clamp(14px,3vw,40px)}
+.site-h{position:sticky;top:0;z-index:15;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.site-h .wrap{display:flex;align-items:center;gap:clamp(12px,3vw,36px);min-height:64px;padding-top:env(safe-area-inset-top,0px)}
+.site-h nav{display:flex;gap:clamp(14px,2.4vw,30px);font-weight:700;font-size:.9em}
+.site-h nav a{color:var(--ink);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.site-h nav a:hover{border-bottom-color:var(--g2)}
+.site-h .acts{margin-inline-start:auto;display:flex;align-items:center;gap:8px}
+.site-h .acts .btn{min-height:42px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#2f9e5f 0%,#1d7a45 45%,#14532d 100%);color:#fff;border-radius:0 0 clamp(28px,5vw,64px) clamp(28px,5vw,64px);padding:clamp(22px,4vw,48px) 0 0}
+.hero::before{content:"قدّها";position:absolute;inset-inline-start:-2%;top:50%;transform:translateY(-58%) rotate(-8deg);font-weight:900;font-size:clamp(150px,26vw,380px);line-height:1;color:rgba(255,255,255,.07);pointer-events:none;white-space:nowrap}
+.hero::after{content:"";position:absolute;inset-inline-end:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(240,71,90,.28),rgba(240,71,90,0) 70%);pointer-events:none}
+.hero-in{position:relative;display:flex;flex-direction:column;gap:22px}
+.hero-text{display:flex;flex-direction:column;gap:12px}
+.hero-text .kick{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);color:#fff;font-weight:800;font-size:.8em;padding:5px 14px;border-radius:99px}
+.hero-text .kick i{width:8px;height:8px;border-radius:50%;background:var(--b);display:block}
+.hero-text h1{font-weight:900;font-size:clamp(2.3rem,5.6vw,4.6rem);line-height:1.08}
+.hero-text p{opacity:.88;line-height:1.8;max-width:30em}
+.hero-text .row .btn{min-height:56px}
+.hero-text .btn.white{background:#fff;color:var(--g1);box-shadow:0 10px 24px rgba(0,0,0,.18);font-weight:900;font-size:1.08em;padding-inline:1.8em}
+.hero-text .btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.hero-board{position:relative;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:26px;padding:14px;transform:rotate(-2deg);box-shadow:0 24px 50px rgba(0,0,0,.22)}
+.hero-board h2{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:900;font-size:1.05em;margin:2px 4px 12px}
+.hero-board h2 span{font-size:.7em;font-weight:800;background:var(--b);padding:3px 10px;border-radius:99px}
+.hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.hero-grid .cc{cursor:default;box-shadow:0 6px 14px rgba(0,0,0,.18);border-radius:14px}
+.hero-grid .cc:hover{transform:none}
+.hero-grid .cc .art{aspect-ratio:1;padding:6px}
+.hero-grid .cc .nm{font-size:clamp(8.5px,1.9vw,12px);padding:5px 3px;min-height:2.7em;display:grid;place-items:center}
+.hero-grid .soon .art{background:rgba(255,255,255,.9)}
+.hero-tabs{position:relative;display:flex;gap:8px;overflow-x:auto;padding-top:26px;scrollbar-width:none}
+.hero-tabs::-webkit-scrollbar{display:none}
+.hero-tabs button{font:inherit;flex:none;border:0;cursor:pointer;border-radius:18px 18px 0 0;padding:12px 20px 14px;font-weight:900;font-size:.88em;color:#fff;background:var(--tc);box-shadow:0 -4px 14px rgba(0,0,0,.12);transition:transform .15s;display:flex;align-items:center;gap:8px}
+.hero-tabs button:hover{transform:translateY(-4px)}
+.hero-tabs button.on{background:#fff;color:var(--g1)}
+.hero-tabs button i{width:9px;height:9px;border-radius:50%;background:currentColor;opacity:.6;display:block}
+.home-body{display:flex;flex-direction:column;gap:18px;padding-block:22px}
+.helpers-strip{background:#fff;border-radius:22px;box-shadow:var(--sh);padding:18px 22px;display:flex;flex-direction:column;gap:12px}
+.helpers-strip h2{font-weight:900;font-size:1.15em}
+.helpers-strip .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.helpers-strip .h{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.85em}
+.helpers-strip .h .hic{width:38px;height:38px;border-radius:12px;background:var(--kt);color:var(--kc);display:grid;place-items:center;flex:none}
+.helpers-strip .h .hic svg{width:21px;height:21px}
+.helpers-strip .h small{display:block;font-weight:600;color:var(--mut);font-size:.82em}
 .rules{background:#fff;border-radius:22px;box-shadow:var(--sh);padding:18px 22px}
 .rules h2{font-weight:900;font-size:1.15em;margin-bottom:8px}
 .rules ol{margin:0;padding-inline-start:1.2em;display:flex;flex-direction:column;gap:4px;color:var(--mut);font-size:.92em}
 .rules b{color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:var(--ink);color:#fff;border-radius:26px;padding:22px 26px}
+.cta h2{font-weight:900;font-size:clamp(1.3rem,3vw,2rem)}
+.cta p{opacity:.75;font-size:.9em}
+@media (max-width:699px){.hero{border-radius:0 0 28px 28px}.site-h nav{display:none}.site-h .acts #fs2{display:none}}
+@media (min-width:900px){
+  .hero-in{display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:48px}
+  .hero-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+  .hero-board{padding:18px}
+  .home-body{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+  .home-body .cta{grid-column:1/-1}
+}
 
 /* setup */
 #setup{padding-bottom:20px}
@@ -382,12 +423,6 @@ details.more[open] summary{margin-bottom:10px}
 
 /* widescreen: laptop and TV */
 @media (min-width:900px){
-  .home{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;flex:1}
-  .hero-card{order:0;padding:36px}
-  .fan{bottom:36px;inset-inline:30px}
-  .mini{border-radius:22px}
-  .mini .nm{padding:8px 4px}
-  .rules{grid-column:1/-1}
   .setup-grid{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
   .setup-side{position:sticky;top:12px}
   .teams-in{grid-template-columns:1fr}
@@ -471,27 +506,36 @@ details.more[open] summary{margin-bottom:10px}
 <body>
 
 <div class="app" dir="rtl" lang="ar">
-  <header class="top">
+  <header class="top" id="top">
     <button type="button" class="brand" data-act="home" aria-label="قدّها، الصفحة الرئيسية"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
     <button type="button" class="btn sm" id="fs" data-act="fs">ملء الشاشة</button>
   </header>
 
   <main class="screen" id="home">
-    <div class="home">
-      <div class="home-text">
-        <span class="pill kicker">لعبة أسئلة للسهرات · 14+</span>
-        <h1>أسئلة مش<br>لأي حدا.</h1>
-        <p class="lead">فريقان، جهاز واحد، وأسئلة صعبة من أول سؤال. بدكم مساعدة؟ «غشّشني»… بس كل غشّة بنقطة.</p>
-        <div class="row">
-          <button type="button" class="btn solid big" data-act="to-setup">إنتو قدّها؟ يلا نلعب</button>
-          <a class="btn line big" href="#rules" style="font-size:1em">كيف نلعب؟</a>
+    <header class="site-h full">
+      <div class="wrap">
+        <button type="button" class="brand" data-act="home" aria-label="قدّها"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
+        <nav aria-label="روابط"><a href="#" data-act="to-setup">العب</a><a href="#helpers">المساعدات</a><a href="#rules">كيف نلعب</a></nav>
+        <div class="acts"><button type="button" class="btn sm" id="fs2" data-act="fs">ملء الشاشة</button><button type="button" class="btn solid sm" data-act="to-setup">يلا نلعب</button></div>
+      </div>
+    </header>
+    <section class="hero full">
+      <div class="wrap hero-in">
+        <div class="hero-text">
+          <span class="kick"><i></i>لعبة أسئلة للسهرات · 14+</span>
+          <h1>أسئلة مش<br>لأي حدا.</h1>
+          <p>فريقان، جهاز واحد، وأسئلة صعبة من أول سؤال. بدكم مساعدة؟ «غشّشني»… بس كل غشّة بنقطة.</p>
+          <div class="row"><button type="button" class="btn white" data-act="to-setup">إنتو قدّها؟ أنشئوا لعبة</button><a class="btn ghost" href="#rules">كيف نلعب؟</a></div>
+        </div>
+        <div class="hero-board" aria-label="فئات قدّها">
+          <h2>فئات قدّها<span>جديد</span></h2>
+          <div class="hero-grid" id="herocats"></div>
         </div>
       </div>
-      <div class="hero-card" aria-hidden="true">
-        <span class="ghost">؟</span><span class="dot"></span>
-        <p>11 فئة،<br>ولا وحدة سهلة</p>
-        <div class="fan" id="fan"></div>
-      </div>
+      <div class="wrap hero-tabs" id="herotabs"></div>
+    </section>
+    <div class="home-body">
+      <section class="helpers-strip" id="helpers"><h2>سبع مساعدات، وكل فريق بياخد 3</h2><div class="list" id="helperlist"></div></section>
       <section class="rules" id="rules">
         <h2>كيف بتنحسب النقاط</h2>
         <ol>
@@ -502,6 +546,7 @@ details.more[open] summary{margin-bottom:10px}
           <li>بالآخر «قدّ الرهان؟»: كل فريق بيراهن على نقاطه بسؤال أخير.</li>
         </ol>
       </section>
+      <section class="cta"><div><h2>جاهزين تلعبوا؟</h2><p>جهاز واحد، فريقين، وسهرة ما بتنتسى.</p></div><button type="button" class="btn white big" style="background:#fff;color:var(--g1)" data-act="to-setup">أنشئوا لعبة</button></section>
     </div>
   </main>
 
@@ -734,7 +779,11 @@ let view='home',skip=[];
 const catById=id=>BANK.find(c=>c.id===id);
 const enabledIds=()=>GROUPS.filter(g=>!skip.includes(g.id)).flatMap(g=>g.ids).filter(catById);
 function buildFan(){
-  $('fan').innerHTML=['bab-alhara','arab-songs','act','football'].map(id=>`<div class="mini" style="--cbg:${cbg(id)}"><span class="art">${catArt(id)}</span><span class="nm">${esc((catById(id)||{}).name||'')}</span></div>`).join('');
+  const ids=GROUPS.flatMap(g=>g.ids).filter(catById);
+  $('herocats').innerHTML=ids.map(id=>`<div class="cc" style="--cbg:${cbg(id)}"><span class="art">${catArt(id)}</span><span class="nm">${esc(catById(id).name)}</span></div>`).join('')
+    +'<div class="cc soon"><span class="art"><svg viewBox="0 0 100 100" aria-hidden="true"><text x="50" y="68" text-anchor="middle" font-size="56" font-weight="900" font-family="Alexandria, sans-serif" fill="#2f9e5f">+</text></svg></span><span class="nm">فئات جاية</span></div>';
+  $('herotabs').innerHTML='<button type="button" class="on" data-act="to-setup"><i></i>لعبة جديدة</button>'+GROUPS.map(g=>`<button type="button" style="--tc:${g.c}" data-act="to-setup" data-only="${g.id}"><i></i>${esc(g.name)}</button>`).join('');
+  $('helperlist').innerHTML=HIDS.map(id=>`<div class="h k-${HELPERS[id].kind}"><span class="hic">${helpIcon(id)}</span><span>${esc(HELPERS[id].name)}<small>${KIND[HELPERS[id].kind]}</small></span></div>`).join('');
 }
 function paintSetup(){
   sel=sel.filter(id=>enabledIds().includes(id));
@@ -1006,6 +1055,7 @@ function paintEnd(){
 function render(){
   const scr=S?S.screen:view;
   $('home').hidden=scr!=='home';
+  $('top').hidden=scr==='home';
   $('setup').hidden=scr!=='setup';
   $('game').hidden=scr==='home'||scr==='setup'||scr==='end';
   $('end').hidden=scr!=='end';
@@ -1027,7 +1077,7 @@ const ACT={
   grp(b){const g=b.dataset.g,i=skip.indexOf(g);if(i>=0)skip.splice(i,1);else skip.push(g);store.set('gaddha.skip',skip);paintSetup()},
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
   'reset-seen'(){if(!confirm('نرجّع كل الأسئلة كأنها جديدة؟'))return;seen=new Set();try{localStorage.removeItem('gaddha.seen')}catch(e){}paintSetup();toast('رجعت كل الأسئلة جديدة.')},
-  'to-setup'(){view='setup';render();window.scrollTo(0,0)},
+  'to-setup'(b){if(b&&b.dataset&&b.dataset.only){const g=GROUPS.find(x=>x.id===b.dataset.only);if(g){skip=skip.filter(id=>id!==g.id);store.set('gaddha.skip',skip);sel=g.ids.filter(catById).slice(0,MAX)}}view='setup';render();window.scrollTo(0,0)},
   time(b){timerSec=+b.dataset.s;paintSetup()},
   start(){if(sel.length>=MIN)startDraft()},
   fs(){try{if(document.fullscreenElement)document.exitFullscreen();else{const p=document.documentElement.requestFullscreen();p&&p.catch&&p.catch(()=>{})}}catch(e){}},
