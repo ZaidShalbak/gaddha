@@ -1,0 +1,810 @@
+{
+ "category": "order",
+ "questions": [
+  {
+   "id": "order-001",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالاختراعات من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "التلفون",
+     "v": "1876"
+    },
+    {
+     "t": "الطيّارة",
+     "v": "1903"
+    },
+    {
+     "t": "التلفزيون",
+     "v": "1927"
+    },
+    {
+     "t": "شبكة الويب",
+     "v": "1989"
+    }
+   ],
+   "a": "التلفون ← الطيّارة ← التلفزيون ← شبكة الويب",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Telephone",
+    "https://en.wikipedia.org/wiki/Wright_brothers",
+    "https://en.wikipedia.org/wiki/History_of_television",
+    "https://en.wikipedia.org/wiki/World_Wide_Web"
+   ]
+  },
+  {
+   "id": "order-002",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا كؤوس العالم حسب الدولة المستضيفة، من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "جنوب أفريقيا",
+     "v": "2010"
+    },
+    {
+     "t": "البرازيل",
+     "v": "2014"
+    },
+    {
+     "t": "روسيا",
+     "v": "2018"
+    },
+    {
+     "t": "قطر",
+     "v": "2022"
+    }
+   ],
+   "a": "جنوب أفريقيا ← البرازيل ← روسيا ← قطر",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FIFA_World_Cup_hosts"
+   ]
+  },
+  {
+   "id": "order-003",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا الكواكب من الأقرب للشمس",
+   "dir": "من الأقرب للشمس",
+   "o": [
+    {
+     "t": "عطارد",
+     "v": "1"
+    },
+    {
+     "t": "الزهرة",
+     "v": "2"
+    },
+    {
+     "t": "الأرض",
+     "v": "3"
+    },
+    {
+     "t": "المريخ",
+     "v": "4"
+    }
+   ],
+   "a": "عطارد ← الزهرة ← الأرض ← المريخ",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solar_System"
+   ]
+  },
+  {
+   "id": "order-004",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالدول حسب المساحة، من الأكبر للأصغر",
+   "dir": "من الأكبر للأصغر",
+   "o": [
+    {
+     "t": "الجزائر",
+     "v": "2.38 مليون كم²"
+    },
+    {
+     "t": "السعودية",
+     "v": "2.15 مليون كم²"
+    },
+    {
+     "t": "مصر",
+     "v": "1 مليون كم²"
+    },
+    {
+     "t": "الأردن",
+     "v": "89 ألف كم²"
+    }
+   ],
+   "a": "الجزائر ← السعودية ← مصر ← الأردن",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area"
+   ]
+  },
+  {
+   "id": "order-005",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالجبال من الأعلى للأوطى",
+   "dir": "من الأعلى للأوطى",
+   "o": [
+    {
+     "t": "إيفرست",
+     "v": "8849 م"
+    },
+    {
+     "t": "كليمنجارو",
+     "v": "5895 م"
+    },
+    {
+     "t": "مون بلان",
+     "v": "4808 م"
+    },
+    {
+     "t": "جبل الشيخ",
+     "v": "2814 م"
+    }
+   ],
+   "a": "إيفرست ← كليمنجارو ← مون بلان ← جبل الشيخ",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mount_Everest",
+    "https://en.wikipedia.org/wiki/Mount_Kilimanjaro",
+    "https://en.wikipedia.org/wiki/Mont_Blanc",
+    "https://en.wikipedia.org/wiki/Mount_Hermon"
+   ]
+  },
+  {
+   "id": "order-006",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالتطبيقات والأجهزة حسب سنة إطلاقها، من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "فيسبوك",
+     "v": "2004"
+    },
+    {
+     "t": "يوتيوب",
+     "v": "2005"
+    },
+    {
+     "t": "آيفون",
+     "v": "2007"
+    },
+    {
+     "t": "واتساب",
+     "v": "2009"
+    }
+   ],
+   "a": "فيسبوك ← يوتيوب ← آيفون ← واتساب",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Facebook",
+    "https://en.wikipedia.org/wiki/YouTube",
+    "https://en.wikipedia.org/wiki/IPhone_(1st_generation)",
+    "https://en.wikipedia.org/wiki/WhatsApp"
+   ]
+  },
+  {
+   "id": "order-007",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالأنهار من الأطول للأقصر",
+   "dir": "من الأطول للأقصر",
+   "o": [
+    {
+     "t": "النيل",
+     "v": "حوالي 6650 كم"
+    },
+    {
+     "t": "الفرات",
+     "v": "حوالي 2800 كم"
+    },
+    {
+     "t": "دجلة",
+     "v": "حوالي 1850 كم"
+    },
+    {
+     "t": "الأردن",
+     "v": "حوالي 251 كم"
+    }
+   ],
+   "a": "النيل ← الفرات ← دجلة ← الأردن",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Nile",
+    "https://en.wikipedia.org/wiki/Euphrates",
+    "https://en.wikipedia.org/wiki/Tigris",
+    "https://en.wikipedia.org/wiki/Jordan_River"
+   ]
+  },
+  {
+   "id": "order-008",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالفنانين حسب سنة الميلاد، من الأكبر للأصغر",
+   "dir": "من الأكبر للأصغر",
+   "o": [
+    {
+     "t": "أم كلثوم",
+     "v": "1898"
+    },
+    {
+     "t": "عبد الحليم حافظ",
+     "v": "1929"
+    },
+    {
+     "t": "فيروز",
+     "v": "1934"
+    },
+    {
+     "t": "عمرو دياب",
+     "v": "1961"
+    }
+   ],
+   "a": "أم كلثوم ← عبد الحليم حافظ ← فيروز ← عمرو دياب",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Umm_Kulthum",
+    "https://en.wikipedia.org/wiki/Abdel_Halim_Hafez",
+    "https://en.wikipedia.org/wiki/Fairuz",
+    "https://en.wikipedia.org/wiki/Amr_Diab"
+   ]
+  },
+  {
+   "id": "order-009",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالأحداث من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "بداية الحرب العالمية الأولى",
+     "v": "1914"
+    },
+    {
+     "t": "بداية الحرب العالمية الثانية",
+     "v": "1939"
+    },
+    {
+     "t": "أول إنسان على القمر",
+     "v": "1969"
+    },
+    {
+     "t": "سقوط جدار برلين",
+     "v": "1989"
+    }
+   ],
+   "a": "بداية الحرب العالمية الأولى ← بداية الحرب العالمية الثانية ← أول إنسان على القمر ← سقوط جدار برلين",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/World_War_I",
+    "https://en.wikipedia.org/wiki/World_War_II",
+    "https://en.wikipedia.org/wiki/Apollo_11",
+    "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"
+   ]
+  },
+  {
+   "id": "order-010",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالحيوانات من الأثقل للأخف",
+   "dir": "من الأثقل للأخف",
+   "o": [
+    {
+     "t": "الحوت الأزرق",
+     "v": "أكثر من 100 طن"
+    },
+    {
+     "t": "الفيل الأفريقي",
+     "v": "حوالي 6 طن"
+    },
+    {
+     "t": "وحيد القرن",
+     "v": "حوالي 2 طن"
+    },
+    {
+     "t": "الحصان",
+     "v": "حوالي نص طن"
+    }
+   ],
+   "a": "الحوت الأزرق ← الفيل الأفريقي ← وحيد القرن ← الحصان",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Blue_whale",
+    "https://en.wikipedia.org/wiki/African_elephant",
+    "https://en.wikipedia.org/wiki/Rhinoceros",
+    "https://en.wikipedia.org/wiki/Horse"
+   ]
+  },
+  {
+   "id": "order-011",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالأندية حسب سنة التأسيس، من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "مانشستر يونايتد",
+     "v": "1878"
+    },
+    {
+     "t": "ليفربول",
+     "v": "1892"
+    },
+    {
+     "t": "برشلونة",
+     "v": "1899"
+    },
+    {
+     "t": "ريال مدريد",
+     "v": "1902"
+    }
+   ],
+   "a": "مانشستر يونايتد ← ليفربول ← برشلونة ← ريال مدريد",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Manchester_United_F.C.",
+    "https://en.wikipedia.org/wiki/Liverpool_F.C.",
+    "https://en.wikipedia.org/wiki/FC_Barcelona",
+    "https://en.wikipedia.org/wiki/Real_Madrid_CF"
+   ]
+  },
+  {
+   "id": "order-012",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا مدن الألعاب الأولمبية الصيفية من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "سيدني",
+     "v": "2000"
+    },
+    {
+     "t": "أثينا",
+     "v": "2004"
+    },
+    {
+     "t": "بكين",
+     "v": "2008"
+    },
+    {
+     "t": "لندن",
+     "v": "2012"
+    }
+   ],
+   "a": "سيدني ← أثينا ← بكين ← لندن",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Summer_Olympic_Games"
+   ]
+  },
+  {
+   "id": "order-013",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالكواكب حسب الحجم، من الأكبر للأصغر",
+   "dir": "من الأكبر للأصغر",
+   "o": [
+    {
+     "t": "المشتري",
+     "v": "1"
+    },
+    {
+     "t": "زحل",
+     "v": "2"
+    },
+    {
+     "t": "أورانوس",
+     "v": "3"
+    },
+    {
+     "t": "نبتون",
+     "v": "4"
+    }
+   ],
+   "a": "المشتري ← زحل ← أورانوس ← نبتون",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solar_System"
+   ]
+  },
+  {
+   "id": "order-014",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالحروف حسب ترتيب الأبجدية العربية (أ ب ت ث…)",
+   "dir": "حسب الترتيب",
+   "o": [
+    {
+     "t": "ب",
+     "v": "2"
+    },
+    {
+     "t": "ج",
+     "v": "5"
+    },
+    {
+     "t": "س",
+     "v": "12"
+    },
+    {
+     "t": "ي",
+     "v": "28"
+    }
+   ],
+   "a": "ب ← ج ← س ← ي",
+   "hints": [],
+   "w": "",
+   "sources": []
+  },
+  {
+   "id": "order-015",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالأشهر الهجرية حسب ترتيبها بالسنة",
+   "dir": "حسب الترتيب",
+   "o": [
+    {
+     "t": "محرّم",
+     "v": "1"
+    },
+    {
+     "t": "صفر",
+     "v": "2"
+    },
+    {
+     "t": "رجب",
+     "v": "7"
+    },
+    {
+     "t": "رمضان",
+     "v": "9"
+    }
+   ],
+   "a": "محرّم ← صفر ← رجب ← رمضان",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Islamic_calendar"
+   ]
+  },
+  {
+   "id": "order-016",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا المحيطات حسب المساحة، من الأكبر للأصغر",
+   "dir": "من الأكبر للأصغر",
+   "o": [
+    {
+     "t": "الهادئ",
+     "v": "1"
+    },
+    {
+     "t": "الأطلسي",
+     "v": "2"
+    },
+    {
+     "t": "الهندي",
+     "v": "3"
+    },
+    {
+     "t": "المتجمّد الشمالي",
+     "v": "5"
+    }
+   ],
+   "a": "الهادئ ← الأطلسي ← الهندي ← المتجمّد الشمالي",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ocean"
+   ]
+  },
+  {
+   "id": "order-017",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا أجهزة الألعاب حسب سنة الإطلاق، من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "أتاري 2600",
+     "v": "1977"
+    },
+    {
+     "t": "نينتندو (فاميكوم)",
+     "v": "1983"
+    },
+    {
+     "t": "بلايستيشن",
+     "v": "1994"
+    },
+    {
+     "t": "إكس بوكس",
+     "v": "2001"
+    }
+   ],
+   "a": "أتاري 2600 ← نينتندو (فاميكوم) ← بلايستيشن ← إكس بوكس",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Atari_2600",
+    "https://en.wikipedia.org/wiki/Nintendo_Entertainment_System",
+    "https://en.wikipedia.org/wiki/PlayStation_(console)",
+    "https://en.wikipedia.org/wiki/Xbox_(console)"
+   ]
+  },
+  {
+   "id": "order-018",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالأبراج من الأعلى للأوطى",
+   "dir": "من الأعلى للأوطى",
+   "o": [
+    {
+     "t": "برج خليفة",
+     "v": "828 م"
+    },
+    {
+     "t": "برج شنغهاي",
+     "v": "632 م"
+    },
+    {
+     "t": "أبراج البيت بمكة",
+     "v": "601 م"
+    },
+    {
+     "t": "برج إيفل",
+     "v": "330 م"
+    }
+   ],
+   "a": "برج خليفة ← برج شنغهاي ← أبراج البيت بمكة ← برج إيفل",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_tallest_buildings"
+   ]
+  },
+  {
+   "id": "order-019",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالأعضاء حسب الوزن عند الإنسان البالغ، من الأثقل للأخف",
+   "dir": "من الأثقل للأخف",
+   "o": [
+    {
+     "t": "الجلد",
+     "v": "حوالي 4 كغ"
+    },
+    {
+     "t": "الكبد",
+     "v": "حوالي 1.5 كغ"
+    },
+    {
+     "t": "الدماغ",
+     "v": "حوالي 1.3 كغ"
+    },
+    {
+     "t": "القلب",
+     "v": "حوالي 300 غ"
+    }
+   ],
+   "a": "الجلد ← الكبد ← الدماغ ← القلب",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Organ_(biology)"
+   ]
+  },
+  {
+   "id": "order-020",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالعواصم من الشمال للجنوب",
+   "dir": "من الشمال للجنوب",
+   "o": [
+    {
+     "t": "بيروت",
+     "v": "33.9°"
+    },
+    {
+     "t": "القاهرة",
+     "v": "30.0°"
+    },
+    {
+     "t": "الرياض",
+     "v": "24.7°"
+    },
+    {
+     "t": "صنعاء",
+     "v": "15.4°"
+    }
+   ],
+   "a": "بيروت ← القاهرة ← الرياض ← صنعاء",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Beirut",
+    "https://en.wikipedia.org/wiki/Cairo",
+    "https://en.wikipedia.org/wiki/Riyadh",
+    "https://en.wikipedia.org/wiki/Sanaa"
+   ]
+  },
+  {
+   "id": "order-021",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا ألوان قوس قزح من فوق لتحت",
+   "dir": "من فوق لتحت",
+   "o": [
+    {
+     "t": "أحمر",
+     "v": "1"
+    },
+    {
+     "t": "برتقالي",
+     "v": "2"
+    },
+    {
+     "t": "أصفر",
+     "v": "3"
+    },
+    {
+     "t": "أخضر",
+     "v": "4"
+    }
+   ],
+   "a": "أحمر ← برتقالي ← أصفر ← أخضر",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Rainbow"
+   ]
+  },
+  {
+   "id": "order-022",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالعلماء حسب الزمن، من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "أرخميدس",
+     "v": "حوالي 250 ق.م"
+    },
+    {
+     "t": "ابن سينا",
+     "v": "980"
+    },
+    {
+     "t": "نيوتن",
+     "v": "1643"
+    },
+    {
+     "t": "أينشتاين",
+     "v": "1879"
+    }
+   ],
+   "a": "أرخميدس ← ابن سينا ← نيوتن ← أينشتاين",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Archimedes",
+    "https://en.wikipedia.org/wiki/Avicenna",
+    "https://en.wikipedia.org/wiki/Isaac_Newton",
+    "https://en.wikipedia.org/wiki/Albert_Einstein"
+   ]
+  },
+  {
+   "id": "order-023",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا هالحيوانات من الأصغر للأكبر",
+   "dir": "من الأصغر للأكبر",
+   "o": [
+    {
+     "t": "نملة",
+     "v": "1"
+    },
+    {
+     "t": "فأر",
+     "v": "2"
+    },
+    {
+     "t": "أرنب",
+     "v": "3"
+    },
+    {
+     "t": "حصان",
+     "v": "4"
+    }
+   ],
+   "a": "نملة ← فأر ← أرنب ← حصان",
+   "hints": [],
+   "w": "",
+   "sources": []
+  },
+  {
+   "id": "order-024",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا وسائل النقل حسب سنة اختراعها، من الأقدم للأحدث",
+   "dir": "من الأقدم للأحدث",
+   "o": [
+    {
+     "t": "القطار البخاري",
+     "v": "1804"
+    },
+    {
+     "t": "الدرّاجة",
+     "v": "1817"
+    },
+    {
+     "t": "السيارة",
+     "v": "1886"
+    },
+    {
+     "t": "الطيّارة",
+     "v": "1903"
+    }
+   ],
+   "a": "القطار البخاري ← الدرّاجة ← السيارة ← الطيّارة",
+   "hints": [],
+   "w": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Steam_locomotive",
+    "https://en.wikipedia.org/wiki/Dandy_horse",
+    "https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen",
+    "https://en.wikipedia.org/wiki/Wright_Flyer"
+   ]
+  },
+  {
+   "id": "order-025",
+   "status": "draft",
+   "difficulty": null,
+   "q": "رتّبوا الوحدات من الأصغر للأكبر",
+   "dir": "من الأصغر للأكبر",
+   "o": [
+    {
+     "t": "ميليمتر",
+     "v": "1"
+    },
+    {
+     "t": "سنتيمتر",
+     "v": "2"
+    },
+    {
+     "t": "متر",
+     "v": "3"
+    },
+    {
+     "t": "كيلومتر",
+     "v": "4"
+    }
+   ],
+   "a": "ميليمتر ← سنتيمتر ← متر ← كيلومتر",
+   "hints": [],
+   "w": "",
+   "sources": []
+  }
+ ]
+}

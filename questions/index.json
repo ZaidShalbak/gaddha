@@ -21,7 +21,8 @@
     "capitals",
     "riddles",
     "photos",
-    "numbers"
+    "numbers",
+    "order"
    ],
    "visible": true
   },
@@ -169,6 +170,15 @@
    "type": "draw",
    "art": "brush",
    "bg": "#e7eef7"
+  },
+  {
+   "id": "order",
+   "name": "رتّبها",
+   "file": "order.json",
+   "visible": true,
+   "art": "order",
+   "bg": "#efe9f7",
+   "mode": "order"
   }
  ],
  "finals": "finals.json"

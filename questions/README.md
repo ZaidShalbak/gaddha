@@ -46,3 +46,12 @@ Both teams write a number on paper, then type both into the game. The closest te
 A challenge category with `"type": "draw"`. Items are `{id, status, s, k}`: `s` is the word to draw and `k` its kind («أكل», «حيوان», «مكان», «شي بنعمله»…), used in the first hint.
 
 The drawer scans the QR to see the word, then the team picks where to draw: on the main screen (best on a tablet) or on the drawer's phone (the `/r/` page turns into a canvas, with a press-and-hold button to peek at the word). The canvas code lives in `/pad.js` and is shared by both pages. Live mirroring from phone to the main screen will come with the Supabase backend.
+
+## Ordering questions («رتّبها»)
+
+A category with `"mode": "order"` holds questions with:
+
+- `o`: exactly 4 items **in the correct order**, each `{t, v}` (`t` shown to players, `v` an optional value such as a year or height, shown after the reveal; single digits are treated as plain rank and hidden).
+- `dir`: the direction shown to players («من الأقدم للأحدث», «من الأكبر للأصغر»…).
+
+The game shuffles the items; players reorder them by tapping two to swap or using the arrows. Each «غشّشني» pins one item in its place (first, then last). Points only for a fully correct order. These questions are kept out of the final round and the tiebreaker.
