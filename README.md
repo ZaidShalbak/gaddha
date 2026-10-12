@@ -21,3 +21,7 @@
 - **«قدّنا؟» by link** (`/w/#<circle>`): the family screen creates a circle (`create_circle`), shares the link on WhatsApp, and pulls secrets with the private host key (`get_secrets`). The key stays in that device's browser.
 
 If the keys are removed or Supabase is unreachable, these features hide or fall back and the game works offline as before.
+
+## Accounts (Supabase Auth)
+
+Optional login with a 6-digit email code (Google can be switched on later with `google:true` in `sb.js`). Run `supabase/auth.sql` once; it adds `profiles` (name, group name, colour), `nights` (one row per finished game) and `delete_my_account()`. The email templates "Magic Link" and "Confirm signup" must include `{{ .Token }}` so the email carries the code. The supabase-js library loads only when someone signs in or already has a saved session.

@@ -4,7 +4,8 @@
 (function(){
   var CFG=window.GADDHA_SB_CFG||{
     url:'https://nxhlmlgcveokoqdegqaa.supabase.co',
-    key:'sb_publishable_BOPfNiIHdUXjHLcDvhhCpg_TpWjTNtx'   // publishable key (never the secret / service_role key)
+    key:'sb_publishable_BOPfNiIHdUXjHLcDvhhCpg_TpWjTNtx',   // publishable key (never the secret / service_role key)
+    google:false   // turn on after Google is set up in Supabase → Authentication → Providers
   };
   var LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.js';
   var client=null,loading=null;
@@ -14,7 +15,7 @@
     if(!loading)loading=new Promise(function(res,rej){
       if(window.supabase&&window.supabase.createClient)return res();
       var s=document.createElement('script');s.src=LIB;s.onload=function(){res()};s.onerror=function(){loading=null;rej(new Error('lib'))};document.head.appendChild(s);
-    }).then(function(){client=window.supabase.createClient(CFG.url,CFG.key,{auth:{persistSession:false,autoRefreshToken:false}});return client});
+    }).then(function(){client=window.supabase.createClient(CFG.url,CFG.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storageKey:'gaddha.auth',flowType:'pkce'}});return client});
     return loading;
   }
   function rpc(name,args){return load().then(function(c){return c.rpc(name,args||{})}).then(function(r){if(r.error)throw r.error;return r.data})}
@@ -38,5 +39,5 @@
     return api;
   }
   var code=function(n){var a='abcdefghjkmnpqrstuvwxyz23456789',o='';var r=new Uint8Array(n||8);crypto.getRandomValues(r);for(var i=0;i<r.length;i++)o+=a[r[i]%a.length];return o};
-  window.GADDHA_SB={configured:function(){return !!(CFG.url&&CFG.key)},rpc:rpc,room:room,code:code};
+  window.GADDHA_SB={configured:function(){return !!(CFG.url&&CFG.key)},google:function(){return !!CFG.google},client:load,rpc:rpc,room:room,code:code};
 })();
