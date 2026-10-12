@@ -62,6 +62,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .cc{font:inherit;position:relative;display:flex;flex-direction:column;border:0;padding:0;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 4px 12px rgba(22,22,22,.08);color:var(--ink);cursor:pointer;min-width:0;transition:transform .15s,box-shadow .15s,opacity .15s;text-align:center}
 .cc .art{flex:1;display:grid;place-items:center;min-height:0;background:var(--cbg,#f1ecdf);padding:8px}
 .cc .art svg{width:min(72%,130px);height:auto;aspect-ratio:1;display:block}
+.cc .nm small{display:block;font-size:.78em;font-weight:600;opacity:.7;line-height:1.3}
+.cc .nm small.low{color:#ffb4bd;opacity:1}
 .cc .nm{flex:none;background:var(--ink);color:#fff;font-weight:800;font-size:.8em;padding:8px 6px;line-height:1.3}
 .cc:hover:not(:disabled){transform:translateY(-4px)}
 .cc .tag{position:absolute;top:8px;inset-inline-end:8px;font-size:.62em;font-weight:800;padding:2px 9px;border-radius:99px;background:var(--amb);color:#2a1d00}
@@ -519,12 +521,14 @@ details.more[open] summary{margin-bottom:10px}
           <button type="button" class="btn sm" data-act="time" data-s="0">بلا وقت</button>
         </div>
         <details class="more">
-          <summary>كود التحديات</summary>
+          <summary>إعدادات إضافية</summary>
           <div class="seg seg2">
             <button type="button" class="btn sm" data-act="qrmode" data-m="link">رابط (أحلى)</button>
             <button type="button" class="btn sm" data-act="qrmode" data-m="text">نص (بدون إنترنت)</button>
           </div>
           <p class="qrnote">«رابط» بيفتح صفحة السر بمتصفح الجوال. «نص» بيطلع السر كنص بكاميرا الجوال، وبيشتغل بدون إنترنت.</p>
+          <p class="qrnote" style="margin-top:6px">اللعبة بتتذكّر الأسئلة اللي انلعبت على هالجهاز وما بتعيدها لحد ما تخلص.</p>
+          <button type="button" class="btn sm" data-act="reset-seen">رجّعوا كل الأسئلة جديدة</button>
         </details>
         <button type="button" class="btn solid big" id="start" data-act="start">يلا نختار المساعدات</button>
       </div>
@@ -547,642 +551,6 @@ details.more[open] summary{margin-bottom:10px}
 <div class="peekov" id="peekov" hidden></div>
 <main class="reveal" id="reveal" dir="rtl" lang="ar" hidden></main>
 
-<script type="application/json" id="question-bank">{
-"categories": [
-{
-"id": "capitals",
-"name": "عواصم ودول",
-"hint": "عواصم يصعب تذكّرها",
-"questions": [
-{
-"q": "ما عاصمة مملكة بوتان؟",
-"a": "تيمفو",
-"hints": [
-"تقع في جبال الهيمالايا.",
-"اسمها يبدأ بحرف التاء."
-],
-"w": "كاتماندو"
-},
-{
-"q": "ما الدولة التي عاصمتها «أولان باتور»؟",
-"a": "منغوليا",
-"hints": [
-"تقع بين روسيا والصين ولا تطلّ على أي بحر.",
-"موطن جنكيز خان."
-],
-"w": "كازاخستان"
-},
-{
-"q": "ما العاصمة الرسمية لسريلانكا، حيث يقع البرلمان؟",
-"a": "سري جاياواردنابورا كوتي",
-"hints": [
-"ليست كولومبو، مع أنها ملاصقة لها.",
-"اسمها طويل ويبدأ بكلمة «سري»."
-],
-"w": "كاندي"
-},
-{
-"q": "ما عاصمة بوركينا فاسو؟",
-"a": "واغادوغو",
-"hints": [
-"تقع في غرب إفريقيا.",
-"اسمها يبدأ بحرف الواو."
-],
-"w": "باماكو"
-},
-{
-"q": "ما الدولة التي تتوزع مؤسساتها بين عاصمتين: سوكري ولاباز؟",
-"a": "بوليفيا",
-"hints": [
-"في أمريكا الجنوبية ولا تطلّ على أي بحر.",
-"سُمّيت باسم القائد سيمون بوليفار."
-],
-"w": "البيرو"
-}
-]
-},
-{
-"id": "arab-screen",
-"name": "مسلسلات وأفلام عربية",
-"hint": "شاشة عربية من زمان ولليوم",
-"questions": [
-{
-"q": "من أدّى دور حمزة بن عبد المطلب في النسخة العربية من فيلم «الرسالة»؟",
-"a": "عبد الله غيث",
-"hints": [
-"ممثل مصري، وأدّى الدور نفسه في النسخة الإنجليزية أنتوني كوين.",
-"اسمه الأول عبد الله."
-],
-"w": "محمود مرسي"
-},
-{
-"q": "ما اسم الشخصية التي اشتهر بها نهاد قلعي إلى جانب «غوار الطوشة»؟",
-"a": "حسني البورظان",
-"hints": [
-"شخصية صاحب فندق ساذج يقع دائماً في مقالب غوار.",
-"اسم عائلته يبدأ بـ«البور»."
-],
-"w": "أبو عنتر"
-},
-{
-"q": "من بطلة فيلم «دعاء الكروان» المأخوذ عن رواية طه حسين؟",
-"a": "فاتن حمامة",
-"hints": [
-"عُرض الفيلم عام 1959.",
-"لُقّبت بـ«سيدة الشاشة العربية»."
-],
-"w": "شادية"
-},
-{
-"q": "من كاتب مسلسل «التغريبة الفلسطينية»؟",
-"a": "وليد سيف",
-"hints": [
-"شاعر وأكاديمي فلسطيني، وأخرج المسلسل حاتم علي.",
-"كتب للمخرج نفسه «صلاح الدين الأيوبي» و«ملوك الطوائف»."
-],
-"w": "حاتم علي"
-},
-{
-"q": "ما الفيلم الذي جسّد فيه أحمد زكي شخصية جمال عبد الناصر عام 1996؟",
-"a": "ناصر 56",
-"hints": [
-"يتناول قرار تأميم قناة السويس.",
-"عنوانه اسم الرئيس متبوعاً برقم."
-],
-"w": "أيام السادات"
-}
-]
-},
-{
-"id": "world-screen",
-"name": "مسلسلات وأفلام أجنبية",
-"hint": "هوليوود وما بعدها",
-"questions": [
-{
-"q": "ما أول فيلم ناطق بغير الإنجليزية يفوز بأوسكار أفضل فيلم، وكان ذلك عام 2020؟",
-"a": "Parasite (الطفيلي)",
-"hints": [
-"فيلم كوري جنوبي.",
-"مخرجه بونغ جون هو."
-],
-"w": "Roma"
-},
-{
-"q": "ما المهنة الأصلية لـ«والتر وايت» في مسلسل «Breaking Bad»؟",
-"a": "مدرّس كيمياء",
-"hints": [
-"يعمل في مدرسة ثانوية.",
-"مادته العلمية هي ما يستغله لاحقاً في نشاطه الإجرامي."
-],
-"w": "مدرّس فيزياء"
-},
-{
-"q": "ما اسم البلدة الخيالية التي تدور فيها أحداث مسلسل «Stranger Things»؟",
-"a": "هوكينز",
-"hints": [
-"تقع في ولاية إنديانا الأمريكية.",
-"اسمها يبدأ بحرف الهاء."
-],
-"w": "ديري"
-},
-{
-"q": "من الممثل الذي أدّى شخصية «الجوكر» في فيلم «The Dark Knight» ونال عنها الأوسكار بعد وفاته؟",
-"a": "هيث ليدجر",
-"hints": [
-"ممثل أسترالي.",
-"توفي عام 2008 قبل عرض الفيلم بأشهر."
-],
-"w": "خواكين فينيكس"
-},
-{
-"q": "في مسلسل «Game of Thrones»، ما العائلة التي شعارها الذئب؟",
-"a": "عائلة ستارك",
-"hints": [
-"تحكم الشمال من قلعة وينترفيل.",
-"نشأ جون سنو بين أفرادها."
-],
-"w": "عائلة لانيستر"
-}
-]
-},
-{
-"id": "bab-alhara",
-"name": "باب الحارة",
-"hint": "أبطال وحكايات الحارة",
-"questions": [
-{
-"q": "من مخرج مسلسل «باب الحارة»؟",
-"a": "بسام الملا",
-"hints": [
-"أخرج قبله «أيام شامية» و«الخوالي».",
-"اسمه الأول بسام."
-],
-"w": "حاتم علي"
-},
-{
-"q": "ما اسم الحارة التي تدور فيها أحداث المسلسل؟",
-"a": "حارة الضبع",
-"hints": [
-"سُمّيت باسم حيوان.",
-"حيوان مفترس يُعرف بصوت يشبه الضحك."
-],
-"w": "حارة القيمرية"
-},
-{
-"q": "من الممثل الذي جسّد شخصية «أبو شهاب» في الأجزاء الأولى؟",
-"a": "سامر المصري",
-"hints": [
-"ممثل سوري غاب عن الشخصية ابتداءً من الجزء الرابع.",
-"اسم عائلته اسم نسبة إلى دولة عربية."
-],
-"w": "عباس النوري"
-},
-{
-"q": "بماذا يُلقّب أبو عصام في الحارة بسبب عمله؟",
-"a": "الحكيم",
-"hints": [
-"يداوي الجرحى والمرضى في دكانه.",
-"لقب كان يُطلق على الطبيب قديماً."
-],
-"w": "الحلّاق"
-},
-{
-"q": "في أي عام عُرض الجزء الأول من «باب الحارة»؟",
-"a": "2006",
-"hints": [
-"عُرض في شهر رمضان.",
-"في السنة نفسها التي استضافت فيها ألمانيا كأس العالم."
-],
-"w": "2008"
-}
-]
-},
-{
-"id": "arab-songs",
-"name": "أغاني عربية",
-"hint": "مطربون وملحنون وشعراء",
-"questions": [
-{
-"q": "من الملحن الذي لحّن لأم كلثوم «إنت عمري» في ما سُمّي «لقاء السحاب»؟",
-"a": "محمد عبد الوهاب",
-"hints": [
-"كان التعاون الأول بينهما، عام 1964.",
-"لُقّب بـ«موسيقار الأجيال»."
-],
-"w": "بليغ حمدي"
-},
-{
-"q": "ما الاسم الحقيقي للمطربة فيروز؟",
-"a": "نهاد حداد",
-"hints": [
-"اسمها الأول يبدأ بحرف النون.",
-"اسم عائلتها مأخوذ من مهنة الحدادة."
-],
-"w": "نهى حداد"
-},
-{
-"q": "من الشاعر الذي كتب قصيدة «قارئة الفنجان» التي غنّاها عبد الحليم حافظ؟",
-"a": "نزار قباني",
-"hints": [
-"شاعر سوري.",
-"اشتهر بلقب «شاعر المرأة»."
-],
-"w": "محمود درويش"
-},
-{
-"q": "ما الاسم الذي عُرف به الأخوان اللذان كتبا ولحّنا معظم أغاني فيروز؟",
-"a": "الأخوان رحباني (عاصي ومنصور)",
-"hints": [
-"أحدهما كان زوج فيروز.",
-"اسماهما عاصي ومنصور."
-],
-"w": "الأخوان فليفل"
-},
-{
-"q": "من المطرب العراقي الملقّب بـ«القيصر»؟",
-"a": "كاظم الساهر",
-"hints": [
-"غنّى كثيراً من قصائد نزار قباني.",
-"اسمه الأول كاظم."
-],
-"w": "ماجد المهندس"
-}
-]
-},
-{
-"id": "football",
-"name": "كرة القدم",
-"hint": "لحظات وأرقام تاريخية",
-"questions": [
-{
-"q": "من اللاعب الذي سجّل هدف «يد الله» في كأس العالم 1986؟",
-"a": "دييغو مارادونا",
-"hints": [
-"سجّله في مرمى إنجلترا في ربع النهائي.",
-"أسطورة أرجنتينية لعب لنابولي."
-],
-"w": "بيليه"
-},
-{
-"q": "أي نادٍ فاز بأول نسخة من كأس الأندية الأوروبية البطلة عام 1956؟",
-"a": "ريال مدريد",
-"hints": [
-"فاز بالنسخ الخمس الأولى متتالية.",
-"نادٍ إسباني من العاصمة."
-],
-"w": "بنفيكا"
-},
-{
-"q": "أي منتخب هزم البرازيل 7-1 في نصف نهائي كأس العالم 2014؟",
-"a": "ألمانيا",
-"hints": [
-"فاز باللقب في تلك البطولة.",
-"سجّل ميروسلاف كلوزه في تلك المباراة."
-],
-"w": "هولندا"
-},
-{
-"q": "ما أول منتخب عربي تأهّل إلى الدور الثاني في كأس العالم، وكان ذلك عام 1986؟",
-"a": "المغرب",
-"hints": [
-"تصدّر مجموعته متقدماً على إنجلترا والبرتغال وبولندا.",
-"منتخب من شمال إفريقيا."
-],
-"w": "الجزائر"
-},
-{
-"q": "من حارس المرمى الوحيد الذي فاز بالكرة الذهبية؟",
-"a": "ليف ياشين",
-"hints": [
-"فاز بها عام 1963.",
-"حارس سوفييتي لُقّب بـ«العنكبوت الأسود»."
-],
-"w": "جانلويجي بوفون"
-}
-]
-},
-{
-"id": "sports",
-"name": "رياضات",
-"hint": "ملاعب غير كرة القدم",
-"questions": [
-{
-"q": "كم لاعباً لكل فريق داخل الملعب في رياضة الرغبي (اتحاد الرغبي)؟",
-"a": "15 لاعباً",
-"hints": [
-"أكثر من فريق كرة القدم.",
-"العدد بين 13 و17."
-],
-"w": "13 لاعباً"
-},
-{
-"q": "من اللاعب الأكثر تتويجاً بلقب بطولة رولان غاروس للتنس؟",
-"a": "رافائيل نادال",
-"hints": [
-"فاز بها 14 مرة.",
-"لاعب إسباني يُلقّب بـ«ملك الملاعب الترابية»."
-],
-"w": "نوفاك ديوكوفيتش"
-},
-{
-"q": "كم يبلغ طول المسبح الأولمبي؟",
-"a": "50 متراً",
-"hints": [
-"يُستخدم في الألعاب الأولمبية وبطولات العالم.",
-"نصف مئة متر."
-],
-"w": "25 متراً"
-},
-{
-"q": "من العدّاء المغربي الذي سجّل عام 1998 رقماً قياسياً عالمياً في سباق 1500 متر صمد أكثر من 25 عاماً؟",
-"a": "هشام الكروج",
-"hints": [
-"فاز بذهبيتي 1500 و5000 متر في أولمبياد أثينا 2004.",
-"اسمه الأول هشام."
-],
-"w": "سعيد عويطة"
-},
-{
-"q": "في الشطرنج، ما القطعة الوحيدة التي تستطيع القفز فوق القطع الأخرى؟",
-"a": "الحصان",
-"hints": [
-"تتحرك على شكل حرف L.",
-"تُسمّى أحياناً «الفرس»."
-],
-"w": "الفيل"
-}
-]
-},
-{
-"id": "riddles",
-"name": "ألغاز",
-"hint": "فكّروا قبل ما تجاوبوا",
-"questions": [
-{
-"q": "ما الشيء الذي تراه في الليل ثلاث مرات وفي النهار مرة واحدة؟",
-"a": "حرف اللام",
-"hints": [
-"الجواب ليس شيئاً في السماء.",
-"انظروا إلى كلمتي «الليل» و«النهار» نفسيهما."
-],
-"w": "النجوم"
-},
-{
-"q": "أخت خالك وليست خالتك، فمن تكون؟",
-"a": "أمّك",
-"hints": [
-"قريبة جداً منك.",
-"الخال هو أخو الأم."
-],
-"w": "عمّتك"
-},
-{
-"q": "ما الذي يمشي بلا رجلين، ويبكي بلا عينين؟",
-"a": "السحاب",
-"hints": [
-"تراه في السماء.",
-"«بكاؤه» هو المطر."
-],
-"w": "الريح"
-},
-{
-"q": "ما الشيء الذي كلما أخذت منه كبر؟",
-"a": "الحفرة",
-"hints": [
-"تصنعه بالمجرفة.",
-"كلما أزلت التراب منه اتّسع."
-],
-"w": "الدَّين"
-},
-{
-"q": "ما الشيء الذي كلما زاد نقص؟",
-"a": "العمر",
-"hints": [
-"يزداد مع كل سنة.",
-"يُحتفل بزيادته في عيد الميلاد."
-],
-"w": "الشمعة"
-}
-]
-},
-{
-"id": "act",
-"name": "مثّلها",
-"type": "act",
-"hint": "تمثيل بدون كلام",
-"items": [
-{
-"s": "تايتانيك",
-"k": "فيلم"
-},
-{
-"s": "الأسد الملك",
-"k": "فيلم"
-},
-{
-"s": "باب الحارة",
-"k": "مسلسل"
-},
-{
-"s": "ضيعة ضايعة",
-"k": "مسلسل"
-},
-{
-"s": "مدرسة المشاغبين",
-"k": "مسرحية"
-},
-{
-"s": "هاري بوتر",
-"k": "فيلم"
-},
-{
-"s": "الرسالة",
-"k": "فيلم"
-},
-{
-"s": "عمر المختار",
-"k": "فيلم"
-},
-{
-"s": "الجوكر",
-"k": "فيلم"
-},
-{
-"s": "طاش ما طاش",
-"k": "مسلسل"
-}
-]
-},
-{
-"id": "hum",
-"name": "دندنها",
-"type": "hum",
-"hint": "دندنة بدون كلام",
-"items": [
-{
-"s": "نسّم علينا الهوا",
-"k": "فيروز"
-},
-{
-"s": "أنا وشادي",
-"k": "فيروز"
-},
-{
-"s": "بحبك يا لبنان",
-"k": "فيروز"
-},
-{
-"s": "إنت عمري",
-"k": "أم كلثوم"
-},
-{
-"s": "قارئة الفنجان",
-"k": "عبد الحليم حافظ"
-},
-{
-"s": "أهواك",
-"k": "عبد الحليم حافظ"
-},
-{
-"s": "نور العين",
-"k": "عمرو دياب"
-},
-{
-"s": "تملّي معاك",
-"k": "عمرو دياب"
-},
-{
-"s": "لما بدا يتثنّى",
-"k": "موشّح أندلسي تراثي"
-},
-{
-"s": "زوروني كل سنة مرة",
-"k": "سيد درويش، وغنّتها فيروز"
-}
-]
-},
-{
-"id": "taboo",
-"name": "بلا ما تقول",
-"type": "taboo",
-"hint": "وصف بدون الكلمات الممنوعة",
-"items": [
-{
-"s": "كنافة",
-"b": [
-"نابلس",
-"حلو",
-"جبنة",
-"قطر",
-"صينية"
-]
-},
-{
-"s": "كأس العالم",
-"b": [
-"كرة",
-"قطر",
-"فيفا",
-"منتخب",
-"بطولة"
-]
-},
-{
-"s": "زيتون",
-"b": [
-"شجرة",
-"زيت",
-"قطف",
-"أخضر",
-"فلسطين"
-]
-},
-{
-"s": "عرس",
-"b": [
-"عروس",
-"عريس",
-"دبكة",
-"فستان",
-"حفلة"
-]
-},
-{
-"s": "طيّارة",
-"b": [
-"سفر",
-"مطار",
-"جناح",
-"طيّار",
-"سما"
-]
-},
-{
-"s": "رمضان",
-"b": [
-"صيام",
-"إفطار",
-"شهر",
-"سحور",
-"عيد"
-]
-},
-{
-"s": "منسف",
-"b": [
-"الأردن",
-"جميد",
-"رز",
-"لحم",
-"لبن"
-]
-},
-{
-"s": "مفتاح",
-"b": [
-"باب",
-"قفل",
-"بيت",
-"سيارة",
-"حديد"
-]
-},
-{
-"s": "بحر",
-"b": [
-"ماي",
-"سمك",
-"شط",
-"موج",
-"أزرق"
-]
-},
-{
-"s": "تلفون",
-"b": [
-"جوال",
-"اتصال",
-"رقم",
-"شاشة",
-"رنّة"
-]
-}
-]
-}
-],
-"final": [
-{
-"category": "آثار",
-"q": "ما الدولة التي تضم أكبر عدد من الأهرامات في العالم؟",
-"a": "السودان"
-},
-{
-"category": "علوم",
-"q": "ما المعدن الذي يُستخرج من خام البوكسيت؟",
-"a": "الألومنيوم"
-}
-]
-}</script>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
@@ -1191,8 +559,21 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 document.documentElement.lang='ar';document.documentElement.dir='rtl';
 
-const DATA=JSON.parse($('question-bank').textContent);
-const BANK=DATA.categories,FINALS=DATA.final;
+let BANK=[],FINALS=[];
+let seen=new Set(Array.isArray(store0('gaddha.seen'))?store0('gaddha.seen'):[]);
+function store0(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function markSeen(id){if(!id||seen.has(id))return;seen.add(id);try{localStorage.setItem('gaddha.seen',JSON.stringify([...seen]))}catch(e){}}
+const live=x=>x&&x.status==='published';
+async function loadBank(){
+  const get=f=>fetch('/questions/'+f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(f);return r.json()});
+  const idx=await get('index.json');
+  const files=await Promise.all(idx.categories.map(c=>get(c.file)));
+  BANK=idx.categories.map((c,i)=>{const f=files[i];return c.type?{id:c.id,name:c.name,type:c.type,items:(f.items||[]).filter(live)}:{id:c.id,name:c.name,questions:(f.questions||[]).filter(live)}});
+  FINALS=((await get(idx.finals)).finals||[]).filter(live);
+  if(Array.isArray(idx.groups))GROUPS=idx.groups.map(g=>({id:g.id,name:g.name,c:g.color,ids:g.categories}));
+}
+const freshCount=c=>(c.type?c.items:c.questions).filter(x=>!seen.has(x.id)).length;
+const pickFresh=(arr,n)=>shuffle(arr.filter(x=>!seen.has(x.id))).concat(shuffle(arr.filter(x=>seen.has(x.id)))).slice(0,n);
 const KEY='gaddha.v1.game',MIN=4,MAX=6,STEAL_SEC=20;
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
@@ -1214,7 +595,7 @@ const ART={
   taboo:`<path d="M16 20h68a6 6 0 0 1 6 6v38a6 6 0 0 1-6 6H44L28 84V70H16a6 6 0 0 1-6-6V26a6 6 0 0 1 6-6z" fill="#fff" ${K} stroke-width="4"/><circle cx="50" cy="45" r="15" fill="none" stroke="#f0475a" stroke-width="6"/><path d="M40 55l20-20" stroke="#f0475a" stroke-width="6"/>`
 };
 const CBG={'bab-alhara':'#fdebd7',capitals:'#e7eef7',football:'#e6f2ea',riddles:'#fff3d1','arab-screen':'#f1ecdf','world-screen':'#fde4e6','arab-songs':'#fdebd7',sports:'#e6f2ea',act:'#fde4e6',hum:'#efe9f7',taboo:'#e7eef7'};
-const GROUPS=[
+let GROUPS=[
   {id:'art',name:'فن وتلفزيون',c:'#f0475a',ids:['arab-screen','world-screen','bab-alhara','arab-songs']},
   {id:'gen',name:'معلومات عامة',c:'#14532d',ids:['capitals','riddles']},
   {id:'sport',name:'رياضة',c:'#161616',ids:['football','sports']},
@@ -1264,7 +645,7 @@ function makeChallenge(type,it){
   const hints=type==='act'?[`نوعه: ${it.k} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الممثل صار بيقدر يقول كلمة وحدة من العنوان.']
     :type==='hum'?[`الصوت: ${it.k}`,`أول كلمة من الاسم: «${it.s.split(/\s+/)[0]}»`]
     :[`صار مسموح يقول: «${it.b[0]}»`,`وكمان: «${it.b[1]}»`];
-  return{type,s:it.s,k:it.k||'',b:it.b||[],q:CH[type].prompt,a:type==='hum'?`${it.s} · ${it.k}`:it.s,x:'',hints,done:false,win:-1,how:''};
+  return{id:it.id,type,s:it.s,k:it.k||'',b:it.b||[],q:CH[type].prompt,a:type==='hum'?`${it.s} · ${it.k}`:it.s,x:'',hints,done:false,win:-1,how:''};
 }
 const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const b64d=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)))};
@@ -1360,7 +741,7 @@ function paintSetup(){
   $('groups').innerHTML=GROUPS.map(g=>{
     const on=!skip.includes(g.id),ids=g.ids.filter(catById),n=ids.filter(id=>sel.includes(id)).length;
     const cards=ids.map(id=>{const c=catById(id),p=sel.includes(id);
-      return `<button type="button" class="cc" data-act="cat" data-id="${esc(id)}" aria-pressed="${p}" style="--cbg:${cbg(id)}"><span class="ck">${CHECK}</span>${c.type?'<span class="tag">تحدّي</span>':''}<span class="art">${catArt(id)}</span><span class="nm">${esc(c.name)}</span></button>`}).join('');
+      return `<button type="button" class="cc" data-act="cat" data-id="${esc(id)}" aria-pressed="${p}" style="--cbg:${cbg(id)}"><span class="ck">${CHECK}</span>${c.type?'<span class="tag">تحدّي</span>':''}<span class="art">${catArt(id)}</span><span class="nm">${esc(c.name)}${(n=>`<small class="${n<5?'low':''}">${n?n+' جديد':'كلها انلعبت'}</small>`)(freshCount(c))}</span></button>`}).join('');
     return `<section class="grp${on?'':' off'}" aria-label="${esc(g.name)}">
       <div class="grp-head"><span class="gpill" style="--gc:${g.c}">${esc(g.name)}</span><span class="gcount">${on?`${n} من ${ids.length} مختارة`:`تخطّيناها · ${ids.length} فئات`}</span>
         <button type="button" class="sw" role="switch" aria-checked="${on}" data-act="grp" data-g="${g.id}" aria-label="${on?'تخطّي':'رجّع'} ${esc(g.name)}"><i></i>${on?'مفعّلة':'مخفية'}</button></div>
@@ -1376,11 +757,11 @@ function startDraft(){
   const names=[0,1].map(i=>($('team'+i).value.trim()||['الفريق الأول','الفريق الثاني'][i]).slice(0,20));
   store.set('gaddha.names',names);
   const cats=sel.map(id=>BANK.find(c=>c.id===id)).map(c=>({id:c.id,name:c.name,type:c.type||'',
-    qs:c.type?shuffle(c.items.slice()).slice(0,5).map(it=>makeChallenge(c.type,it))
-      :shuffle(c.questions.map(q=>({q:q.q,a:q.a,x:q.w,hints:q.hints.slice(0,2),done:false,win:-1,how:''})))}));
-  const f=FINALS[Math.floor(Math.random()*FINALS.length)];
+    qs:c.type?pickFresh(c.items,5).map(it=>makeChallenge(c.type,it))
+      :pickFresh(c.questions,5).map(q=>({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.hints.slice(0,2),done:false,win:-1,how:''}))}));
+  const f=pickFresh(FINALS,1)[0]||{category:'',q:'',a:''};
   S={screen:'draft',teams:names.map(n=>({name:n,score:0,helpers:[],used:[]})),draftTurn:0,turn:0,timerSec,qrMode,cats,cur:null,armed:-1,lockOn:-1,
-     final:{category:f.category,q:f.q,a:f.a,wager:[0,0],right:[null,null]},undo:null};
+     final:{id:f.id,category:f.category,q:f.q,a:f.a,wager:[0,0],right:[null,null]},undo:null};
   sel=[];confirmEnd=false;shown=[0,0];
   try{navigator.wakeLock&&navigator.wakeLock.request('screen').catch(()=>{})}catch(e){}
   render();window.scrollTo(0,0);
@@ -1645,6 +1026,7 @@ const ACT={
   random(){const pool=enabledIds();sel=shuffle(pool.slice()).slice(0,Math.min(MAX,pool.length));paintSetup()},
   grp(b){const g=b.dataset.g,i=skip.indexOf(g);if(i>=0)skip.splice(i,1);else skip.push(g);store.set('gaddha.skip',skip);paintSetup()},
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
+  'reset-seen'(){if(!confirm('نرجّع كل الأسئلة كأنها جديدة؟'))return;seen=new Set();try{localStorage.removeItem('gaddha.seen')}catch(e){}paintSetup();toast('رجعت كل الأسئلة جديدة.')},
   'to-setup'(){view='setup';render();window.scrollTo(0,0)},
   time(b){timerSec=+b.dataset.s;paintSetup()},
   start(){if(sel.length>=MIN)startDraft()},
@@ -1692,7 +1074,7 @@ const ACT={
     const op=awardOptions()[+b.dataset.k],c=S.cur,x=S.cats[c.c].qs[c.i];
     if(op.t>=0){S.teams[op.t].score+=op.p;bump=op.t}
     if(op.extra>=0)S.teams[op.extra].score+=1;
-    x.done=true;x.win=op.p>0?op.t:-1;x.how=op.p>0?op.how:'none';
+    x.done=true;markSeen(x.id);x.win=op.p>0?op.t:-1;x.how=op.p>0?op.how:'none';
     const good=op.p>0;
     $('stamp').innerHTML=`<div class="${good?'':'neg'}">${good?'قدّها!':'مش قدّها'}</div>`;$('stamp').hidden=false;busy=true;
     if(good)setTimeout(()=>{shake();burst(op.t)},160);
@@ -1716,6 +1098,7 @@ const ACT={
   'wager-edit'(b){S.final.locked[+b.dataset.team]=false;render()},
   right(b){S.final.right[+b.dataset.team]=b.dataset.v==='1';render()},
   'final-score'(){
+    markSeen(S.final.id);
     const before=S.teams.map(t=>t.score);
     S.teams.forEach((t,i)=>{t.score+=S.final.right[i]?S.final.wager[i]:-S.final.wager[i]});
     S.tally={before};shown=S.teams.map(t=>t.score);S.screen='final-tally';render();
@@ -1734,7 +1117,8 @@ document.addEventListener('click',e=>{
 });
 
 /* ---------- boot ---------- */
-function start(data){
+async function start(data){
+  try{await loadBank()}catch(e){toast('ما قدرنا نحمّل الأسئلة. تأكدوا من الإنترنت وحدّثوا الصفحة.')}
   const names=store.get('gaddha.names');
   if(Array.isArray(names))names.forEach((n,i)=>{if($('team'+i)&&n)$('team'+i).value=n});
   const saved=(data&&data.S)||store.get(KEY);

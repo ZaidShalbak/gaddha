@@ -1,0 +1,105 @@
+{
+ "version": 1,
+ "groups": [
+  {
+   "id": "art",
+   "name": "فن وتلفزيون",
+   "color": "#f0475a",
+   "categories": [
+    "arab-screen",
+    "world-screen",
+    "bab-alhara",
+    "arab-songs"
+   ]
+  },
+  {
+   "id": "gen",
+   "name": "معلومات عامة",
+   "color": "#14532d",
+   "categories": [
+    "capitals",
+    "riddles"
+   ]
+  },
+  {
+   "id": "sport",
+   "name": "رياضة",
+   "color": "#161616",
+   "categories": [
+    "football",
+    "sports"
+   ]
+  },
+  {
+   "id": "ch",
+   "name": "تحديات",
+   "color": "#c48a12",
+   "categories": [
+    "act",
+    "hum",
+    "taboo"
+   ]
+  }
+ ],
+ "categories": [
+  {
+   "id": "capitals",
+   "name": "عواصم ودول",
+   "file": "capitals.json"
+  },
+  {
+   "id": "arab-screen",
+   "name": "مسلسلات وأفلام عربية",
+   "file": "arab-screen.json"
+  },
+  {
+   "id": "world-screen",
+   "name": "مسلسلات وأفلام أجنبية",
+   "file": "world-screen.json"
+  },
+  {
+   "id": "bab-alhara",
+   "name": "باب الحارة",
+   "file": "bab-alhara.json"
+  },
+  {
+   "id": "arab-songs",
+   "name": "أغاني عربية",
+   "file": "arab-songs.json"
+  },
+  {
+   "id": "football",
+   "name": "كرة القدم",
+   "file": "football.json"
+  },
+  {
+   "id": "sports",
+   "name": "رياضات",
+   "file": "sports.json"
+  },
+  {
+   "id": "riddles",
+   "name": "ألغاز",
+   "file": "riddles.json"
+  },
+  {
+   "id": "act",
+   "name": "مثّلها",
+   "file": "act.json",
+   "type": "act"
+  },
+  {
+   "id": "hum",
+   "name": "دندنها",
+   "file": "hum.json",
+   "type": "hum"
+  },
+  {
+   "id": "taboo",
+   "name": "بلا ما تقول",
+   "file": "taboo.json",
+   "type": "taboo"
+  }
+ ],
+ "finals": "finals.json"
+}
