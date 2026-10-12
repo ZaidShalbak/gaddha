@@ -1,4 +1,77 @@
 {
  "category": "photos",
- "questions": []
+ "questions": [
+  {
+   "id": "photos-001",
+   "status": "draft",
+   "difficulty": null,
+   "q": "مين هاد؟",
+   "a": "محمد صلاح",
+   "hints": [
+    "لاعب كرة قدم مصري.",
+    "لعب سنوات طويلة في ليفربول."
+   ],
+   "w": "رياض محرز",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Mohamed_Salah_2018.jpg?width=1000",
+   "f": "50% 30%",
+   "credit": "ويكيميديا كومنز · Mohamed Salah 2018",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Mohamed_Salah_2018.jpg"
+   ]
+  },
+  {
+   "id": "photos-002",
+   "status": "draft",
+   "difficulty": null,
+   "q": "مين هاد؟",
+   "a": "أم كلثوم",
+   "hints": [
+    "مطربة عربية من القرن العشرين.",
+    "لُقّبت بـ«كوكب الشرق»."
+   ],
+   "w": "وردة الجزائرية",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Umm_Kulthum_1969.jpg?width=1000",
+   "f": "50% 30%",
+   "credit": "ويكيميديا كومنز · Umm Kulthum 1969",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Umm_Kulthum_1969.jpg"
+   ]
+  },
+  {
+   "id": "photos-003",
+   "status": "draft",
+   "difficulty": null,
+   "q": "مين هاد؟",
+   "a": "فيروز",
+   "hints": [
+    "مطربة لبنانية.",
+    "غنّت «زهرة المدائن»."
+   ],
+   "w": "صباح",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Fairuz06.jpg?width=1000",
+   "f": "50% 30%",
+   "credit": "ويكيميديا كومنز · Fairuz06",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Fairuz06.jpg"
+   ]
+  },
+  {
+   "id": "photos-004",
+   "status": "draft",
+   "difficulty": null,
+   "q": "مين هاد؟",
+   "a": "محمود درويش",
+   "hints": [
+    "شاعر فلسطيني.",
+    "من قصائده «بطاقة هوية»."
+   ],
+   "w": "سميح القاسم",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Mahmoud_Darwish,_Palestinian_Poet.jpg?width=1000",
+   "f": "50% 30%",
+   "credit": "ويكيميديا كومنز · Mahmoud Darwish, Palestinian Poet",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Mahmoud_Darwish,_Palestinian_Poet.jpg"
+   ]
+  }
+ ]
 }
