@@ -85,7 +85,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 /* home: site header + hero banner */
 #home{gap:0}
 body{overflow-x:hidden}
-.full{margin-inline:calc(50% - 50vw);width:100vw}
+.bleed{margin-inline:calc(50% - 50vw);width:100vw}
 .wrap{max-width:1360px;margin-inline:auto;padding-inline:clamp(14px,3vw,40px)}
 .site-h{position:sticky;top:0;z-index:15;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
 .site-h .wrap{display:flex;align-items:center;gap:clamp(12px,3vw,36px);min-height:64px;padding-top:env(safe-area-inset-top,0px)}
@@ -519,14 +519,14 @@ details.more[open] summary{margin-bottom:10px}
   </header>
 
   <main class="screen" id="home">
-    <header class="site-h full">
+    <header class="site-h bleed">
       <div class="wrap">
         <button type="button" class="brand" data-act="home" aria-label="قدّها"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
         <nav aria-label="روابط"><a href="#" data-act="to-setup">العب</a><a href="#helpers">المساعدات</a><a href="#rules">كيف نلعب</a></nav>
         <div class="acts"><button type="button" class="btn sm iconbtn" data-act="mute"></button><button type="button" class="btn sm" id="fs2" data-act="fs">ملء الشاشة</button><button type="button" class="btn solid sm" data-act="to-setup">يلا نلعب</button></div>
       </div>
     </header>
-    <section class="hero full">
+    <section class="hero bleed">
       <div class="wrap hero-in">
         <div class="hero-text">
           <span class="kick"><i></i>لعبة أسئلة للسهرات · 14+</span>
