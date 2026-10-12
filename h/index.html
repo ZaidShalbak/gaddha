@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12211a">
+<title>قدّها · جوال المضيف</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700;800;900&display=swap">
+<style>
+:root{--bg:#12211a;--card:#fff;--ink:#161616;--mut:#5b5a55;--g1:#14532d;--g2:#2f9e5f;--b:#f0475a;--amb:#e0a92a;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;min-height:100%;background:var(--bg);color:#fff;font-family:'Alexandria','Segoe UI',Tahoma,sans-serif}
+main{max-width:520px;margin:0 auto;padding:14px 14px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.brand{font-weight:900;font-size:1.5rem;background:linear-gradient(90deg,#6fd39a,#2f9e5f);-webkit-background-clip:text;background-clip:text;color:transparent}
+.st{font-size:.75rem;font-weight:800;color:#9fb1a6}
+.st.on{color:#6fd39a}
+.score{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.score div{border-radius:16px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;font-weight:900;background:rgba(255,255,255,.08)}
+.score div.t0{border:2px solid transparent}.score div.turn{border:2px solid #6fd39a}
+.score b{font-size:1.4rem}
+.card{background:var(--card);color:var(--ink);border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.cat{font-size:.8rem;font-weight:800;color:var(--mut)}
+.q{font-weight:900;font-size:1.15rem;line-height:1.6}
+.ans{background:linear-gradient(90deg,#2f9e5f,#14532d);color:#fff;border-radius:16px;padding:10px 14px;cursor:pointer}
+.ans small{display:block;opacity:.8;font-size:.72rem;font-weight:700}
+.ans b{font-size:1.4rem;font-weight:900}
+.ans.hid b{filter:blur(10px)}
+.hints{display:flex;flex-direction:column;gap:6px}
+.hints div{font-size:.88rem;background:#fff3d1;border-radius:12px;padding:6px 10px}
+.hints div.used{opacity:.5;text-decoration:line-through}
+.tag{align-self:flex-start;font-size:.75rem;font-weight:800;background:#e6f2ea;color:var(--g1);padding:3px 10px;border-radius:99px}
+.btns{display:grid;gap:8px}
+button{font:inherit;font-weight:800;min-height:52px;border-radius:99px;border:0;background:#fff;color:var(--ink);cursor:pointer;padding:0 16px}
+button.solid{background:linear-gradient(90deg,#2f9e5f,#14532d);color:#fff}
+button.coral{background:var(--b);color:#fff}
+button.neg{background:rgba(255,255,255,.12);color:#fff}
+button:disabled{opacity:.35}
+.board{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.board button{border-radius:16px;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.3}
+.board small{font-weight:600;color:var(--mut);font-size:.72rem}
+.note{color:#b9c7be;text-align:center;line-height:1.8}
+.ord{margin:0;padding-inline-start:1.4em}
+.ord li{font-weight:800}
+.ban{font-size:.85rem;color:#b3263a;font-weight:800}
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><span class="brand">قدّها</span><span class="st" id="st">عم نتّصل…</span></div>
+  <div class="score" id="score"></div>
+  <div id="view"><p class="note">افتحوا «جوال المضيف» على الشاشة الكبيرة وامسحوا الكود.</p></div>
+</main>
+<script src="/sb.js"></script>
+<script>
+(function(){
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+  var room=(location.hash||'').slice(1),SB=window.GADDHA_SB,st=document.getElementById('st'),view=document.getElementById('view'),score=document.getElementById('score');
+  if(!room||!SB||!SB.configured()){st.textContent='ما في كود';return}
+  var ch=SB.room('gaddha-host-'+room),last=null,hide=false,lastAt=0;
+  ch.on('state',function(s){last=s;lastAt=Date.now();st.textContent='● متّصل';st.className='st on';paint()});
+  ch.onstatus=function(v){if(v==='on'){ch.send('hello',{});st.textContent='عم نستنّى الشاشة الكبيرة…'}else if(v==='off'){st.textContent='انقطع الاتصال';st.className='st'}};
+  setInterval(function(){if(Date.now()-lastAt>8000)ch.send('hello',{})},4000);
+  function cmd(act,data){ch.send('cmd',{act:act,data:data||{}});if(navigator.vibrate)navigator.vibrate(15)}
+  function paint(){
+    var s=last;if(!s)return;
+    score.innerHTML=s.teams.map(function(t,i){return'<div class="'+(i===s.turn&&(s.scr==='board'||s.scr==='question')?'turn':'')+'"><span>'+esc(t.name)+'</span><b>'+t.score+'</b></div>'}).join('');
+    var h='';
+    if(s.scr==='board'){
+      h='<p class="note">الدور على <b>'+esc(s.teams[s.turn].name)+'</b>. اختاروا فئة:</p><div class="board">'+s.board.map(function(c){return'<button type="button" data-c="'+c.ci+'" '+(c.left?'':'disabled')+'>'+esc(c.name)+'<small>باقي '+c.left+'</small></button>'}).join('')+'</div>';
+    }else if(s.scr==='question'&&s.q){
+      var q=s.q,secret=q.type?(q.s+(q.k?' · '+q.k:'')):q.a;
+      h='<div class="card"><span class="cat">'+esc(q.cat)+' · '+esc(q.ans)+' بيجاوبوا</span>';
+      if(!q.type)h+='<p class="q">'+esc(q.q)+'</p>';
+      if(q.o)h+='<span class="tag">'+esc(q.dir)+'</span><ol class="ord">'+q.o.map(function(t){return'<li>'+esc(t)+'</li>'}).join('')+'</ol>';
+      else if(q.num)h+='<span class="tag">الفريقين بيكتبوا رقم، والأرقام بتنكتب على الشاشة الكبيرة</span><div class="ans'+(hide?' hid':'')+'" data-hide="1"><small>الجواب'+(hide?' (اضغط لتشوفه)':'')+'</small><b>'+esc(q.a)+'</b></div>';
+      else h+='<div class="ans'+(hide?' hid':'')+'" data-hide="1"><small>'+(q.type?'السر':'الجواب')+(hide?' (اضغط لتشوفه)':'')+'</small><b>'+esc(secret)+'</b></div>';
+      if(q.type==='taboo'&&q.b.length)h+='<p class="ban">ممنوع: '+q.b.map(esc).join('، ')+'</p>';
+      if(q.hints.length)h+='<div class="hints">'+q.hints.map(function(t,i){return'<div class="'+(i<q.shown?'used':'')+'">غشّة '+(i+1)+': '+esc(t)+'</div>'}).join('')+'</div>';
+      if(q.img)h+='<span class="tag">في صورة على الشاشة الكبيرة</span>';
+      h+='</div><div class="btns">';
+      if(q.scan)h+='<p class="note">اللي بدّه يمثّل/يرسم يمسح الكود عن الشاشة الكبيرة.</p>'+(q.type==='draw'?'<button class="solid" data-act="go" data-surf="here">نرسم على الشاشة</button><button data-act="go" data-surf="phone">نرسم على الجوال</button>':'<button class="solid" data-act="go">يلا ابدأ</button>');
+      if(!q.revealed&&!q.scan){
+        if(q.canHint)h+='<button data-act="hint">غشّشني (−1)</button>';
+        if(q.canSteal)h+='<button class="coral" data-act="steal">اخطفوها</button>';
+        if(q.canReveal)h+='<button class="solid" data-act="reveal">اكشف الجواب</button>';
+        if(q.num)h+='<p class="note">لما الأرقام تنكتب، اكشفوا من الشاشة الكبيرة.</p>';
+      }
+      if(q.revealed&&s.awards)h+='<p class="note">مين جابها؟</p>'+s.awards.map(function(a,k){return'<button class="'+(a.neg?'neg':'solid')+'" data-award="'+k+'">'+esc(a.label)+'</button>'}).join('');
+      h+='</div>';
+    }else if(s.scr==='draft')h='<p class="note">الفرق عم تختار المساعدات على الشاشة الكبيرة.</p>';
+    else h='<p class="note">تابعوا على الشاشة الكبيرة.</p>';
+    view.innerHTML=h;
+  }
+  view.addEventListener('click',function(e){
+    var b=e.target.closest('button,[data-hide]');if(!b||b.disabled)return;
+    if(b.dataset.hide){hide=!hide;paint();return}
+    if(b.dataset.c!=null)return cmd('open',{c:b.dataset.c});
+    if(b.dataset.award!=null)return cmd('award',{k:b.dataset.award});
+    if(b.dataset.act)return cmd(b.dataset.act,b.dataset.surf?{surf:b.dataset.surf}:{});
+  });
+})();
+</script>
+</body>
+</html>

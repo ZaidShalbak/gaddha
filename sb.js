@@ -3,10 +3,10 @@
    When they are empty, every online feature hides itself and the game works offline as before. */
 (function(){
   var CFG=window.GADDHA_SB_CFG||{
-    url:'',   // e.g. https://xxxx.supabase.co
-    key:''    // publishable / anon key (never the service_role key)
+    url:'https://nxhlmlgcveokoqdegqaa.supabase.co',
+    key:'sb_publishable_BOPfNiIHdUXjHLcDvhhCpg_TpWjTNtx'   // publishable key (never the secret / service_role key)
   };
-  var LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js';
+  var LIB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.4/dist/umd/supabase.js';
   var client=null,loading=null;
   function load(){
     if(client)return Promise.resolve(client);

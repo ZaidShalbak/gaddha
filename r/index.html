@@ -28,6 +28,8 @@ button{font:inherit;font-weight:800;min-height:50px;padding:.4em 1.6em;border-ra
 .draw-top b{font-weight:900}
 .draw-top .peek{min-height:40px;padding:0 14px;font-size:.85rem;background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12);user-select:none;-webkit-user-select:none}
 .draw-pad{flex:1;min-height:0;display:flex}
+.live{font-size:.72rem;font-weight:800;text-align:center;color:var(--mut)}
+.live.on{color:var(--g2)}
 .small{min-height:40px;padding:0 14px;font-size:.85rem;background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12)}
 button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
 </style>
@@ -40,8 +42,10 @@ button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
 <div class="draw" id="draw" hidden>
   <div class="draw-top"><button type="button" class="small" id="back">رجوع</button><b>ارسم… بلا حروف ولا أرقام</b><button type="button" class="peek" id="peek">اضغط مطوّل: الكلمة</button></div>
   <div class="draw-pad" id="pad"></div>
+  <p class="live" id="live" hidden></p>
 </div>
 <script src="/pad.js"></script>
+<script src="/sb.js"></script>
 <script>
 (function(){
   var LABEL={act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها'};
@@ -62,7 +66,13 @@ button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
   var db=document.getElementById('drawbtn');
   if(db){
     var dw=document.getElementById('draw'),pk=document.getElementById('peek'),strokes=[],inst=null;
-    db.onclick=function(){card.hidden=true;dw.hidden=false;if(inst)inst.destroy();inst=window.GADDHA_PAD.create(document.getElementById('pad'),{strokes:strokes})};
+    var SB=window.GADDHA_SB,ch=null,lv=document.getElementById('live');
+    if(SB&&SB.configured()&&d.r){
+      ch=SB.room('gaddha-draw-'+d.r);
+      ch.on('hello',function(){if(inst)ch.send('d',{q:d.q,m:inst.snapshot()})});
+      ch.onstatus=function(st){lv.hidden=false;lv.className='live'+(st==='on'?' on':'');lv.textContent=st==='on'?'● الرسمة عم تطلع على الشاشة الكبيرة':'الرسمة على هالجوال بس (ما في اتصال)'};
+    }
+    db.onclick=function(){card.hidden=true;dw.hidden=false;if(inst)inst.destroy();inst=window.GADDHA_PAD.create(document.getElementById('pad'),{strokes:strokes,onlive:ch?function(m){ch.send('d',{q:d.q,m:m})}:null});if(ch)ch.send('d',{q:d.q,m:inst.snapshot()})};
     document.getElementById('back').onclick=function(){dw.hidden=true;card.hidden=false};
     var show=function(e){e.preventDefault();pk.textContent=d.s},hide=function(){pk.textContent='اضغط مطوّل: الكلمة'};
     pk.addEventListener('pointerdown',show);pk.addEventListener('pointerup',hide);pk.addEventListener('pointerleave',hide);pk.addEventListener('pointercancel',hide);
