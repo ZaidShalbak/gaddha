@@ -68,7 +68,7 @@
   },
   {
    "id": "arab-songs-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اسم العائلة الحقيقي للمطرب عبد الحليم حافظ؟",
    "a": "شبانة",
@@ -83,7 +83,7 @@
   },
   {
    "id": "arab-songs-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الشاعر الذي كتب قصيدة «الأطلال» التي غنتها أم كلثوم؟",
    "a": "إبراهيم ناجي",
@@ -99,7 +99,7 @@
   },
   {
    "id": "arab-songs-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الملحن الذي لحّن أغنية «ألف ليلة وليلة» لأم كلثوم؟",
    "a": "بليغ حمدي",
@@ -114,7 +114,7 @@
   },
   {
    "id": "arab-songs-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي مدينة سورية ولد مطرب القدود صباح فخري؟",
    "a": "حلب",
@@ -129,7 +129,7 @@
   },
   {
    "id": "arab-songs-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما البرنامج الغنائي الذي فاز به المطرب الفلسطيني محمد عساف عام 2013؟",
    "a": "عرب آيدول",
@@ -144,7 +144,7 @@
   },
   {
    "id": "arab-songs-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الشاعر الفلسطيني الذي كتب كلمات نشيد «موطني»؟",
    "a": "إبراهيم طوقان",
@@ -159,7 +159,7 @@
   },
   {
    "id": "arab-songs-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اللقب الذي يُعرف به المطرب السعودي محمد عبده؟",
    "a": "فنان العرب",
@@ -174,7 +174,7 @@
   },
   {
    "id": "arab-songs-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اللقب الذي عُرف به المطرب السعودي الراحل طلال مداح؟",
    "a": "صوت الأرض",
@@ -190,7 +190,7 @@
   },
   {
    "id": "arab-songs-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من المغني والملحن الفرنسي الذي كتب أغنية «عايشة» للشاب خالد؟",
    "a": "جان جاك غولدمان",
@@ -205,7 +205,7 @@
   },
   {
    "id": "arab-songs-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما نوع الموسيقى الجزائرية الذي يُلقَّب الشاب خالد بملكه؟",
    "a": "الراي",
@@ -220,7 +220,7 @@
   },
   {
    "id": "arab-songs-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما الاسم الحقيقي للمطربة أسمهان؟",
    "a": "آمال الأطرش",
@@ -235,7 +235,7 @@
   },
   {
    "id": "arab-songs-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الموسيقار الذي لحّن النشيد الوطني المصري «بلادي بلادي»؟",
    "a": "سيد درويش",
@@ -250,7 +250,7 @@
   },
   {
    "id": "arab-songs-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الشاعر الذي كتب قصيدة «الجندول» التي غناها محمد عبد الوهاب؟",
    "a": "علي محمود طه",
@@ -265,7 +265,7 @@
   },
   {
    "id": "arab-songs-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الشاعر صاحب القصيدة التي غناها مارسيل خليفة بعنوان «أمي»؟",
    "a": "محمود درويش",
@@ -281,7 +281,7 @@
   },
   {
    "id": "arab-songs-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عن أي مدينة غنّت فيروز أغنية «زهرة المدائن»؟",
    "a": "القدس",
@@ -297,7 +297,7 @@
   },
   {
    "id": "arab-songs-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "في أي عام صدر ألبوم «نور العين» لعمرو دياب؟",
    "a": "1996",
@@ -312,7 +312,7 @@
   },
   {
    "id": "arab-songs-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما الاسم الحقيقي لكوكب الشرق أم كلثوم؟",
    "a": "فاطمة إبراهيم البلتاجي",
@@ -327,7 +327,7 @@
   },
   {
    "id": "arab-songs-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من المطرب المغربي صاحب أغنية «مرسول الحب»؟",
    "a": "عبد الوهاب الدكالي",
@@ -342,7 +342,7 @@
   },
   {
    "id": "arab-songs-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من المطربة العراقية التي تزوجها المطرب ناظم الغزالي؟",
    "a": "سليمة مراد",
@@ -357,7 +357,7 @@
   },
   {
    "id": "arab-songs-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اسم الفرقة الفلسطينية التي كان حسين منذر «أبو علي» أبرز مطربيها؟",
    "a": "فرقة العاشقين",
