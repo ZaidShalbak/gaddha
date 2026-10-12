@@ -68,7 +68,7 @@
   },
   {
    "id": "world-screen-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما نوع السمكة التي تنتمي إليها «دوري» في فيلم البحث عن نيمو (Finding Nemo)؟",
    "a": "سمكة الجرّاح الزرقاء",
@@ -83,7 +83,7 @@
   },
   {
    "id": "world-screen-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اسم والد أرطغرل في المسلسل التركي «قيامة أرطغرل» (Diriliş: Ertuğrul)؟",
    "a": "سليمان شاه",
@@ -98,7 +98,7 @@
   },
   {
    "id": "world-screen-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "وجه أي رسام شهير تحمله الأقنعة التي يرتديها اللصوص في مسلسل «البروفيسور» أو «لا كاسا دي بابيل» (Money Heist)؟",
    "a": "سلفادور دالي",
@@ -113,7 +113,7 @@
   },
   {
    "id": "world-screen-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اللعبة الأولى التي يخوضها المتسابقون في المسلسل الكوري «لعبة الحبار» (Squid Game)؟",
    "a": "الضوء الأحمر الضوء الأخضر",
@@ -128,7 +128,7 @@
   },
   {
    "id": "world-screen-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اسم المقهى الذي يجتمع فيه الأصدقاء الستة في المسلسل الأمريكي «فريندز» (Friends)؟",
    "a": "سنترال بيرك",
@@ -143,7 +143,7 @@
   },
   {
    "id": "world-screen-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما نوع السيارة التي تحولت إلى آلة زمن في فيلم «العودة إلى المستقبل» (Back to the Future)؟",
    "a": "ديلوريان",
@@ -158,7 +158,7 @@
   },
   {
    "id": "world-screen-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "في المسلسل الكوري «جوهرة القصر» (Dae Jang Geum)، بدأت البطلة طاهية في المطبخ الملكي، فماذا أصبحت لاحقًا؟",
    "a": "طبيبة الملك",
@@ -173,7 +173,7 @@
   },
   {
    "id": "world-screen-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما الأداة الصغيرة التي يستخدمها «كوب» في فيلم «استهلال» (Inception) ليعرف إن كان في حلم أم في الواقع؟",
    "a": "خذروف (بلبل دوّار)",
@@ -188,7 +188,7 @@
   },
   {
    "id": "world-screen-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما المناسبة المكسيكية التي تدور حولها أحداث فيلم بيكسار «كوكو» (Coco)؟",
    "a": "يوم الموتى",
@@ -203,7 +203,7 @@
   },
   {
    "id": "world-screen-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما نوع الحيوان الذي يمثله المعلّم «شيفو» في فيلم «كونغ فو باندا» (Kung Fu Panda)؟",
    "a": "الباندا الحمراء",
@@ -218,7 +218,7 @@
   },
   {
    "id": "world-screen-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي بلد صُوِّرت ثلاثية «سيد الخواتم» (The Lord of the Rings) للمخرج بيتر جاكسون؟",
    "a": "نيوزيلندا",
@@ -233,7 +233,7 @@
   },
   {
    "id": "world-screen-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما عنوان منزل المحقق شيرلوك هولمز في لندن؟",
    "a": "221B شارع بيكر",
@@ -248,7 +248,7 @@
   },
   {
    "id": "world-screen-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "أي سلطان عثماني تدور حوله أحداث المسلسل التركي «حريم السلطان» (Muhteşem Yüzyıl)؟",
    "a": "سليمان القانوني",
@@ -263,7 +263,7 @@
   },
   {
    "id": "world-screen-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما اسم الشخصية الشهيرة التي جسّدها تشارلي تشابلن بالقبعة والعصا والشارب الصغير؟",
    "a": "المتشرّد (The Tramp)",
@@ -278,7 +278,7 @@
   },
   {
    "id": "world-screen-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي مدينة تدور أحداث فيلم «راتاتوي» (Ratatouille) عن الفأر الذي يحلم أن يصبح طاهيًا؟",
    "a": "باريس",
@@ -293,7 +293,7 @@
   },
   {
    "id": "world-screen-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اسم القمر الذي تعيش عليه شعوب «النافي» في فيلم «أفاتار» (Avatar)؟",
    "a": "باندورا",
@@ -308,7 +308,7 @@
   },
   {
    "id": "world-screen-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من أي رصيف في محطة كينغز كروس ينطلق قطار مدرسة هوغوورتس في سلسلة «هاري بوتر»؟",
    "a": "الرصيف 9 وثلاثة أرباع",
@@ -323,7 +323,7 @@
   },
   {
    "id": "world-screen-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "بماذا رفع العجوز «كارل» منزله وطار به في فيلم بيكسار «فوق» (Up)؟",
    "a": "البالونات",
@@ -338,7 +338,7 @@
   },
   {
    "id": "world-screen-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اسم عمّ «سيمبا» الشرير في فيلم «الأسد الملك» (The Lion King)؟",
    "a": "سكار",
@@ -353,7 +353,7 @@
   },
   {
    "id": "world-screen-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من مخرج فيلم «تايتانيك» (Titanic) الصادر عام 1997؟",
    "a": "جيمس كاميرون",
