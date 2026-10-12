@@ -1048,19 +1048,25 @@ const MULT=[2,1.5,1];
 const SIDE={king:'ملك',write:'كتابة'};
 const CROWN='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 46L6 18l15 12 11-18 11 18 15-12-4 28z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="49" width="44" height="7" rx="2" fill="currentColor"/><circle cx="6" cy="17" r="3.5" fill="currentColor"/><circle cx="32" cy="10" r="3.5" fill="currentColor"/><circle cx="58" cy="17" r="3.5" fill="currentColor"/></svg>';
 const SCRIPT='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 20h40M12 30h34M12 40h40M12 50h24" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M44 52l12-12 4 4-12 12h-4z" fill="currentColor"/></svg>';
+const hasFinals=id=>FINALS.some(f=>f.cat===id);
 function pickFinal(catId){
-  let pool=FINALS.filter(f=>f.cat===catId);
-  if(!pool.length)pool=FINALS.filter(f=>!f.cat);
-  if(!pool.length)pool=FINALS;
-  return pickFresh(pool,1)[0]||{q:'',a:'',clues:[]};
+  const pool=FINALS.filter(f=>f.cat===catId);
+  if(pool.length)return pickFresh(pool,1)[0];
+  // no final written for this category yet: use an unplayed question from the same category, its two hints become the clues
+  const bank=BANK.find(c=>c.id===catId),used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id)));
+  const cand=bank&&!bank.type?bank.questions.filter(q=>!used.has(q.id)):[];
+  if(cand.length){const q=pickFresh(cand,1)[0];return {id:q.id,q:q.q,a:q.a,clues:(q.hints||[]).slice(0,2),cat:catId}}
+  const gen=FINALS.filter(f=>!f.cat);
+  return pickFresh(gen.length?gen:FINALS,1)[0]||{q:'',a:'',clues:[]};
 }
 function setFinalQ(catId){
-  const f=S.final,q=pickFinal(catId),cat=S.cats.find(c=>c.id===catId);
-  Object.assign(f,{cat:catId||'',category:cat?cat.name:(q.category||'سؤال عام'),id:q.id,q:q.q,a:q.a,clues:(q.clues||[]).filter(Boolean).slice(0,3)});
+  const f=S.final,q=pickFinal(catId),cat=S.cats.find(c=>c.id===catId),onCat=q.cat===catId||!!(q.id&&String(q.id).startsWith(catId+'-'));
+  Object.assign(f,{cat:catId||'',category:onCat&&cat?cat.name:(q.category||'سؤال عام'),id:q.id,q:q.q,a:q.a,clues:(q.clues||[]).filter(Boolean).slice(0,3)});
   S.screen='final-intro';
 }
 function enterFinal(){
-  const env=shuffle(S.cats.filter(c=>!c.type).map(c=>c.id)).slice(0,3);
+  const reg=shuffle(S.cats.filter(c=>!c.type).map(c=>c.id));
+  const env=reg.filter(hasFinals).concat(reg.filter(id=>!hasFinals(id))).slice(0,3);
   const [a,b]=S.teams;
   S.final={env,picker:a.score===b.score?-1:(a.score<b.score?0:1),coin:null,cat:null,category:'',q:'',a:'',clues:[],id:null,wager:[0,0],right:[null,null],locked:[false,false],step:0,lockAt:[null,null]};
   if(!env.length)setFinalQ('');else S.screen='final-pick';
