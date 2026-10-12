@@ -87,6 +87,16 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .env .enm{font-weight:900;font-size:.95em;text-align:center}
 .coin{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a6,#e0a92a 70%);border:7px solid #c48a12;display:grid;place-items:center;text-align:center;font-weight:900;font-size:1.25em;line-height:1.3;color:#5a3d00;box-shadow:0 14px 30px rgba(196,138,18,.35)}
 .coin.flip{animation:flip 1.3s cubic-bezier(.3,.6,.4,1)}
+.coin .cface{display:grid;place-items:center;width:62%;height:62%;color:#7a5200}
+.coin .cface svg{width:100%;height:100%}
+.coin.small{width:70px;height:70px;border-width:4px;align-self:flex-start}
+.sidepick{width:100%;max-width:440px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border-radius:20px;box-shadow:0 0 0 2.5px var(--teamc);padding:10px 14px}
+.sidebtn{font:inherit;border:0;cursor:pointer;width:76px;border-radius:16px;background:var(--soft);padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#7a5200}
+.sidebtn .cface{width:38px;height:38px;display:grid;place-items:center}
+.sidebtn .cface svg{width:100%;height:100%}
+.sidebtn small{font-size:.72em;font-weight:800;color:var(--ink)}
+.sidebtn.on{background:radial-gradient(circle at 35% 30%,#ffe9a6,#e0a92a 75%);box-shadow:0 0 0 3px #c48a12}
+.sidebtn:disabled{cursor:default}
 @keyframes flip{0%{transform:translateY(0) rotateX(0)}50%{transform:translateY(-90px) rotateX(900deg)}100%{transform:translateY(0) rotateX(1800deg)}}
 .ladder{display:flex;flex-wrap:wrap;gap:6px}
 .ladder span{font-size:.78em;font-weight:700;padding:4px 12px;border-radius:99px;background:#fff;box-shadow:var(--sh)}
@@ -1035,6 +1045,9 @@ function paintQuestion(){
   fx={};
 }
 const MULT=[2,1.5,1];
+const SIDE={king:'ملك',write:'كتابة'};
+const CROWN='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 46L6 18l15 12 11-18 11 18 15-12-4 28z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="49" width="44" height="7" rx="2" fill="currentColor"/><circle cx="6" cy="17" r="3.5" fill="currentColor"/><circle cx="32" cy="10" r="3.5" fill="currentColor"/><circle cx="58" cy="17" r="3.5" fill="currentColor"/></svg>';
+const SCRIPT='<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 20h40M12 30h34M12 40h40M12 50h24" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M44 52l12-12 4 4-12 12h-4z" fill="currentColor"/></svg>';
 function pickFinal(catId){
   let pool=FINALS.filter(f=>f.cat===catId);
   if(!pool.length)pool=FINALS.filter(f=>!f.cat);
@@ -1084,12 +1097,17 @@ function paintFinal(){
   if(S.screen==='final-pick'){
     const p=f.picker;
     if(p<0){
-      h=`<div class="finalwrap"><div class="darkstage"><span class="ghost" aria-hidden="true">؟</span><span class="pill">السؤال الأخير</span><h2>متعادلين!</h2><p>مين بيختار ظرف السؤال الأخير؟ خلّي العملة تقرّر: ${N[0]} طرّة، و${N[1]} نقش.</p></div>
-        <div class="wcol" style="align-items:center;justify-content:center"><div class="coin" id="coin">طرّة<br>أو نقش</div><button type="button" class="btn solid big" data-act="coin">ارموا العملة</button></div></div>`;
+      const sd=f.sides,face=k=>`<span class="cface">${k==='king'?CROWN:SCRIPT}</span>`;
+      const pickers=[0,1].map(i=>`<div class="sidepick t${i}"><b>${N[i]}</b><span class="row" style="gap:8px;flex-wrap:nowrap">${['king','write'].map(k=>`<button type="button" class="sidebtn${sd&&sd[i]===k?' on':''}" data-act="coin-side" data-team="${i}" data-side="${k}" aria-pressed="${!!(sd&&sd[i]===k)}" aria-label="${SIDE[k]}" ${f.coin!=null?'disabled':''}>${face(k)}<small>${SIDE[k]}</small></button>`).join('')}</span></div>`).join('');
+      const res=f.coin!=null&&!fx.coin?f.coinSide:null;
+      h=`<div class="finalwrap"><div class="darkstage"><span class="ghost" aria-hidden="true">؟</span><span class="pill">السؤال الأخير</span><h2>متعادلين!</h2><p>مين بيختار ظرف السؤال الأخير؟ العملة بتقرّر. اتفقوا أول: مين بياخد «ملك» ومين بياخد «كتابة».</p></div>
+        <div class="wcol" style="align-items:center;justify-content:center;gap:18px">${pickers}<div class="coin" id="coin">${face(res||'king')}</div>
+        <button type="button" class="btn solid big" data-act="coin" ${sd&&f.coin==null?'':'disabled'}>${sd?'ارموا العملة':'اختاروا وجه العملة أول'}</button></div></div>`;
     }else{
       const env=f.env.map(id=>{const c=S.cats.find(x=>x.id===id);return `<button type="button" class="env" data-act="final-env" data-id="${esc(id)}" style="--cbg:${cbg(id)}"><span class="flap" aria-hidden="true"></span><span class="seal" aria-hidden="true">ق</span><span class="art">${catArt(id)}</span><span class="enm">${esc(c?c.name:'')}</span></button>`}).join('');
       h=`<div class="finalwrap"><div class="darkstage"><span class="ghost" aria-hidden="true">؟</span><span class="pill">السؤال الأخير</span><h2>${f.coin!=null?'العملة<br>قرّرت':'الخسران<br>بيختار'}</h2>
-        <p>${f.coin!=null?`طلعت ${f.coin===0?'طرّة':'نقش'}، يعني ${N[p]} بيختاروا.`:`${N[p]} وراء بالنقاط، فإلهم الحق يختاروا فئة السؤال الأخير.`} تلات ظروف مختومة من فئات سهرتكم. السؤال جوّا مخفي.</p></div>
+        ${f.coin!=null?`<span class="coin small" aria-hidden="true"><span class="cface">${f.coinSide==='king'?CROWN:SCRIPT}</span></span>`:''}
+        <p>${f.coin!=null?`طلعت «${SIDE[f.coinSide]}»، يعني ${N[p]} بيختاروا.`:`${N[p]} وراء بالنقاط، فإلهم الحق يختاروا فئة السؤال الأخير.`} تلات ظروف مختومة من فئات سهرتكم. السؤال جوّا مخفي.</p></div>
         <div class="wcol"><h3 style="font-weight:900;font-size:1.2em">يا ${N[p]}: اختاروا ظرف</h3><div class="envs">${env}</div></div></div>`;
     }
     $('stage').innerHTML=h;
@@ -1266,7 +1284,14 @@ const ACT={
   'end-ask'(){confirmEnd=true;render()},
   'end-no'(){confirmEnd=false;render()},
   'end-yes'(){confirmEnd=false;S.undo=null;S.armed=-1;enterFinal();render()},
-  coin(){const f=S.final;if(f.coin!=null)return;f.coin=Math.random()<.5?0:1;fx.coin=true;SFX.whoosh();render();const go=()=>{f.picker=f.coin;render()};if(RM)go();else{const el=$('coin');setTimeout(()=>{if(el)el.innerHTML=f.coin===0?'طرّة':'نقش';SFX.stamp()},1300);setTimeout(go,2300)}},
+  'coin-side'(b){const f=S.final;if(f.coin!=null)return;const i=+b.dataset.team,k=b.dataset.side,o=k==='king'?'write':'king';f.sides=i===0?[k,o]:[o,k];SFX.pop();render()},
+  coin(){const f=S.final;if(f.coin!=null||!f.sides)return;f.coinSide=Math.random()<.5?'king':'write';f.coin=f.sides.indexOf(f.coinSide);fx.coin=true;SFX.whoosh();render();
+    const el=$('coin');let n=0,iv=null;
+    const go=()=>{clearInterval(iv);f.picker=f.coin;render()};
+    if(RM)return go();
+    iv=setInterval(()=>{n++;if(el)el.innerHTML=`<span class="cface">${n%2?SCRIPT:CROWN}</span>`},130);
+    setTimeout(()=>{clearInterval(iv);if(el)el.innerHTML=`<span class="cface">${f.coinSide==='king'?CROWN:SCRIPT}</span>`;SFX.stamp()},1300);
+    setTimeout(go,2500)},
   'final-env'(b){SFX.pop();setFinalQ(b.dataset.id);render()},
   'final-lock'(b){const f=S.final;(f.lockAt||(f.lockAt=[null,null]))[+b.dataset.team]=Math.min(f.step||0,2);SFX.stamp();render()},
   'final-next'(){const f=S.final;if((f.step||0)<(f.clues||[]).length-1){f.step=(f.step||0)+1;fx.hint=true;SFX.hint();render();tStart(S.timerSec?30:0)}},
