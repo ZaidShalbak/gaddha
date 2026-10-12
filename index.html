@@ -1486,7 +1486,9 @@ function paintAuth(){
   }
 }
 const authErr=e=>{const m=String(e&&(e.message||e.msg)||'');
-  if(/rate|too many|seconds/i.test(m))return 'بعتنا كود قبل شوي. استنّوا دقيقة وجرّبوا كمان مرة.';
+  const sec=m.match(/after (\d+) seconds?/i);if(sec)return `بعتنا إيميل قبل شوي. جرّبوا كمان مرة بعد ${sec[1]} ثانية، وشيّكوا على الإيميل اللي وصل.`;
+  if(/email rate limit|rate limit exceeded/i.test(m))return 'وصلنا للحد الأقصى من الإيميلات لهالساعة. شيّكوا إذا وصلكم إيميل قبل، أو جرّبوا بعد شوي.';
+  if(/rate|too many/i.test(m))return 'محاولات كتير ورا بعض. استنّوا شوي وجرّبوا كمان مرة.';
   if(/expired|invalid|token/i.test(m))return 'الكود مش صح أو انتهى. جرّبوا كمان مرة أو اطلبوا كود جديد.';
   if(/email/i.test(m)&&/valid|format/i.test(m))return 'الإيميل مش مزبوط.';
   return 'صار خطأ'+(m?': '+m.slice(0,80):'. تأكدوا من الإنترنت.')};
