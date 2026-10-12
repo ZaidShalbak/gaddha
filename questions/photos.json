@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "photos-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "مين هاد؟",
    "a": "محمد صلاح",
@@ -21,7 +21,7 @@
   },
   {
    "id": "photos-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "مين هاي؟",
    "a": "أم كلثوم",
@@ -39,7 +39,7 @@
   },
   {
    "id": "photos-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "مين هاي؟",
    "a": "فيروز",
@@ -57,7 +57,7 @@
   },
   {
    "id": "photos-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "مين هاد؟",
    "a": "محمود درويش",
