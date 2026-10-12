@@ -1464,7 +1464,7 @@ function paintAuth(){
       <p class="mut small">ما رح نبعتلكم إعلانات.</p></div>`;
   else if(a.step==='code'){const left=Math.max(0,Math.ceil((a.resendAt-Date.now())/1000));
     h=`<div class="amain one"><div class="ahead"><button type="button" class="linkbtn" data-act="auth-go" data-s="email">→ غيّروا الإيميل</button><button type="button" class="ax" data-act="auth-close" aria-label="سكّر">✕</button></div>
-      <h2>اكتبوا الكود</h2><p class="mut">بعتناه على <b dir="ltr">${esc(a.email)}</b></p>
+      <h2>اكتبوا الكود</h2><p class="mut">بعتناه على <b dir="ltr">${esc(a.email)}</b>. إذا وصلكم رابط بدل الكود، افتحوه على نفس هالجهاز.</p>
       <div class="otp" dir="ltr">${[0,1,2,3,4,5].map(i=>`<input inputmode="numeric" autocomplete="${i?'off':'one-time-code'}" maxlength="${i?1:6}" data-otp="${i}" aria-label="رقم ${i+1}">`).join('')}</div>${err}
       <button type="button" class="btn solid big" data-act="auth-verify" ${a.busy?'disabled':''}>${a.busy?'لحظة…':'تأكيد'}</button>
       <p class="mut small" id="aresend">${left?`ما وصل؟ بتقدروا تبعتوه كمان مرة بعد <span dir="ltr">0:${String(left).padStart(2,'0')}</span>`:'ما وصل؟ <button type="button" class="linkbtn" data-act="auth-send">ابعتوه كمان مرة</button>'} · شيّكوا على الرسائل غير المرغوبة</p></div>`;}
@@ -1952,7 +1952,7 @@ const ACT={
   'auth-send'(){const i=$('aemail');if(i)AUTH.email=i.value.trim();const em=AUTH.email;
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){AUTH.err='الإيميل مش مزبوط.';AUTH.step='email';paintAuth();return}
     if(AUTH.busy)return;AUTH.busy=true;AUTH.err='';paintAuth();
-    sbc().then(c=>c.auth.signInWithOtp({email:em,options:{shouldCreateUser:true}})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;AUTH.step='code';AUTH.resendAt=Date.now()+60000;paintAuth()}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
+    sbc().then(c=>c.auth.signInWithOtp({email:em,options:{shouldCreateUser:true,emailRedirectTo:location.origin+'/'}})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;AUTH.step='code';AUTH.resendAt=Date.now()+60000;paintAuth()}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
   'auth-verify'(){const code=[...document.querySelectorAll('[data-otp]')].map(x=>x.value).join('');if(code.length<6||AUTH.busy)return;
     AUTH.busy=true;AUTH.err='';
     sbc().then(c=>c.auth.verifyOtp({email:AUTH.email,token:code,type:'email'})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;const u=r.data&&r.data.user;closeAuth();
