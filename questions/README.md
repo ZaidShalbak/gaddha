@@ -30,3 +30,13 @@ A regular question can carry a picture:
 - `credit`: optional photo credit, shown after the answer.
 
 The picture starts zoomed in ×3; each «غشّة» zooms out (×1.8, then full), and the answer shows it whole. Text hints are optional for photo questions. Photo questions never appear in the final round or the tiebreak.
+
+## Closest-number questions («أقرب رقم»)
+
+A category with `"mode": "num"` in `index.json` holds questions whose answer is a number:
+
+- `n`: the answer as a number (e.g. `1889`, `42.195`).
+- `unit`: optional unit shown with the answer («متر», «دولة»). Leave empty for years.
+- `a`: display text, filled automatically from `n` and `unit` in admin.
+
+Both teams write a number on paper, then type both into the game. The closest team gets 3 (an exact hit gets +1); equal distance gives each team 1. With «قدّها وقدود»: closest +6, otherwise −3. In-question helpers are off for these. Published number questions are also used for the tiebreaker («سؤال الحسم»); if none are left, the tiebreaker falls back to a written regular question.

@@ -124,7 +124,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .note.famstory{align-self:stretch;transform:rotate(1deg)}
 .note.famstory small{color:#8a4fd6}
 .note.famstory span{color:var(--ink)}
-/* final: envelopes, coin, ladder, locks, buzzer */
+/* final: envelopes, coin, ladder, locks */
 .envs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
 .env{font:inherit;position:relative;border:0;cursor:pointer;border-radius:20px;background:#f6efe0;box-shadow:0 10px 24px rgba(22,22,22,.12);padding:46px 12px 14px;display:flex;flex-direction:column;align-items:center;gap:8px;overflow:hidden;transition:transform .2s;color:var(--ink)}
 .env:nth-child(1){transform:rotate(-2deg)}.env:nth-child(3){transform:rotate(2deg)}
@@ -155,12 +155,21 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .locks .btn{min-height:58px}
 .lockd{border-radius:20px;padding:12px 16px;background:var(--team);color:var(--on);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:drop .35s ease-out}
 .lockd span{font-size:.82em;opacity:.9}
-.buzz{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:40vh}
-.buzz button{font:inherit;border:0;border-radius:28px;background:var(--team);color:var(--on);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;box-shadow:0 14px 30px var(--tsh);transition:transform .08s;padding:12px}
-.buzz button span{font-weight:900;font-size:clamp(1.5rem,5vw,3rem);overflow-wrap:anywhere}
-.buzz button small{font-weight:700;opacity:.85}
-.buzz button:active{transform:scale(.97)}
-.buzz button:disabled{opacity:.3;cursor:default}
+.numin{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.numin label{display:flex;flex-direction:column;gap:6px;background:var(--tint);border-radius:20px;padding:12px 14px;font-weight:900;color:var(--teamc)}
+.numin input{font:inherit;font-size:1.6em;font-weight:900;text-align:center;direction:ltr;border:2px solid transparent;border-radius:14px;padding:.25em .4em;width:100%;background:#fff;color:var(--ink)}
+.numin input:focus{outline:none;border-color:var(--teamc)}
+.answer .unit{display:block;font-size:.85em;opacity:.85;font-weight:700}
+.numres{display:grid;gap:8px}
+.nr{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:10px 16px;box-shadow:var(--sh)}
+.nr b{font-weight:900}
+.nr .g{font-weight:900;font-size:1.3em;color:var(--teamc)}
+.nr .bar{height:10px;border-radius:99px;background:var(--soft);overflow:hidden}
+.nr .bar i{display:block;height:100%;background:var(--team);border-radius:99px;animation:grow .8s ease-out both}
+.nr small{color:var(--mut);font-weight:700;font-size:.8em}
+.nr.win{box-shadow:0 0 0 3px var(--teamc),0 10px 24px var(--tsh)}
+.nr.win small{color:var(--teamc)}
+@keyframes grow{from{width:0}}
 /* sounds + titles */
 .iconbtn{width:42px;padding:0;min-height:40px}
 .titles{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -241,6 +250,7 @@ html,body{overflow-x:hidden}
 .ft-envs i{font-style:normal;width:46px;height:34px;border-radius:6px;background:#e0a92a;color:var(--ink);font-weight:900;font-size:.8em;display:grid;place-items:center;position:relative}
 .ft-envs i:nth-child(2){background:#f1c75b}.ft-envs i:nth-child(3){background:#fff3d1}
 .ft-lang{background:var(--gt)}
+.ft-num{background:#fff3d1}
 .hm-groups{display:grid;gap:12px}
 .hg{background:#fff;border-radius:22px;box-shadow:var(--sh);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
 .hg-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -282,7 +292,7 @@ html,body{overflow-x:hidden}
 @media (min-width:700px){
   .flow{grid-template-columns:repeat(2,1fr)}
   .bento{grid-template-columns:repeat(2,1fr)}
-  .ft-fam{grid-column:1/-1}
+  .ft-fam,.ft-lang{grid-column:1/-1}
   .hm-groups{grid-template-columns:repeat(2,1fr)}
 }
 @media (min-width:900px){
@@ -293,6 +303,7 @@ html,body{overflow-x:hidden}
   .ft{grid-column:span 2;flex-direction:column;align-items:flex-start}
   .ft-fam{grid-column:span 3;flex-direction:row;align-items:center}
   .ft-fire{grid-column:span 3;flex-direction:row;align-items:center}
+  .ft-lang{grid-column:1/-1;flex-direction:row;align-items:center}
   .ft>div{min-width:0}
   .hm-groups{grid-template-columns:repeat(3,1fr)}
   .hk{grid-template-columns:repeat(3,1fr);align-items:start}
@@ -717,7 +728,7 @@ details.more[open] summary{margin-bottom:10px}
         <li><b>كل فريق بياخد 3 مساعدات</b><span>من 7: مساعدة، تخريب، أو مغامرة. كل وحدة بتنلعب مرة.</span></li>
         <li><b>العبوا على اللوح</b><span>كل سؤال بـ3 نقاط. «غشّشني» بتنزّله نقطة، والفريق التاني بيقدر «يخطفها».</span></li>
         <li><b>الظرف الأخير</b><span>«ملك أو كتابة» بتقرّر مين بيختار، وبعدين ظرف من فئاتكم وغشّات بـ×2 و×1.5 و×1.</span></li>
-        <li><b>تعادل؟ سؤال الحسم</b><span>الشاشة بتنقسم نصّين، واللي بيكبس أول بيجاوب.</span></li>
+        <li><b>تعادل؟ سؤال الحسم</b><span>سؤال جوابه رقم: كل فريق بيكتب رقمه على ورقة، والأقرب بيفوز.</span></li>
         <li><b>ألقاب السهرة</b><span>مين «الخطّافين»، مين «ملوك الغش»، ومين كان «على النار».</span></li>
       </ol>
     </section>
@@ -728,6 +739,7 @@ details.more[open] summary{margin-bottom:10px}
         <article class="ft ft-fam"><span class="ft-ic" id="ftfam"></span><div><h3>قدّنا؟</h3><p>مرّروا الجهاز وكل واحد بيكتب سؤال عن العيلة أو الشلّة أو الشغل هو بيعرف جوابه. سرّك ما بيطلع لفريقك.</p></div><button type="button" class="btn sm" data-act="to-setup">جرّبوها</button></article>
         <article class="ft ft-fire"><span class="ft-ic">ولّعت!</span><div><h3>على النار</h3><p>3 أجوبة صح ورا بعض، وكل جواب بعدها إله نقطة زيادة لحد ما تغلطوا.</p></div></article>
         <article class="ft ft-pic"><span class="ft-zoom" aria-hidden="true"><i></i><i></i><i></i></span><div><h3>مين هاد بالصورة؟</h3><p>الصورة بتبلّش مقرّبة، وكل غشّة بتبعّدها شوي.</p></div></article>
+        <article class="ft ft-num"><span class="ft-ic" id="ftnum"></span><div><h3>أقرب رقم</h3><p>سؤال جوابه رقم، والفريقين بيكتبوا على الورق. اللي أقرب بياخد النقاط، واللي جابها بالضبط إله نقطة زيادة.</p></div></article>
         <article class="ft ft-env"><span class="ft-envs" aria-hidden="true"><i>×2</i><i>×1.5</i><i>×1</i></span><div><h3>الظرف الأخير</h3><p>الفريق المتأخر بيختار من 3 ظروف، وكل غشّة بتنزّل المضاعف.</p></div></article>
         <article class="ft ft-lang"><span class="ft-ic" id="ftlang"></span><div><h3>كمّل المثل · شو يعني؟</h3><p>أمثال من عنّا، وكلمات من لهجات العرب من المغرب للخليج.</p></div></article>
       </div>
@@ -1080,7 +1092,7 @@ function buildFan(){
   $('hmstats').innerHTML=ids.length?`<div><b>${ids.length}</b><span>فئة</span></div><div><b>${nq>=100?Math.floor(nq/50)*50+'+':nq}</b><span>سؤال وتحدّي</span></div><div><b>7</b><span>مساعدات</span></div>`:'';
   $('hmgroups').innerHTML=GROUPS.map(g=>`<div class="hg" style="--gc:${g.c}"><div class="hg-h"><b><i></i>${esc(g.name)}</b><button type="button" data-act="to-setup" data-only="${g.id}">العبوا هاي ←</button></div>
     <div class="hg-cats">${g.ids.filter(catById).map(id=>`<span style="--cbg:${cbg(id)}">${catArt(id)}${esc(catById(id).name)}</span>`).join('')}</div></div>`).join('');
-  $('ftfam').innerHTML=GA.svg('family');$('ftlang').innerHTML=GA.svg('scroll');
+  $('ftfam').innerHTML=GA.svg('family');$('ftlang').innerHTML=GA.svg('scroll');$('ftnum').innerHTML=GA.svg('numbers');
   const KDESC={help:'بتساعدكم تجاوبوا',sab:'بتصعّبها على الفريق التاني',bold:'بتلعبوا فيها على النقاط'};
   $('helperlist').innerHTML=['help','sab','bold'].map(k=>`<div class="hk-col k-${k}"><h3><span>${KIND[k]}</span><small>${KDESC[k]}</small></h3>
     ${HIDS.filter(id=>HELPERS[id].kind===k).map(id=>`<div class="hmhc"><span class="hic">${helpIcon(id)}</span><div><b>${esc(HELPERS[id].name)}</b><p>${esc(HELPERS[id].desc)}</p></div></div>`).join('')}</div>`).join('');
@@ -1131,7 +1143,7 @@ function startDraft(){
   store.set('gaddha.names',names);
   const cats=sel.map(id=>BANK.find(c=>c.id===id)).map(c=>({id:c.id,name:c.name,type:c.type||'',
     qs:c.type?pickFresh(c.items,5).map(it=>makeChallenge(c.type,it))
-      :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.img?(q.hints||[]).concat(['','']).slice(0,2):(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{},q.img?{img:q.img,f:q.f||'',credit:q.credit||''}:{}))}));
+      :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.img?(q.hints||[]).concat(['','']).slice(0,2):(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{},q.img?{img:q.img,f:q.f||'',credit:q.credit||''}:{},q.n!=null?{n:q.n,unit:q.unit||''}:{}))}));
   cats.forEach(c=>c.qs.forEach(q=>{if(q.img){const im=new Image();im.src=q.img}}));
   const f=pickFresh(FINALS,1)[0]||{category:'',q:'',a:''};
   S={screen:'draft',teams:names.map(n=>({name:n,score:0,helpers:[],used:[],st:{hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0}})),draftTurn:0,turn:0,timerSec,qrMode,cats,cur:null,armed:-1,lockOn:-1,
@@ -1185,6 +1197,22 @@ const FLAME='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.2 4.5 
 const FIRE_AT=3,streak=i=>S.teams[i].streak||0,onFire=i=>streak(i)>=FIRE_AT;
 const ownerOf=c=>c.mode==='pass'||c.mode==='fam'?1-S.turn:S.turn;
 const ZOOM=[3,1.8,1];
+/* ---------- أقرب رقم (closest number) ---------- */
+const isNum=x=>x&&x.n!=null&&x.n!=='';
+const toNum=v=>{const t=String(v==null?'':v).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫]/g,'.').replace(/[,٬\s]/g,'');return t===''||isNaN(+t)?null:+t};
+const fmtN=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:3});
+const nearest=(n,g)=>{const d=g.map(v=>Math.abs(v-n));return d[0]===d[1]?-1:(d[0]<d[1]?0:1)};
+function numInputs(g,act){
+  const N=S.teams.map(t=>esc(t.name));
+  return `<div class="numin">${[0,1].map(i=>`<label class="t${i}"><span>${N[i]}</span><input type="text" inputmode="decimal" autocomplete="off" data-num="${i}" value="${g&&g[i]!=null?g[i]:''}" placeholder="رقمهم"></label>`).join('')}</div>`;
+}
+function numReveal(n,unit,g){
+  const N=S.teams.map(t=>esc(t.name)),d=g.map(v=>Math.abs(v-n)),w=nearest(n,g),mx=Math.max(...d,1e-9);
+  return `<div class="answer"><small>الجواب</small><strong dir="ltr">${fmtN(n)}</strong>${unit?`<span class="unit">${esc(unit)}</span>`:''}</div>
+    <div class="numres">${[0,1].map(i=>`<div class="nr t${i}${w===i?' win':''}"><b>${N[i]}</b><span class="g" dir="ltr">${fmtN(g[i])}</span>
+      <span class="bar"><i style="width:${d[i]===0?2:Math.max(4,d[i]/mx*100).toFixed(1)}%"></i></span><small>${d[i]===0?'بالضبط!':'الفرق '+fmtN(+d[i].toFixed(3))}</small></div>`).join('')}</div>`;
+}
+const readNums=()=>[0,1].map(i=>{const el=document.querySelector(`[data-num="${i}"]`);return el?toNum(el.value):null});
 const zoomOf=c=>c.revealed?1:ZOOM[Math.min(c.hints,2)];
 const answering=()=>S.cur&&(S.cur.mode==='pass'||S.cur.mode==='steal'||S.cur.mode==='fam')?1-S.turn:S.turn;
 const ST=i=>{const t=S.teams[i];return t.st||(t.st={hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0})};
@@ -1198,6 +1226,7 @@ function canUse(t,id){
     const c=S.cur;if(c.revealed||c.mode!=='normal')return false;
     if(id==='qadd')return false;
     if(id==='lock')return S.lockOn!==1-t;
+    if(isNum(S.cats[c.c].qs[c.i]))return false;
     if(c.qadd)return false;
     if(id==='half')return !c.half&&!S.cats[c.c].qs[c.i].type&&!!S.cats[c.c].qs[c.i].x;
     return true;
@@ -1244,6 +1273,13 @@ function paintBoard(){
 }
 function awardOptions(){
   const c=S.cur,me=S.turn,o=1-me,v=qValue(),N=S.teams.map(t=>esc(t.name)),how=c.hints||c.elder?'hint':'clean';
+  if(isNum(S.cats[c.c].qs[c.i])&&c.g){
+    const x=S.cats[c.c].qs[c.i],w=nearest(x.n,c.g),exact=w>=0&&c.g[w]===x.n?1:0;
+    if(c.qadd)return withFire(w===me?[{t:me,p:6,how:'clean',label:`${N[me]} الأقرب <span dir="ltr">+6</span>`}]:[{t:me,p:-3,how:'fail',neg:1,label:`${N[me]} مش الأقرب <span dir="ltr">−3</span>`}]);
+    const L=w<0?[{t:me,p:1,extra:o,how:'num',label:`نفس الفرق: نقطة لكل فريق`}]
+      :[{t:w,p:3+exact,how:w===me?'clean':'num',label:`${N[w]} الأقرب <span dir="ltr">+${3+exact}</span>${exact?' · بالضبط!':''}`}];
+    L.push({t:-1,p:0,how:'none',label:'ما لعبناها',neg:1});return withFire(L);
+  }
   if(c.qadd)return withFire([{t:me,p:6,how:'clean',label:`${N[me]} عرفوها <span dir="ltr">+6</span>`},{t:me,p:-3,how:'fail',label:`ما عرفوها <span dir="ltr">−3</span>`,neg:1}]);
   if(c.mode==='fam')return withFire([{t:o,p:v,how,label:`${N[o]} عرفوها <span dir="ltr">+${v}</span>`},{t:-1,p:0,how:'none',label:'ولا حدا',neg:1}]);
   if(c.mode==='pass')return withFire([{t:o,p:v,how,label:`${N[o]} عرفوها <span dir="ltr">+${v}</span>`},{t:me,p:1,how:'steal',label:`ما عرفوها: ${N[me]} <span dir="ltr">+1</span>`}]);
@@ -1284,7 +1320,8 @@ function paintQuestion(){
   const opts=c.half&&!c.revealed?(()=>{const p=shuffle([x.a,x.x]);return `<div class="opts"><div class="opt"><small>أ</small>${esc(p[0])}</div><div class="opt"><small>ب</small>${esc(p[1])}</div></div>`})():'';
   const was=c.hints||c.elder?`كانت <s>3</s>… `:'';
   const valtxt=c.qadd?'صح بـ6، غلط ناقص 3':c.mode==='steal'?'الخطفة بنقطة وحدة':c.half?'نُصّ بنُصّ: نقطة وحدة':c.mode==='pass'?'السؤال انتقل بنفس القيمة':`${was}${c.hints?'وغشّيتوا':c.elder?'وشاورتوا الكبير':''}`;
-  const cheatOk=!c.qadd&&!c.half&&c.hints<(x.hints||[]).length&&c.mode!=='steal'&&!(c.locked&&ans===me);
+  const numQ=isNum(x);
+  const cheatOk=!numQ&&!c.qadd&&!c.half&&c.hints<(x.hints||[]).length&&c.mode!=='steal'&&!(c.locked&&ans===me);
   const scan=!!x.type&&c.phase==='scan'&&!c.revealed;
   let body,timer='';
   if(scan){
@@ -1295,6 +1332,14 @@ function paintQuestion(){
       <div class="row"><button type="button" class="btn solid big" data-act="go">يلا ابدأ</button>
       <button type="button" class="btn sm" id="peek">ما في جوال؟ شوف السر هون</button>
       <button type="button" class="btn sm" data-act="back">رجوع</button></div></div></div>`;
+  }else if(numQ&&c.revealed){
+    body=`${numReveal(x.n,x.unit,c.g)}<p class="ask">النتيجة</p>
+      <div class="awards">${awardOptions().map((op,k)=>`<button type="button" class="btn ${op.neg?'neg':'team'} ${op.t>=0?'t'+op.t:''}" data-act="award" data-k="${k}">${op.label}</button>`).join('')}</div>`;
+  }else if(numQ){
+    timer=ringHtml();
+    body=`<div class="banner">الفريقين بيجاوبوا: كل فريق يكتب رقمه على ورقة بدون ما يشوف التاني. لما تخلصوا، اكتبوا الرقمين هون.</div>
+      ${numInputs(c.g)}
+      <div class="qbtns"><button type="button" class="btn solid big wide" data-act="reveal">اكشف وشوفوا مين الأقرب</button><button type="button" class="btn sm wide" data-act="back">رجوع</button></div>`;
   }else if(c.revealed){
     body=`<div class="answer"><small>الجواب</small><strong>${esc(x.a)}</strong></div>${x.story?`<div class="note famstory"><small>القصة ورا السر · ${esc(x.by)}</small><span>${esc(x.story)}</span></div>`:''}
       <p class="ask">مين جابها؟</p>
@@ -1312,11 +1357,11 @@ function paintQuestion(){
   $('stage').innerHTML=`<div class="q">
     <aside class="qside">
       <div class="cc qcat" style="--cbg:${cbg(cat.id)}"><span class="art">${catArt(cat.id)}</span><span class="nm">${esc(cat.name)}</span></div>
-      <div class="qinfo"><span class="pill team t${ans}">${N[ans]} بيجاوبوا</span>${valueHtml(c,v)}${valtxt?`<span class="vtxt">${valtxt}</span>`:''}</div>
+      <div class="qinfo">${numQ?`<span class="pill" style="background:var(--ink);color:#fff">الفريقين بيجاوبوا</span><div class="val"><span class="vbig">${c.qadd?'الأقرب: 6 أو ناقص 3':'الأقرب بياخد 3'}</span></div>`:`<span class="pill team t${ans}">${N[ans]} بيجاوبوا</span>${valueHtml(c,v)}`}${valtxt?`<span class="vtxt">${valtxt}</span>`:''}</div>
       ${timer}
     </aside>
     <div class="qmain">${banners.join('')}
-      <div class="qcard${fx.pass?' passed':''}">${x.img?`<div class="pic"><img src="${esc(x.img)}" alt="" data-z="${zoomOf(c)}" data-from="${fx.zoom||''}" style="transform-origin:${esc(x.f||'50% 35%')};transform:scale(${fx.zoom||zoomOf(c)})">${c.revealed?'':`<span class="zl">${c.hints<2?'مقرّبة… الغشّة بتبعّد الصورة':'الصورة كاملة'}</span>`}</div>`:''}${x.by?`<span class="famby">${LOCK.replace('#fff','currentColor')} السر من: ${esc(x.by)}</span>`:''}<p>${esc(x.q)}</p></div>
+      <div class="qcard${fx.pass?' passed':''}">${numQ&&x.unit&&!c.revealed?`<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم · ${esc(x.unit)}</span>`:numQ&&!c.revealed?'<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم</span>':''}${x.img?`<div class="pic"><img src="${esc(x.img)}" alt="" data-z="${zoomOf(c)}" data-from="${fx.zoom||''}" style="transform-origin:${esc(x.f||'50% 35%')};transform:scale(${fx.zoom||zoomOf(c)})">${c.revealed?'':`<span class="zl">${c.hints<2?'مقرّبة… الغشّة بتبعّد الصورة':'الصورة كاملة'}</span>`}</div>`:''}${x.by?`<span class="famby">${LOCK.replace('#fff','currentColor')} السر من: ${esc(x.by)}</span>`:''}<p>${esc(x.q)}</p></div>
       ${x.img&&x.credit&&c.revealed?`<p class="credit">الصورة: ${esc(x.credit)}</p>`:''}${notes}${opts}${body}</div></div>`;
   {const im=document.querySelector('.pic img');if(im&&im.dataset.from){void im.offsetWidth;requestAnimationFrame(()=>{im.style.transform=`scale(${im.dataset.z})`})}}
   tPaint();
@@ -1341,7 +1386,7 @@ function pickFinal(catId){
   if(pool.length)return pickFresh(pool,1)[0];
   // no final written for this category yet: use an unplayed question from the same category, its two hints become the clues
   const bank=BANK.find(c=>c.id===catId),used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id)));
-  const cand=bank&&!bank.type?bank.questions.filter(q=>!used.has(q.id)&&!q.img):[];
+  const cand=bank&&!bank.type?bank.questions.filter(q=>!used.has(q.id)&&!q.img&&q.n==null):[];
   if(cand.length){const q=pickFresh(cand,1)[0];return {id:q.id,q:q.q,a:q.a,clues:(q.hints||[]).slice(0,2),cat:catId}}
   const gen=FINALS.filter(f=>!f.cat);
   return pickFresh(gen.length?gen:FINALS,1)[0]||{q:'',a:'',clues:[]};
@@ -1352,7 +1397,7 @@ function setFinalQ(catId){
   S.screen='final-intro';
 }
 function enterFinal(){
-  const isPic=id=>{const b=BANK.find(c=>c.id===id);return !!(b&&b.questions&&b.questions.some(q=>q.img))};
+  const isPic=id=>{const b=BANK.find(c=>c.id===id);return !!(b&&b.questions&&b.questions.some(q=>q.img||q.n!=null))};
   const reg=shuffle(S.cats.filter(c=>!c.type&&c.id!=='family'&&!isPic(c.id)).map(c=>c.id));
   const env=reg.filter(hasFinals).concat(reg.filter(id=>!hasFinals(id))).slice(0,3);
   const [a,b]=S.teams;
@@ -1362,11 +1407,10 @@ function enterFinal(){
 const finalMult=(f,i)=>f.clues&&f.clues.length?MULT[Math.min(f.lockAt[i]??f.step,2)]:1;
 const gainOf=(f,i)=>Math.round(f.wager[i]*finalMult(f,i));
 function tbPick(){
-  const used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id)));
-  const pool=BANK.filter(c=>!c.type&&c.id!=='family').flatMap(c=>c.questions).filter(q=>!q.img&&!used.has(q.id)&&!(S.tb&&S.tb.done||[]).includes(q.id));
-  const q=pickFresh(pool,1)[0]||{q:'—',a:'—'};
-  const done=(S.tb&&S.tb.done)||[];
-  S.tb={id:q.id,q:q.q,a:q.a,buzz:-1,tried:[],revealed:false,done:done.concat(q.id?[q.id]:[])};
+  const used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id))),done=(S.tb&&S.tb.done)||[];
+  const all=BANK.filter(c=>!c.type&&c.id!=='family').flatMap(c=>c.questions).filter(q=>!q.img&&!used.has(q.id)&&!done.includes(q.id));
+  const nums=all.filter(q=>q.n!=null),q=pickFresh(nums.length?nums:all.filter(q=>q.n==null),1)[0]||{q:'—',a:'—'};
+  S.tb={id:q.id,q:q.q,a:q.a,n:q.n,unit:q.unit||'',g:null,revealed:false,done:done.concat(q.id?[q.id]:[])};
 }
 function paintTally(){
   const before=S.tally.before,after=S.teams.map(t=>t.score),max=Math.max(1,...before,...after),f=S.final;
@@ -1409,16 +1453,19 @@ function paintFinal(){
     fx={};return;
   }
   if(S.screen==='tiebreak'){
-    const t=S.tb;
-    let body;
-    if(t.buzz<0)body=`<p class="mut" style="text-align:center;font-weight:700">أول فريق بيضغط على نصّه بيجاوب. بلا غشّ.</p>
-      <div class="buzz">${[0,1].map(i=>`<button type="button" class="t${i}" data-act="buzz" data-team="${i}" ${t.tried.includes(i)?'disabled':''}><span>${N[i]}</span><small>اضغطوا!</small></button>`).join('')}</div>`;
-    else if(!t.revealed)body=`<div class="banner hot t${t.buzz} enter"><b>${N[t.buzz]} ضغطوا!</b>يلا جاوبوا… بصوت عالي.</div>
-      <div class="row" style="justify-content:center"><button type="button" class="btn solid big" data-act="tb-reveal">اكشف الجواب</button></div>`;
-    else body=`<div class="answer"><small>الجواب</small><strong>${esc(t.a)}</strong></div><p class="ask">جاوبوا ${N[t.buzz]} صح؟</p>
-      <div class="awards"><button type="button" class="btn team t${t.buzz}" data-act="tb-judge" data-v="1">صح، ${N[t.buzz]} طلعوا قدّها</button><button type="button" class="btn neg" data-act="tb-judge" data-v="0">غلط</button></div>`;
-    $('stage').innerHTML=`<div class="q solo"><span class="pill" style="background:var(--b);color:#fff;box-shadow:none">سؤال الحسم${t.tried.length?` · الفرصة لـ${N[1-t.tried[0]]}`:''}</span>
-      <div class="qcard"><p>${esc(t.q)}</p></div>${body}</div>`;
+    const t=S.tb,num=t.n!=null;let body;
+    if(!t.revealed)body=num
+      ?`<p class="mut" style="text-align:center;font-weight:700">كل فريق يكتب رقمه على ورقة بدون ما يشوف التاني. الأقرب للجواب بيفوز بالسهرة.</p>${numInputs(t.g)}
+        <div class="row" style="justify-content:center"><button type="button" class="btn solid big" data-act="tb-reveal">اكشفوا الأرقام</button></div>`
+      :`<p class="mut" style="text-align:center;font-weight:700">كل فريق يكتب جوابه على ورقة بدون ما يشوف التاني، وبعدين اكشفوا.</p>
+        <div class="row" style="justify-content:center"><button type="button" class="btn solid big" data-act="tb-reveal">اكشف الجواب</button></div>`;
+    else if(num){const w=nearest(t.n,t.g);
+      body=numReveal(t.n,t.unit,t.g)+(w<0?`<p class="ask">نفس الفرق بالضبط! سؤال حسم تاني.</p><div class="row" style="justify-content:center"><button type="button" class="btn solid big" data-act="tb-again">سؤال تاني</button></div>`
+        :`<div class="awards"><button type="button" class="btn team t${w}" data-act="tb-win" data-team="${w}">${N[w]} الأقرب، وفازوا بالسهرة</button></div>`);}
+    else body=`<div class="answer"><small>الجواب</small><strong>${esc(t.a)}</strong></div><p class="ask">مين كتب صح؟</p>
+      <div class="awards">${[0,1].map(i=>`<button type="button" class="btn team t${i}" data-act="tb-win" data-team="${i}">${N[i]} بس</button>`).join('')}<button type="button" class="btn neg" data-act="tb-again">التنين أو ولا حدا: سؤال تاني</button></div>`;
+    $('stage').innerHTML=`<div class="q solo"><span class="pill" style="background:var(--b);color:#fff;box-shadow:none">سؤال الحسم${num?' · أقرب رقم':''}</span>
+      <div class="qcard">${num&&t.unit?`<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم · ${esc(t.unit)}</span>`:''}<p>${esc(t.q)}</p></div>${body}</div>`;
     return;
   }
   if(S.screen==='final-intro'){
@@ -1577,7 +1624,7 @@ const ACT={
   go(){const c=S.cur;c.phase='play';fx.go=true;render();tStart(c.locked&&answering()===S.turn?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec)},
   'rv-hide'(b){const card=document.querySelector('.rv-card');card.classList.toggle('blurred');b.textContent=card.classList.contains('blurred')?'أظهر':'خبّي الشاشة'},
   steal(){SFX.whoosh();S.cur.mode='steal';fx.steal=true;render();tStart(STEAL_SEC)},
-  reveal(){const c=S.cur;if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},
+  reveal(){const c=S.cur;if(isNum(S.cats[c.c].qs[c.i])){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');const el=document.querySelector(`[data-num="${g.indexOf(null)}"]`);el&&el.focus();return}c.g=g;SFX.whoosh()}if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},
   back(){if(S.undo){S=JSON.parse(S.undo);render()}},
   undo(){if(S.undo){S=JSON.parse(S.undo);render()}},
   award(b){
@@ -1623,12 +1670,9 @@ const ACT={
   'final-lock'(b){const f=S.final;(f.lockAt||(f.lockAt=[null,null]))[+b.dataset.team]=Math.min(f.step||0,2);SFX.stamp();render()},
   'final-next'(){const f=S.final;if((f.step||0)<(f.clues||[]).length-1){f.step=(f.step||0)+1;fx.hint=true;SFX.hint();render();tStart(S.timerSec?30:0)}},
   tiebreak(){tbPick();S.screen='tiebreak';render()},
-  buzz(b){const t=S.tb;if(t.buzz>=0)return;t.buzz=+b.dataset.team;SFX.stamp();render()},
-  'tb-reveal'(){S.tb.revealed=true;render()},
-  'tb-judge'(b){const t=S.tb;markSeen(t.id);
-    if(b.dataset.v==='1'){S.teams[t.buzz].score+=1;shown=S.teams.map(x=>x.score);ACT['to-end']();return}
-    SFX.fail();t.tried.push(t.buzz);
-    if(t.tried.length<2){t.buzz=1-t.buzz;t.revealed=false;render()}else{toast('ولا حدا جابها! سؤال حسم جديد.');tbPick();render()}},
+  'tb-reveal'(){const t=S.tb;if(t.n!=null){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');return}t.g=g;SFX.whoosh()}t.revealed=true;markSeen(t.id);render()},
+  'tb-win'(b){const i=+b.dataset.team;S.teams[i].score+=1;shown=S.teams.map(x=>x.score);ACT['to-end']()},
+  'tb-again'(){SFX.fail();tbPick();render()},
   'final-show'(){const f=S.final;f.step=0;f.lockAt=[null,null];S.screen='final-q';render();tStart(S.timerSec?(f.clues&&f.clues.length?30:S.timerSec):0)},
   'final-reveal'(){const f=S.final,lk=f.lockAt||(f.lockAt=[null,null]);lk.forEach((x,i)=>{if(x==null)lk[i]=Math.min(f.step||0,2)});tStop();S.screen='final-score';render()},
   wager(b){const i=+b.dataset.team,max=Math.max(0,S.teams[i].score);S.final.wager[i]=Math.min(max,Math.max(0,S.final.wager[i]+(+b.dataset.d)));render()},

@@ -20,7 +20,8 @@
    "categories": [
     "capitals",
     "riddles",
-    "photos"
+    "photos",
+    "numbers"
    ],
    "visible": true
   },
@@ -149,6 +150,15 @@
    "visible": true,
    "art": "dialect",
    "bg": "#e6f2ea"
+  },
+  {
+   "id": "numbers",
+   "name": "أقرب رقم",
+   "file": "numbers.json",
+   "visible": true,
+   "art": "numbers",
+   "bg": "#fff3d1",
+   "mode": "num"
   }
  ],
  "finals": "finals.json"
