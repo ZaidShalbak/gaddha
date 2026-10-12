@@ -4,181 +4,181 @@
  "items": [
   {
    "id": "draw-001",
-   "status": "draft",
+   "status": "published",
    "s": "زيتونة",
    "k": "شجرة"
   },
   {
    "id": "draw-002",
-   "status": "draft",
+   "status": "published",
    "s": "فنجان قهوة",
    "k": "شي"
   },
   {
    "id": "draw-003",
-   "status": "draft",
+   "status": "published",
    "s": "دلّة قهوة",
    "k": "شي"
   },
   {
    "id": "draw-004",
-   "status": "draft",
+   "status": "published",
    "s": "كوفية",
    "k": "شي"
   },
   {
    "id": "draw-005",
-   "status": "draft",
+   "status": "published",
    "s": "مفتاح",
    "k": "شي"
   },
   {
    "id": "draw-006",
-   "status": "draft",
+   "status": "published",
    "s": "مظلّة",
    "k": "شي"
   },
   {
    "id": "draw-007",
-   "status": "draft",
+   "status": "published",
    "s": "نظّارة",
    "k": "شي"
   },
   {
    "id": "draw-008",
-   "status": "draft",
+   "status": "published",
    "s": "طيّارة ورق",
    "k": "شي"
   },
   {
    "id": "draw-009",
-   "status": "draft",
+   "status": "published",
    "s": "ساعة حيط",
    "k": "شي"
   },
   {
    "id": "draw-010",
-   "status": "draft",
+   "status": "published",
    "s": "مكنسة",
    "k": "شي"
   },
   {
    "id": "draw-011",
-   "status": "draft",
+   "status": "published",
    "s": "بطّيخة",
    "k": "أكل"
   },
   {
    "id": "draw-012",
-   "status": "draft",
+   "status": "published",
    "s": "فلافل",
    "k": "أكل"
   },
   {
    "id": "draw-013",
-   "status": "draft",
+   "status": "published",
    "s": "منسف",
    "k": "أكل"
   },
   {
    "id": "draw-014",
-   "status": "draft",
+   "status": "published",
    "s": "كعك بسمسم",
    "k": "أكل"
   },
   {
    "id": "draw-015",
-   "status": "draft",
+   "status": "published",
    "s": "برتقالة",
    "k": "أكل"
   },
   {
    "id": "draw-016",
-   "status": "draft",
+   "status": "published",
    "s": "بيتزا",
    "k": "أكل"
   },
   {
    "id": "draw-017",
-   "status": "draft",
+   "status": "published",
    "s": "جمل",
    "k": "حيوان"
   },
   {
    "id": "draw-018",
-   "status": "draft",
+   "status": "published",
    "s": "قطّة",
    "k": "حيوان"
   },
   {
    "id": "draw-019",
-   "status": "draft",
+   "status": "published",
    "s": "سمكة",
    "k": "حيوان"
   },
   {
    "id": "draw-020",
-   "status": "draft",
+   "status": "published",
    "s": "نحلة",
    "k": "حيوان"
   },
   {
    "id": "draw-021",
-   "status": "draft",
+   "status": "published",
    "s": "زرافة",
    "k": "حيوان"
   },
   {
    "id": "draw-022",
-   "status": "draft",
+   "status": "published",
    "s": "حلزون",
    "k": "حيوان"
   },
   {
    "id": "draw-023",
-   "status": "draft",
+   "status": "published",
    "s": "بحر",
    "k": "مكان"
   },
   {
    "id": "draw-024",
-   "status": "draft",
+   "status": "published",
    "s": "جبل",
    "k": "مكان"
   },
   {
    "id": "draw-025",
-   "status": "draft",
+   "status": "published",
    "s": "ملعب كرة قدم",
    "k": "مكان"
   },
   {
    "id": "draw-026",
-   "status": "draft",
+   "status": "published",
    "s": "مدرسة",
    "k": "مكان"
   },
   {
    "id": "draw-027",
-   "status": "draft",
+   "status": "published",
    "s": "دبكة",
    "k": "شي بنعمله"
   },
   {
    "id": "draw-028",
-   "status": "draft",
+   "status": "published",
    "s": "نوم",
    "k": "شي بنعمله"
   },
   {
    "id": "draw-029",
-   "status": "draft",
+   "status": "published",
    "s": "سباحة",
    "k": "شي بنعمله"
   },
   {
    "id": "draw-030",
-   "status": "draft",
+   "status": "published",
    "s": "صيد سمك",
    "k": "شي بنعمله"
   }
