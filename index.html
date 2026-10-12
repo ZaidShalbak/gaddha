@@ -113,6 +113,13 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .fam-item .hid svg{width:14px;height:14px}
 .famby{display:inline-flex;align-items:center;gap:6px;font-size:.78em;font-weight:800;color:#8a4fd6;background:#efe5fb;padding:4px 14px;border-radius:99px;margin-bottom:10px}
 .famby svg{width:14px;height:14px}
+.circ{display:flex;gap:6px;flex-wrap:wrap;width:100%}
+.circ button{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.78em;font-weight:800;color:var(--mut);background:#fff;border:1.5px solid #e2d6f3;border-radius:99px;padding:3px 6px 3px 12px;cursor:pointer}
+.circ button span{width:24px;height:24px;border-radius:50%;background:#efe5fb;display:grid;place-items:center}
+.circ button svg{width:19px;height:19px}
+.circ button[aria-pressed="true"]{background:#8a4fd6;border-color:#8a4fd6;color:#fff}
+.circ button[aria-pressed="true"] span{background:#fff}
+.fam-k{display:block;font-weight:900;color:#8a4fd6;font-size:.9em}
 .qcard{flex-direction:column}
 .note.famstory{align-self:stretch;transform:rotate(1deg)}
 .note.famstory small{color:#8a4fd6}
@@ -874,8 +881,16 @@ function burst(t){
 let view='home',skip=[];
 const catById=id=>BANK.find(c=>c.id===id);
 const enabledIds=()=>GROUPS.filter(g=>!skip.includes(g.id)).flatMap(g=>g.ids).filter(catById).concat(catById('family')?['family']:[]);
-/* ---------- family secrets (أسرار العيلة) ---------- */
-const FAM_KEY='gaddha.family',FAMC='#8a4fd6';
+/* ---------- قدّنا؟ (players write questions about their own circle) ---------- */
+const FAM_KEY='gaddha.family',FAMC='#8a4fd6',FAM_NAME='قدّنا؟',CIR_KEY='gaddha.circle';
+const CIRCLES={
+  family:{t:'العيلة',art:'family',by:'مثلاً: خالتو سمر',ph:'مثلاً: مين أول واحد بالعيلة ساق سيارة أبوه بدون ما يعرف؟'},
+  friends:{t:'الشلّة',art:'friends',by:'مثلاً: أبو السوس',ph:'مثلاً: مين فينا ضاع بآخر رحلة وما اعترف؟'},
+  work:{t:'الشغل',art:'work',by:'مثلاً: أستاذ رامي',ph:'مثلاً: مين بالمكتب بيشرب أكتر قهوة باليوم؟'}
+};
+let circle=(()=>{try{const v=localStorage.getItem(CIR_KEY);return CIRCLES[v]?v:'family'}catch(e){return 'family'}})();
+const CI=()=>CIRCLES[circle];
+const famArt=()=>GA.svg(CI().art);
 let FAM=(()=>{try{const v=JSON.parse(localStorage.getItem(FAM_KEY));return Array.isArray(v)?v:[]}catch(e){return []}})();
 let famTeam=null;
 const famSave=()=>{try{localStorage.setItem(FAM_KEY,JSON.stringify(FAM))}catch(e){}};
@@ -884,22 +899,24 @@ const teamLabel=t=>t===0||t===1?(($('team'+t)&&$('team'+t).value.trim())||['ال
 function famSync(){
   const i=BANK.findIndex(c=>c.id==='family');if(i>=0)BANK.splice(i,1);
   const L=famLive();
-  if(L.length)BANK.push({id:'family',name:'أسرار العيلة',questions:L.map(x=>({id:x.id,status:'published',q:x.q,a:x.a,w:'',hints:x.hint?[x.hint]:[],by:x.by,team:x.team,story:x.story||''}))});
+  if(L.length)META.family={art:CI().art,bg:'#efe5fb'};BANK.push({id:'family',name:FAM_NAME,questions:L.map(x=>({id:x.id,status:'published',q:x.q,a:x.a,w:'',hints:x.hint?[x.hint]:[],by:x.by,team:x.team,story:x.story||''}))});
   if(!L.length)sel=sel.filter(id=>id!=='family');
 }
-const initial=s=>{const w=String(s||'؟').trim().split(/\s+/);while(w.length>1&&/^(خالتو|عمّو|عمو|خالو|ستّي|ستي|سيدو|جدّي|جدتي|أبو|ابو|أم|ام|الحاج|الحجة)$/.test(w[0]))w.shift();return (w[0]||'؟').charAt(0)};
+const initial=s=>{const w=String(s||'؟').trim().split(/\s+/);while(w.length>1&&/^(خالتو|عمّو|عمو|خالو|ستّي|ستي|سيدو|جدّي|جدتي|أبو|ابو|أم|ام|الحاج|الحجة|أستاذ|استاذ|الأستاذ|دكتور|د\.|المهندس|م\.)$/.test(w[0]))w.shift();return (w[0]||'؟').charAt(0)};
 const AVC=['#2f9e5f','#f0475a','#ffb703','#8a4fd6','#161616','#1d4e89','#c8743a'];
 function famCard(){
   const L=famLive(),fresh=L.filter(x=>!seen.has(x.id)).length,p=sel.includes('family');
   const writers=[...new Set(L.map(x=>x.by))];
   const av=writers.slice(0,5).map((n,k)=>`<i style="background:${AVC[k%AVC.length]}">${esc(initial(n))}</i>`).join('')+(writers.length>5?`<i style="background:#161616">+${writers.length-5}</i>`:'');
-  const card=L.length?`<button type="button" class="cc" data-act="cat" data-id="family" aria-pressed="${p}" style="--cbg:${cbg('family')}"><span class="ck">${CHECK}</span><span class="art">${catArt('family')}</span><span class="nm">أسرار العيلة<small class="${fresh<5?'low':''}">${fresh?fresh+' جديد':'كلها انلعبت'}</small></span></button>`
-    :`<div class="cc fam-empty" style="--cbg:${cbg('family')}"><span class="art">${catArt('family')}</span><span class="nm">أسرار العيلة<small>فاضية</small></span></div>`;
-  return `<section class="grp fam" aria-label="أسرار العيلة">
-    <div class="grp-head"><span class="gpill" style="--gc:${FAMC}">أسرار العيلة</span><span class="gcount">أسئلة بتكتبوها إنتو عن العيلة</span></div>
+  const card=L.length?`<button type="button" class="cc" data-act="cat" data-id="family" aria-pressed="${p}" style="--cbg:${cbg('family')}"><span class="ck">${CHECK}</span><span class="art">${famArt()}</span><span class="nm">${FAM_NAME}<small class="${fresh<5?'low':''}">${fresh?fresh+' جديد':'كلها انلعبت'}</small></span></button>`
+    :`<div class="cc fam-empty" style="--cbg:${cbg('family')}"><span class="art">${famArt()}</span><span class="nm">${FAM_NAME}<small>فاضية</small></span></div>`;
+  const t=CI().t;
+  return `<section class="grp fam" aria-label="${FAM_NAME} أسرار ${t}">
+    <div class="grp-head"><span class="gpill" style="--gc:${FAMC}">${FAM_NAME}</span><span class="gcount">أسرار ${t}، بتكتبوها إنتو</span>
+    <div class="circ" role="group" aria-label="مين قاعدين؟">${Object.keys(CIRCLES).map(k=>`<button type="button" data-act="circle" data-c="${k}" aria-pressed="${k===circle}"><span>${GA.svg(CIRCLES[k].art)}</span>${CIRCLES[k].t}</button>`).join('')}</div></div>
     <div class="fam-row">${card}<div class="fam-info">
-      ${L.length?`<b class="fam-n">${fresh}<small> سر جديد</small></b><span class="mut">كتبهم ${writers.length} من العيلة. الأجوبة مخفية لحد اللعب.</span><span class="avs">${av}</span>`
-        :`<b style="font-size:1.05em">لسّا ما في أسرار</b><span class="mut">مرّروا الجهاز، وكل واحد يكتب سؤال عن العيلة هو بيعرف جوابه.</span>`}
+      ${L.length?`<b class="fam-n">${fresh}<small> سر جديد</small></b><span class="mut">كتبهم ${writers.length} من ${t}. الأجوبة مخفية لحد اللعب.</span><span class="avs">${av}</span>`
+        :`<b style="font-size:1.05em">لسّا ما في أسرار</b><span class="mut">مرّروا الجهاز، وكل واحد يكتب سؤال عن ${t} هو بيعرف جوابه.</span>`}
       <button type="button" class="btn fam-btn" data-act="fam-open">${L.length?'اجمعوا أسرار أكتر':'يلا نجمع أسرار'}</button></div></div></section>`;
 }
 function paintFamily(){
@@ -907,11 +924,11 @@ function paintFamily(){
   if(view==='family-write'){
     const t=famTeam,N=[0,1].map(teamLabel);
     el.innerHTML=`<div class="famwrap">
-      <div class="fam-hd"><span class="fam-ic">${catArt('family')}</span><div><h1>اكتب سر عن العيلة</h1><p class="mut">سؤال إنت بتعرف جوابه… وهمّ لأ. ما حدا يتطلّع على الشاشة!</p></div></div>
-      <label class="f">اسمك<input id="fw-by" type="text" maxlength="24" placeholder="مثلاً: خالتو سمر" autocomplete="off"></label>
+      <div class="fam-hd"><span class="fam-ic">${famArt()}</span><div><h1>اكتب سر عن ${CI().t}</h1><p class="mut">سؤال إنت بتعرف جوابه… وهمّ لأ. ما حدا يتطلّع على الشاشة!</p></div></div>
+      <label class="f">اسمك<input id="fw-by" type="text" maxlength="24" placeholder="${esc(CI().by)}" autocomplete="off"></label>
       <div class="f"><span>بأي فريق إنت؟</span><div class="seg" style="grid-template-columns:repeat(3,1fr)">${[0,1,-1].map(k=>`<button type="button" class="btn sm${t===k?' on t'+k:''}" data-act="fam-team" data-t="${k}" aria-pressed="${t===k}">${esc(k<0?'مش لاعب':N[k])}</button>`).join('')}</div>
         <small class="mut">سؤالك ما رح يطلع لفريقك، كرمال ما حدا يغشّ.</small></div>
-      <label class="f">السؤال<textarea id="fw-q" rows="2" maxlength="180" placeholder="مثلاً: مين أول واحد بالعيلة ساق سيارة أبوه بدون ما يعرف؟"></textarea></label>
+      <label class="f">السؤال<textarea id="fw-q" rows="2" maxlength="180" placeholder="${esc(CI().ph)}"></textarea></label>
       <label class="f">الجواب<input id="fw-a" type="text" maxlength="60" autocomplete="off"></label>
       <label class="f">غشّة (اختياري)<input id="fw-h" type="text" maxlength="90" autocomplete="off" placeholder="تلميح صغير بيساعد"></label>
       <label class="f">القصة ورا السر (اختياري، بتطلع بعد الجواب)<textarea id="fw-s" rows="2" maxlength="220"></textarea></label>
@@ -925,7 +942,7 @@ function paintFamily(){
     <span class="hid">${LOCK.replace('#fff','currentColor')} مخفي</span>
     <button type="button" class="btn sm" data-act="fam-del" data-id="${x.id}" aria-label="احذف سر ${esc(x.by)}">حذف</button></div>`).join('');
   el.innerHTML=`<div class="famwrap">
-    <div class="fam-hd"><span class="fam-ic">${catArt('family')}</span><div><h1>اجمعوا أسرار العيلة</h1><p class="mut">مرّروا الجهاز: كل واحد بيكتب سؤال عن العيلة هو بيعرف جوابه. الأجوبة بتضل مخفية لحد اللعب، وسؤالك ما بيطلع لفريقك.</p></div></div>
+    <div class="fam-hd"><span class="fam-ic">${famArt()}</span><div><small class="fam-k">${FAM_NAME}</small><h1>اجمعوا أسرار ${CI().t}</h1><p class="mut">مرّروا الجهاز: كل واحد بيكتب سؤال عن ${CI().t} هو بيعرف جوابه. الأجوبة بتضل مخفية لحد اللعب، وسؤالك ما بيطلع لفريقك.</p></div></div>
     <button type="button" class="btn big fam-btn" data-act="fam-new">+ اكتب سر جديد</button>
     <div class="card fam-list"><div class="fam-lh"><b>الأسرار</b><span>${FAM.length} <small>سر</small></span></div>${rows||'<p class="mut" style="text-align:center;padding:14px 0">لسّا ما في. مين بيبلّش؟</p>'}</div>
     <p class="mut" style="font-size:.8em;text-align:center">بالنسخة الجاية: رابط واتساب، وكل واحد بيكتب من جواله.</p>
@@ -1332,6 +1349,7 @@ const ACT={
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
   mute(){setMute(!muted);if(!muted)SFX.pop()},
   'reset-seen'(){if(!confirm('نرجّع كل الأسئلة كأنها جديدة؟'))return;seen=new Set();try{localStorage.removeItem('gaddha.seen')}catch(e){}paintSetup();toast('رجعت كل الأسئلة جديدة.')},
+  circle(b){circle=b.dataset.c;try{localStorage.setItem(CIR_KEY,circle)}catch(e){};famSync();SFX.pop();render()},
   'fam-open'(){view='family';render();window.scrollTo(0,0)},
   'fam-new'(){famTeam=null;view='family-write';render();window.scrollTo(0,0)},
   'fam-cancel'(){view='family';render()},
