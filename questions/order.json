@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "order-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالاختراعات من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -37,7 +37,7 @@
   },
   {
    "id": "order-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا كؤوس العالم حسب الدولة المستضيفة، من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -68,7 +68,7 @@
   },
   {
    "id": "order-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا الكواكب من الأقرب للشمس",
    "dir": "من الأقرب للشمس",
@@ -99,7 +99,7 @@
   },
   {
    "id": "order-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالدول حسب المساحة، من الأكبر للأصغر",
    "dir": "من الأكبر للأصغر",
@@ -130,7 +130,7 @@
   },
   {
    "id": "order-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالجبال من الأعلى للأوطى",
    "dir": "من الأعلى للأوطى",
@@ -164,7 +164,7 @@
   },
   {
    "id": "order-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالتطبيقات والأجهزة حسب سنة إطلاقها، من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -198,7 +198,7 @@
   },
   {
    "id": "order-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالأنهار من الأطول للأقصر",
    "dir": "من الأطول للأقصر",
@@ -232,7 +232,7 @@
   },
   {
    "id": "order-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالفنانين حسب سنة الميلاد، من الأكبر للأصغر",
    "dir": "من الأكبر للأصغر",
@@ -266,7 +266,7 @@
   },
   {
    "id": "order-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالأحداث من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -300,7 +300,7 @@
   },
   {
    "id": "order-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالحيوانات من الأثقل للأخف",
    "dir": "من الأثقل للأخف",
@@ -334,7 +334,7 @@
   },
   {
    "id": "order-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالأندية حسب سنة التأسيس، من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -368,7 +368,7 @@
   },
   {
    "id": "order-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا مدن الألعاب الأولمبية الصيفية من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -399,7 +399,7 @@
   },
   {
    "id": "order-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالكواكب حسب الحجم، من الأكبر للأصغر",
    "dir": "من الأكبر للأصغر",
@@ -430,7 +430,7 @@
   },
   {
    "id": "order-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالحروف حسب ترتيب الأبجدية العربية (أ ب ت ث…)",
    "dir": "حسب الترتيب",
@@ -459,7 +459,7 @@
   },
   {
    "id": "order-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالأشهر الهجرية حسب ترتيبها بالسنة",
    "dir": "حسب الترتيب",
@@ -490,7 +490,7 @@
   },
   {
    "id": "order-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا المحيطات حسب المساحة، من الأكبر للأصغر",
    "dir": "من الأكبر للأصغر",
@@ -521,7 +521,7 @@
   },
   {
    "id": "order-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا أجهزة الألعاب حسب سنة الإطلاق، من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -555,7 +555,7 @@
   },
   {
    "id": "order-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالأبراج من الأعلى للأوطى",
    "dir": "من الأعلى للأوطى",
@@ -586,7 +586,7 @@
   },
   {
    "id": "order-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالأعضاء حسب الوزن عند الإنسان البالغ، من الأثقل للأخف",
    "dir": "من الأثقل للأخف",
@@ -617,7 +617,7 @@
   },
   {
    "id": "order-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالعواصم من الشمال للجنوب",
    "dir": "من الشمال للجنوب",
@@ -651,7 +651,7 @@
   },
   {
    "id": "order-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا ألوان قوس قزح من فوق لتحت",
    "dir": "من فوق لتحت",
@@ -682,7 +682,7 @@
   },
   {
    "id": "order-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالعلماء حسب الزمن، من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -716,7 +716,7 @@
   },
   {
    "id": "order-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا هالحيوانات من الأصغر للأكبر",
    "dir": "من الأصغر للأكبر",
@@ -745,7 +745,7 @@
   },
   {
    "id": "order-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا وسائل النقل حسب سنة اختراعها، من الأقدم للأحدث",
    "dir": "من الأقدم للأحدث",
@@ -779,7 +779,7 @@
   },
   {
    "id": "order-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "رتّبوا الوحدات من الأصغر للأكبر",
    "dir": "من الأصغر للأكبر",
