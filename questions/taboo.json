@@ -124,7 +124,7 @@
   },
   {
    "id": "taboo-011",
-   "status": "draft",
+   "status": "published",
    "s": "فلافل",
    "b": [
     "حمص",
@@ -134,7 +134,7 @@
   },
   {
    "id": "taboo-012",
-   "status": "draft",
+   "status": "published",
    "s": "مقلوبة",
    "b": [
     "رز",
@@ -144,7 +144,7 @@
   },
   {
    "id": "taboo-013",
-   "status": "draft",
+   "status": "published",
    "s": "قهوة",
    "b": [
     "فنجان",
@@ -154,7 +154,7 @@
   },
   {
    "id": "taboo-014",
-   "status": "draft",
+   "status": "published",
    "s": "شاي",
    "b": [
     "نعناع",
@@ -164,7 +164,7 @@
   },
   {
    "id": "taboo-015",
-   "status": "draft",
+   "status": "published",
    "s": "مدرسة",
    "b": [
     "طلاب",
@@ -174,7 +174,7 @@
   },
   {
    "id": "taboo-016",
-   "status": "draft",
+   "status": "published",
    "s": "طبيب",
    "b": [
     "مستشفى",
@@ -184,7 +184,7 @@
   },
   {
    "id": "taboo-017",
-   "status": "draft",
+   "status": "published",
    "s": "عيد",
    "b": [
     "عيدية",
@@ -194,7 +194,7 @@
   },
   {
    "id": "taboo-018",
-   "status": "draft",
+   "status": "published",
    "s": "القدس",
    "b": [
     "الأقصى",
@@ -204,7 +204,7 @@
   },
   {
    "id": "taboo-019",
-   "status": "draft",
+   "status": "published",
    "s": "جمل",
    "b": [
     "صحراء",
@@ -214,7 +214,7 @@
   },
   {
    "id": "taboo-020",
-   "status": "draft",
+   "status": "published",
    "s": "مطر",
    "b": [
     "غيوم",
@@ -224,7 +224,7 @@
   },
   {
    "id": "taboo-021",
-   "status": "draft",
+   "status": "published",
    "s": "ثلاجة",
    "b": [
     "برد",
@@ -234,7 +234,7 @@
   },
   {
    "id": "taboo-022",
-   "status": "draft",
+   "status": "published",
    "s": "طابون",
    "b": [
     "خبز",
@@ -244,7 +244,7 @@
   },
   {
    "id": "taboo-023",
-   "status": "draft",
+   "status": "published",
    "s": "حلاق",
    "b": [
     "شعر",
@@ -254,7 +254,7 @@
   },
   {
    "id": "taboo-024",
-   "status": "draft",
+   "status": "published",
    "s": "بطيخ",
    "b": [
     "أحمر",
@@ -264,7 +264,7 @@
   },
   {
    "id": "taboo-025",
-   "status": "draft",
+   "status": "published",
    "s": "كوفية",
    "b": [
     "رأس",
@@ -274,7 +274,7 @@
   },
   {
    "id": "taboo-026",
-   "status": "draft",
+   "status": "published",
    "s": "دبكة",
    "b": [
     "رقص",
@@ -284,7 +284,7 @@
   },
   {
    "id": "taboo-027",
-   "status": "draft",
+   "status": "published",
    "s": "مسجد",
    "b": [
     "صلاة",
@@ -294,7 +294,7 @@
   },
   {
    "id": "taboo-028",
-   "status": "draft",
+   "status": "published",
    "s": "سيارة",
    "b": [
     "سواقة",
@@ -304,7 +304,7 @@
   },
   {
    "id": "taboo-029",
-   "status": "draft",
+   "status": "published",
    "s": "قطة",
    "b": [
     "مياو",
@@ -314,7 +314,7 @@
   },
   {
    "id": "taboo-030",
-   "status": "draft",
+   "status": "published",
    "s": "شمس",
    "b": [
     "حرارة",
