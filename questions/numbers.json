@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "numbers-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة افتُتح برج إيفل؟",
    "n": 1889,
@@ -17,7 +17,7 @@
   },
   {
    "id": "numbers-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم يبلغ طول نهر الأردن تقريبًا؟",
    "n": 251,
@@ -31,7 +31,7 @@
   },
   {
    "id": "numbers-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد الدول الأعضاء في جامعة الدول العربية؟",
    "n": 22,
@@ -45,7 +45,7 @@
   },
   {
    "id": "numbers-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم يبلغ ارتفاع برج خليفة؟",
    "n": 828,
@@ -59,7 +59,7 @@
   },
   {
    "id": "numbers-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة تأسس الاتحاد الدولي لكرة القدم (فيفا)؟",
    "n": 1904,
@@ -73,7 +73,7 @@
   },
   {
    "id": "numbers-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد سور القرآن الكريم؟",
    "n": 114,
@@ -87,7 +87,7 @@
   },
   {
    "id": "numbers-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم يبلغ ارتفاع قمة إيفرست تقريبًا؟",
    "n": 8849,
@@ -101,7 +101,7 @@
   },
   {
    "id": "numbers-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد العظام في جسم الإنسان البالغ؟",
    "n": 206,
@@ -115,7 +115,7 @@
   },
   {
    "id": "numbers-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة أقيمت أول بطولة لكأس العالم لكرة القدم؟",
    "n": 1930,
@@ -129,7 +129,7 @@
   },
   {
    "id": "numbers-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "عند كم درجة فهرنهايت يغلي الماء عند مستوى سطح البحر؟",
    "n": 212,
@@ -143,7 +143,7 @@
   },
   {
    "id": "numbers-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم يبلغ متوسط المسافة بين الأرض والقمر؟",
    "n": 384400,
@@ -157,7 +157,7 @@
   },
   {
    "id": "numbers-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم كيلومترًا يقطع الضوء في الثانية الواحدة تقريبًا؟",
    "n": 299792,
@@ -171,7 +171,7 @@
   },
   {
    "id": "numbers-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد مفاتيح البيانو العادي؟",
    "n": 88,
@@ -185,7 +185,7 @@
   },
   {
    "id": "numbers-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة سقط جدار برلين؟",
    "n": 1989,
@@ -199,7 +199,7 @@
   },
   {
    "id": "numbers-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم يبلغ طول سباق الماراثون؟",
    "n": 42.195,
@@ -213,7 +213,7 @@
   },
   {
    "id": "numbers-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد الدول الأعضاء في الأمم المتحدة؟",
    "n": 193,
@@ -227,7 +227,7 @@
   },
   {
    "id": "numbers-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة هبط أول إنسان على سطح القمر؟",
    "n": 1969,
@@ -241,7 +241,7 @@
   },
   {
    "id": "numbers-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم قلبًا للأخطبوط؟",
    "n": 3,
@@ -255,7 +255,7 @@
   },
   {
    "id": "numbers-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد أسنان الإنسان البالغ عادةً؟",
    "n": 32,
@@ -269,7 +269,7 @@
   },
   {
    "id": "numbers-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة تأسست جامعة الدول العربية؟",
    "n": 1945,
@@ -283,7 +283,7 @@
   },
   {
    "id": "numbers-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة طُرح أول هاتف آيفون؟",
    "n": 2007,
@@ -297,7 +297,7 @@
   },
   {
    "id": "numbers-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم كان الارتفاع الأصلي للهرم الأكبر في الجيزة تقريبًا؟",
    "n": 146,
@@ -311,7 +311,7 @@
   },
   {
    "id": "numbers-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد الدول في قارة أفريقيا؟",
    "n": 54,
@@ -325,7 +325,7 @@
   },
   {
    "id": "numbers-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة وُلد الشاعر محمود درويش؟",
    "n": 1941,
@@ -339,7 +339,7 @@
   },
   {
    "id": "numbers-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة تأسس نادي برشلونة؟",
    "n": 1899,
@@ -353,7 +353,7 @@
   },
   {
    "id": "numbers-026",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد الكروموسومات في خلية الإنسان العادية؟",
    "n": 46,
@@ -367,7 +367,7 @@
   },
   {
    "id": "numbers-027",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي سنة حصل غراهام بيل على براءة اختراع الهاتف؟",
    "n": 1876,
@@ -381,7 +381,7 @@
   },
   {
    "id": "numbers-028",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم دقيقة في اليوم الواحد؟",
    "n": 1440,
@@ -393,7 +393,7 @@
   },
   {
    "id": "numbers-029",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم يبلغ طول البحر الميت تقريبًا؟",
    "n": 50,
@@ -407,7 +407,7 @@
   },
   {
    "id": "numbers-030",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم عدد اللاعبين في الملعب في مباراة كرة قدم واحدة (الفريقان معًا)؟",
    "n": 22,
