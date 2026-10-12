@@ -68,7 +68,7 @@
   },
   {
    "id": "bab-alhara-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي عام عُرض الجزء الأول من «باب الحارة»؟",
    "a": "2006",
@@ -83,7 +83,7 @@
   },
   {
    "id": "bab-alhara-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "من أخرج الأجزاء الخمسة الأولى من «باب الحارة»؟",
    "a": "بسام الملا",
@@ -98,7 +98,7 @@
   },
   {
    "id": "bab-alhara-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شارك مروان قاووق في كتابة الجزء الأول. من شريكه؟",
    "a": "كمال مرة",
@@ -113,7 +113,7 @@
   },
   {
    "id": "bab-alhara-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كم سنة انقطع عرض المسلسل بين الجزء الخامس والجزء السادس؟",
    "a": "أربع سنوات",
@@ -128,7 +128,7 @@
   },
   {
    "id": "bab-alhara-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ماذا كان يبيع الإدعشري بعد أن منحه الزعيم فرصة للعمل الشريف؟",
    "a": "المخلّل",
@@ -143,7 +143,7 @@
   },
   {
    "id": "bab-alhara-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "من الذي قتله الإدعشري ودفنه مع الذهب المسروق؟",
    "a": "الحارس أبو سمعو",
@@ -159,7 +159,7 @@
   },
   {
    "id": "bab-alhara-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "من التاجر الذي سرق الإدعشري ذهبه؟",
    "a": "أبو إبراهيم",
@@ -174,7 +174,7 @@
   },
   {
    "id": "bab-alhara-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "كيف مات معروف، ابن الإدعشري؟",
    "a": "بلدغة أفعى",
@@ -190,7 +190,7 @@
   },
   {
    "id": "bab-alhara-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "من الممثل الذي أدّى شخصية الإدعشري؟",
    "a": "بسام كوسا",
@@ -205,7 +205,7 @@
   },
   {
    "id": "bab-alhara-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "بأي سلاح قُتل الزعيم أبو صالح في الجزء الثاني؟",
    "a": "خنجر مسموم",
@@ -220,7 +220,7 @@
   },
   {
    "id": "bab-alhara-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "من أدّى شخصية الزعيم أبو صالح؟",
    "a": "عبد الرحمن آل رشي",
@@ -235,7 +235,7 @@
   },
   {
    "id": "bab-alhara-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما اسم أم عصام، التي طلّقها أبو عصام ثم أعادها؟",
    "a": "سعاد",
@@ -251,7 +251,7 @@
   },
   {
    "id": "bab-alhara-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما مهنة أبو حاتم في الحارة؟",
    "a": "صاحب المقهى",
@@ -266,7 +266,7 @@
   },
   {
    "id": "bab-alhara-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "لماذا استُبعد سامر المصري (أبو شهاب) من الجزء الرابع؟",
    "a": "بسبب إعلان تجاري أدّى فيه شخصية أبو شهاب",
@@ -281,7 +281,7 @@
   },
   {
    "id": "bab-alhara-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي جزء أُعلن موت العكيد أبو شهاب؟",
    "a": "الخامس",
@@ -296,7 +296,7 @@
   },
   {
    "id": "bab-alhara-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "من أصبح عقيد الحارة بعد أبو شهاب؟",
    "a": "معتز",
@@ -311,7 +311,7 @@
   },
   {
    "id": "bab-alhara-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما اسم العميل الذي دخل الحارة متنكرًا بهيئة طيّان في الجزء السادس؟",
    "a": "الواوي",
@@ -327,7 +327,7 @@
   },
   {
    "id": "bab-alhara-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "بأي مرض ماتت ناديا، الممرضة الفرنسية التي تزوجها أبو عصام؟",
    "a": "السل",
@@ -342,7 +342,7 @@
   },
   {
    "id": "bab-alhara-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "إلى أي حارة انتقل أهل حارة الضبع في الجزء العاشر بعد قصفها؟",
    "a": "حارة الصالحية",
@@ -357,7 +357,7 @@
   },
   {
    "id": "bab-alhara-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أين صُوّرت الأجزاء الخمسة الأولى من المسلسل؟",
    "a": "القرية الشامية بريف دمشق",
