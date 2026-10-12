@@ -10,7 +10,8 @@
     "world-screen",
     "bab-alhara",
     "arab-songs"
-   ]
+   ],
+   "visible": true
   },
   {
    "id": "gen",
@@ -19,7 +20,8 @@
    "categories": [
     "capitals",
     "riddles"
-   ]
+   ],
+   "visible": true
   },
   {
    "id": "sport",
@@ -28,7 +30,8 @@
    "categories": [
     "football",
     "sports"
-   ]
+   ],
+   "visible": true
   },
   {
    "id": "ch",
@@ -38,67 +41,79 @@
     "act",
     "hum",
     "taboo"
-   ]
+   ],
+   "visible": true
   }
  ],
  "categories": [
   {
    "id": "capitals",
    "name": "عواصم ودول",
-   "file": "capitals.json"
+   "file": "capitals.json",
+   "visible": true
   },
   {
    "id": "arab-screen",
    "name": "مسلسلات وأفلام عربية",
-   "file": "arab-screen.json"
+   "file": "arab-screen.json",
+   "visible": true
   },
   {
    "id": "world-screen",
    "name": "مسلسلات وأفلام أجنبية",
-   "file": "world-screen.json"
+   "file": "world-screen.json",
+   "visible": true
   },
   {
    "id": "bab-alhara",
    "name": "باب الحارة",
-   "file": "bab-alhara.json"
+   "file": "bab-alhara.json",
+   "visible": true
   },
   {
    "id": "arab-songs",
    "name": "أغاني عربية",
-   "file": "arab-songs.json"
+   "file": "arab-songs.json",
+   "visible": true
   },
   {
    "id": "football",
    "name": "كرة القدم",
-   "file": "football.json"
+   "file": "football.json",
+   "visible": true
   },
   {
    "id": "sports",
    "name": "رياضات",
-   "file": "sports.json"
+   "file": "sports.json",
+   "visible": true
   },
   {
    "id": "riddles",
    "name": "ألغاز",
-   "file": "riddles.json"
+   "file": "riddles.json",
+   "visible": true
   },
   {
    "id": "act",
    "name": "مثّلها",
    "file": "act.json",
-   "type": "act"
+   "type": "act",
+   "visible": true
   },
   {
    "id": "hum",
    "name": "دندنها",
    "file": "hum.json",
-   "type": "hum"
+   "type": "hum",
+   "visible": true
   },
   {
    "id": "taboo",
    "name": "بلا ما تقول",
    "file": "taboo.json",
-   "type": "taboo"
+   "type": "taboo",
+   "visible": true
   }
  ],
  "finals": "finals.json"
