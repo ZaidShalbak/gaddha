@@ -437,6 +437,11 @@ details.more[open] summary{margin-bottom:10px}
 .qrtext>span{color:var(--mut);font-size:.9em;line-height:1.8}
 .qrtext .row .btn.big{flex:1 1 100%}
 .qrtext .row .btn.sm{flex:1 1 auto}
+.quitov{position:fixed;inset:0;z-index:35;background:rgba(22,22,22,.55);display:grid;place-items:center;padding:16px}
+.quitov .card{background:#fff;border-radius:24px;padding:22px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.quitov h2{font-weight:900;font-size:1.3em}
+.quitov p{color:var(--mut);font-size:.88em;line-height:1.7;margin-bottom:4px}
+.btn.quit{color:#c92a3a}
 .peekov{position:fixed;inset:0;z-index:30;background:var(--bg);display:grid;place-items:center;text-align:center;padding:20px}
 .peekov div{display:flex;flex-direction:column;align-items:center;gap:8px}
 .peekov small{font-weight:800;color:var(--mut)}
@@ -614,7 +619,7 @@ details.more[open] summary{margin-bottom:10px}
 <div class="app" dir="rtl" lang="ar">
   <header class="top" id="top">
     <button type="button" class="brand" data-act="home" aria-label="قدّها، الصفحة الرئيسية"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
-    <span class="row" style="gap:8px"><button type="button" class="btn sm iconbtn" data-act="mute"></button><button type="button" class="btn sm" id="fs" data-act="fs">ملء الشاشة</button></span>
+    <span class="row" style="gap:8px"><button type="button" class="btn sm quit" id="quitbtn" data-act="quit" hidden>إنهاء اللعبة</button><button type="button" class="btn sm iconbtn" data-act="mute"></button><button type="button" class="btn sm" id="fs" data-act="fs">ملء الشاشة</button></span>
   </header>
 
   <main class="screen" id="home">
@@ -703,6 +708,7 @@ details.more[open] summary{margin-bottom:10px}
 <div class="stampwrap" id="stamp" hidden></div>
 <div class="toast" id="toast" role="status" hidden></div>
 <div class="peekov" id="peekov" hidden></div>
+<div class="quitov" id="quitov" data-act="quit-no" hidden></div>
 <main class="reveal" id="reveal" dir="rtl" lang="ar" hidden></main>
 
 
@@ -1359,6 +1365,7 @@ function render(){
   $('game').hidden=scr==='home'||scr==='setup'||scr==='end'||scr==='family'||scr==='family-write';
   $('end').hidden=scr!=='end';
   $('scorebar').hidden=scr==='draft'||scr==='final-tally';
+  $('quitbtn').hidden=!S||scr==='end';
   if(scr!=='question'&&scr!=='final-q')tStop();
   if(scr==='home'){}
   else if(scr==='setup')paintSetup();
@@ -1505,13 +1512,24 @@ const ACT={
     S.screen='end';render();
     const [a,b]=S.teams;if(a.score!==b.score)setTimeout(()=>{shake();burst(a.score>b.score?0:1);SFX.win()},250);
   },
+  quit(){
+    const [a,b]=S.teams,lead=a.score===b.score?'متعادلين':`${esc((a.score>b.score?a:b).name)} متقدّمين`;
+    const q=$('quitov');q.innerHTML=`<div class="card" role="dialog" aria-modal="true" aria-labelledby="quith"><h2 id="quith">ننهي اللعبة؟</h2>
+      <p>النتيجة هلّأ ${esc(a.name)} <b dir="ltr">${a.score}</b> و${esc(b.name)} <b dir="ltr">${b.score}</b> (${lead}).</p>
+      ${S.screen==='draft'?'':'<button type="button" class="btn solid big" data-act="quit-score">خلصنا، فرجونا مين فاز</button>'}
+      <button type="button" class="btn big" data-act="quit-home">إلغاء اللعبة والرجوع للبداية</button>
+      <button type="button" class="btn sm" data-act="quit-no">لا، كمّلوا اللعب</button></div>`;
+    q.hidden=false;q.querySelector('button').focus()},
+  'quit-no'(b,e){if(e&&e.target!==b&&b.id==='quitov')return;$('quitov').hidden=true;$('quitov').innerHTML=''},
+  'quit-score'(){$('quitov').hidden=true;tStop();S.cur=null;S.undo=null;S.screen='end';render();window.scrollTo(0,0);const [a,b]=S.teams;if(a.score!==b.score)setTimeout(()=>{shake();burst(a.score>b.score?0:1);SFX.win()},250)},
+  'quit-home'(){$('quitov').hidden=true;tStop();S=null;store.set(KEY,null);view='home';render();window.scrollTo(0,0)},
   new(){S=null;view='setup';render();window.scrollTo(0,0)}
 };
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-act]');
   if(!b||b.disabled||!ACT[b.dataset.act])return;
   if(confirmEnd&&!b.dataset.act.startsWith('end-'))confirmEnd=false;
-  ACT[b.dataset.act](b);
+  ACT[b.dataset.act](b,e);
 });
 
 /* ---------- boot ---------- */
