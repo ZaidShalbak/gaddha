@@ -32,7 +32,7 @@ alter table public.secrets enable row level security;
 
 -- host creates a circle; gets back the public id (for the link) and a private host key
 create or replace function public.create_circle(p_kind text, p_title text)
-returns json language plpgsql security definer set search_path = public as $$
+returns json language plpgsql security definer set search_path = public, extensions as $$
 declare v_id text; v_key text;
 begin
   v_id  := translate(encode(gen_random_bytes(8), 'base64'), '+/=', 'xyz');
@@ -44,14 +44,14 @@ end $$;
 
 -- what the writer's phone needs to show the page (never the answers)
 create or replace function public.circle_info(p_id text)
-returns json language sql security definer set search_path = public as $$
+returns json language sql security definer set search_path = public, extensions as $$
   select json_build_object('kind', c.kind, 'title', c.title,
            'count', (select count(*) from secrets s where s.circle_id = c.id))
   from circles c where c.id = p_id and c.expires_at > now();
 $$;
 
 create or replace function public.add_secret(p_id text, p_by text, p_team int, p_q text, p_a text, p_hint text, p_story text)
-returns uuid language plpgsql security definer set search_path = public as $$
+returns uuid language plpgsql security definer set search_path = public, extensions as $$
 declare v uuid;
 begin
   if not exists (select 1 from circles where id = p_id and expires_at > now()) then
@@ -68,13 +68,13 @@ end $$;
 
 -- host device only (needs the private key)
 create or replace function public.get_secrets(p_id text, p_key text)
-returns setof public.secrets language sql security definer set search_path = public as $$
+returns setof public.secrets language sql security definer set search_path = public, extensions as $$
   select s.* from secrets s join circles c on c.id = s.circle_id
   where c.id = p_id and c.host_key = p_key order by s.created_at;
 $$;
 
 create or replace function public.delete_secret(p_id text, p_key text, p_secret uuid)
-returns void language sql security definer set search_path = public as $$
+returns void language sql security definer set search_path = public, extensions as $$
   delete from secrets s using circles c
   where s.id = p_secret and s.circle_id = c.id and c.id = p_id and c.host_key = p_key;
 $$;
