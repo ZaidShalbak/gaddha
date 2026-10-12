@@ -245,6 +245,9 @@ html,body{overflow-x:hidden}
 .otp input{width:min(14vw,58px);height:64px;text-align:center;font:inherit;font-size:1.7em;font-weight:900;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
 .otp input:focus{outline:none;border:2.5px solid var(--g2)}
 .aerr{color:#c92a3a;font-weight:800;font-size:.85em}
+.anote{color:var(--g1);background:var(--gt);border-radius:12px;padding:10px 12px;font-weight:700;font-size:.85em;line-height:1.7}
+.pwrow{display:flex;gap:6px}.pwrow input{flex:1;min-width:0}
+.pwshow{font:inherit;width:48px;border:1.5px solid var(--line);border-radius:14px;background:#fff;cursor:pointer}
 .acols{display:flex;gap:12px;flex-wrap:wrap}
 .acols button{width:44px;height:44px;border-radius:50%;border:0;cursor:pointer}
 .acols button[aria-pressed="true"]{box-shadow:0 0 0 3px #fff,0 0 0 6px currentColor;color:var(--ink)}
@@ -1455,10 +1458,21 @@ function paintAuth(){
   if(a.step==='entry')h=`<div class="aside"><b>شو بيصير لما تسجّلوا؟</b>${[['🏆','سجل السهرات','مين فاز، الألقاب، وبطل الشهر.'],['🎁','الباقات اللي بتفتحوها','بتضل إلكم على كل أجهزتكم.'],['🤫','أسرار «قدّنا؟»','بتوصل لأي جهاز بتلعبوا عليه.']].map(([i,t,d])=>`<div class="ben"><span>${i}</span><span><b>${t}</b><small>${d}</small></span></div>`).join('')}</div>
     <div class="amain"><h2>حسابكم بقدّها</h2><p class="mut">ما بدكم حساب لتلعبوا. الحساب بيحفظلكم أشيائكم على كل أجهزتكم.</p>
       ${GADDHA_SB.google()?`<button type="button" class="btn big goog" data-act="auth-google">${GOOG} كمّلوا مع Google</button>`:''}
-      <button type="button" class="btn solid big" data-act="auth-go" data-s="email">كمّلوا بالإيميل</button>
+      <button type="button" class="btn solid big" data-act="auth-go" data-s="login">كمّلوا بالإيميل</button>
       <button type="button" class="linkbtn" data-act="auth-close">مش هلّأ، بدنا نلعب</button></div>`;
-  else if(a.step==='email')h=`<div class="amain one"><div class="ahead"><button type="button" class="linkbtn" data-act="auth-go" data-s="entry">→ رجوع</button><button type="button" class="ax" data-act="auth-close" aria-label="سكّر">✕</button></div>
-      <h2>شو إيميلكم؟</h2><p class="mut">رح نبعتلكم كود من 6 أرقام. بلا كلمة سر.</p>
+  else if(a.step==='login'||a.step==='signup')h=`<div class="amain one"><div class="ahead"><button type="button" class="linkbtn" data-act="auth-go" data-s="entry">→ رجوع</button><button type="button" class="ax" data-act="auth-close" aria-label="سكّر">✕</button></div>
+      <h2>${a.step==='login'?'ادخلوا لحسابكم':'اعملوا حساب جديد'}</h2>
+      <label class="af">الإيميل<input id="aemail" type="email" inputmode="email" autocomplete="email" dir="ltr" value="${esc(a.email)}" placeholder="name@example.com"></label>
+      <label class="af">الكلمة السرّية${a.step==='signup'?' (8 حروف أو أكتر)':''}<span class="pwrow"><input id="apw" type="password" autocomplete="${a.step==='login'?'current-password':'new-password'}" dir="ltr"><button type="button" class="pwshow" data-act="auth-pwshow" aria-label="أظهر الكلمة السرّية">👁</button></span></label>${err}${a.note?`<p class="anote">${esc(a.note)}</p>`:''}
+      <button type="button" class="btn solid big" data-act="${a.step==='login'?'auth-login':'auth-signup'}" ${a.busy?'disabled':''}>${a.busy?'لحظة…':a.step==='login'?'ادخلوا':'اعملوا الحساب'}</button>
+      ${a.step==='login'?`<button type="button" class="linkbtn" data-act="auth-go" data-s="signup">ما عندكم حساب؟ اعملوا واحد</button><button type="button" class="linkbtn" data-act="auth-go" data-s="email">نسيتوا الكلمة السرّية؟ ادخلوا بكود على الإيميل</button>`
+        :`<button type="button" class="linkbtn" data-act="auth-go" data-s="login">عندكم حساب؟ ادخلوا</button>`}</div>`;
+  else if(a.step==='setpw')h=`<div class="amain one"><div class="ahead"><span></span><button type="button" class="ax" data-act="auth-close" aria-label="سكّر">✕</button></div>
+      <h2>كلمة سرّية جديدة</h2><p class="mut">8 حروف أو أكتر. بعدها بتقدروا تدخلوا فيها بدل الكود.</p>
+      <label class="af">الكلمة السرّية<span class="pwrow"><input id="apw" type="password" autocomplete="new-password" dir="ltr"><button type="button" class="pwshow" data-act="auth-pwshow" aria-label="أظهر الكلمة السرّية">👁</button></span></label>${err}
+      <button type="button" class="btn solid big" data-act="auth-setpw" ${a.busy?'disabled':''}>${a.busy?'لحظة…':'احفظوها'}</button></div>`;
+  else if(a.step==='email')h=`<div class="amain one"><div class="ahead"><button type="button" class="linkbtn" data-act="auth-go" data-s="login">→ رجوع</button><button type="button" class="ax" data-act="auth-close" aria-label="سكّر">✕</button></div>
+      <h2>الدخول بكود</h2><p class="mut">رح نبعتلكم كود (أو رابط) على الإيميل، بلا كلمة سرّية.</p>
       <label class="af">الإيميل<input id="aemail" type="email" inputmode="email" autocomplete="email" dir="ltr" value="${esc(a.email)}" placeholder="name@example.com"></label>${err}
       <button type="button" class="btn solid big" data-act="auth-send" ${a.busy?'disabled':''}>${a.busy?'عم نبعت…':'ابعتولي الكود'}</button>
       <p class="mut small">ما رح نبعتلكم إعلانات.</p></div>`;
@@ -1474,7 +1488,7 @@ function paintAuth(){
       <div class="af">لونك<div class="acols">${ACOLS.map(c=>`<button type="button" data-act="auth-color" data-c="${c}" style="background:${c}" aria-pressed="${c===col}" aria-label="لون"></button>`).join('')}</div></div>${err}
       <button type="button" class="btn solid big" data-act="auth-save" ${a.busy?'disabled':''}>يلا نلعب</button></div>`;}
   el.innerHTML=`<div class="acard${a.step==='entry'?' two':''}" role="dialog" aria-modal="true">${h}</div>`;
-  const f=el.querySelector('#aemail,#aname,[data-otp="0"]');if(f)setTimeout(()=>f.focus(),30);
+  const f=(a.step==='login'||a.step==='signup')&&a.email?el.querySelector('#apw'):el.querySelector('#aemail,#aname,#apw,[data-otp="0"]');if(f)setTimeout(()=>f.focus(),30);
   if(a.step==='code'){
     const ins=[...el.querySelectorAll('[data-otp]')];
     ins.forEach((inp,i)=>{
@@ -1489,6 +1503,10 @@ const authErr=e=>{const m=String(e&&(e.message||e.msg)||'');
   const sec=m.match(/after (\d+) seconds?/i);if(sec)return `بعتنا إيميل قبل شوي. جرّبوا كمان مرة بعد ${sec[1]} ثانية، وشيّكوا على الإيميل اللي وصل.`;
   if(/email rate limit|rate limit exceeded/i.test(m))return 'وصلنا للحد الأقصى من الإيميلات لهالساعة. شيّكوا إذا وصلكم إيميل قبل، أو جرّبوا بعد شوي.';
   if(/rate|too many/i.test(m))return 'محاولات كتير ورا بعض. استنّوا شوي وجرّبوا كمان مرة.';
+  if(/invalid login credentials/i.test(m))return 'الإيميل أو الكلمة السرّية مش صح.';
+  if(/already registered|already exists/i.test(m))return 'في حساب بهالإيميل. ادخلوا بدل ما تعملوا حساب جديد.';
+  if(/password/i.test(m)&&/(least|short|weak|characters)/i.test(m))return 'الكلمة السرّية لازم تكون 8 حروف أو أكتر.';
+  if(/not confirmed/i.test(m))return 'لازم تأكدوا الإيميل أول: افتحوا الرابط اللي بعتناه.';
   if(/expired|invalid|token/i.test(m))return 'الكود مش صح أو انتهى. جرّبوا كمان مرة أو اطلبوا كود جديد.';
   if(/email/i.test(m)&&/valid|format/i.test(m))return 'الإيميل مش مزبوط.';
   return 'صار خطأ'+(m?': '+m.slice(0,80):'. تأكدوا من الإنترنت.')};
@@ -1511,7 +1529,7 @@ function paintAccount(){
   el.innerHTML=`<div class="accwrap">
     <div class="card accme"><i class="av" style="background:${meColor()}">${esc(initial(meName()||'؟'))}</i><b class="nm">${esc(meName()||'بدون اسم')}</b><small class="mut">${p.circle?esc(p.circle)+'<br>':''}<span dir="ltr">${esc(ME.user.email||'')}</span></small>
       <div class="accstats"><div><b>${N.length}</b><small>سهرة</small></div><div><b>${best?best[1]:0}</b><small>${best?'فوز لـ«'+esc(best[0])+'»':'فوز'}</small></div><div><b>${FAM.length}</b><small>سر «قدّنا؟»</small></div><div><b>1</b><small>باقة</small></div></div>
-      <div class="accbtns"><button type="button" class="btn" data-act="acct-edit">تعديل الاسم واللون</button><button type="button" class="btn" data-act="acct-out">تسجيل الخروج</button><button type="button" class="linkbtn danger" data-act="acct-del">حذف الحساب</button></div></div>
+      <div class="accbtns"><button type="button" class="btn" data-act="acct-edit">تعديل الاسم واللون</button><button type="button" class="btn" data-act="acct-pw">تغيير الكلمة السرّية</button><button type="button" class="btn" data-act="acct-out">تسجيل الخروج</button><button type="button" class="linkbtn danger" data-act="acct-del">حذف الحساب</button></div></div>
     <div class="card accpacks"><div class="acch"><b>باقاتي</b></div>
       <div class="prow"><span class="pc" style="background:#e6f2ea"></span><span><b>الأساسية</b><small class="mut">${GROUPS.flatMap(g=>g.ids).filter(catById).length} فئة</small></span><span class="pill on">مفتوحة</span></div>
       <div class="prow"><span class="pc" style="background:#fff3d1"></span><span><b>باقة رمضان والعيد</b><small class="mut">قريبًا</small></span><span class="pill">قريبًا</span></div>
@@ -1959,6 +1977,22 @@ const ACT={
     AUTH.busy=true;AUTH.err='';
     sbc().then(c=>c.auth.verifyOtp({email:AUTH.email,token:code,type:'email'})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;const u=r.data&&r.data.user;closeAuth();
       if(u)authLoad(u).then(()=>{if(meName())toast(`أهلين يا ${meName()}!`)});SFX.stamp()}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
+  'auth-pwshow'(){const i=$('apw');if(i)i.type=i.type==='password'?'text':'password'},
+  'auth-login'(){const em=($('aemail').value||'').trim(),pw=$('apw').value||'';AUTH.email=em;AUTH.note='';
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){AUTH.err='الإيميل مش مزبوط.';paintAuth();return}if(!pw){AUTH.err='اكتبوا الكلمة السرّية.';paintAuth();return}
+    if(AUTH.busy)return;AUTH.busy=true;AUTH.err='';paintAuth();
+    sbc().then(c=>c.auth.signInWithPassword({email:em,password:pw})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;closeAuth();const u=r.data&&r.data.user;
+      if(u)authLoad(u).then(()=>{if(meName())toast(`أهلين يا ${meName()}!`)});SFX.stamp()}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
+  'auth-signup'(){const em=($('aemail').value||'').trim(),pw=$('apw').value||'';AUTH.email=em;AUTH.note='';
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){AUTH.err='الإيميل مش مزبوط.';paintAuth();return}if(pw.length<8){AUTH.err='الكلمة السرّية لازم تكون 8 حروف أو أكتر.';paintAuth();return}
+    if(AUTH.busy)return;AUTH.busy=true;AUTH.err='';paintAuth();
+    sbc().then(c=>c.auth.signUp({email:em,password:pw,options:{emailRedirectTo:location.origin+'/'}})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;
+      const sess=r.data&&r.data.session,u=r.data&&r.data.user;
+      if(sess&&u){closeAuth();authLoad(u);SFX.stamp()}
+      else{AUTH.step='login';AUTH.note='بعتنالكم إيميل تأكيد. افتحوا الرابط اللي فيه على هالجهاز، أو ادخلوا هون بعد ما تأكدوا.';paintAuth()}}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
+  'auth-setpw'(){const pw=$('apw').value||'';if(pw.length<8){AUTH.err='الكلمة السرّية لازم تكون 8 حروف أو أكتر.';paintAuth();return}if(AUTH.busy)return;AUTH.busy=true;
+    sbc().then(c=>c.auth.updateUser({password:pw})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;closeAuth();toast('انحفظت الكلمة السرّية')}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
+  'acct-pw'(){AUTH.step='setpw';AUTH.err='';openAuth(true)},
   'auth-color'(b){const n=$('aname'),ci=$('acircle');AUTH.color=b.dataset.c;const keep=[n&&n.value,ci&&ci.value];paintAuth();if(n)$('aname').value=keep[0];if(ci)$('acircle').value=keep[1]},
   'auth-save'(){const name=($('aname').value||'').trim(),circle=($('acircle').value||'').trim(),color=AUTH.color||(ME.profile&&ME.profile.color)||ACOLS[0];
     if(!name){AUTH.err='اكتبوا اسمكم';paintAuth();return}if(AUTH.busy)return;AUTH.busy=true;
