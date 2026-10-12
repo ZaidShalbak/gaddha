@@ -140,7 +140,7 @@
   },
   {
    "id": "final-013",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-screen",
    "category": "مسلسلات وأفلام عربية",
    "q": "ما اسم هذا المسلسل؟",
@@ -157,7 +157,7 @@
   },
   {
    "id": "final-014",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-screen",
    "category": "مسلسلات وأفلام عربية",
    "q": "ما اسم هذا المسلسل؟",
@@ -174,7 +174,7 @@
   },
   {
    "id": "final-015",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-screen",
    "category": "مسلسلات وأفلام عربية",
    "q": "ما اسم هذا المسلسل الكوميدي السوري؟",
@@ -191,7 +191,7 @@
   },
   {
    "id": "final-016",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-screen",
    "category": "مسلسلات وأفلام عربية",
    "q": "ما اسم الشخصية التي يحمل المسلسل اسمها؟",
@@ -208,7 +208,7 @@
   },
   {
    "id": "final-017",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-screen",
    "category": "مسلسلات وأفلام عربية",
    "q": "ما اسم هذا الفيلم؟",
@@ -225,7 +225,7 @@
   },
   {
    "id": "final-018",
-   "status": "draft",
+   "status": "published",
    "cat": "world-screen",
    "category": "مسلسلات وأفلام أجنبية",
    "q": "ما اسم هذا الفيلم؟",
@@ -242,7 +242,7 @@
   },
   {
    "id": "final-019",
-   "status": "draft",
+   "status": "published",
    "cat": "world-screen",
    "category": "مسلسلات وأفلام أجنبية",
    "q": "ما اسم هذا المسلسل؟",
@@ -259,7 +259,7 @@
   },
   {
    "id": "final-020",
-   "status": "draft",
+   "status": "published",
    "cat": "world-screen",
    "category": "مسلسلات وأفلام أجنبية",
    "q": "ما اسم المقهى الذي يجتمع فيه الأصدقاء في مسلسل «Friends»؟",
@@ -276,7 +276,7 @@
   },
   {
    "id": "final-021",
-   "status": "draft",
+   "status": "published",
    "cat": "world-screen",
    "category": "مسلسلات وأفلام أجنبية",
    "q": "ما اسم المدرسة التي درس فيها هاري بوتر؟",
@@ -293,7 +293,7 @@
   },
   {
    "id": "final-022",
-   "status": "draft",
+   "status": "published",
    "cat": "world-screen",
    "category": "مسلسلات وأفلام أجنبية",
    "q": "ما اسم هذا المسلسل؟",
@@ -310,7 +310,7 @@
   },
   {
    "id": "final-023",
-   "status": "draft",
+   "status": "published",
    "cat": "bab-alhara",
    "category": "باب الحارة",
    "q": "ما اسم الممثل الذي أدى دور «معتز» في باب الحارة؟",
@@ -327,7 +327,7 @@
   },
   {
    "id": "final-024",
-   "status": "draft",
+   "status": "published",
    "cat": "bab-alhara",
    "category": "باب الحارة",
    "q": "ما كنية زعيم الحارة في الجزء الأول من باب الحارة؟",
@@ -344,7 +344,7 @@
   },
   {
    "id": "final-025",
-   "status": "draft",
+   "status": "published",
    "cat": "bab-alhara",
    "category": "باب الحارة",
    "q": "ما اسم الممثلة التي أدت دور «أم عصام» في باب الحارة؟",
@@ -361,7 +361,7 @@
   },
   {
    "id": "final-026",
-   "status": "draft",
+   "status": "published",
    "cat": "bab-alhara",
    "category": "باب الحارة",
    "q": "ما اسم الممثل الذي أدى دور «أبو بدر» في باب الحارة؟",
@@ -378,7 +378,7 @@
   },
   {
    "id": "final-027",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-songs",
    "category": "أغاني عربية",
    "q": "ما اسم هذا النشيد؟",
@@ -395,7 +395,7 @@
   },
   {
    "id": "final-028",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-songs",
    "category": "أغاني عربية",
    "q": "ما اسم هذه الأغنية؟",
@@ -412,7 +412,7 @@
   },
   {
    "id": "final-029",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-songs",
    "category": "أغاني عربية",
    "q": "ما اسم هذه الأغنية؟",
@@ -429,7 +429,7 @@
   },
   {
    "id": "final-030",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-songs",
    "category": "أغاني عربية",
    "q": "من الفنان الذي غنّى قصيدة محمود درويش «أحنّ إلى خبز أمي»؟",
@@ -446,7 +446,7 @@
   },
   {
    "id": "final-031",
-   "status": "draft",
+   "status": "published",
    "cat": "arab-songs",
    "category": "أغاني عربية",
    "q": "ما اسم هذه الأغنية؟",
@@ -463,7 +463,7 @@
   },
   {
    "id": "final-032",
-   "status": "draft",
+   "status": "published",
    "cat": "capitals",
    "category": "عواصم ودول",
    "q": "ما هذه الدولة؟",
@@ -479,7 +479,7 @@
   },
   {
    "id": "final-033",
-   "status": "draft",
+   "status": "published",
    "cat": "capitals",
    "category": "عواصم ودول",
    "q": "ما هذه الدولة؟",
@@ -496,7 +496,7 @@
   },
   {
    "id": "final-034",
-   "status": "draft",
+   "status": "published",
    "cat": "capitals",
    "category": "عواصم ودول",
    "q": "ما هذه العاصمة؟",
@@ -512,7 +512,7 @@
   },
   {
    "id": "final-035",
-   "status": "draft",
+   "status": "published",
    "cat": "capitals",
    "category": "عواصم ودول",
    "q": "ما هذه العاصمة؟",
@@ -528,7 +528,7 @@
   },
   {
    "id": "final-036",
-   "status": "draft",
+   "status": "published",
    "cat": "capitals",
    "category": "عواصم ودول",
    "q": "ما هذه الدولة؟",
@@ -544,7 +544,7 @@
   },
   {
    "id": "final-037",
-   "status": "draft",
+   "status": "published",
    "cat": "football",
    "category": "كرة القدم",
    "q": "من هذا اللاعب؟",
@@ -560,7 +560,7 @@
   },
   {
    "id": "final-038",
-   "status": "draft",
+   "status": "published",
    "cat": "football",
    "category": "كرة القدم",
    "q": "ما هذا المنتخب؟",
@@ -577,7 +577,7 @@
   },
   {
    "id": "final-039",
-   "status": "draft",
+   "status": "published",
    "cat": "football",
    "category": "كرة القدم",
    "q": "ما هذا المنتخب؟",
@@ -594,7 +594,7 @@
   },
   {
    "id": "final-040",
-   "status": "draft",
+   "status": "published",
    "cat": "football",
    "category": "كرة القدم",
    "q": "ما هذا المنتخب؟",
@@ -610,7 +610,7 @@
   },
   {
    "id": "final-041",
-   "status": "draft",
+   "status": "published",
    "cat": "football",
    "category": "كرة القدم",
    "q": "من هذا اللاعب؟",
@@ -626,7 +626,7 @@
   },
   {
    "id": "final-042",
-   "status": "draft",
+   "status": "published",
    "cat": "sports",
    "category": "رياضات",
    "q": "من هذه الرياضية؟",
@@ -642,7 +642,7 @@
   },
   {
    "id": "final-043",
-   "status": "draft",
+   "status": "published",
    "cat": "sports",
    "category": "رياضات",
    "q": "من هذا الرياضي؟",
@@ -658,7 +658,7 @@
   },
   {
    "id": "final-044",
-   "status": "draft",
+   "status": "published",
    "cat": "sports",
    "category": "رياضات",
    "q": "ما هذه الرياضة؟",
@@ -674,7 +674,7 @@
   },
   {
    "id": "final-045",
-   "status": "draft",
+   "status": "published",
    "cat": "sports",
    "category": "رياضات",
    "q": "من هذا الرياضي؟",
@@ -690,7 +690,7 @@
   },
   {
    "id": "final-046",
-   "status": "draft",
+   "status": "published",
    "cat": "sports",
    "category": "رياضات",
    "q": "ما هذه الرياضة؟",
@@ -706,7 +706,7 @@
   },
   {
    "id": "final-047",
-   "status": "draft",
+   "status": "published",
    "cat": "riddles",
    "category": "ألغاز",
    "q": "من أنا؟",
@@ -720,7 +720,7 @@
   },
   {
    "id": "final-048",
-   "status": "draft",
+   "status": "published",
    "cat": "riddles",
    "category": "ألغاز",
    "q": "ما أنا؟",
@@ -734,7 +734,7 @@
   },
   {
    "id": "final-049",
-   "status": "draft",
+   "status": "published",
    "cat": "riddles",
    "category": "ألغاز",
    "q": "ما أنا؟",
@@ -748,7 +748,7 @@
   },
   {
    "id": "final-050",
-   "status": "draft",
+   "status": "published",
    "cat": "riddles",
    "category": "ألغاز",
    "q": "ما أنا؟",
@@ -762,7 +762,7 @@
   },
   {
    "id": "final-051",
-   "status": "draft",
+   "status": "published",
    "cat": "riddles",
    "category": "ألغاز",
    "q": "ما أنا؟",
