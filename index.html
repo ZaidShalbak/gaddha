@@ -251,6 +251,18 @@ html,body{overflow-x:hidden}
 .hg-cats span{display:inline-flex;align-items:center;gap:6px;background:var(--cbg);border-radius:99px;padding:3px 12px 3px 4px;font-size:.8em;font-weight:800}
 .hg-cats svg{width:26px;height:26px}
 .hm-two{display:flex;flex-direction:column;gap:14px}
+.hm-sub{color:var(--mut);font-size:.92em;line-height:1.8;margin:-6px 0 16px;max-width:52em}
+.hm-sub b{color:var(--ink)}
+.hk{display:grid;gap:12px}
+.hk-col{display:flex;flex-direction:column;gap:8px}
+.hk-col h3{display:flex;align-items:baseline;gap:10px;font-weight:900;font-size:1em;padding:0 4px}
+.hk-col h3 span{background:var(--kc);color:#fff;padding:2px 12px;border-radius:99px;font-size:.85em}
+.hk-col h3 small{color:var(--mut);font-weight:700;font-size:.8em}
+.hmhc{background:#fff;border-radius:18px;box-shadow:var(--sh);padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.hmhc .hic{width:44px;height:44px;border-radius:14px;background:var(--kt);color:var(--kc);display:grid;place-items:center;flex:none}
+.hmhc .hic svg{width:24px;height:24px}
+.hmhc b{font-weight:900}
+.hmhc p{color:var(--mut);font-size:.85em;line-height:1.7}
 .helpers-strip{background:#fff;border-radius:22px;box-shadow:var(--sh);padding:18px 22px;display:flex;flex-direction:column;gap:12px}
 .helpers-strip h2{font-weight:900;font-size:1.15em}
 .helpers-strip .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
@@ -283,6 +295,7 @@ html,body{overflow-x:hidden}
   .ft-fire{grid-column:span 3;flex-direction:row;align-items:center}
   .ft>div{min-width:0}
   .hm-groups{grid-template-columns:repeat(3,1fr)}
+  .hk{grid-template-columns:repeat(3,1fr);align-items:start}
   .hm-two{display:grid;grid-template-columns:1fr 1fr;align-items:start}
 }
 
@@ -725,8 +738,12 @@ details.more[open] summary{margin-bottom:10px}
       <div class="hm-groups" id="hmgroups"></div>
     </section>
 
+    <section class="hm-sec" id="helpers">
+      <h2 class="hm-h">المساعدات</h2>
+      <p class="hm-sub">قبل اللعب كل فريق بيختار <b>3 من 7</b>، وكل وحدة بتنلعب مرة بالسهرة. الفريقين بيقدروا ياخدوا نفس المساعدة، بس ممنوع فريق ياخد تخريبين.</p>
+      <div class="hk" id="helperlist"></div>
+    </section>
     <div class="hm-two">
-      <section class="helpers-strip" id="helpers"><h2>سبع مساعدات، وكل فريق بياخد 3</h2><div class="list" id="helperlist"></div></section>
       <section class="rules" id="rules">
         <h2>كيف بتنحسب النقاط</h2>
         <ol>
@@ -735,6 +752,14 @@ details.more[open] summary{margin-bottom:10px}
           <li>3 أجوبة صح ورا بعض؟ صرتوا <b>«على النار»</b>: كل جواب صح بعدها إله نقطة زيادة.</li>
           <li>بالتحديات (مثّلها، دندنها، بلا ما تقول) واحد بيمسح كود بجواله وبيشوف السر لحاله.</li>
           <li>بالظرف الأخير كل فريق بيراهن على نقاطه: صح بتنضرب بالمضاعف، غلط بتروح.</li>
+        </ol>
+      </section>
+      <section class="rules">
+        <h2>مين بيستعمل المساعدة ومتى؟</h2>
+        <ol>
+          <li>بس الفريق اللي عليه الدور، من أزرار المساعدات تحت اسمه.</li>
+          <li>«قدّها وقدود» و«سكّر عليهم» من اللوح قبل ما تختاروا الفئة. الباقي وإنتو بالسؤال قبل كشف الجواب.</li>
+          <li>المساعدة اللي انلعبت بيطلع عليها ×، وما بترجع لآخر السهرة.</li>
         </ol>
       </section>
     </div>
@@ -1056,13 +1081,16 @@ function buildFan(){
   $('hmgroups').innerHTML=GROUPS.map(g=>`<div class="hg" style="--gc:${g.c}"><div class="hg-h"><b><i></i>${esc(g.name)}</b><button type="button" data-act="to-setup" data-only="${g.id}">العبوا هاي ←</button></div>
     <div class="hg-cats">${g.ids.filter(catById).map(id=>`<span style="--cbg:${cbg(id)}">${catArt(id)}${esc(catById(id).name)}</span>`).join('')}</div></div>`).join('');
   $('ftfam').innerHTML=GA.svg('family');$('ftlang').innerHTML=GA.svg('scroll');
-  $('helperlist').innerHTML=HIDS.map(id=>`<div class="h k-${HELPERS[id].kind}"><span class="hic">${helpIcon(id)}</span><span>${esc(HELPERS[id].name)}<small>${KIND[HELPERS[id].kind]}</small></span></div>`).join('');
+  const KDESC={help:'بتساعدكم تجاوبوا',sab:'بتصعّبها على الفريق التاني',bold:'بتلعبوا فيها على النقاط'};
+  $('helperlist').innerHTML=['help','sab','bold'].map(k=>`<div class="hk-col k-${k}"><h3><span>${KIND[k]}</span><small>${KDESC[k]}</small></h3>
+    ${HIDS.filter(id=>HELPERS[id].kind===k).map(id=>`<div class="hmhc"><span class="hic">${helpIcon(id)}</span><div><b>${esc(HELPERS[id].name)}</b><p>${esc(HELPERS[id].desc)}</p></div></div>`).join('')}</div>`).join('');
   paintDemo();
 }
-/* ---------- home demo card ---------- */
+/* ---------- home demo card ----------
+   Demo-only questions, kept out of questions/*.json on purpose so they never repeat in a real game. */
 const DEMO=[
-  {cat:'ألغاز',art:'riddles',q:'شو الشي اللي كل ما أخدت منه بيكبر؟',a:'الحفرة',h:['مش إشي بتشتريه.','بتعملها بالمجرفة.']},
-  {cat:'كمّل المثل',art:'scroll',q:'كمّل المثل: «على قدّ لحافك…»',a:'مدّ إجريك',h:['يعني عيش حسب إمكانياتك.','الجواب عن جزء من الجسم.']},
+  {cat:'ألغاز',art:'riddles',q:'شو الشي اللي بيكتب طول عمره وما بيعرف يقرأ؟',a:'القلم',h:['بتلاقيه بشنطة المدرسة.','آخرته بيخلص حبره.']},
+  {cat:'كمّل المثل',art:'scroll',q:'كمّل المثل: «اللي ما بيقدر على الحمار…»',a:'بيتشطّر على البردعة',h:['يعني اللي بيعجز عن القوي بيفشّ خلقه بالضعيف.','البردعة هي اللي بتنحط على ظهر الحمار.']},
   {cat:'ألغاز',art:'riddles',q:'شو الشي اللي إله أسنان وما بيعضّ؟',a:'المشط',h:['بتلاقيه بالحمّام.','بتستعمله لشعرك.']}
 ];
 let dm={i:0,h:0,rev:false,res:null};
