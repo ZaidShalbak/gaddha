@@ -140,7 +140,7 @@ let token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),tab='q',cur=
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
 const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
 async function gh(path,opt={}){
-  const r=await fetch(API+path,Object.assign({},opt,{headers:Object.assign({'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},opt.body?{'Content-Type':'application/json'}:{})}));
+  const r=await fetch(API+path,Object.assign({cache:'no-store'},opt,{headers:Object.assign({'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},opt.body?{'Content-Type':'application/json'}:{})}));
   if(!r.ok){const e=new Error((await r.text()).slice(0,200));e.status=r.status;throw e}
   return r.status===204?null:r.json();
 }
@@ -184,20 +184,32 @@ async function load(){
   if(!cur||!catMeta(cur))cur=idx().categories[0]&&idx().categories[0].id;
   paint();
 }
+let lastSha=null;
+async function commitOnce(){
+  const ref=await gh(`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}?t=${Date.now()}`);
+  const head=ref.object.sha;
+  const base=await gh(`/repos/${OWNER}/${REPO}/git/commits/${head}`);
+  const tree=await gh(`/repos/${OWNER}/${REPO}/git/trees`,{method:'POST',body:JSON.stringify({base_tree:base.tree.sha,tree:[...dirty].map(p=>({path:p,mode:'100644',type:'blob',content:JSON.stringify(files[p],null,1)+'\n'}))})});
+  const n=dirty.size;
+  const commit=await gh(`/repos/${OWNER}/${REPO}/git/commits`,{method:'POST',body:JSON.stringify({message:`لوحة التحكم: تعديل ${n} ${n===1?'ملف':'ملفات'}\n\n${[...dirty].join('\n')}`,tree:tree.sha,parents:[head]})});
+  await gh(`/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`,{method:'PATCH',body:JSON.stringify({sha:commit.sha})});
+  lastSha=commit.sha;
+}
+let saving=false;
 async function save(){
-  if(!dirty.size)return;
+  if(saving||!dirty.size)return;saving=true;
   const btn=$('save');btn.disabled=true;btn.textContent='عم نحفظ…';
   try{
     syncOrder();
-    const ref=await gh(`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}`);
-    const base=await gh(`/repos/${OWNER}/${REPO}/git/commits/${ref.object.sha}`);
-    const tree=await gh(`/repos/${OWNER}/${REPO}/git/trees`,{method:'POST',body:JSON.stringify({base_tree:base.tree.sha,tree:[...dirty].map(p=>({path:p,mode:'100644',type:'blob',content:JSON.stringify(files[p],null,1)+'\n'}))})});
-    const n=dirty.size;
-    const commit=await gh(`/repos/${OWNER}/${REPO}/git/commits`,{method:'POST',body:JSON.stringify({message:`لوحة التحكم: تعديل ${n} ${n===1?'ملف':'ملفات'}\n\n${[...dirty].join('\n')}`,tree:tree.sha,parents:[ref.object.sha]})});
-    await gh(`/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`,{method:'PATCH',body:JSON.stringify({sha:commit.sha})});
+    let ok=false,err;
+    for(let i=0;i<4&&!ok;i++){
+      try{await commitOnce();ok=true}
+      catch(e){err=e;if(e.status!==422&&e.status!==409)break;await new Promise(r=>setTimeout(r,1200*(i+1)))}
+    }
+    if(!ok)throw err;
     dirty.clear();paintDirty();toast('انحفظ! بيطلع باللعبة خلال دقيقة تقريبًا.');
-  }catch(e){toast('ما انحفظ: '+(e.status===409?'في تعديل جديد، حدّث الصفحة وجرّب ثاني':e.message.slice(0,90)))}
-  btn.textContent='احفظ وانشر';paintDirty();
+  }catch(e){toast('ما انحفظ: '+(e.status===401||e.status===403?'المفتاح ما إله صلاحية كتابة':e.message.slice(0,90)))}
+  saving=false;btn.textContent='احفظ وانشر';paintDirty();
 }
 function syncOrder(){
   const I=idx(),order=I.groups.flatMap(g=>g.categories);
