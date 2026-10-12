@@ -65,6 +65,306 @@
    ],
    "w": "عائلة لانيستر",
    "sources": []
+  },
+  {
+   "id": "world-screen-006",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما نوع السمكة التي تنتمي إليها «دوري» في فيلم البحث عن نيمو (Finding Nemo)؟",
+   "a": "سمكة الجرّاح الزرقاء",
+   "hints": [
+    "تعيش هذه السمكة بين الشعاب المرجانية في المحيطين الهندي والهادئ.",
+    "لونها أزرق ملكي وذيلها أصفر، ويحمل اسمها اسم مهنة طبية."
+   ],
+   "w": "سمكة المهرّج",
+   "sources": [
+    "https://www.hepper.com/what-kind-of-fish-is-dory-in-finding-nemo/"
+   ]
+  },
+  {
+   "id": "world-screen-007",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم والد أرطغرل في المسلسل التركي «قيامة أرطغرل» (Diriliş: Ertuğrul)؟",
+   "a": "سليمان شاه",
+   "hints": [
+    "كان زعيم قبيلة الكايي في بداية المسلسل.",
+    "يحمل اسمه نفس اسم أشهر سلاطين العثمانيين لاحقًا مع لقب فارسي."
+   ],
+   "w": "عثمان بك",
+   "sources": [
+    "https://en.wikipedia.org/wiki/S%C3%BCleyman_%C5%9Eah_(fictional_character)"
+   ]
+  },
+  {
+   "id": "world-screen-008",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "وجه أي رسام شهير تحمله الأقنعة التي يرتديها اللصوص في مسلسل «البروفيسور» أو «لا كاسا دي بابيل» (Money Heist)؟",
+   "a": "سلفادور دالي",
+   "hints": [
+    "رسام إسباني من رواد المدرسة السريالية.",
+    "اشتهر بشاربه الطويل المعقوف ولوحة الساعات الذائبة."
+   ],
+   "w": "بابلو بيكاسو",
+   "sources": [
+    "https://www.catalannews.com/culture/item/dali-masks-in-money-heist-contested-by-painter-s-foundation"
+   ]
+  },
+  {
+   "id": "world-screen-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما اللعبة الأولى التي يخوضها المتسابقون في المسلسل الكوري «لعبة الحبار» (Squid Game)؟",
+   "a": "الضوء الأحمر الضوء الأخضر",
+   "hints": [
+    "لعبة أطفال شهيرة يتوقف فيها اللاعبون فجأة عن الحركة.",
+    "تراقب المتسابقين فيها دمية عملاقة تدير رأسها."
+   ],
+   "w": "شد الحبل",
+   "sources": [
+    "https://netflix.com/tudum/articles/squid-game-the-challenge-red-light-green-light-making-of"
+   ]
+  },
+  {
+   "id": "world-screen-010",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم المقهى الذي يجتمع فيه الأصدقاء الستة في المسلسل الأمريكي «فريندز» (Friends)؟",
+   "a": "سنترال بيرك",
+   "hints": [
+    "يقع في حي مانهاتن بمدينة نيويورك.",
+    "يحمل اسمه تلاعبًا لفظيًا باسم أشهر حديقة في نيويورك."
+   ],
+   "w": "ستاربكس",
+   "sources": [
+    "https://www.looper.com/418411/friends-the-untold-truth-of-central-perk"
+   ]
+  },
+  {
+   "id": "world-screen-011",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما نوع السيارة التي تحولت إلى آلة زمن في فيلم «العودة إلى المستقبل» (Back to the Future)؟",
+   "a": "ديلوريان",
+   "hints": [
+    "سيارة رياضية من ثمانينيات القرن العشرين بهيكل من الفولاذ المقاوم للصدأ.",
+    "أبوابها تُفتح إلى الأعلى مثل جناحي النورس."
+   ],
+   "w": "فيراري",
+   "sources": [
+    "https://en.wikipedia.org/wiki/DeLorean_time_machine"
+   ]
+  },
+  {
+   "id": "world-screen-012",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في المسلسل الكوري «جوهرة القصر» (Dae Jang Geum)، بدأت البطلة طاهية في المطبخ الملكي، فماذا أصبحت لاحقًا؟",
+   "a": "طبيبة الملك",
+   "hints": [
+    "تعلّمت مهنتها الجديدة بعد نفيها إلى جزيرة جيجو.",
+    "أصبحت أول امرأة تتولى رعاية صحة الحاكم في مملكة جوسون."
+   ],
+   "w": "ملكة جوسون",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Jewel_in_the_Palace"
+   ]
+  },
+  {
+   "id": "world-screen-013",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما الأداة الصغيرة التي يستخدمها «كوب» في فيلم «استهلال» (Inception) ليعرف إن كان في حلم أم في الواقع؟",
+   "a": "خذروف (بلبل دوّار)",
+   "hints": [
+    "لعبة أطفال معدنية تظهر في المشهد الأخير من الفيلم.",
+    "إذا استمرت في الدوران دون توقف فهو في حلم."
+   ],
+   "w": "قطعة نرد",
+   "sources": [
+    "https://www.denofgeek.com/movies/inception-ending-christopher-nolan-explained"
+   ]
+  },
+  {
+   "id": "world-screen-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما المناسبة المكسيكية التي تدور حولها أحداث فيلم بيكسار «كوكو» (Coco)؟",
+   "a": "يوم الموتى",
+   "hints": [
+    "تُزيَّن فيها البيوت بالزهور البرتقالية والصور العائلية.",
+    "يُعتقد فيها أن أرواح الأجداد تزور عائلاتها."
+   ],
+   "w": "عيد الاستقلال",
+   "sources": [
+    "https://www.rollingstone.com/movies/reviews/peter-travers-pixars-day-of-the-dead-coco-is-as-lively-as-they-come-w512244"
+   ]
+  },
+  {
+   "id": "world-screen-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما نوع الحيوان الذي يمثله المعلّم «شيفو» في فيلم «كونغ فو باندا» (Kung Fu Panda)؟",
+   "a": "الباندا الحمراء",
+   "hints": [
+    "حيوان صغير يعيش في جبال الهيمالايا وجنوب الصين.",
+    "يحمل نفس اسم حيوان البطل «بو» لكن بلون مختلف."
+   ],
+   "w": "راكون",
+   "sources": [
+    "https://looper.com/1502237/what-animal-is..."
+   ]
+  },
+  {
+   "id": "world-screen-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "في أي بلد صُوِّرت ثلاثية «سيد الخواتم» (The Lord of the Rings) للمخرج بيتر جاكسون؟",
+   "a": "نيوزيلندا",
+   "hints": [
+    "بلد جزري يقع في نصف الكرة الجنوبي.",
+    "هو موطن المخرج نفسه، وعاصمته ويلينغتون."
+   ],
+   "w": "أيرلندا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings_(film_series)"
+   ]
+  },
+  {
+   "id": "world-screen-017",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما عنوان منزل المحقق شيرلوك هولمز في لندن؟",
+   "a": "221B شارع بيكر",
+   "hints": [
+    "يسكن فيه مع صديقه الطبيب واتسون.",
+    "صاحبة البيت هي السيدة هدسون، والرقم فيه حرف لاتيني."
+   ],
+   "w": "10 داونينغ ستريت",
+   "sources": [
+    "https://en.wikipedia.org/wiki/221B_Baker_Street"
+   ]
+  },
+  {
+   "id": "world-screen-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي سلطان عثماني تدور حوله أحداث المسلسل التركي «حريم السلطان» (Muhteşem Yüzyıl)؟",
+   "a": "سليمان القانوني",
+   "hints": [
+    "حكم الدولة العثمانية في القرن السادس عشر.",
+    "كانت زوجته الشهيرة في المسلسل هي «هيام» (خُرّم)."
+   ],
+   "w": "محمد الفاتح",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Muhte%C5%9Fem_Y%C3%BCzy%C4%B1l"
+   ]
+  },
+  {
+   "id": "world-screen-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم الشخصية الشهيرة التي جسّدها تشارلي تشابلن بالقبعة والعصا والشارب الصغير؟",
+   "a": "المتشرّد (The Tramp)",
+   "hints": [
+    "ظهرت لأول مرة في الأفلام الصامتة عام 1914.",
+    "رجل فقير بملابس رثة لكنه يتصرف كرجل نبيل."
+   ],
+   "w": "المهرّج",
+   "sources": [
+    "https://en.wikipedia.org/wiki/The_Tramp"
+   ]
+  },
+  {
+   "id": "world-screen-020",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "في أي مدينة تدور أحداث فيلم «راتاتوي» (Ratatouille) عن الفأر الذي يحلم أن يصبح طاهيًا؟",
+   "a": "باريس",
+   "hints": [
+    "مدينة أوروبية تشتهر بمطبخها الراقي.",
+    "يظهر برج إيفل في خلفية كثير من مشاهد الفيلم."
+   ],
+   "w": "روما",
+   "sources": [
+    "https://pixar.com/ratatouille"
+   ]
+  },
+  {
+   "id": "world-screen-021",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما اسم القمر الذي تعيش عليه شعوب «النافي» في فيلم «أفاتار» (Avatar)؟",
+   "a": "باندورا",
+   "hints": [
+    "عالم مليء بالغابات المضيئة والجبال الطافية.",
+    "يحمل اسم امرأة في الأساطير الإغريقية فتحت صندوقًا محرّمًا."
+   ],
+   "w": "أراكيس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fictional_universe_of_Avatar"
+   ]
+  },
+  {
+   "id": "world-screen-022",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من أي رصيف في محطة كينغز كروس ينطلق قطار مدرسة هوغوورتس في سلسلة «هاري بوتر»؟",
+   "a": "الرصيف 9 وثلاثة أرباع",
+   "hints": [
+    "لا يراه الناس العاديون ويقع بين رصيفين عاديين.",
+    "يجب أن تعبر الجدار ركضًا للوصول إليه."
+   ],
+   "w": "الرصيف 7 ونصف",
+   "sources": [
+    "https://www.harrypotter.com/fact-file/locations/platform-nine-and-three-quarters"
+   ]
+  },
+  {
+   "id": "world-screen-023",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "بماذا رفع العجوز «كارل» منزله وطار به في فيلم بيكسار «فوق» (Up)؟",
+   "a": "البالونات",
+   "hints": [
+    "كان يعمل قبل تقاعده في مهنة لها علاقة بها في حديقة الحيوان.",
+    "استخدم الآلاف منها بألوان مختلفة ومليئة بالغاز."
+   ],
+   "w": "مروحة طائرة",
+   "sources": [
+    "https://pixar.fandom.com/wiki/Carl%27s_House"
+   ]
+  },
+  {
+   "id": "world-screen-024",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما اسم عمّ «سيمبا» الشرير في فيلم «الأسد الملك» (The Lion King)؟",
+   "a": "سكار",
+   "hints": [
+    "هو الأخ الأصغر للملك موفاسا.",
+    "يحمل اسمه معنى أثر جرح يظهر على عينه."
+   ],
+   "w": "رفيقي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/The_Lion_King"
+   ]
+  },
+  {
+   "id": "world-screen-025",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من مخرج فيلم «تايتانيك» (Titanic) الصادر عام 1997؟",
+   "a": "جيمس كاميرون",
+   "hints": [
+    "مخرج كندي اشتهر بأفلام الخيال العلمي والمؤثرات الضخمة.",
+    "أخرج أيضًا فيلم «أفاتار» و«المدمّر» (The Terminator)."
+   ],
+   "w": "ستيفن سبيلبرغ",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
+   ]
   }
  ]
 }

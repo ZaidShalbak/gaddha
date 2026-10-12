@@ -13,6 +13,106 @@
    "category": "علوم",
    "q": "ما المعدن الذي يُستخرج من خام البوكسيت؟",
    "a": "الألومنيوم"
+  },
+  {
+   "id": "final-003",
+   "status": "draft",
+   "category": "جغرافيا",
+   "q": "ما أصغر دولة عربية من حيث المساحة؟",
+   "a": "البحرين",
+   "sources": [
+    "https://mawdoo3.com/أصغر_دولة_عربية_من_حيث_المساحة"
+   ]
+  },
+  {
+   "id": "final-004",
+   "status": "draft",
+   "category": "علوم",
+   "q": "ما العنصر الكيميائي الأكثر وفرة في القشرة الأرضية؟",
+   "a": "الأكسجين",
+   "sources": [
+    "https://www.worldatlas.com/environment/the-most-abundant-elements-in-the-earth-s-crust.html"
+   ]
+  },
+  {
+   "id": "final-005",
+   "status": "draft",
+   "category": "تاريخ",
+   "q": "في أي سنة ميلادية وقعت معركة حطين؟",
+   "a": "1187",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Battle_of_Hattin"
+   ]
+  },
+  {
+   "id": "final-006",
+   "status": "draft",
+   "category": "فلك",
+   "q": "ما الكوكب الذي يستغرق أطول مدة ليدور حول نفسه دورة كاملة في المجموعة الشمسية؟",
+   "a": "الزهرة",
+   "sources": [
+    "https://space.worldatlas.com/space/which-planet-has-the-longest-day.html"
+   ]
+  },
+  {
+   "id": "final-007",
+   "status": "draft",
+   "category": "جغرافيا",
+   "q": "ما أطول نهر في قارة آسيا؟",
+   "a": "اليانغتسي",
+   "sources": [
+    "https://www.livescience.com/57905-yangtze-river-facts.html"
+   ]
+  },
+  {
+   "id": "final-008",
+   "status": "draft",
+   "category": "جغرافيا",
+   "q": "ما أعمق بحيرة في العالم؟",
+   "a": "بحيرة بايكال",
+   "sources": [
+    "https://www.usgs.gov/media/images/lake-baikal-space-largest-oldest-and-deepest-lake"
+   ]
+  },
+  {
+   "id": "final-009",
+   "status": "draft",
+   "category": "علماء",
+   "q": "من أول امرأة فازت بجائزة نوبل؟",
+   "a": "ماري كوري",
+   "sources": [
+    "https://www.guinnessworldrecords.com/world-records/93501-first-woman-to-win-a-nobel-prize"
+   ]
+  },
+  {
+   "id": "final-010",
+   "status": "draft",
+   "category": "فلسطين",
+   "q": "ما الطائر الذي يُعدّ الطائر الوطني لفلسطين؟",
+   "a": "عصفور الشمس الفلسطيني",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Palestine_sunbird"
+   ]
+  },
+  {
+   "id": "final-011",
+   "status": "draft",
+   "category": "أدب عربي",
+   "q": "من صاحب المعلّقة التي مطلعها «قفا نبكِ من ذكرى حبيبٍ ومنزلِ»؟",
+   "a": "امرؤ القيس",
+   "sources": [
+    "https://adabworld.com/poems/qfa-nbk-mn-dhkra-ffyyx8"
+   ]
+  },
+  {
+   "id": "final-012",
+   "status": "draft",
+   "category": "جسم الإنسان",
+   "q": "كم عدد العظام في هيكل الإنسان البالغ؟",
+   "a": "206",
+   "sources": [
+    "https://en.wikipedia.org/wiki/List_of_bones_of_the_human_skeleton"
+   ]
   }
  ]
 }

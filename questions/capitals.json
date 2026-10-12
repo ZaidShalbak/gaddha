@@ -65,6 +65,310 @@
    ],
    "w": "البيرو",
    "sources": []
+  },
+  {
+   "id": "capitals-006",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما الدولة التي يُعدّ علمها الوطني الوحيد في العالم غير المستطيل الشكل؟",
+   "a": "نيبال",
+   "hints": [
+    "تقع هذه الدولة في قارة آسيا.",
+    "يتكون علمها من مثلثين متراكبين وفيها أعلى قمة في العالم."
+   ],
+   "w": "بوتان",
+   "sources": [
+    "https://www.britannica.com/print/article/1355408",
+    "https://crwflags.com/Fotw/flags/np.html"
+   ]
+  },
+  {
+   "id": "capitals-007",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما الدولة الأوروبية الحبيسة التي لا تحدّها إلا دول حبيسة مثلها؟",
+   "a": "ليختنشتاين",
+   "hints": [
+    "هي دولة صغيرة جدًا في وسط أوروبا.",
+    "تقع بين سويسرا والنمسا."
+   ],
+   "w": "سان مارينو",
+   "sources": [
+    "https://www.worldatlas.com/articles/doubly-landlocked-countries.html"
+   ]
+  },
+  {
+   "id": "capitals-008",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما اسم عملة جمهورية جنوب أفريقيا؟",
+   "a": "الراند",
+   "hints": [
+    "سُمّيت العملة على اسم منطقة غنية بمناجم الذهب.",
+    "يبدأ اسمها بحرف الراء ويتكون من أربعة أحرف."
+   ],
+   "w": "الشلن",
+   "sources": [
+    "https://en.wikipedia.org/wiki/South_African_rand"
+   ]
+  },
+  {
+   "id": "capitals-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما النهر الأوروبي الذي يمر بأربع عواصم منها فيينا وبودابست؟",
+   "a": "الدانوب",
+   "hints": [
+    "هو ثاني أطول نهر في أوروبا.",
+    "يمر أيضًا ببراتيسلافا وبلغراد ويصب في البحر الأسود."
+   ],
+   "w": "الراين",
+   "sources": [
+    "https://worldatlas.com/articles/which-river-passes-through-most-national-capital-cities.html"
+   ]
+  },
+  {
+   "id": "capitals-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما عاصمة أستراليا؟",
+   "a": "كانبرا",
+   "hints": [
+    "ليست أكبر مدن البلاد ولا أشهرها.",
+    "بُنيت عاصمةً كحلٍّ وسط بين سيدني وملبورن."
+   ],
+   "w": "سيدني",
+   "sources": [
+    "https://www.australiangeographic.com.au/blogs/ag-blog/2013/03/sydney-vs-melbourne-the-real-canberra-story"
+   ]
+  },
+  {
+   "id": "capitals-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما المدينة التي حلّت محل لاغوس عاصمةً لنيجيريا؟",
+   "a": "أبوجا",
+   "hints": [
+    "هي مدينة مخططة بُنيت في وسط البلاد.",
+    "أصبحت العاصمة رسميًا عام 1991."
+   ],
+   "w": "كانو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Abuja"
+   ]
+  },
+  {
+   "id": "capitals-012",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما الدولة التي تحيط بها جنوب أفريقيا من جميع الجهات؟",
+   "a": "ليسوتو",
+   "hints": [
+    "هي مملكة جبلية صغيرة في جنوب القارة.",
+    "تُلقب بمملكة السماء لارتفاع أراضيها."
+   ],
+   "w": "إسواتيني",
+   "sources": [
+    "https://www.guinnessworldrecords.com/world-records/96111-largest-enclaved-country",
+    "https://simple.wikipedia.com/wiki/Lesotho"
+   ]
+  },
+  {
+   "id": "capitals-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما الدولة الأوروبية التي تُلقب ببلاد الألف بحيرة؟",
+   "a": "فنلندا",
+   "hints": [
+    "تقع في شمال أوروبا وشتاؤها طويل وبارد.",
+    "عاصمتها هلسنكي."
+   ],
+   "w": "السويد",
+   "sources": [
+    "https://www.worldatlas.com/articles/why-is-finland-called-a-land-of-a-thousand-lakes.html"
+   ]
+  },
+  {
+   "id": "capitals-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما الدولة العربية التي يُلقبها أهلها بالخضراء؟",
+   "a": "تونس",
+   "hints": [
+    "تقع في شمال أفريقيا على البحر المتوسط.",
+    "فيها مدينة القيروان وجزيرة جربة."
+   ],
+   "w": "الجزائر",
+   "sources": [
+    "https://mawdoo3.com/موضوع_تعبير_عن_تونس_الخضراء"
+   ]
+  },
+  {
+   "id": "capitals-015",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما عاصمة جزر القمر، العضو في جامعة الدول العربية؟",
+   "a": "موروني",
+   "hints": [
+    "تقع على أكبر جزر الأرخبيل في المحيط الهندي.",
+    "يبدأ اسمها بحرف الميم."
+   ],
+   "w": "موتسامودو",
+   "sources": [
+    "https://simple.wikipedia.com/wiki/Comoros",
+    "https://globaledge.msu.edu/countries/comoros/memo"
+   ]
+  },
+  {
+   "id": "capitals-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما عاصمة موريتانيا؟",
+   "a": "نواكشوط",
+   "hints": [
+    "تقع على ساحل المحيط الأطلسي.",
+    "بُنيت عاصمةً قبيل استقلال البلاد عام 1960."
+   ],
+   "w": "نواذيبو",
+   "sources": [
+    "https://www.britannica.com/place/Nouakchott"
+   ]
+  },
+  {
+   "id": "capitals-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "في أي دولة يقع جبل كليمنجارو، أعلى جبل في أفريقيا؟",
+   "a": "تنزانيا",
+   "hints": [
+    "تقع هذه الدولة في شرق أفريقيا على المحيط الهندي.",
+    "تتبعها جزيرة زنجبار."
+   ],
+   "w": "كينيا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mount_Kilimanjaro"
+   ]
+  },
+  {
+   "id": "capitals-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما أكبر دولة في أفريقيا من حيث المساحة منذ انفصال جنوب السودان عام 2011؟",
+   "a": "الجزائر",
+   "hints": [
+    "هي دولة عربية تغطي الصحراء الكبرى معظم أراضيها.",
+    "تُلقب ببلد المليون شهيد."
+   ],
+   "w": "ليبيا",
+   "sources": [
+    "https://worldatlas.com/articles/the-countries-of-africa-by-size.html"
+   ]
+  },
+  {
+   "id": "capitals-019",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما عاصمة تركيا؟",
+   "a": "أنقرة",
+   "hints": [
+    "ليست أكبر مدن البلاد ولا أشهرها سياحيًا.",
+    "تقع في هضبة الأناضول وأصبحت العاصمة عام 1923."
+   ],
+   "w": "إسطنبول",
+   "sources": [
+    "https://www.worldatlas.com/articles/what-is-the-capital-of-turkey.html"
+   ]
+  },
+  {
+   "id": "capitals-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما الدولة التي يظهر على علمها الوطني بندقية كلاشنكوف؟",
+   "a": "موزمبيق",
+   "hints": [
+    "تقع في جنوب شرق أفريقيا على المحيط الهندي.",
+    "لغتها الرسمية البرتغالية."
+   ],
+   "w": "أنغولا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Flag_of_Mozambique"
+   ]
+  },
+  {
+   "id": "capitals-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما عاصمة إريتريا؟",
+   "a": "أسمرة",
+   "hints": [
+    "تشتهر بعمارتها الإيطالية الحديثة المدرجة في التراث العالمي.",
+    "تقع على هضبة مرتفعة قرب البحر الأحمر."
+   ],
+   "w": "مصوع",
+   "sources": [
+    "https://whc.unesco.org/en/list/1550"
+   ]
+  },
+  {
+   "id": "capitals-022",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما المضيق الذي يفصل بين المغرب وإسبانيا؟",
+   "a": "مضيق جبل طارق",
+   "hints": [
+    "يصل البحر المتوسط بالمحيط الأطلسي.",
+    "يحمل اسم القائد المسلم الذي عبر منه لفتح الأندلس."
+   ],
+   "w": "مضيق البوسفور",
+   "sources": [
+    "https://www.britannica.com/print/article/233262",
+    "https://simple.wikipedia.com/wiki/Strait_of_Gibraltar"
+   ]
+  },
+  {
+   "id": "capitals-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما المدينة التي أصبحت عاصمة ميانمار بدلًا من يانغون؟",
+   "a": "نايبيداو",
+   "hints": [
+    "هي مدينة جديدة بُنيت في وسط البلاد.",
+    "أُعلنت عاصمةً عام 2006 وشوارعها شبه خالية."
+   ],
+   "w": "ماندالاي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Naypyidaw"
+   ]
+  },
+  {
+   "id": "capitals-024",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم عملة تايلاند؟",
+   "a": "البات",
+   "hints": [
+    "كان اسمها في الأصل وحدةً لقياس وزن الفضة.",
+    "اسمها قصير من ثلاثة أحرف بالعربية."
+   ],
+   "w": "الرينغيت",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Thai_baht"
+   ]
+  },
+  {
+   "id": "capitals-025",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما الدولة الجزرية التي تُلقب بأرض النار والجليد؟",
+   "a": "آيسلندا",
+   "hints": [
+    "تقع في شمال المحيط الأطلسي قرب الدائرة القطبية.",
+    "تكثر فيها البراكين والأنهار الجليدية وعاصمتها ريكيافيك."
+   ],
+   "w": "النرويج",
+   "sources": [
+    "https://visiticeland.com/article/geography-of-iceland_1"
+   ]
   }
  ]
 }

@@ -65,6 +65,325 @@
    ],
    "w": "الفيل",
    "sources": []
+  },
+  {
+   "id": "sports-006",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي سباق فازت المغربية نوال المتوكل بذهبية أولمبياد لوس أنجلوس 1984؟",
+   "a": "400 متر حواجز",
+   "hints": [
+    "هو سباق جري تتخلله عقبات على المضمار.",
+    "مسافته دورة كاملة واحدة حول المضمار."
+   ],
+   "w": "100 متر حواجز",
+   "sources": [
+    "https://www.sporting-heroes.net/athletics/morocco/nawal-el-moutawakil-1183/400m-hurdles-gold-at-1984-olympics-result_a07982",
+    "https://worldathletics.org/news/feature/nawal-el-moutawakel-olympic-champion-comic-feature"
+   ]
+  },
+  {
+   "id": "sports-007",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم السباح التونسي الذي فاز بذهبية سباق 1500 متر حرة في أولمبياد بكين 2008؟",
+   "a": "أسامة الملولي",
+   "hints": [
+    "شارك في ست دورات أولمبية تقريبًا.",
+    "فاز لاحقًا بذهبية سباحة المياه المفتوحة في لندن 2012."
+   ],
+   "w": "أحمد الحفناوي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Oussama_Mellouli",
+    "https://en.wikipedia.org/wiki/Swimming_at_the_2008_Summer_Olympics_%E2%80%93_Men%27s_1500_metre_freestyle"
+   ]
+  },
+  {
+   "id": "sports-008",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "مع أي لاعب تقاسم القطري معتز برشم ذهبية الوثب العالي في أولمبياد طوكيو 2020؟",
+   "a": "جانماركو تامبيري",
+   "hints": [
+    "كان صديقًا مقربًا لبرشم منذ سنوات.",
+    "هو لاعب إيطالي."
+   ],
+   "w": "ماكسيم نيداسيكاو",
+   "sources": [
+    "https://www.cbssports.com/olympics/news/2020-tokyo-olympics-high-jumpers-mutaz-essa-barshim-of-qatar-and-gianmarco-tamberi-of-italy-share-gold-medal",
+    "https://worldathletics.org/news/feature/tokyo-olympic-games-men-high-jump-report"
+   ]
+  },
+  {
+   "id": "sports-009",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي رياضة فاز المصري كرم جابر بالميدالية الذهبية في أولمبياد أثينا 2004؟",
+   "a": "المصارعة الرومانية",
+   "hints": [
+    "رياضة قتالية قديمة جدًا عرفها الإغريق.",
+    "يُمنع فيها الإمساك بالخصم أسفل الحزام."
+   ],
+   "w": "الجودو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Karam_Gaber",
+    "https://en.wikipedia.org/wiki/Wrestling_at_the_2004_Summer_Olympics_%E2%80%93_Men%27s_Greco-Roman_96_kg"
+   ]
+  },
+  {
+   "id": "sports-010",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي سباق فاز التونسي أحمد الحفناوي بذهبية أولمبياد طوكيو 2020 وهو في الثامنة عشرة؟",
+   "a": "400 متر حرة",
+   "hints": [
+    "هو سباق في المسبح وليس على المضمار.",
+    "مسافته ثماني مرات طول المسبح الأولمبي."
+   ],
+   "w": "200 متر فراشة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ahmed_Hafnaoui",
+    "https://gulfnews.com/sport/tokyo-olympics-2020-tunisias-hafnaoui-wins-shock-400m-freestyle-gold-1.80908535"
+   ]
+  },
+  {
+   "id": "sports-011",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي سباق فاز المغربي سعيد عويطة بذهبية أولمبياد لوس أنجلوس 1984؟",
+   "a": "5000 متر",
+   "hints": [
+    "هو سباق من سباقات المسافات الطويلة.",
+    "مسافته خمسة كيلومترات بالضبط."
+   ],
+   "w": "10000 متر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Athletics_at_the_1984_Summer_Olympics_%E2%80%93_Men%27s_5000_metres",
+    "https://olympics.com/en/athletes/said-aouita"
+   ]
+  },
+  {
+   "id": "sports-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "إلى أي بلد تنتمي العداءة حسيبة بولمرقة بطلة سباق 1500 متر في أولمبياد برشلونة 1992؟",
+   "a": "الجزائر",
+   "hints": [
+    "كانت ذهبيتها الأولى في تاريخ بلدها الأولمبي.",
+    "بلد عربي في شمال أفريقيا عاصمته على البحر المتوسط."
+   ],
+   "w": "المغرب",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hassiba_Boulmerka",
+    "https://en.wikipedia.org/wiki/Algeria_at_the_1992_Summer_Olympics"
+   ]
+  },
+  {
+   "id": "sports-013",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي رياضة اشتهر المصري محمد رشوان بروحه الرياضية أمام الياباني ياماشيتا عام 1984؟",
+   "a": "الجودو",
+   "hints": [
+    "رياضة قتالية أصلها من اليابان.",
+    "يرتدي لاعبوها بدلة بيضاء أو زرقاء وحزامًا ملونًا."
+   ],
+   "w": "الكاراتيه",
+   "sources": [
+    "https://www.ijf.org/history/hall-of-fame/108",
+    "https://www.arabnews.com/node/1577326/amp"
+   ]
+  },
+  {
+   "id": "sports-014",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "كم ثانية يملك الفريق المهاجم للتسديد في دوري كرة السلة الأمريكي للمحترفين؟",
+   "a": "24 ثانية",
+   "hints": [
+    "أُدخلت هذه الساعة عام 1954 لتسريع اللعب.",
+    "الرقم يساوي عدد ساعات اليوم."
+   ],
+   "w": "30 ثانية",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Shot_clock",
+    "https://nccnews.newhouse.syr.edu/how-syracuse-introduced-the-shot-clock-and-changed-basketball-forever/"
+   ]
+  },
+  {
+   "id": "sports-015",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "بعد كم خطأ شخصي يُطرد اللاعب من المباراة في دوري كرة السلة الأمريكي للمحترفين؟",
+   "a": "ستة أخطاء",
+   "hints": [
+    "يقول الأمريكيون عن اللاعب المطرود بسببها إنه «fouled out».",
+    "في القانون الدولي للعبة يكون العدد أقل بخطأ واحد."
+   ],
+   "w": "خمسة أخطاء",
+   "sources": [
+    "https://jr.nba.com/personal-fouls/",
+    "https://hoopstudent.com/basketball-foul-out/"
+   ]
+  },
+  {
+   "id": "sports-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما آخر مسابقة تُقام في السباعية للسيدات في ألعاب القوى؟",
+   "a": "سباق 800 متر",
+   "hints": [
+    "هي سباق جري يُقام في اليوم الثاني.",
+    "مسافته دورتان حول المضمار."
+   ],
+   "w": "سباق 200 متر",
+   "sources": [
+    "https://worldathletics.org/disciplines/combined-event/heptathlon",
+    "https://en.wikipedia.org/wiki/Heptathlon"
+   ]
+  },
+  {
+   "id": "sports-017",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "من هو أول بطل للعالم في سباقات الفورمولا 1 عام 1950؟",
+   "a": "جوزيبي فارينا",
+   "hints": [
+    "كان سائقًا إيطاليًا يقود سيارة ألفا روميو.",
+    "فاز أيضًا بأول سباق في البطولة على حلبة سيلفرستون."
+   ],
+   "w": "خوان مانويل فانجيو",
+   "sources": [
+    "https://www.formula1.com/en/drivers/hall-of-fame/Nino_Farina.html",
+    "https://www.formulaonehistory.com/seasons/1950-f1-world-championship/"
+   ]
+  },
+  {
+   "id": "sports-018",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "كم نقطة يجب الوصول إليها للفوز بالشوط الواحد في كرة الطاولة حسب القوانين الحالية منذ 2001؟",
+   "a": "11 نقطة",
+   "hints": [
+    "كان الرقم قبل عام 2001 هو 21 نقطة.",
+    "يجب أن يتقدم الفائز بفارق نقطتين على الأقل."
+   ],
+   "w": "15 نقطة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Table_tennis",
+    "https://www.megaspin.net/rules/newrules2001.asp"
+   ]
+  },
+  {
+   "id": "sports-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي مدينة فاز الملاكم محمد علي كلاي بالميدالية الذهبية الأولمبية عام 1960؟",
+   "a": "روما",
+   "hints": [
+    "كان اسمه آنذاك كاسيوس كلاي.",
+    "مدينة أوروبية تُلقب بالمدينة الخالدة."
+   ],
+   "w": "ملبورن",
+   "sources": [
+    "https://www.nbcsports.com/olympics/news/muhammad-ali-wins-olympic-gold-medal-rome-1960-video",
+    "https://en.wikipedia.org/wiki/Muhammad_Ali"
+   ]
+  },
+  {
+   "id": "sports-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم حاسوب شركة IBM الذي هزم بطل العالم في الشطرنج كاسباروف عام 1997؟",
+   "a": "ديب بلو",
+   "hints": [
+    "خسر أمام كاسباروف في مواجهتهما الأولى عام 1996.",
+    "اسمه يحمل لونًا هو لون شعار الشركة."
+   ],
+   "w": "ألفا زيرو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)",
+    "https://www.history.com/this-day-in-history/may-11/deep-blue-defeats-garry-kasparov-in-chess-match"
+   ]
+  },
+  {
+   "id": "sports-021",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من هو الفرنسي الذي يُلقب بأبي الألعاب الأولمبية الحديثة؟",
+   "a": "بيير دي كوبرتان",
+   "hints": [
+    "أسس اللجنة الأولمبية الدولية عام 1894.",
+    "كان بارونًا ومؤرخًا وتربويًا."
+   ],
+   "w": "جول ريميه",
+   "sources": [
+    "https://www.completefrance.com/news/father-of-the-games-pierre-de-coubertin-6221332/",
+    "https://www.historytoday.com/archive/months-past/first-modern-olympic-games"
+   ]
+  },
+  {
+   "id": "sports-022",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ماذا تعني كلمة «لوف» (Love) في نظام احتساب النقاط في التنس؟",
+   "a": "صفر",
+   "hints": [
+    "تُقال عادة في بداية كل شوط.",
+    "تعني أن اللاعب لم يسجل أي نقطة بعد."
+   ],
+   "w": "التعادل",
+   "sources": [
+    "https://folklore.usc.edu/?p=12394",
+    "https://mytennishq.com/what-does-love-mean-in-tennis/"
+   ]
+  },
+  {
+   "id": "sports-023",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "كم دقيقة تستغرق الجولة الواحدة في الملاكمة الاحترافية للرجال؟",
+   "a": "ثلاث دقائق",
+   "hints": [
+    "تفصل بين كل جولتين استراحة مدتها دقيقة واحدة.",
+    "المدة أقل من خمس دقائق وأكثر من دقيقتين."
+   ],
+   "w": "دقيقتان",
+   "sources": [
+    "https://legendsboxing.com/post/how-long-is-a-round-of-boxing",
+    "https://fairtexstore.com/blogs/news/how-long-are-boxing-rounds"
+   ]
+  },
+  {
+   "id": "sports-024",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "كم تبلغ المسافة الرسمية لسباق الماراثون بالكيلومتر؟",
+   "a": "42.195 كيلومترًا",
+   "hints": [
+    "حُددت هذه المسافة في أولمبياد لندن 1908.",
+    "تزيد قليلًا على 42 كيلومترًا."
+   ],
+   "w": "40 كيلومترًا",
+   "sources": [
+    "https://artsandculture.google.com/story/exactly-42-195-kilometres-the-olympic-museum/UQUxmUDpLTLLUA",
+    "https://www.worldathletics.org/disciplines/road/marathon"
+   ]
+  },
+  {
+   "id": "sports-025",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "كم لاعبًا من كل فريق يكونون داخل الملعب في الكرة الطائرة الداخلية؟",
+   "a": "ستة لاعبين",
+   "hints": [
+    "يتناوبون على مراكزهم في الملعب باتجاه عقارب الساعة.",
+    "ثلاثة منهم في الخط الأمامي وثلاثة في الخط الخلفي."
+   ],
+   "w": "سبعة لاعبين",
+   "sources": [
+    "https://www.fivb.com/volleyball/the-game/basic-rules/"
+   ]
   }
  ]
 }

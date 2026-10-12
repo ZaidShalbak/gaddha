@@ -65,6 +65,323 @@
    ],
    "w": "جانلويجي بوفون",
    "sources": []
+  },
+  {
+   "id": "football-006",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من سجّل هدف الفوز للسعودية على الأرجنتين 2-1 في كأس العالم 2022؟",
+   "a": "سالم الدوسري",
+   "hints": [
+    "هو جناح سعودي معروف بتسديداته القوية.",
+    "سجّل بتسديدة رائعة بعد دقائق من هدف التعادل في الشوط الثاني."
+   ],
+   "w": "صالح الشهري",
+   "sources": [
+    "https://english.ahram.org.eg/News/480222.aspx",
+    "https://www.skysports.com/football/argentina-vs-saudi-arabia/report/462963"
+   ]
+  },
+  {
+   "id": "football-007",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي منتخب هزمه المغرب في ربع نهائي كأس العالم 2022 ليصبح أول منتخب أفريقي يبلغ نصف النهائي؟",
+   "a": "البرتغال",
+   "hints": [
+    "منتخب أوروبي يجاور إسبانيا.",
+    "كان يضم كريستيانو رونالدو الذي خرج باكيًا من الملعب."
+   ],
+   "w": "إسبانيا",
+   "sources": [
+    "https://english.ahram.org.eg/WorldCup/News/482388.aspx",
+    "https://kuwaittimes.com/morocco-down-portugal-to-become-first-ever-african-world-cup-semi-finalists/"
+   ]
+  },
+  {
+   "id": "football-008",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي منتخب أوروبي كبير هزمته الجزائر 2-1 في أول مباراة لها بكأس العالم 1982؟",
+   "a": "ألمانيا الغربية",
+   "hints": [
+    "كان هذا المنتخب بطلًا لأوروبا قبل البطولة بعامين.",
+    "أقيمت المباراة في مدينة خيخون الإسبانية وسجّل فيها بلومي وماجر."
+   ],
+   "w": "النمسا",
+   "sources": [
+    "https://thesetpieces.com/latest-posts/world-cup-1982-algeria-2-west-germany-1/",
+    "https://www.si.com/soccer/2014/06/16/ap-soc-wcup-day-june-16"
+   ]
+  },
+  {
+   "id": "football-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من هو المدرب الذي قاد مصر للفوز بكأس أمم أفريقيا ثلاث مرات متتالية بين 2006 و2010؟",
+   "a": "حسن شحاتة",
+   "hints": [
+    "مدرب مصري كان لاعبًا سابقًا في نادي الزمالك.",
+    "لقّبه المصريون بالمعلّم."
+   ],
+   "w": "محمود الجوهري",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hassan_Shehata",
+    "https://www.aljazeera.com/sports/2010/1/29/egypt-coach-eyes-third-title"
+   ]
+  },
+  {
+   "id": "football-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي منتخب عربي فاز بكأس آسيا عام 2007 رغم ظروف الحرب في بلاده؟",
+   "a": "العراق",
+   "hints": [
+    "هزم السعودية في المباراة النهائية بهدف دون رد.",
+    "سجّل هدف النهائي قائده يونس محمود برأسه."
+   ],
+   "w": "سوريا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2007_AFC_Asian_Cup",
+    "https://www.aljazeera.com/news/2007/7/29/iraq-in-historic-asian-cup-win"
+   ]
+  },
+  {
+   "id": "football-011",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "من هو اللاعب القطري الذي سجّل 9 أهداف في كأس آسيا 2019 وقاد بلاده إلى اللقب؟",
+   "a": "المعز علي",
+   "hints": [
+    "مهاجم وُلد في السودان ولعب لنادي الدحيل.",
+    "سجّل هدفًا مقصيًا رائعًا في نهائي البطولة أمام اليابان."
+   ],
+   "w": "أكرم عفيف",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Almoez_Ali",
+    "https://www.guinnessworldrecords.com/world-records/558740-most-goals-scored-in-a-football-soccer-asian-cup-tournament-by-an-individual"
+   ]
+  },
+  {
+   "id": "football-012",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "من هو اللاعب الفرنسي الذي سجّل 13 هدفًا في نسخة واحدة من كأس العالم عام 1958؟",
+   "a": "جوست فونتين",
+   "hints": [
+    "وُلد في مدينة مراكش المغربية.",
+    "أقيمت تلك البطولة في السويد وحلّت فرنسا ثالثة."
+   ],
+   "w": "ريمون كوبا",
+   "sources": [
+    "https://www.news4jax.com/sports/2023/03/01/just-fontaine-who-scored-13-goals-at-1958-world-cup-dies/",
+    "https://wikipedia.com/wiki/Just_Fontaine"
+   ]
+  },
+  {
+   "id": "football-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أمام أي فريق عاد ليفربول من تأخره 3-0 ليفوز بنهائي دوري أبطال أوروبا 2005 في إسطنبول؟",
+   "a": "ميلان",
+   "hints": [
+    "نادٍ إيطالي يرتدي اللونين الأحمر والأسود.",
+    "كان يلعب له مالديني الذي سجّل في الدقيقة الأولى من النهائي."
+   ],
+   "w": "يوفنتوس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2005_UEFA_Champions_League_final",
+    "https://global.espn.com/football/story/_/id/37423404/one-night-istanbul"
+   ]
+  },
+  {
+   "id": "football-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي منتخب هزم البرازيل على ملعب ماراكانا في المباراة الحاسمة لكأس العالم 1950؟",
+   "a": "الأوروغواي",
+   "hints": [
+    "منتخب من أمريكا الجنوبية فاز بأول كأس عالم.",
+    "سجّل له جيجيا هدف الفوز وأسكت الملعب كله."
+   ],
+   "w": "الأرجنتين",
+   "sources": [
+    "https://en.wikipedia.com/wiki/Maracanazo",
+    "https://www.foxnews.com/sports/soccer-player-who-broke-the-heart-of-all-brazilians-with-maracanazo-dead-at-88"
+   ]
+  },
+  {
+   "id": "football-015",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "أي منتخب هزمته تونس 3-1 عام 1978 لتحقق أول فوز عربي وأفريقي في تاريخ كأس العالم؟",
+   "a": "المكسيك",
+   "hints": [
+    "منتخب من أمريكا الشمالية استضاف كأس العالم مرتين.",
+    "تشتهر جماهير هذا المنتخب بارتداء القبعة العريضة «السومبريرو»."
+   ],
+   "w": "بولندا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tunisia_at_the_FIFA_World_Cup",
+    "https://www.guinnessworldrecords.com/world-records/484189-first-victory-by-an-african-football-soccer-nation-at-a-fifa-world-cup"
+   ]
+  },
+  {
+   "id": "football-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي نادٍ اختاره الاتحاد الأفريقي لكرة القدم «نادي القرن العشرين» في أفريقيا؟",
+   "a": "الأهلي المصري",
+   "hints": [
+    "نادٍ من القاهرة تأسس عام 1907.",
+    "يرتدي القميص الأحمر ويلقّبه جمهوره بنادي القرن."
+   ],
+   "w": "الزمالك",
+   "sources": [
+    "https://en.wikipedia.org/wiki/CAF_clubs_of_the_20th_century",
+    "https://en.wikipedia.org/wiki/Al_Ahly_SC"
+   ]
+  },
+  {
+   "id": "football-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من هو المدافع الإيطالي الذي نطحه زين الدين زيدان في نهائي كأس العالم 2006؟",
+   "a": "ماركو ماتيراتسي",
+   "hints": [
+    "سجّل هدف التعادل لإيطاليا في المباراة نفسها.",
+    "كان يلعب لنادي إنتر ميلان في ذلك الوقت."
+   ],
+   "w": "فابيو كانافارو",
+   "sources": [
+    "https://www.goal.com/en-us/news/who-did-zinedine-zidane-headbutt-in-the-world-cup-2006-final--why/1jhvyg4hqm70wzuf2cq44390s",
+    "https://english.ahram.org.eg/News/577976.aspx"
+   ]
+  },
+  {
+   "id": "football-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أي نادٍ فاز بالدوري الإنجليزي الممتاز موسم 2015-2016 رغم أن احتمالات فوزه كانت 5000 إلى 1؟",
+   "a": "ليستر سيتي",
+   "hints": [
+    "نادٍ يلقّب بالثعالب.",
+    "كان يدربه الإيطالي كلاوديو رانييري ويلعب له رياض محرز."
+   ],
+   "w": "توتنهام",
+   "sources": [
+    "https://www.fourfourtwo.com/news/on-this-day-in-2016-5000-1-outsiders-leicester-win-premier-league-title-1619871785000"
+   ]
+  },
+  {
+   "id": "football-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "من سجّل هدف فوز الجزائر على السنغال في نهائي كأس أمم أفريقيا 2019؟",
+   "a": "بغداد بونجاح",
+   "hints": [
+    "مهاجم جزائري لعب سنوات طويلة في الدوري القطري.",
+    "جاء الهدف في الدقيقة الثانية بتسديدة ارتطمت بمدافع وارتفعت فوق الحارس."
+   ],
+   "w": "رياض محرز",
+   "sources": [
+    "https://www.cbssports.com/soccer/news/algeria-vs-senegal-score-2019-africa-cup-of-nations-final-goes-to-algeria-thanks-to-strange-bounedjah-goal",
+    "https://www.aljazeera.com/news/2019/07/algeria-beat-senegal-win-african-cup-nations-190719205001046.html"
+   ]
+  },
+  {
+   "id": "football-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "أمام أي منتخب سجّل السعودي سعيد العويران هدفه الشهير بعد مراوغة نصف الملعب في كأس العالم 1994؟",
+   "a": "بلجيكا",
+   "hints": [
+    "منتخب أوروبي عاصمته مقر الاتحاد الأوروبي.",
+    "يلقّب هذا المنتخب بالشياطين الحمر."
+   ],
+   "w": "هولندا",
+   "sources": [
+    "https://sportskeeda.com/football/40-greatest-goals-fifa-world-cup-history-said-al-owairan-saudi-arabia-vs-belgium-1994",
+    "https://www.wikipedia.com/wiki/Saeed_Owairan"
+   ]
+  },
+  {
+   "id": "football-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "من هو اللاعب الإنجليزي الذي سجّل ثلاثة أهداف في نهائي كأس العالم 1966؟",
+   "a": "جيف هيرست",
+   "hints": [
+    "لعب معظم مسيرته مع نادي وست هام يونايتد.",
+    "أحد أهدافه في ذلك النهائي ما زال يثير الجدل حول تجاوز الكرة خط المرمى."
+   ],
+   "w": "بوبي تشارلتون",
+   "sources": [
+    "https://en.wikipedia.org/wiki/1966_FIFA_World_Cup_final",
+    "https://www.gulf-times.com/article/651834/sport/qatar-2022/hurst-congratulates-mbappe-for-equaling-his-hat-trick-record"
+   ]
+  },
+  {
+   "id": "football-022",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "على أي ملعب أقيم نهائي كأس العالم 2022 بين الأرجنتين وفرنسا؟",
+   "a": "استاد لوسيل",
+   "hints": [
+    "هو أكبر ملاعب مونديال قطر من حيث السعة.",
+    "يحمل اسم مدينة حديثة تقع شمال الدوحة."
+   ],
+   "w": "استاد البيت",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "football-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في مباراة الكويت ضد أي منتخب نزل الشيخ فهد الأحمد إلى الملعب في كأس العالم 1982 واعترض على هدف حتى أُلغي؟",
+   "a": "فرنسا",
+   "hints": [
+    "منتخب أوروبي كان يقوده ميشيل بلاتيني.",
+    "قال لاعبو الكويت إنهم توقفوا لأنهم سمعوا صافرة من المدرجات."
+   ],
+   "w": "إنجلترا",
+   "sources": [
+    "https://www.beinsports.com/en-us/soccer/fifa-world-cup-2026/articles/the-sheikh-who-walked-to-the-pitch-and-disallowed-a-goal-during-the-world-cup-2026-06-02"
+   ]
+  },
+  {
+   "id": "football-024",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما أول منتخب عربي وأفريقي يشارك في كأس العالم، وكان ذلك في إيطاليا عام 1934؟",
+   "a": "مصر",
+   "hints": [
+    "خسر مباراته الوحيدة في تلك البطولة أمام المجر.",
+    "يلقّب هذا المنتخب بالفراعنة."
+   ],
+   "w": "المغرب",
+   "sources": [
+    "https://www.espn.co.uk/football/story/_/id/37391862/1934-egypt",
+    "https://kitbliss.co.nz/features/world-cup-firsts/egypt-1934.html"
+   ]
+  },
+  {
+   "id": "football-025",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من هو اللاعب الألماني الملقّب بـ«القيصر»؟",
+   "a": "فرانز بيكنباور",
+   "hints": [
+    "فاز بكأس العالم لاعبًا عام 1974 ومدربًا عام 1990.",
+    "كان مدافعًا حرًّا أسطوريًا في نادي بايرن ميونخ."
+   ],
+   "w": "غيرد مولر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Franz_Beckenbauer",
+    "https://www.si.com/soccer/2018/04/01/world-cup-countdown-12-weeks-go-emperor-franz-beckenbauer-his-awe-inspiring-career"
+   ]
   }
  ]
 }
