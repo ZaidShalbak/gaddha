@@ -135,7 +135,7 @@ const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k
 const STATUS={draft:'مسودة',reviewed:'تمت المراجعة',published:'منشور'};
 const TYPES={'':'أسئلة عادية',act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول'};
 const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4dff','#c8743a'];
-let token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),tab='q',cur=null,filter='all',editing=null,toastT;
+let ffilter='all',token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),tab='q',cur=null,filter='all',editing=null,toastT;
 
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
 const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
@@ -286,16 +286,28 @@ function paintCats(){
     </section>`).join('')}</div>`;
 }
 function paintFinals(){
-  const F=files['questions/finals.json'].finals;
-  $('main').innerHTML=`<div class="qhead"><div><h2>السؤال الأخير</h2><span class="mut" style="font-size:.85em">«قدّ الرهان؟» · ${F.length} سؤال</span></div><button type="button" class="btn solid sm" data-a="new-f">+ سؤال أخير</button></div>
-    <div class="qlist">${F.slice().reverse().map(x=>{
+  const F=files['questions/finals.json'].finals,I=idx();
+  const regular=I.categories.filter(c=>!c.type);
+  const catName=id=>id?((I.categories.find(c=>c.id===id)||{}).name||id):'عام (احتياط)';
+  const fcount=id=>F.filter(x=>(x.cat||'')===id&&x.status==='published').length;
+  const tabs=[['all','الكل',F.length],['','عام',null],...regular.map(c=>[c.id,c.name,null])];
+  const list=F.filter(x=>ffilter==='all'||(x.cat||'')===ffilter);
+  $('main').innerHTML=`<div class="qhead"><div><h2>السؤال الأخير</h2><span class="mut" style="font-size:.85em">الفريق المتأخر بيختار فئة من 3 ظروف، والسؤال بيطلع مع 3 غشّات (×2، ×1.5، ×1). كل فئة بدها أسئلة منشورة، وإلا بيطلع سؤال «عام».</span></div><button type="button" class="btn solid sm" data-a="new-f">+ سؤال أخير</button></div>
+    <div class="chips" style="margin-bottom:12px">${tabs.map(([k,l])=>`<button type="button" data-a="ffilter" data-f="${k}" aria-pressed="${ffilter===k}">${esc(l)}${k!=='all'?` <span class="badge b-published">${fcount(k)}</span>`:''}</button>`).join('')}</div>
+    <div class="qlist">${list.slice().reverse().map(x=>{
       const seg=`<span class="seg">${Object.keys(STATUS).map(s=>`<button type="button" class="${s}" data-a="fstatus" data-id="${x.id}" data-s="${s}" aria-pressed="${x.status===s}">${STATUS[s]}</button>`).join('')}</span>`;
       const acts=`<div class="actions">${seg}<span class="row"><button type="button" class="btn sm" data-a="fedit" data-id="${x.id}">${editing===x.id?'خلصت':'تعديل'}</button><button type="button" class="btn sm danger" data-a="fdel" data-id="${x.id}">حذف</button></span></div>`;
-      const fi=(k,l,v)=>`<label class="f wide">${l}<input type="text" data-fe="${k}" data-id="${x.id}" value="${esc(v)}"></label>`;
-      return editing===x.id?`<article class="q s-${x.status}"><div class="edit">${fi('category','الفئة (بتطلع قبل السؤال)',x.category)}${fi('q','السؤال',x.q)}${fi('a','الجواب',x.a)}</div>${acts}</article>`
-        :`<article class="q s-${x.status}"><span class="badge b-off" style="align-self:flex-start">${esc(x.category)}</span><span class="qt">${esc(x.q)}</span><div class="meta"><span><b>الجواب:</b> <span class="ans">${esc(x.a)}</span></span><span class="mut" style="font-size:.85em">${x.id}</span></div>${acts}</article>`}).join('')}</div>`;
+      const fi=(k,l,v,wide)=>`<label class="f${wide?' wide':''}">${l}<input type="text" data-fe="${k}" data-id="${x.id}" value="${esc(v)}"></label>`;
+      const cl=x.clues||[];
+      if(editing===x.id)return `<article class="q s-${x.status}"><div class="edit">
+        <label class="f">الفئة<select data-fe="cat" data-id="${x.id}"><option value="">عام (احتياط)</option>${regular.map(c=>`<option value="${c.id}" ${x.cat===c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select></label>
+        ${fi('a','الجواب',x.a)}${fi('q','السؤال',x.q,1)}${fi('c0','غشّة 1 (الأصعب · ×2)',cl[0]||'',1)}${fi('c1','غشّة 2 (×1.5)',cl[1]||'',1)}${fi('c2','غشّة 3 (الأسهل · ×1)',cl[2]||'',1)}
+        <label class="f wide">المصادر (رابط بكل سطر)<textarea data-fe="sources" data-id="${x.id}" rows="2">${esc((x.sources||[]).join('\n'))}</textarea></label></div>${acts}</article>`;
+      return `<article class="q s-${x.status}"><span class="badge b-off" style="align-self:flex-start">${esc(catName(x.cat))}</span><span class="qt">${esc(x.q)}</span>
+        <div class="meta"><span><b>الجواب:</b> <span class="ans">${esc(x.a)}</span></span><span class="mut" style="font-size:.85em">${x.id}</span></div>
+        ${cl.length?`<div class="meta">${cl.map((c,k)=>`<span><b>غشّة ${k+1}:</b> ${esc(c)}</span>`).join('')}</div>`:'<span class="warn">ما في غشّات: السؤال بينحسب ×1 بس</span>'}
+        ${(x.sources||[]).length?`<div class="src">${x.sources.map(s=>`<a href="${esc(s)}" target="_blank" rel="noopener">${esc(decodeURI(s).slice(0,80))}</a>`).join(' · ')}</div>`:''}${acts}</article>`}).join('')||'<p class="empty">ما في أسئلة هون.</p>'}</div>`;
 }
-
 /* ---------- modals ---------- */
 function modal(html){$('modal').innerHTML=`<div class="modal" data-a="modal-bg"><div class="card" role="dialog" aria-modal="true">${html}</div></div>`;const f=$('modal').querySelector('input,select,button');f&&f.focus()}
 const closeModal=()=>$('modal').innerHTML='';
@@ -353,7 +365,8 @@ const A={
   'pick-bg'(b){draftBg=b.dataset.c;const gv=$('glyph')?$('glyph').value:'';$('artbox').innerHTML=artPicker(draftArt,draftBg);$('glyph').value=gv},
   close:closeModal,
   'modal-bg'(b,e){if(e.target===b)closeModal()},
-  'new-f'(){const F=files['questions/finals.json'].finals,id=nextId('final',F);F.push({id,status:'draft',category:'',q:'',a:''});editing=id;touch('questions/finals.json');paint()},
+  ffilter(b){ffilter=b.dataset.f;paint()},
+  'new-f'(){const F=files['questions/finals.json'].finals,id=nextId('final',F),cat=ffilter==='all'?'':ffilter;F.push({id,status:'draft',cat,category:cat?(catMeta(cat)||{}).name:'',q:'',a:'',clues:['','',''],sources:[]});editing=id;touch('questions/finals.json');paint()},
   fstatus(b){files['questions/finals.json'].finals.find(x=>x.id===b.dataset.id).status=b.dataset.s;touch('questions/finals.json');paint()},
   fedit(b){editing=editing===b.dataset.id?null:b.dataset.id;paint()},
   fdel(b){if(!confirm('نحذفه؟'))return;const d=files['questions/finals.json'];d.finals=d.finals.filter(x=>x.id!==b.dataset.id);touch('questions/finals.json');paint()}
@@ -369,13 +382,19 @@ document.addEventListener('input',e=>{
     else if(d.e==='difficulty')x.difficulty=v?+v:null;
     else x[d.e]=v;
     touch(catFile(cur));return}
-  if(d.fe){const x=files['questions/finals.json'].finals.find(y=>y.id===d.id);x[d.fe]=t.value;touch('questions/finals.json');return}
+  if(d.fe){const x=files['questions/finals.json'].finals.find(y=>y.id===d.id),v=t.value;
+    if(/^c[012]$/.test(d.fe)){x.clues=x.clues||['','',''];x.clues[+d.fe[1]]=v}
+    else if(d.fe==='sources')x.sources=v.split('\n').map(s=>s.trim()).filter(Boolean);
+    else if(d.fe==='cat'){x.cat=v;x.category=v?(catMeta(v)||{}).name:''}
+    else x[d.fe]=v;
+    touch('questions/finals.json');return}
   if(d.g==='name'){idx().groups[+d.gi].name=t.value;touch('questions/index.json');return}
   if(d.c==='name'){catMeta(d.id).name=t.value;touch('questions/index.json');return}
 });
 document.addEventListener('change',e=>{
   const t=e.target,d=t.dataset;
   if(d.c==='group'){const G=idx().groups,to=+t.value;G.forEach(g=>g.categories=g.categories.filter(id=>id!==d.id));G[to].categories.push(d.id);touch('questions/index.json');paint()}
+  if(d.fe==='cat'){const x=files['questions/finals.json'].finals.find(y=>y.id===d.id);x.cat=t.value;x.category=t.value?(catMeta(t.value)||{}).name:'';touch('questions/finals.json');paint();return}
   if(d.e==='difficulty'){const x=findQ(d.id);x.difficulty=t.value?+t.value:null;touch(catFile(cur))}
 });
 token?load():paintLogin();
