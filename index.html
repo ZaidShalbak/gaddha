@@ -309,6 +309,19 @@ details.more[open] summary{margin-bottom:10px}
 .panel .nm{flex:1;min-width:0;display:flex;flex-direction:column;font-weight:900;line-height:1.3}
 .panel .nm span{overflow-wrap:anywhere}
 .panel .nm small{font-size:.68em;font-weight:600;opacity:.85}
+.fireflag{align-self:flex-start;white-space:nowrap;margin-top:3px;display:inline-flex;align-items:center;gap:3px;font-size:.62em;font-weight:900;padding:1px 9px 1px 7px;border-radius:99px;background:#fff1e0;color:#d9480f}
+.fireflag svg{width:13px;height:13px}
+.panel.fire{box-shadow:0 0 0 3px #ff8a00,0 10px 30px rgba(255,120,0,.45)}
+.panel.fire .fireflag{background:linear-gradient(90deg,#ffb000,#ff4d00);color:#fff;animation:flick 1.2s ease-in-out infinite}
+@keyframes flick{50%{transform:scale(1.07)}}
+.fb{display:inline-flex;align-items:center;gap:2px;margin-inline-start:6px;padding:0 8px;border-radius:99px;background:linear-gradient(90deg,#ffb000,#ff4d00);color:#fff;font-size:.85em}
+.fb svg{width:14px;height:14px}
+.turnline .fireln{display:block;font-size:.8em;color:#d9480f}
+.stampwrap div.fire{--b:#ff4d00;background:linear-gradient(180deg,#fff,#fff1e0)}
+.pic{width:100%;max-width:560px;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#e7eef7;margin-bottom:12px;position:relative}
+.pic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.pic .zl{position:absolute;inset-inline-start:10px;bottom:10px;background:rgba(22,22,22,.75);color:#fff;font-size:.72em;font-weight:800;padding:2px 10px;border-radius:99px}
+.credit{font-size:.7em;color:var(--mut);margin-top:-6px;text-align:center}
 .lockflag{align-self:flex-start;margin-top:3px;font-size:.62em;font-weight:800;padding:1px 8px;border-radius:99px;background:var(--ink);color:#fff}
 .score{font-weight:900;font-size:clamp(1.9rem,4vw,3.2rem);line-height:1;color:var(--teamc);font-variant-numeric:tabular-nums}
 .panel.turn .score{color:inherit}
@@ -634,6 +647,7 @@ details.more[open] summary{margin-bottom:10px}
         <ol>
           <li>كل سؤال بـ<b>3 نقاط</b>. كل «غشّشني» بتنزّله نقطة.</li>
           <li>ما عرفتوا؟ الفريق التاني بيقدر «يخطفها» بنقطة.</li>
+          <li>3 أجوبة صح ورا بعض؟ صرتوا <b>«على النار»</b>: كل جواب صح بعدها إله نقطة زيادة، لحد ما تغلطوا.</li>
           <li>قبل اللعب كل فريق بيختار <b>3 مساعدات</b> من 7، كل وحدة مرة.</li>
           <li>بالتحديات (مثّلها، دندنها، بلا ما تقول) واحد بيمسح كود بجواله وبيشوف السر لحاله.</li>
           <li>بالآخر «قدّ الرهان؟»: كل فريق بيراهن على نقاطه بسؤال أخير.</li>
@@ -981,7 +995,8 @@ function startDraft(){
   store.set('gaddha.names',names);
   const cats=sel.map(id=>BANK.find(c=>c.id===id)).map(c=>({id:c.id,name:c.name,type:c.type||'',
     qs:c.type?pickFresh(c.items,5).map(it=>makeChallenge(c.type,it))
-      :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{}))}));
+      :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.img?(q.hints||[]).concat(['','']).slice(0,2):(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{},q.img?{img:q.img,f:q.f||'',credit:q.credit||''}:{}))}));
+  cats.forEach(c=>c.qs.forEach(q=>{if(q.img){const im=new Image();im.src=q.img}}));
   const f=pickFresh(FINALS,1)[0]||{category:'',q:'',a:''};
   S={screen:'draft',teams:names.map(n=>({name:n,score:0,helpers:[],used:[],st:{hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0}})),draftTurn:0,turn:0,timerSec,qrMode,cats,cur:null,armed:-1,lockOn:-1,
      final:{id:f.id,category:f.category,q:f.q,a:f.a,wager:[0,0],right:[null,null]},undo:null};
@@ -1030,6 +1045,11 @@ function paintDraft(){
 }
 
 /* ---------- game ---------- */
+const FLAME='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.2 4.5 7 6.5 7 12.5A7 7 0 0 1 5 14.5c0-3.4 2.2-4.8 3.4-7 1.1 2.3 2.2 3.3 3.4 3.4C10.6 7.6 10.8 5 12 2z" fill="currentColor"/></svg>';
+const FIRE_AT=3,streak=i=>S.teams[i].streak||0,onFire=i=>streak(i)>=FIRE_AT;
+const ownerOf=c=>c.mode==='pass'||c.mode==='fam'?1-S.turn:S.turn;
+const ZOOM=[3,1.8,1];
+const zoomOf=c=>c.revealed?1:ZOOM[Math.min(c.hints,2)];
 const answering=()=>S.cur&&(S.cur.mode==='pass'||S.cur.mode==='steal'||S.cur.mode==='fam')?1-S.turn:S.turn;
 const ST=i=>{const t=S.teams[i];return t.st||(t.st={hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0})};
 function qValue(){const c=S.cur;if(c.qadd)return 6;if(c.half)return 1;return Math.max(1,3-c.hints-(c.elder?1:0))}
@@ -1057,9 +1077,9 @@ function paintScore(){
       return `<button type="button" class="hl k-${HELPERS[id].kind}${used?' used':''}${armed?' armed':''}" data-act="helper" data-team="${i}" data-id="${id}" title="${esc(HELPERS[id].name+': '+HELPERS[id].desc)}" ${ok&&!used?'':'disabled'}><span class="tile">${helpIcon(id)}${used?XMARK:''}</span><small>${esc(HELPERS[id].name)}</small></button>`;
     }).join('');
     return `<div class="side">
-      <div class="panel t${i}${turn?' turn':''}">
+      <div class="panel t${i}${turn?' turn':''}${onFire(i)?' fire':''}">
         <div class="ptop">
-          <div class="nm"><span>${esc(tm.name)}</span>${turn?'<small>الدور عليهم</small>':''}${S.lockOn===i?'<span class="lockflag">مسكّر عليهم بسؤالهم الجاي</span>':''}</div>
+          <div class="nm"><span>${esc(tm.name)}</span>${turn?'<small>الدور عليهم</small>':''}${onFire(i)?`<span class="fireflag">${FLAME} على النار ${streak(i)}</span>`:streak(i)===FIRE_AT-1?`<span class="fireflag">${FLAME} كمان وحدة!</span>`:''}${S.lockOn===i?'<span class="lockflag">مسكّر عليهم بسؤالهم الجاي</span>':''}</div>
           <span class="score${bump===i?' bump':''}" data-team="${i}" dir="ltr">${shown[i]}</span>
           <span class="adj"><button type="button" data-act="adj" data-team="${i}" data-d="1" aria-label="زيادة نقطة لـ${esc(tm.name)}">+</button><button type="button" data-act="adj" data-team="${i}" data-d="-1" aria-label="خصم نقطة من ${esc(tm.name)}">−</button></span>
         </div>
@@ -1081,19 +1101,25 @@ function paintBoard(){
   const btns=confirmEnd
     ?`<span style="font-weight:800">نروح للسؤال الأخير ونترك الباقي؟</span><button type="button" class="btn solid sm" data-act="end-yes">إيه</button><button type="button" class="btn sm" data-act="end-no">لا، نكمّل</button>`
     :`<button type="button" class="btn sm" data-act="undo" ${S.undo?'':'disabled'}>تراجع عن آخر سؤال</button><button type="button" class="btn sm line" data-act="end-ask">للسؤال الأخير</button>`;
-  $('stage').innerHTML=`<p class="turnline t${S.turn}">الدور على ${esc(t.name)} · اختاروا فئة… إذا قدّها</p>
+  $('stage').innerHTML=`<p class="turnline t${S.turn}">الدور على ${esc(t.name)} · اختاروا فئة… إذا قدّها${onFire(S.turn)?`<span class="fireln">على النار! كل جواب صح إله نقطة زيادة</span>`:''}</p>
     ${S.armed===S.turn?'<p class="armedline">«قدّها وقدود» مفعّلة: السؤال الجاي بـ6 أو ناقص 3، وبلا غشّ.</p>':''}
     <div class="board" style="--cols:${n<=4?2:3};--dcols:${n}">${tiles}</div>
     <div class="foot"><span></span><div class="row">${btns}</div></div>`;
 }
 function awardOptions(){
   const c=S.cur,me=S.turn,o=1-me,v=qValue(),N=S.teams.map(t=>esc(t.name)),how=c.hints||c.elder?'hint':'clean';
-  if(c.qadd)return[{t:me,p:6,how:'clean',label:`${N[me]} عرفوها <span dir="ltr">+6</span>`},{t:me,p:-3,how:'fail',label:`ما عرفوها <span dir="ltr">−3</span>`,neg:1}];
-  if(c.mode==='fam')return[{t:o,p:v,how,label:`${N[o]} عرفوها <span dir="ltr">+${v}</span>`},{t:-1,p:0,how:'none',label:'ولا حدا',neg:1}];
-  if(c.mode==='pass')return[{t:o,p:v,how,label:`${N[o]} عرفوها <span dir="ltr">+${v}</span>`},{t:me,p:1,how:'steal',label:`ما عرفوها: ${N[me]} <span dir="ltr">+1</span>`}];
+  if(c.qadd)return withFire([{t:me,p:6,how:'clean',label:`${N[me]} عرفوها <span dir="ltr">+6</span>`},{t:me,p:-3,how:'fail',label:`ما عرفوها <span dir="ltr">−3</span>`,neg:1}]);
+  if(c.mode==='fam')return withFire([{t:o,p:v,how,label:`${N[o]} عرفوها <span dir="ltr">+${v}</span>`},{t:-1,p:0,how:'none',label:'ولا حدا',neg:1}]);
+  if(c.mode==='pass')return withFire([{t:o,p:v,how,label:`${N[o]} عرفوها <span dir="ltr">+${v}</span>`},{t:me,p:1,how:'steal',label:`ما عرفوها: ${N[me]} <span dir="ltr">+1</span>`}]);
   const list=[{t:me,p:v,how,label:c.ask?`${N[me]} <span dir="ltr">+${v}</span> و${N[o]} <span dir="ltr">+1</span>`:`${N[me]} <span dir="ltr">+${v}</span>`,extra:c.ask?o:-1}];
   if(c.mode==='steal')list.push({t:o,p:1,how:'steal',label:`${N[o]} خطفوها <span dir="ltr">+1</span>`});
   list.push({t:-1,p:0,how:'none',label:'ولا حدا',neg:1});
+  return withFire(list);
+}
+function withFire(list){
+  const c=S.cur,ow=ownerOf(c);
+  if(!onFire(ow))return list;
+  list.forEach(op=>{if(op.t===ow&&op.p>0&&op.how!=='steal'){op.bonus=1;op.label+=` <span class="fb">${FLAME}+1</span>`}});
   return list;
 }
 const ptsWord=v=>v===1?'نقطة':v===2?'نقطتين':'نقاط';
@@ -1118,7 +1144,7 @@ function paintQuestion(){
   if(c.call)banners.push(`<div class="banner${fx.b==='call'?' enter':''}">رنّة: 30 ثانية على السبيكر. يلا اتصلوا!</div>`);
   if(x.type&&c.phase==='play'&&!c.revealed&&c.mode!=='steal')banners.push(`<div class="banner dark${fx.go?' enter':''}">${CH[x.type].label}: يلا! ${N[ans]} بيخمّنوا والوقت شغّال.</div>`);
   if(c.ask)banners.push(`<div class="banner${fx.b==='ask'?' enter':''}">${N[o]} لازم يعطوكم جواب. إذا طلع صح: النقاط إلكم ونقطة إلهم.</div>`);
-  const notes=c.hints?`<div class="notes">${x.hints.slice(0,c.hints).map((h,k)=>`<div class="note${fx.hint&&k===c.hints-1?' enter':''}"><small>غشّة ${k+1}</small><span>${esc(h)}</span></div>`).join('')}</div>`:'';
+  const notes=c.hints&&x.hints.slice(0,c.hints).some(Boolean)?`<div class="notes">${x.hints.slice(0,c.hints).map((h,k)=>!h?'':`<div class="note${fx.hint&&k===c.hints-1?' enter':''}"><small>غشّة ${k+1}</small><span>${esc(h)}</span></div>`).join('')}</div>`:'';
   const opts=c.half&&!c.revealed?(()=>{const p=shuffle([x.a,x.x]);return `<div class="opts"><div class="opt"><small>أ</small>${esc(p[0])}</div><div class="opt"><small>ب</small>${esc(p[1])}</div></div>`})():'';
   const was=c.hints||c.elder?`كانت <s>3</s>… `:'';
   const valtxt=c.qadd?'صح بـ6، غلط ناقص 3':c.mode==='steal'?'الخطفة بنقطة وحدة':c.half?'نُصّ بنُصّ: نقطة وحدة':c.mode==='pass'?'السؤال انتقل بنفس القيمة':`${was}${c.hints?'وغشّيتوا':c.elder?'وشاورتوا الكبير':''}`;
@@ -1154,8 +1180,9 @@ function paintQuestion(){
       ${timer}
     </aside>
     <div class="qmain">${banners.join('')}
-      <div class="qcard${fx.pass?' passed':''}">${x.by?`<span class="famby">${LOCK.replace('#fff','currentColor')} السر من: ${esc(x.by)}</span>`:''}<p>${esc(x.q)}</p></div>
-      ${notes}${opts}${body}</div></div>`;
+      <div class="qcard${fx.pass?' passed':''}">${x.img?`<div class="pic"><img src="${esc(x.img)}" alt="" data-z="${zoomOf(c)}" data-from="${fx.zoom||''}" style="transform-origin:${esc(x.f||'50% 35%')};transform:scale(${fx.zoom||zoomOf(c)})">${c.revealed?'':`<span class="zl">${c.hints<2?'مقرّبة… الغشّة بتبعّد الصورة':'الصورة كاملة'}</span>`}</div>`:''}${x.by?`<span class="famby">${LOCK.replace('#fff','currentColor')} السر من: ${esc(x.by)}</span>`:''}<p>${esc(x.q)}</p></div>
+      ${x.img&&x.credit&&c.revealed?`<p class="credit">الصورة: ${esc(x.credit)}</p>`:''}${notes}${opts}${body}</div></div>`;
+  {const im=document.querySelector('.pic img');if(im&&im.dataset.from){void im.offsetWidth;requestAnimationFrame(()=>{im.style.transform=`scale(${im.dataset.z})`})}}
   tPaint();
   const pk=$('peek');
   if(pk){
@@ -1178,7 +1205,7 @@ function pickFinal(catId){
   if(pool.length)return pickFresh(pool,1)[0];
   // no final written for this category yet: use an unplayed question from the same category, its two hints become the clues
   const bank=BANK.find(c=>c.id===catId),used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id)));
-  const cand=bank&&!bank.type?bank.questions.filter(q=>!used.has(q.id)):[];
+  const cand=bank&&!bank.type?bank.questions.filter(q=>!used.has(q.id)&&!q.img):[];
   if(cand.length){const q=pickFresh(cand,1)[0];return {id:q.id,q:q.q,a:q.a,clues:(q.hints||[]).slice(0,2),cat:catId}}
   const gen=FINALS.filter(f=>!f.cat);
   return pickFresh(gen.length?gen:FINALS,1)[0]||{q:'',a:'',clues:[]};
@@ -1189,7 +1216,8 @@ function setFinalQ(catId){
   S.screen='final-intro';
 }
 function enterFinal(){
-  const reg=shuffle(S.cats.filter(c=>!c.type&&c.id!=='family').map(c=>c.id));
+  const isPic=id=>{const b=BANK.find(c=>c.id===id);return !!(b&&b.questions&&b.questions.some(q=>q.img))};
+  const reg=shuffle(S.cats.filter(c=>!c.type&&c.id!=='family'&&!isPic(c.id)).map(c=>c.id));
   const env=reg.filter(hasFinals).concat(reg.filter(id=>!hasFinals(id))).slice(0,3);
   const [a,b]=S.teams;
   S.final={env,picker:a.score===b.score?-1:(a.score<b.score?0:1),coin:null,cat:null,category:'',q:'',a:'',clues:[],id:null,wager:[0,0],right:[null,null],locked:[false,false],step:0,lockAt:[null,null]};
@@ -1199,7 +1227,7 @@ const finalMult=(f,i)=>f.clues&&f.clues.length?MULT[Math.min(f.lockAt[i]??f.step
 const gainOf=(f,i)=>Math.round(f.wager[i]*finalMult(f,i));
 function tbPick(){
   const used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id)));
-  const pool=BANK.filter(c=>!c.type&&c.id!=='family').flatMap(c=>c.questions).filter(q=>!used.has(q.id)&&!(S.tb&&S.tb.done||[]).includes(q.id));
+  const pool=BANK.filter(c=>!c.type&&c.id!=='family').flatMap(c=>c.questions).filter(q=>!q.img&&!used.has(q.id)&&!(S.tb&&S.tb.done||[]).includes(q.id));
   const q=pickFresh(pool,1)[0]||{q:'—',a:'—'};
   const done=(S.tb&&S.tb.done)||[];
   S.tb={id:q.id,q:q.q,a:q.a,buzz:-1,tried:[],revealed:false,done:done.concat(q.id?[q.id]:[])};
@@ -1301,6 +1329,7 @@ function paintEnd(){
   const titles=i=>{
     const tm=S.teams[i],o=S.teams[1-i],st=tm.st||{},os=o.st||{},f=S.final,bf=(f.before||[])[i],out=[];
     if(st.hints>=3&&st.hints>=(os.hints||0))out.push(['ملوك الغش',`${st.hints} غشّات بالسهرة`]);
+    if((st.best||0)>=FIRE_AT)out.push(['على النار',`${st.best} أسئلة صح ورا بعض`]);
     if(st.steals>=2)out.push(['الخطّافين',`خطفوا ${st.steals} أسئلة`]);
     if(st.clean>=3&&(st.hints||0)<=1)out.push(['النظيفين',`${st.clean} أسئلة بلا غشّ`]);
     if(st.passWin)out.push(['المورّطين','ورّطوا خصمهم ونجحت']);
@@ -1402,18 +1431,23 @@ const ACT={
     if(!isCh)tStart(locked?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec);
     if(locked)toast(`مسكّر عليكم يا ${S.teams[me].name}: نص الوقت وبلا «غشّشني».`);
   },
-  hint(){const c=S.cur,hx=S.cats[c.c].qs[c.i];if(c.hints<Math.min(2,(hx.hints||[]).length)){SFX.hint();ST(answering()).hints++;fx.prevV=qValue();c.hints++;fx.hint=true;if(qValue()===fx.prevV)fx.prevV=0;render()}},
+  hint(){const c=S.cur,hx=S.cats[c.c].qs[c.i];if(c.hints<Math.min(2,(hx.hints||[]).length)){SFX.hint();ST(answering()).hints++;fx.prevV=qValue();if(hx.img)fx.zoom=zoomOf(c);c.hints++;fx.hint=true;if(qValue()===fx.prevV)fx.prevV=0;render()}},
   qrmode(b){qrMode=b.dataset.m;paintSetup()},
   go(){const c=S.cur;c.phase='play';fx.go=true;render();tStart(c.locked&&answering()===S.turn?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec)},
   'rv-hide'(b){const card=document.querySelector('.rv-card');card.classList.toggle('blurred');b.textContent=card.classList.contains('blurred')?'أظهر':'خبّي الشاشة'},
   steal(){SFX.whoosh();S.cur.mode='steal';fx.steal=true;render();tStart(STEAL_SEC)},
-  reveal(){S.cur.revealed=true;T.running=false;render()},
+  reveal(){const c=S.cur;if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},
   back(){if(S.undo){S=JSON.parse(S.undo);render()}},
   undo(){if(S.undo){S=JSON.parse(S.undo);render()}},
   award(b){
     if(busy)return;
     const op=awardOptions()[+b.dataset.k],c=S.cur,x=S.cats[c.c].qs[c.i];
-    if(op.t>=0){S.teams[op.t].score+=op.p;bump=op.t}
+    if(op.t>=0){S.teams[op.t].score+=op.p+(op.bonus||0);bump=op.t}
+    let ignite=false;
+    {const ow=ownerOf(c),tm=S.teams[ow],was=tm.streak||0,won=op.t===ow&&op.p>0&&op.how!=='steal';
+     tm.streak=won?was+1:0;ST(ow).best=Math.max(ST(ow).best||0,tm.streak);
+     if(won&&tm.streak===FIRE_AT)ignite=true;
+     if(!won&&was>=FIRE_AT)setTimeout(()=>toast(`انطفت النار عند ${tm.name} بعد ${was} ورا بعض`),1150);}
     if(op.extra>=0)S.teams[op.extra].score+=1;
     {const me=S.turn;if(c.qadd){if(op.p>0)ST(me).qaddWin++;else ST(me).qaddFail++}
      else if(c.mode==='pass'&&op.t===me&&op.p>0)ST(me).passWin++;
@@ -1421,7 +1455,8 @@ const ACT={
      else if(op.how==='clean'&&op.p>0)ST(op.t).clean++;}
     x.done=true;markSeen(x.id);x.win=op.p>0?op.t:-1;x.how=op.p>0?op.how:'none';
     const good=op.p>0;good?SFX.stamp():SFX.fail();
-    $('stamp').innerHTML=`<div class="${good?'':'neg'}">${good?'قدّها!':'مش قدّها'}</div>`;$('stamp').hidden=false;busy=true;
+    $('stamp').innerHTML=ignite?`<div class="fire">ولّعت!</div>`:`<div class="${good?'':'neg'}">${good?'قدّها!':'مش قدّها'}</div>`;
+    if(ignite)setTimeout(()=>{SFX.win();toast(`${S.teams[ownerOf(c)].name} على النار! كل جواب صح بعدها إله نقطة زيادة.`)},300);$('stamp').hidden=false;busy=true;
     if(good)setTimeout(()=>{shake();burst(op.t)},160);
     setTimeout(()=>{
       $('stamp').hidden=true;busy=false;

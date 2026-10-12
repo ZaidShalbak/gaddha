@@ -20,3 +20,13 @@
 `finals.json`: `id`, `status`, `category`, `q`, `a`.
 
 لما ننتقل لقاعدة بيانات، كل ملف بيتحوّل لصفوف بجدول `questions` بنفس الحقول.
+
+## Photo questions («مين هاد بالصورة؟»)
+
+A regular question can carry a picture:
+
+- `img`: path to the image, usually `/questions/img/<id>-<stamp>.jpg` (uploaded from the admin page, resized to 1200px JPEG).
+- `f`: where the zoom starts, as `"x% y%"` (default `"50% 35%"`). Set it by clicking the preview in admin.
+- `credit`: optional photo credit, shown after the answer.
+
+The picture starts zoomed in ×3; each «غشّة» zooms out (×1.8, then full), and the answer shows it whole. Text hints are optional for photo questions. Photo questions never appear in the final round or the tiebreak.

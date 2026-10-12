@@ -105,6 +105,13 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-weight:800;padding:10px 18px;border-radius:14px;z-index:40;max-width:90vw;text-align:center}
 .empty{padding:30px;text-align:center;color:var(--mut)}
 @media (max-width:900px){.qlayout{grid-template-columns:1fr}.side{position:static;max-height:none}.crow{grid-template-columns:48px 1fr;}.crow .ic{width:48px;height:48px}.edit{grid-template-columns:1fr}}
+.picf{display:flex;flex-direction:column;gap:8px}
+.pv{width:200px;max-width:100%;aspect-ratio:4/3;border-radius:12px;overflow:hidden;position:relative;cursor:crosshair;background:#e7eef7;flex:none}
+.pv img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.pv i{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:3px solid #fff;background:#f0475a;box-shadow:0 0 0 2px #161616;pointer-events:none}
+.thumb{width:84px;aspect-ratio:4/3;border-radius:10px;object-fit:cover;flex:none}
+.upl{position:relative;overflow:hidden}
+.upl input{position:absolute;inset:0;opacity:0;cursor:pointer}
 </style>
 </head>
 <body>
@@ -135,7 +142,7 @@ const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k
 const STATUS={draft:'مسودة',reviewed:'تمت المراجعة',published:'منشور'};
 const TYPES={'':'أسئلة عادية',act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول'};
 const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4dff','#c8743a'];
-let ffilter='all',token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),tab='q',cur=null,filter='all',editing=null,toastT;
+let ffilter='all',token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
 
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
 const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
@@ -151,7 +158,7 @@ const catData=id=>files[catFile(id)];
 const catMeta=id=>idx().categories.find(c=>c.id===id);
 const listOf=id=>{const d=catData(id);return d?(d.items||d.questions||[]):[]};
 function touch(p){dirty.add(p);paintDirty()}
-function paintDirty(){const n=dirty.size;$('dirty').textContent=n?`${n} ${n===1?'ملف متغيّر':'ملفات متغيّرة'} · ما انحفظت`:'';$('save').disabled=!n}
+function paintDirty(){const n=dirty.size+Object.keys(uploads).length;$('dirty').textContent=n?`${n} ${n===1?'ملف متغيّر':'ملفات متغيّرة'} · ما انحفظت`:'';$('save').disabled=!n}
 window.addEventListener('beforeunload',e=>{if(dirty.size){e.preventDefault();e.returnValue=''}});
 
 /* ---------- login + load ---------- */
@@ -189,7 +196,8 @@ async function commitOnce(){
   const ref=await gh(`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}?t=${Date.now()}`);
   const head=ref.object.sha;
   const base=await gh(`/repos/${OWNER}/${REPO}/git/commits/${head}`);
-  const tree=await gh(`/repos/${OWNER}/${REPO}/git/trees`,{method:'POST',body:JSON.stringify({base_tree:base.tree.sha,tree:[...dirty].map(p=>({path:p,mode:'100644',type:'blob',content:JSON.stringify(files[p],null,1)+'\n'}))})});
+  const imgs=await Promise.all(Object.entries(uploads).map(async([p,b64])=>{const bl=await gh(`/repos/${OWNER}/${REPO}/git/blobs`,{method:'POST',body:JSON.stringify({content:b64,encoding:'base64'})});return {path:p,mode:'100644',type:'blob',sha:bl.sha}}));
+  const tree=await gh(`/repos/${OWNER}/${REPO}/git/trees`,{method:'POST',body:JSON.stringify({base_tree:base.tree.sha,tree:[...dirty].map(p=>({path:p,mode:'100644',type:'blob',content:JSON.stringify(files[p],null,1)+'\n'})).concat(imgs)})});
   const n=dirty.size;
   const commit=await gh(`/repos/${OWNER}/${REPO}/git/commits`,{method:'POST',body:JSON.stringify({message:`لوحة التحكم: تعديل ${n} ${n===1?'ملف':'ملفات'}\n\n${[...dirty].join('\n')}`,tree:tree.sha,parents:[head]})});
   await gh(`/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`,{method:'PATCH',body:JSON.stringify({sha:commit.sha})});
@@ -197,7 +205,7 @@ async function commitOnce(){
 }
 let saving=false;
 async function save(){
-  if(saving||!dirty.size)return;saving=true;
+  if(saving||!(dirty.size||Object.keys(uploads).length))return;saving=true;
   const btn=$('save');btn.disabled=true;btn.textContent='عم نحفظ…';
   try{
     syncOrder();
@@ -207,7 +215,7 @@ async function save(){
       catch(e){err=e;if(e.status!==422&&e.status!==409)break;await new Promise(r=>setTimeout(r,1200*(i+1)))}
     }
     if(!ok)throw err;
-    dirty.clear();paintDirty();toast('انحفظ! بيطلع باللعبة خلال دقيقة تقريبًا.');
+    dirty.clear();uploads={};paintDirty();toast('انحفظ! بيطلع باللعبة خلال دقيقة تقريبًا.');
   }catch(e){toast('ما انحفظ: '+(e.status===401||e.status===403?'المفتاح ما إله صلاحية كتابة':e.message.slice(0,90)))}
   saving=false;btn.textContent='احفظ وانشر';paintDirty();
 }
@@ -249,7 +257,7 @@ function qCard(x,m,answers){
   if(m.type)return `<article class="q s-${x.status}"><span class="qt">${esc(x.s)}</span>
     <div class="meta">${x.k?`<span><b>${m.type==='hum'?'المغني':'النوع'}:</b> ${esc(x.k)}</span>`:''}${(x.b||[]).length?`<span><b>ممنوع:</b> ${esc(x.b.join('، '))}</span>`:''}<span class="mut" style="font-size:.85em">${x.id}</span></div>
     ${dup?'<span class="warn">في سر مكرر بنفس الكلمة</span>':''}${acts}</article>`;
-  return `<article class="q s-${x.status}"><span class="qt">${esc(x.q)}</span>
+  return `<article class="q s-${x.status}">${x.img?`<img class="thumb" src="${esc(imgSrc(x.img))}" alt="" style="object-position:${esc(x.f||'50% 35%')}">`:''}<span class="qt">${esc(x.q)}</span>
     <div class="meta"><span><b>الجواب:</b> <span class="ans">${esc(x.a)}</span></span><span><b>غشّة 1:</b> ${esc((x.hints||[])[0])}</span><span><b>غشّة 2:</b> ${esc((x.hints||[])[1])}</span><span><b>الخيار الغلط:</b> ${esc(x.w)}</span>${x.difficulty?`<span><b>الصعوبة:</b> ${['','سهل','متوسط','صعب'][x.difficulty]}</span>`:''}<span class="mut" style="font-size:.85em">${x.id}</span></div>
     ${(x.sources||[]).length?`<div class="src">${x.sources.map(s=>`<a href="${esc(s)}" target="_blank" rel="noopener">${esc(decodeURI(s).slice(0,80))}</a>`).join(' · ')}</div>`:''}
     ${dup?'<span class="warn">في سؤال تاني بنفس الجواب، تأكد إنه مش مكرر</span>':''}${acts}</article>`;
@@ -259,7 +267,21 @@ function editForm(x,m){
   if(m.type)return `<div class="edit">${f('s','السر',x.s,1)}${m.type!=='taboo'?f('k',m.type==='hum'?'المغني':'النوع (فيلم، مسلسل…)',x.k||''):''}${m.type==='taboo'?f('b','الكلمات الممنوعة (افصل بفاصلة)',(x.b||[]).join('، '),1):''}</div>`;
   return `<div class="edit">${f('q','السؤال',x.q,1,1)}${f('a','الجواب',x.a)}${f('w','الخيار الغلط (لـ«نُصّ بنُصّ»)',x.w)}${f('h0','غشّة 1 (الأبعد)',(x.hints||[])[0]||'')}${f('h1','غشّة 2 (الأقرب)',(x.hints||[])[1]||'')}
     <label class="f">الصعوبة<select data-e="difficulty" data-id="${x.id}"><option value="">بدون</option>${[1,2,3].map(n=>`<option value="${n}" ${x.difficulty==n?'selected':''}>${['','سهل','متوسط','صعب'][n]}</option>`).join('')}</select></label>
-    ${f('sources','المصادر (رابط بكل سطر)',(x.sources||[]).join('\n'),1,1)}</div>`;
+    ${f('sources','المصادر (رابط بكل سطر)',(x.sources||[]).join('\n'),1,1)}
+    <div class="f wide picf">صورة (لأسئلة «مين هاد بالصورة؟»)
+      <div class="row" style="align-items:flex-start">${x.img?`<span class="pv" data-a="focus" data-id="${x.id}" title="اضغط لتحدد وين يبلّش التقريب">${`<img src="${esc(imgSrc(x.img))}" alt="">`}<i style="left:${focusXY(x)[0]}%;top:${focusXY(x)[1]}%"></i></span>`:''}
+        <span style="display:flex;flex-direction:column;gap:6px"><span class="btn sm upl">${x.img?'غيّر الصورة':'ارفع صورة'}<input type="file" accept="image/*" data-up="${x.id}"></span>
+        ${x.img?`<button type="button" class="btn sm danger" data-a="img-del" data-id="${x.id}">شيل الصورة</button>`:''}</span></div>
+      ${x.img?'<span class="mut" style="font-size:.85em;font-weight:500">النقطة الحمرا هي وين بيبلّش التقريب (حطها على الوجه). كل «غشّة» بتبعّد الصورة، وبعد الجواب بتطلع كاملة.</span>':''}
+      <span class="row" style="gap:8px">${f('credit','حقوق الصورة (اختياري)',x.credit||'')}</span></div></div>`;
+}
+const imgSrc=v=>{const k=String(v||'').replace(/^\//,'');return previews[k]||v};
+const focusXY=x=>{const m=String(x.f||'50% 35%').match(/([\d.]+)%\s+([\d.]+)%/);return m?[+m[1],+m[2]]:[50,35]};
+async function shrink(file){
+  const url=URL.createObjectURL(file);const im=new Image();im.src=url;await im.decode();
+  const k=Math.min(1,1200/Math.max(im.naturalWidth,im.naturalHeight)),c=document.createElement('canvas');
+  c.width=Math.round(im.naturalWidth*k);c.height=Math.round(im.naturalHeight*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(url);
+  return c.toDataURL('image/jpeg',.85);
 }
 
 function paintCats(){
@@ -364,6 +386,8 @@ const A={
   'pick-art'(b){draftArt=b.dataset.k;const g=$('glyph');if(g)g.value='';$('artbox').innerHTML=artPicker(draftArt,draftBg)},
   'pick-bg'(b){draftBg=b.dataset.c;const gv=$('glyph')?$('glyph').value:'';$('artbox').innerHTML=artPicker(draftArt,draftBg);$('glyph').value=gv},
   close:closeModal,
+  focus(b,e){const x=findQ(b.dataset.id),r=b.getBoundingClientRect();x.f=`${Math.round((e.clientX-r.left)/r.width*100)}% ${Math.round((e.clientY-r.top)/r.height*100)}%`;touch(catFile(cur));paint()},
+  'img-del'(b){const x=findQ(b.dataset.id),k=String(x.img||'').replace(/^\//,'');delete uploads[k];delete x.img;delete x.f;touch(catFile(cur));paint()},
   'modal-bg'(b,e){if(e.target===b)closeModal()},
   ffilter(b){ffilter=b.dataset.f;paint()},
   'new-f'(){const F=files['questions/finals.json'].finals,id=nextId('final',F),cat=ffilter==='all'?'':ffilter;F.push({id,status:'draft',cat,category:cat?(catMeta(cat)||{}).name:'',q:'',a:'',clues:['','',''],sources:[]});editing=id;touch('questions/finals.json');paint()},
@@ -396,6 +420,10 @@ document.addEventListener('change',e=>{
   if(d.c==='group'){const G=idx().groups,to=+t.value;G.forEach(g=>g.categories=g.categories.filter(id=>id!==d.id));G[to].categories.push(d.id);touch('questions/index.json');paint()}
   if(d.fe==='cat'){const x=files['questions/finals.json'].finals.find(y=>y.id===d.id);x.cat=t.value;x.category=t.value?(catMeta(t.value)||{}).name:'';touch('questions/finals.json');paint();return}
   if(d.e==='difficulty'){const x=findQ(d.id);x.difficulty=t.value?+t.value:null;touch(catFile(cur))}
+  if(d.up&&t.files&&t.files[0]){const x=findQ(d.up);toast('عم نجهّز الصورة…');
+    shrink(t.files[0]).then(du=>{const old=String(x.img||'').replace(/^\//,'');delete uploads[old];
+      const path=`questions/img/${x.id}-${Date.now().toString(36)}.jpg`;uploads[path]=du.split(',')[1];previews[path]=du;x.img='/'+path;if(!x.f)x.f='50% 35%';
+      if(!x.q)x.q='مين هاد؟';touch(catFile(cur));paint();toast('الصورة جاهزة. اضغط «احفظ وانشر».')}).catch(()=>toast('ما قدرنا نقرأ الصورة.'))}
 });
 token?load():paintLogin();
 })();
