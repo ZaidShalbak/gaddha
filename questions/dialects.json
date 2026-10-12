@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "dialects-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «بزّاف» باللهجة المغربي؟",
    "a": "كتير",
@@ -16,7 +16,7 @@
   },
   {
    "id": "dialects-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «واخا» باللهجة المغربي؟",
    "a": "ماشي / طيب",
@@ -29,7 +29,7 @@
   },
   {
    "id": "dialects-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «دابا» باللهجة المغربي؟",
    "a": "هلّأ",
@@ -42,7 +42,7 @@
   },
   {
    "id": "dialects-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «برشا» باللهجة التونسي؟",
    "a": "كتير",
@@ -55,7 +55,7 @@
   },
   {
    "id": "dialects-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «باهي» باللهجة التونسي والليبي؟",
    "a": "منيح / تمام",
@@ -68,7 +68,7 @@
   },
   {
    "id": "dialects-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «كرهبة» باللهجة التونسي؟",
    "a": "سيارة",
@@ -81,7 +81,7 @@
   },
   {
    "id": "dialects-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «يزّي» باللهجة التونسي؟",
    "a": "خلص / بكفّي",
@@ -94,7 +94,7 @@
   },
   {
    "id": "dialects-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «شكو ماكو؟» باللهجة العراقي؟",
    "a": "شو في؟ / شو الأخبار؟",
@@ -107,7 +107,7 @@
   },
   {
    "id": "dialects-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «هوايه» باللهجة العراقي؟",
    "a": "كتير",
@@ -120,7 +120,7 @@
   },
   {
    "id": "dialects-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «أكو» باللهجة العراقي؟",
    "a": "في (يوجد)",
@@ -133,7 +133,7 @@
   },
   {
    "id": "dialects-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «خوش» باللهجة العراقي؟",
    "a": "منيح / حلو",
@@ -146,7 +146,7 @@
   },
   {
    "id": "dialects-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «وايد» باللهجة الخليجي؟",
    "a": "كتير",
@@ -159,7 +159,7 @@
   },
   {
    "id": "dialects-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «أبغى» باللهجة السعودي والخليجي؟",
    "a": "بدّي",
@@ -172,7 +172,7 @@
   },
   {
    "id": "dialects-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «مرّة» باللهجة السعودي؟",
    "a": "كتير / جدًّا",
@@ -185,7 +185,7 @@
   },
   {
    "id": "dialects-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «سوالف» باللهجة الخليجي؟",
    "a": "حكي / دردشة",
@@ -198,7 +198,7 @@
   },
   {
    "id": "dialects-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «يالس» باللهجة الخليجي؟",
    "a": "قاعد",
@@ -211,7 +211,7 @@
   },
   {
    "id": "dialects-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «زول» باللهجة السوداني؟",
    "a": "زلمة / شخص",
@@ -224,7 +224,7 @@
   },
   {
    "id": "dialects-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «ذلحين» باللهجة اليمني؟",
    "a": "هلّأ",
@@ -237,7 +237,7 @@
   },
   {
    "id": "dialects-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «أوي» باللهجة المصري؟",
    "a": "كتير",
@@ -250,7 +250,7 @@
   },
   {
    "id": "dialects-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «عايز» باللهجة المصري؟",
    "a": "بدّي / بدّه",
@@ -263,7 +263,7 @@
   },
   {
    "id": "dialects-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «دلوقتي» باللهجة المصري؟",
    "a": "هلّأ",
@@ -276,7 +276,7 @@
   },
   {
    "id": "dialects-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «شحال» باللهجة المغربي؟",
    "a": "قدّيش",
@@ -289,7 +289,7 @@
   },
   {
    "id": "dialects-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «مزيان» باللهجة المغربي؟",
    "a": "منيح / حلو",
@@ -302,7 +302,7 @@
   },
   {
    "id": "dialects-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «بغيت» باللهجة المغربي؟",
    "a": "بدّي",
@@ -315,7 +315,7 @@
   },
   {
    "id": "dialects-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "شو يعني «شلون» باللهجة العراقي والخليجي؟",
    "a": "كيف",
