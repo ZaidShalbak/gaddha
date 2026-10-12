@@ -23,6 +23,12 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:'Alexandria','Se
 .ban span{padding:2px 12px;border-radius:99px;background:#fde4e6;color:#b3263a;font-weight:800}
 .note{margin:0;font-size:.9rem;line-height:1.7;color:var(--mut)}
 button{font:inherit;font-weight:800;min-height:50px;padding:.4em 1.6em;border-radius:99px;border:0;background:linear-gradient(90deg,#2f9e5f,#14532d);color:#fff;cursor:pointer}
+.draw{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px))}
+.draw-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.draw-top b{font-weight:900}
+.draw-top .peek{min-height:40px;padding:0 14px;font-size:.85rem;background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12);user-select:none;-webkit-user-select:none}
+.draw-pad{flex:1;min-height:0;display:flex}
+.small{min-height:40px;padding:0 14px;font-size:.85rem;background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12)}
 button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
 </style>
 </head>
@@ -31,9 +37,14 @@ button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
   <p class="brand">قدّها</p>
   <p class="note">امسحوا كود تحدّي من لعبة قدّها عشان يطلع السر هون.</p>
 </main>
+<div class="draw" id="draw" hidden>
+  <div class="draw-top"><button type="button" class="small" id="back">رجوع</button><b>ارسم… بلا حروف ولا أرقام</b><button type="button" class="peek" id="peek">اضغط مطوّل: الكلمة</button></div>
+  <div class="draw-pad" id="pad"></div>
+</div>
+<script src="/pad.js"></script>
 <script>
 (function(){
-  var LABEL={act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول'};
+  var LABEL={act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها'};
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function b64d(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)))}
   var h=location.hash||'',card=document.getElementById('card');
@@ -44,8 +55,19 @@ button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
   if(d.t==='hum')html+='<p class="extra">الصوت: '+esc(d.k)+'</p>';
   if(d.t==='act')html+='<p class="extra">'+esc(d.k)+' · مثّل بدون ولا كلمة</p>';
   if(d.t==='taboo')html+='<div class="ban"><small>ممنوع تقول:</small>'+(d.b||[]).map(function(w){return'<span>'+esc(w)+'</span>'}).join('')+'</div>';
-  html+='<p class="note">لا تفرجي حدا! لما تجهز، خلّيهم يضغطوا «يلا ابدأ» على الشاشة الكبيرة.</p><button type="button" id="hide">خبّي الشاشة</button>';
+  if(d.t==='draw'){
+    html+='<p class="extra">'+esc(d.k||'')+(d.k?' · ':'')+'ارسم بلا حروف ولا أرقام</p><p class="note">إذا بترسم على الشاشة الكبيرة: احفظ الكلمة وروح ارسم هناك. إذا على الجوال: اضغط «ارسم هون» وخلّي فريقك يتجمّع حواليك.</p><button type="button" id="drawbtn">ارسم هون</button><button type="button" class="small" id="hide">خبّي الشاشة</button>';
+  }else html+='<p class="note">لا تفرجي حدا! لما تجهز، خلّيهم يضغطوا «يلا ابدأ» على الشاشة الكبيرة.</p><button type="button" id="hide">خبّي الشاشة</button>';
   card.innerHTML=html;
+  var db=document.getElementById('drawbtn');
+  if(db){
+    var dw=document.getElementById('draw'),pk=document.getElementById('peek'),strokes=[],inst=null;
+    db.onclick=function(){card.hidden=true;dw.hidden=false;if(inst)inst.destroy();inst=window.GADDHA_PAD.create(document.getElementById('pad'),{strokes:strokes})};
+    document.getElementById('back').onclick=function(){dw.hidden=true;card.hidden=false};
+    var show=function(e){e.preventDefault();pk.textContent=d.s},hide=function(){pk.textContent='اضغط مطوّل: الكلمة'};
+    pk.addEventListener('pointerdown',show);pk.addEventListener('pointerup',hide);pk.addEventListener('pointerleave',hide);pk.addEventListener('pointercancel',hide);
+    pk.addEventListener('contextmenu',function(e){e.preventDefault()});
+  }
   history.replaceState(null,'',location.pathname);
   document.getElementById('hide').onclick=function(){card.classList.toggle('blurred');this.textContent=card.classList.contains('blurred')?'أظهر':'خبّي الشاشة'};
 })();

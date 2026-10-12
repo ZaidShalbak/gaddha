@@ -155,6 +155,9 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .locks .btn{min-height:58px}
 .lockd{border-radius:20px;padding:12px 16px;background:var(--team);color:var(--on);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:drop .35s ease-out}
 .lockd span{font-size:.82em;opacity:.9}
+.padhost{height:clamp(320px,56vh,760px);display:flex}
+.padhost.ro{height:clamp(200px,32vh,380px)}
+.padhost.ro .gpad-box{box-shadow:inset 0 0 0 2px var(--line)}
 .numin{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .numin label{display:flex;flex-direction:column;gap:6px;background:var(--tint);border-radius:20px;padding:12px 14px;font-weight:900;color:var(--teamc)}
 .numin input{font:inherit;font-size:1.6em;font-weight:900;text-align:center;direction:ltr;border:2px solid transparent;border-radius:14px;padding:.25em .4em;width:100%;background:#fff;color:var(--ink)}
@@ -251,6 +254,7 @@ html,body{overflow-x:hidden}
 .ft-envs i:nth-child(2){background:#f1c75b}.ft-envs i:nth-child(3){background:#fff3d1}
 .ft-lang{background:var(--gt)}
 .ft-num{background:#fff3d1}
+.ft-draw{background:#fde4e6}
 .hm-groups{display:grid;gap:12px}
 .hg{background:#fff;border-radius:22px;box-shadow:var(--sh);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
 .hg-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -292,7 +296,7 @@ html,body{overflow-x:hidden}
 @media (min-width:700px){
   .flow{grid-template-columns:repeat(2,1fr)}
   .bento{grid-template-columns:repeat(2,1fr)}
-  .ft-fam,.ft-lang{grid-column:1/-1}
+  .ft-fam{grid-column:1/-1}
   .hm-groups{grid-template-columns:repeat(2,1fr)}
 }
 @media (min-width:900px){
@@ -303,7 +307,7 @@ html,body{overflow-x:hidden}
   .ft{grid-column:span 2;flex-direction:column;align-items:flex-start}
   .ft-fam{grid-column:span 3;flex-direction:row;align-items:center}
   .ft-fire{grid-column:span 3;flex-direction:row;align-items:center}
-  .ft-lang{grid-column:1/-1;flex-direction:row;align-items:center}
+  .ft-lang,.ft-draw{grid-column:span 3;flex-direction:row;align-items:center}
   .ft>div{min-width:0}
   .hm-groups{grid-template-columns:repeat(3,1fr)}
   .hk{grid-template-columns:repeat(3,1fr);align-items:start}
@@ -741,6 +745,7 @@ details.more[open] summary{margin-bottom:10px}
         <article class="ft ft-pic"><span class="ft-zoom" aria-hidden="true"><i></i><i></i><i></i></span><div><h3>مين هاد بالصورة؟</h3><p>الصورة بتبلّش مقرّبة، وكل غشّة بتبعّدها شوي.</p></div></article>
         <article class="ft ft-num"><span class="ft-ic" id="ftnum"></span><div><h3>أقرب رقم</h3><p>سؤال جوابه رقم، والفريقين بيكتبوا على الورق. اللي أقرب بياخد النقاط، واللي جابها بالضبط إله نقطة زيادة.</p></div></article>
         <article class="ft ft-env"><span class="ft-envs" aria-hidden="true"><i>×2</i><i>×1.5</i><i>×1</i></span><div><h3>الظرف الأخير</h3><p>الفريق المتأخر بيختار من 3 ظروف، وكل غشّة بتنزّل المضاعف.</p></div></article>
+        <article class="ft ft-draw"><span class="ft-ic" id="ftdraw"></span><div><h3>ارسمها</h3><p>واحد بيرسم الكلمة والباقي بيخمّنوا. ارسموا على الشاشة الكبيرة أو على الجوال، بلا حروف ولا أرقام.</p></div></article>
         <article class="ft ft-lang"><span class="ft-ic" id="ftlang"></span><div><h3>كمّل المثل · شو يعني؟</h3><p>أمثال من عنّا، وكلمات من لهجات العرب من المغرب للخليج.</p></div></article>
       </div>
     </section>
@@ -762,7 +767,7 @@ details.more[open] summary{margin-bottom:10px}
           <li>كل سؤال بـ<b>3 نقاط</b>. كل «غشّشني» بتنزّله نقطة.</li>
           <li>ما عرفتوا؟ الفريق التاني بيقدر «يخطفها» بنقطة.</li>
           <li>3 أجوبة صح ورا بعض؟ صرتوا <b>«على النار»</b>: كل جواب صح بعدها إله نقطة زيادة.</li>
-          <li>بالتحديات (مثّلها، دندنها، بلا ما تقول) واحد بيمسح كود بجواله وبيشوف السر لحاله.</li>
+          <li>بالتحديات (مثّلها، دندنها، بلا ما تقول، ارسمها) واحد بيمسح كود بجواله وبيشوف السر لحاله.</li>
           <li>بالظرف الأخير كل فريق بيراهن على نقاطه: صح بتنضرب بالمضاعف، غلط بتروح.</li>
         </ol>
       </section>
@@ -829,6 +834,7 @@ details.more[open] summary{margin-bottom:10px}
 
 
 <script src="/art.js"></script>
+<script src="/pad.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
 <script>
 (()=>{
@@ -904,18 +910,21 @@ const BASE=location.origin+'/r/';
 const CH={
   act:{label:'مثّلها',verb:'يمثّل',prompt:'واحد من الفريق بيمسح الكود وبيمثّل اسم فيلم أو مسلسل أو مسرحية… بدون ولا كلمة.'},
   hum:{label:'دندنها',verb:'يدندن',prompt:'واحد من الفريق بيمسح الكود وبيدندن الأغنية بدون كلام، والفريق بيعرف اسمها.'},
-  taboo:{label:'بلا ما تقول',verb:'يوصف',prompt:'واحد من الفريق بيمسح الكود وبيوصف الكلمة بدون ما يقول ولا وحدة من الكلمات الممنوعة.'}
+  taboo:{label:'بلا ما تقول',verb:'يوصف',prompt:'واحد من الفريق بيمسح الكود وبيوصف الكلمة بدون ما يقول ولا وحدة من الكلمات الممنوعة.'},
+  draw:{label:'ارسمها',verb:'يرسم',prompt:'واحد من الفريق بيمسح الكود وبيرسم الكلمة… بلا حروف ولا أرقام ولا كلام.'}
 };
+let PAD={key:'',strokes:[],inst:null};
 function makeChallenge(type,it){
   const n=it.s.trim().split(/\s+/).length;
   const hints=type==='act'?[`نوعه: ${it.k} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الممثل صار بيقدر يقول كلمة وحدة من العنوان.']
     :type==='hum'?[`الصوت: ${it.k}`,`أول كلمة من الاسم: «${it.s.split(/\s+/)[0]}»`]
+    :type==='draw'?[`النوع: ${it.k||'شي'} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الرسام صار بيقدر يأشّر بإيده (بلا كلام).']
     :[`صار مسموح يقول: «${it.b[0]}»`,`وكمان: «${it.b[1]}»`];
   return{id:it.id,type,s:it.s,k:it.k||'',b:it.b||[],q:CH[type].prompt,a:type==='hum'?`${it.s} · ${it.k}`:it.s,x:'',hints,done:false,win:-1,how:''};
 }
 const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const b64d=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)))};
-const secretText=x=>x.type==='act'?`قدّها · مثّلها: ${x.s}`:x.type==='hum'?`قدّها · دندنها: ${x.s} (${x.k})`:`قدّها · بلا ما تقول: ${x.s}\nممنوع: ${x.b.join('، ')}`;
+const secretText=x=>x.type==='draw'?`قدّها · ارسمها: ${x.s}`:x.type==='act'?`قدّها · مثّلها: ${x.s}`:x.type==='hum'?`قدّها · دندنها: ${x.s} (${x.k})`:`قدّها · بلا ما تقول: ${x.s}\nممنوع: ${x.b.join('، ')}`;
 const qrPayload=x=>S.qrMode==='text'?secretText(x):BASE+'#s'+b64e(JSON.stringify({t:x.type,s:x.s,k:x.k,b:x.b}));
 function qrSvg(text){
   try{
@@ -1092,7 +1101,7 @@ function buildFan(){
   $('hmstats').innerHTML=ids.length?`<div><b>${ids.length}</b><span>فئة</span></div><div><b>${nq>=100?Math.floor(nq/50)*50+'+':nq}</b><span>سؤال وتحدّي</span></div><div><b>7</b><span>مساعدات</span></div>`:'';
   $('hmgroups').innerHTML=GROUPS.map(g=>`<div class="hg" style="--gc:${g.c}"><div class="hg-h"><b><i></i>${esc(g.name)}</b><button type="button" data-act="to-setup" data-only="${g.id}">العبوا هاي ←</button></div>
     <div class="hg-cats">${g.ids.filter(catById).map(id=>`<span style="--cbg:${cbg(id)}">${catArt(id)}${esc(catById(id).name)}</span>`).join('')}</div></div>`).join('');
-  $('ftfam').innerHTML=GA.svg('family');$('ftlang').innerHTML=GA.svg('scroll');$('ftnum').innerHTML=GA.svg('numbers');
+  $('ftfam').innerHTML=GA.svg('family');$('ftlang').innerHTML=GA.svg('scroll');$('ftnum').innerHTML=GA.svg('numbers');$('ftdraw').innerHTML=GA.svg('brush');
   const KDESC={help:'بتساعدكم تجاوبوا',sab:'بتصعّبها على الفريق التاني',bold:'بتلعبوا فيها على النقاط'};
   $('helperlist').innerHTML=['help','sab','bold'].map(k=>`<div class="hk-col k-${k}"><h3><span>${KIND[k]}</span><small>${KDESC[k]}</small></h3>
     ${HIDS.filter(id=>HELPERS[id].kind===k).map(id=>`<div class="hmhc"><span class="hic">${helpIcon(id)}</span><div><b>${esc(HELPERS[id].name)}</b><p>${esc(HELPERS[id].desc)}</p></div></div>`).join('')}</div>`).join('');
@@ -1322,14 +1331,14 @@ function paintQuestion(){
   const valtxt=c.qadd?'صح بـ6، غلط ناقص 3':c.mode==='steal'?'الخطفة بنقطة وحدة':c.half?'نُصّ بنُصّ: نقطة وحدة':c.mode==='pass'?'السؤال انتقل بنفس القيمة':`${was}${c.hints?'وغشّيتوا':c.elder?'وشاورتوا الكبير':''}`;
   const numQ=isNum(x);
   const cheatOk=!numQ&&!c.qadd&&!c.half&&c.hints<(x.hints||[]).length&&c.mode!=='steal'&&!(c.locked&&ans===me);
-  const scan=!!x.type&&c.phase==='scan'&&!c.revealed;
+  const scan=!!x.type&&c.phase==='scan'&&!c.revealed,drawQ=x.type==='draw';
   let body,timer='';
   if(scan){
     const svg=qrSvg(qrPayload(x));
     body=`<div class="qrbox"><div class="qr">${svg||'الكود بدّه إنترنت. استعملوا «شوف السر هون».'}</div>
       <div class="qrtext"><b>يا ${N[ans]}: اللي بدّه ${CH[x.type].verb} يمسح الكود</b>
-      <span>السر بيطلع على جواله هو بس. لما يجهز، اضغطوا «يلا ابدأ» وبيبدأ الوقت.</span>
-      <div class="row"><button type="button" class="btn solid big" data-act="go">يلا ابدأ</button>
+      <span>${x.type==='draw'?'الكلمة بتطلع على جواله هو بس. بعدين اختاروا وين بدّه يرسم، وبيبدأ الوقت.':'السر بيطلع على جواله هو بس. لما يجهز، اضغطوا «يلا ابدأ» وبيبدأ الوقت.'}</span>
+      <div class="row">${x.type==='draw'?`<button type="button" class="btn solid big" data-act="go" data-surf="here">نرسم هون على الشاشة</button><button type="button" class="btn big" data-act="go" data-surf="phone">نرسم على الجوال</button>`:`<button type="button" class="btn solid big" data-act="go">يلا ابدأ</button>`}
       <button type="button" class="btn sm" id="peek">ما في جوال؟ شوف السر هون</button>
       <button type="button" class="btn sm" data-act="back">رجوع</button></div></div></div>`;
   }else if(numQ&&c.revealed){
@@ -1361,8 +1370,9 @@ function paintQuestion(){
       ${timer}
     </aside>
     <div class="qmain">${banners.join('')}
-      <div class="qcard${fx.pass?' passed':''}">${numQ&&x.unit&&!c.revealed?`<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم · ${esc(x.unit)}</span>`:numQ&&!c.revealed?'<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم</span>':''}${x.img?`<div class="pic"><img src="${esc(x.img)}" alt="" data-z="${zoomOf(c)}" data-from="${fx.zoom||''}" style="transform-origin:${esc(x.f||'50% 35%')};transform:scale(${fx.zoom||zoomOf(c)})">${c.revealed?'':`<span class="zl">${c.hints<2?'مقرّبة… الغشّة بتبعّد الصورة':'الصورة كاملة'}</span>`}</div>`:''}${x.by?`<span class="famby">${LOCK.replace('#fff','currentColor')} السر من: ${esc(x.by)}</span>`:''}<p>${esc(x.q)}</p></div>
+      ${drawQ&&!scan&&c.surface==='here'?`<div class="padhost${c.revealed?' ro':''}" id="padhost"></div>`:drawQ&&!scan&&c.surface==='phone'&&!c.revealed?`<div class="qcard"><p>الرسّام عم يرسم على جواله.<br><small style="font-size:.6em;color:var(--mut)">تجمّعوا حواليه وخمّنوا بصوت عالي!</small></p></div>`:`<div class="qcard${fx.pass?' passed':''}">${numQ&&x.unit&&!c.revealed?`<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم · ${esc(x.unit)}</span>`:numQ&&!c.revealed?'<span class="famby" style="color:#c48a12;background:#fff3d1">الجواب رقم</span>':''}${x.img?`<div class="pic"><img src="${esc(x.img)}" alt="" data-z="${zoomOf(c)}" data-from="${fx.zoom||''}" style="transform-origin:${esc(x.f||'50% 35%')};transform:scale(${fx.zoom||zoomOf(c)})">${c.revealed?'':`<span class="zl">${c.hints<2?'مقرّبة… الغشّة بتبعّد الصورة':'الصورة كاملة'}</span>`}</div>`:''}${x.by?`<span class="famby">${LOCK.replace('#fff','currentColor')} السر من: ${esc(x.by)}</span>`:''}<p>${esc(x.q)}</p></div>`}
       ${x.img&&x.credit&&c.revealed?`<p class="credit">الصورة: ${esc(x.credit)}</p>`:''}${notes}${opts}${body}</div></div>`;
+  {const ph=$('padhost');if(ph&&window.GADDHA_PAD){const key=S.cur.c+'-'+S.cur.i;if(PAD.key!==key)PAD={key,strokes:[],inst:null};if(PAD.inst)PAD.inst.destroy();PAD.inst=GADDHA_PAD.create(ph,{strokes:PAD.strokes,readonly:c.revealed})}}
   {const im=document.querySelector('.pic img');if(im&&im.dataset.from){void im.offsetWidth;requestAnimationFrame(()=>{im.style.transform=`scale(${im.dataset.z})`})}}
   tPaint();
   const pk=$('peek');
@@ -1621,7 +1631,7 @@ const ACT={
   },
   hint(){const c=S.cur,hx=S.cats[c.c].qs[c.i];if(c.hints<Math.min(2,(hx.hints||[]).length)){SFX.hint();ST(answering()).hints++;fx.prevV=qValue();if(hx.img)fx.zoom=zoomOf(c);c.hints++;fx.hint=true;if(qValue()===fx.prevV)fx.prevV=0;render()}},
   qrmode(b){qrMode=b.dataset.m;paintSetup()},
-  go(){const c=S.cur;c.phase='play';fx.go=true;render();tStart(c.locked&&answering()===S.turn?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec)},
+  go(b){const c=S.cur;if(b&&b.dataset&&b.dataset.surf){c.surface=b.dataset.surf;PAD={key:c.c+'-'+c.i,strokes:[],inst:null}}c.phase='play';fx.go=true;render();tStart(c.locked&&answering()===S.turn?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec)},
   'rv-hide'(b){const card=document.querySelector('.rv-card');card.classList.toggle('blurred');b.textContent=card.classList.contains('blurred')?'أظهر':'خبّي الشاشة'},
   steal(){SFX.whoosh();S.cur.mode='steal';fx.steal=true;render();tStart(STEAL_SEC)},
   reveal(){const c=S.cur;if(isNum(S.cats[c.c].qs[c.i])){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');const el=document.querySelector(`[data-num="${g.indexOf(null)}"]`);el&&el.focus();return}c.g=g;SFX.whoosh()}if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},

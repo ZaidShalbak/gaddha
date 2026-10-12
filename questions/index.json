@@ -52,7 +52,8 @@
    "categories": [
     "act",
     "hum",
-    "taboo"
+    "taboo",
+    "draw"
    ],
    "visible": true
   }
@@ -159,6 +160,15 @@
    "art": "numbers",
    "bg": "#fff3d1",
    "mode": "num"
+  },
+  {
+   "id": "draw",
+   "name": "ارسمها",
+   "file": "draw.json",
+   "visible": true,
+   "type": "draw",
+   "art": "brush",
+   "bg": "#e7eef7"
   }
  ],
  "finals": "finals.json"
