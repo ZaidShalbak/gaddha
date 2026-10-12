@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "proverbs-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي ما بيعرف الصقر…»",
    "a": "بيشويه",
@@ -16,7 +16,7 @@
   },
   {
    "id": "proverbs-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «بعد ما شاب…»",
    "a": "ودّوه عالكتّاب",
@@ -29,7 +29,7 @@
   },
   {
    "id": "proverbs-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «القرد بعين أمه…»",
    "a": "غزال",
@@ -42,7 +42,7 @@
   },
   {
    "id": "proverbs-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي بيته من قزاز…»",
    "a": "ما بيرشق الناس بالحجارة",
@@ -55,7 +55,7 @@
   },
   {
    "id": "proverbs-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «إجا يكحّلها…»",
    "a": "عماها",
@@ -68,7 +68,7 @@
   },
   {
    "id": "proverbs-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «الباب اللي بيجيك منه الريح…»",
    "a": "سدّه واستريح",
@@ -81,7 +81,7 @@
   },
   {
    "id": "proverbs-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي بياكل على ضرسه…»",
    "a": "بينفع نفسه",
@@ -94,7 +94,7 @@
   },
   {
    "id": "proverbs-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «حبل الكذب…»",
    "a": "قصير",
@@ -107,7 +107,7 @@
   },
   {
    "id": "proverbs-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي استحوا…»",
    "a": "ماتوا",
@@ -120,7 +120,7 @@
   },
   {
    "id": "proverbs-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «عصفور باليد…»",
    "a": "ولا عشرة على الشجرة",
@@ -133,7 +133,7 @@
   },
   {
    "id": "proverbs-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي فات…»",
    "a": "مات",
@@ -146,7 +146,7 @@
   },
   {
    "id": "proverbs-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «ابعد عن الشر…»",
    "a": "وغنّيله",
@@ -159,7 +159,7 @@
   },
   {
    "id": "proverbs-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «الجار قبل…»",
    "a": "الدار",
@@ -172,7 +172,7 @@
   },
   {
    "id": "proverbs-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «طبّ الجرّة على تمّها…»",
    "a": "بتطلع البنت لأمها",
@@ -185,7 +185,7 @@
   },
   {
    "id": "proverbs-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي إيده بالمي…»",
    "a": "مش زي اللي إيده بالنار",
@@ -198,7 +198,7 @@
   },
   {
    "id": "proverbs-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «يا رايح كتّر…»",
    "a": "من الفضايح",
@@ -211,7 +211,7 @@
   },
   {
    "id": "proverbs-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «لا تقول فول…»",
    "a": "تيصير بالمكيول",
@@ -224,7 +224,7 @@
   },
   {
    "id": "proverbs-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «إذا كان حبيبك عسل…»",
    "a": "لا تلحسه كله",
@@ -237,7 +237,7 @@
   },
   {
    "id": "proverbs-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «العين ما بتعلى…»",
    "a": "عن الحاجب",
@@ -250,7 +250,7 @@
   },
   {
    "id": "proverbs-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي ما إله كبير…»",
    "a": "يشتريله كبير",
@@ -263,7 +263,7 @@
   },
   {
    "id": "proverbs-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «زي الأطرش…»",
    "a": "بالزفّة",
@@ -276,7 +276,7 @@
   },
   {
    "id": "proverbs-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «على قدّ لحافك…»",
    "a": "مدّ إجريك",
@@ -289,7 +289,7 @@
   },
   {
    "id": "proverbs-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «اللي بيحفر حفرة لأخوه…»",
    "a": "بيوقع فيها",
@@ -302,7 +302,7 @@
   },
   {
    "id": "proverbs-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «مين شهدلك يا عروس؟…»",
    "a": "أمي وخالتي وعشرة من حارتي",
@@ -315,7 +315,7 @@
   },
   {
    "id": "proverbs-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أكمل المثل: «الصبر…»",
    "a": "مفتاح الفرج",
