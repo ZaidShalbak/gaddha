@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "flags-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "اليابان",
@@ -21,7 +21,7 @@
   },
   {
    "id": "flags-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "البرازيل",
@@ -39,7 +39,7 @@
   },
   {
    "id": "flags-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "كندا",
@@ -57,7 +57,7 @@
   },
   {
    "id": "flags-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "تركيا",
@@ -75,7 +75,7 @@
   },
   {
    "id": "flags-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "السعودية",
@@ -93,7 +93,7 @@
   },
   {
    "id": "flags-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "لبنان",
@@ -111,7 +111,7 @@
   },
   {
    "id": "flags-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "مصر",
@@ -129,7 +129,7 @@
   },
   {
    "id": "flags-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "لمين هالعلم؟",
    "a": "الأردن",
@@ -147,7 +147,7 @@
   },
   {
    "id": "flags-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "كوريا الجنوبية",
@@ -165,7 +165,7 @@
   },
   {
    "id": "flags-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "نيبال",
@@ -183,7 +183,7 @@
   },
   {
    "id": "flags-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "الجزائر",
@@ -201,7 +201,7 @@
   },
   {
    "id": "flags-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "المغرب",
@@ -219,7 +219,7 @@
   },
   {
    "id": "flags-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "تونس",
@@ -237,7 +237,7 @@
   },
   {
    "id": "flags-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "العراق",
@@ -255,7 +255,7 @@
   },
   {
    "id": "flags-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "الإمارات",
@@ -273,7 +273,7 @@
   },
   {
    "id": "flags-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "الكويت",
@@ -291,7 +291,7 @@
   },
   {
    "id": "flags-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "قطر",
@@ -309,7 +309,7 @@
   },
   {
    "id": "flags-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "عُمان",
@@ -327,7 +327,7 @@
   },
   {
    "id": "flags-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "لمين هالعلم؟",
    "a": "قبرص",
@@ -345,7 +345,7 @@
   },
   {
    "id": "flags-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "تشاد",
@@ -363,7 +363,7 @@
   },
   {
    "id": "flags-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "رومانيا",
@@ -381,7 +381,7 @@
   },
   {
    "id": "flags-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "إندونيسيا",
@@ -399,7 +399,7 @@
   },
   {
    "id": "flags-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "موناكو",
@@ -417,7 +417,7 @@
   },
   {
    "id": "flags-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "ساحل العاج",
@@ -435,7 +435,7 @@
   },
   {
    "id": "flags-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "السودان",
@@ -453,7 +453,7 @@
   },
   {
    "id": "flags-026",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "البحرين",
@@ -471,7 +471,7 @@
   },
   {
    "id": "flags-027",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "اليمن",
@@ -489,7 +489,7 @@
   },
   {
    "id": "flags-028",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "ليبيا",
@@ -507,7 +507,7 @@
   },
   {
    "id": "flags-029",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "لمين هالعلم؟",
    "a": "موريتانيا",
