@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "pal-places-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو هالمكان؟",
    "a": "قبة الصخرة",
@@ -21,7 +21,7 @@
   },
   {
    "id": "pal-places-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو هالمكان؟",
    "a": "المسجد الأقصى (المصلى القبلي)",
@@ -39,7 +39,7 @@
   },
   {
    "id": "pal-places-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو هالمكان؟",
    "a": "كنيسة المهد",
@@ -57,7 +57,7 @@
   },
   {
    "id": "pal-places-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو هالمكان؟",
    "a": "كنيسة القيامة",
@@ -75,7 +75,7 @@
   },
   {
    "id": "pal-places-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو هالمكان؟",
    "a": "الحرم الإبراهيمي",
@@ -93,7 +93,7 @@
   },
   {
    "id": "pal-places-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو هالمكان؟",
    "a": "قصر هشام",
@@ -111,7 +111,7 @@
   },
   {
    "id": "pal-places-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "وين هاد؟",
    "a": "سبسطية",
@@ -129,7 +129,7 @@
   },
   {
    "id": "pal-places-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو هالمكان؟",
    "a": "دير مار سابا",
@@ -147,7 +147,7 @@
   },
   {
    "id": "pal-places-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "وين هاد؟",
    "a": "أسوار عكا",
@@ -165,7 +165,7 @@
   },
   {
    "id": "pal-places-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو هالمكان؟",
    "a": "جامع الجزار",
@@ -183,7 +183,7 @@
   },
   {
    "id": "pal-places-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو هالمكان؟",
    "a": "برج الساعة في يافا",
@@ -201,7 +201,7 @@
   },
   {
    "id": "pal-places-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "وين هاد؟",
    "a": "بحيرة طبريا",
@@ -219,7 +219,7 @@
   },
   {
    "id": "pal-places-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "وين هاد؟",
    "a": "البحر الميت",
@@ -237,7 +237,7 @@
   },
   {
    "id": "pal-places-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو هالمكان؟",
    "a": "تل السلطان",
@@ -255,7 +255,7 @@
   },
   {
    "id": "pal-places-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "وين هاد؟",
    "a": "البلدة القديمة في نابلس",
@@ -273,7 +273,7 @@
   },
   {
    "id": "pal-places-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو هالمكان؟",
    "a": "باب العامود",
@@ -291,7 +291,7 @@
   },
   {
    "id": "pal-places-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو هالمكان؟",
    "a": "دير قرنطل (جبل التجربة)",
@@ -309,7 +309,7 @@
   },
   {
    "id": "pal-places-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو هالمكان؟",
    "a": "مقام النبي موسى",
@@ -327,7 +327,7 @@
   },
   {
    "id": "pal-places-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو هالمكان؟",
    "a": "جبل الفريديس (هيروديون)",
@@ -345,7 +345,7 @@
   },
   {
    "id": "pal-places-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "وين هاد؟",
    "a": "ساحة المهد",
@@ -363,7 +363,7 @@
   },
   {
    "id": "pal-places-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو هالمكان؟",
    "a": "بئر يعقوب",
