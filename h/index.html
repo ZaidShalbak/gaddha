@@ -45,6 +45,11 @@ button:disabled{opacity:.35}
 .ord{margin:0;padding-inline-start:1.4em}
 .ord li{font-weight:800}
 .ban{font-size:.85rem;color:#b3263a;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{min-height:46px;border-radius:14px;padding:0 14px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.2)}
+.chip.on{background:#2f9e5f;border-color:#6fd39a}.chip.miss{opacity:.45;border-style:dashed}
+.bidn{display:flex;align-items:center;justify-content:center;gap:18px}.bidn b{font-size:2.6rem;font-weight:900;min-width:1.5em;text-align:center}.bidn button{width:56px}
+.bidc{text-align:center;font-weight:800;font-size:1.1rem}.bidc b{font-size:2rem}
 </style>
 </head>
 <body>
@@ -70,6 +75,20 @@ button:disabled{opacity:.35}
     var h='';
     if(s.scr==='board'){
       h='<p class="note">الدور على <b>'+esc(s.teams[s.turn].name)+'</b>. اختاروا فئة:</p><div class="board">'+s.board.map(function(c){return'<button type="button" data-c="'+c.ci+'" '+(c.left?'':'disabled')+'>'+esc(c.name)+'<small>باقي '+c.left+'</small></button>'}).join('')+'</div>';
+    }else if(s.scr==='question'&&s.q&&s.q.bid){
+      var q=s.q,b=q.bid,T=b.teams;
+      h='<div class="card"><span class="cat">'+esc(q.cat)+(q.cat==='بزايد عليك'?'':' · بزايد عليك')+'</span><p class="q">'+esc(q.q)+'</p><span class="tag">بالقائمة '+b.max+' جواب</span></div>';
+      if(b.phase==='bid'){
+        h+='<p class="note">مين رسي عليه المزاد؟</p><div class="board">'+[0,1].map(function(i){return'<button type="button" class="'+(b.team===i?'solid':'neg')+'" data-bset="'+i+'">'+esc(T[i])+'</button>'}).join('')+'</div>'
+          +'<p class="note">قدّيش تعهّدوا؟</p><div class="bidn"><button type="button" data-bn="'+(b.n-1)+'">−</button><b>'+b.n+'</b><button type="button" data-bn="'+(b.n+1)+'">+</button></div>'
+          +'<div class="btns"><button class="solid" data-act="bid-go">فرجونا! ابدأ</button></div>';
+      }else{
+        h+='<p class="bidc">'+esc(T[b.team])+': <b>'+b.count+' / '+b.n+'</b></p>';
+        if(b.phase==='go')h+='<p class="note">اضغط كل جواب صح بيقولوه</p>';
+        h+='<div class="chips">'+b.list.map(function(it){return'<button type="button" class="chip'+(it.on?' on':'')+(b.phase==='done'&&!it.on?' miss':'')+'" data-bt="'+it.i+'" '+(b.phase==='done'?'disabled':'')+'>'+esc(it.t)+'</button>'}).join('')+'</div>';
+        if(b.phase==='go')h+='<div class="btns"><button data-act="bid-extra">+ جواب صح مش بالقائمة</button><button class="solid" data-act="bid-stop">خلص الوقت / وقّفوا</button></div>';
+        else if(s.awards)h+='<div class="btns"><p class="note">النتيجة</p>'+s.awards.map(function(a,k){return'<button class="'+(a.neg?'neg':'solid')+'" data-award="'+k+'">'+esc(a.label)+'</button>'}).join('')+'</div>';
+      }
     }else if(s.scr==='question'&&s.q){
       var q=s.q,secret=q.type?(q.s+(q.k?' · '+q.k:'')):q.a;
       h='<div class="card"><span class="cat">'+esc(q.cat)+' · '+esc(q.ans)+' بيجاوبوا</span>';
@@ -97,6 +116,9 @@ button:disabled{opacity:.35}
   view.addEventListener('click',function(e){
     var b=e.target.closest('button,[data-hide]');if(!b||b.disabled)return;
     if(b.dataset.hide){hide=!hide;paint();return}
+    if(b.dataset.bset!=null)return cmd('bid-set',{t:b.dataset.bset});
+    if(b.dataset.bn!=null)return cmd('bid-set',{n:b.dataset.bn});
+    if(b.dataset.bt!=null){b.classList.toggle('on');return cmd('bid-tap',{i:b.dataset.bt})}
     if(b.dataset.c!=null)return cmd('open',{c:b.dataset.c});
     if(b.dataset.award!=null)return cmd('award',{k:b.dataset.award});
     if(b.dataset.act)return cmd(b.dataset.act,b.dataset.surf?{surf:b.dataset.surf}:{});

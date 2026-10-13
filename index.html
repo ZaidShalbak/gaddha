@@ -765,6 +765,17 @@ details.more[open] summary{margin-bottom:10px}
 .a2hs .tx{flex:1;display:flex;flex-direction:column;gap:2px;line-height:1.5}.a2hs .tx b{font-weight:900}.a2hs .tx small{color:var(--mut)}
 .a2hs .btn{min-height:38px;padding:0 14px;font-size:.9em;flex:none}
 .a2hs .x{border:0;background:none;font-size:1.1em;color:var(--mut);cursor:pointer;padding:4px;flex:none}
+.bidset{display:flex;flex-direction:column;align-items:center;gap:10px;margin:6px 0}
+.bidteams{justify-content:center;gap:10px}.bidteams .btn[aria-pressed="false"]{opacity:.45}
+.bidnum{display:flex;align-items:center;gap:18px}.bidnum b{font-weight:900;font-size:3.2em;min-width:1.6em;text-align:center;line-height:1}.bidnum .btn{width:56px;height:56px;font-size:1.6em;padding:0}
+.bidhead{display:flex;align-items:baseline;justify-content:center;gap:12px;font-weight:800;font-size:1.1em}.bidhead b{font-weight:900;font-size:2.4em;line-height:1}
+.bidhead.t0 b{color:var(--g1)}.bidhead.t1 b{color:var(--b)}.bidhead.no b{color:var(--mut)}
+.judge{text-align:center;color:var(--mut);font-weight:700;margin:4px 0}
+.bidq{font:inherit;width:100%;max-width:420px;align-self:center;border:1.5px solid var(--line);border-radius:12px;padding:8px 12px;margin:2px auto 6px;display:block}
+.bchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0 10px}
+.bchip{font:inherit;font-weight:800;font-size:clamp(.85rem,1.6vw,1.05rem);padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;min-height:44px;transition:transform .12s}
+.bchip.on{background:var(--g2);border-color:var(--g1);color:#fff;transform:scale(1.04)}
+.bchips.done .bchip{cursor:default}.bchip.miss{background:var(--soft);color:var(--mut);border-style:dashed}
 .fbcard{background:#fff;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(22,22,22,.06)}
 .fbcard>b{font-weight:900;font-size:1.1em}.fbcard small{color:var(--mut);font-weight:800;font-size:.78em;margin-top:4px}
 .fbcard.sent{align-items:center;text-align:center}
@@ -1140,7 +1151,7 @@ const T={left:0,total:1,running:false,deadline:0,int:null};
 function tStop(){clearInterval(T.int);T.int=null;T.running=false}
 function tStart(sec,total){tStop();if(!S||!S.timerSec||!sec)return tPaint();T.left=sec;T.total=Math.max(sec,total||sec);T.deadline=Date.now()+sec*1000;T.running=true;T.int=setInterval(tTick,200);tPaint()}
 let lastTick=0;
-function tTick(){if(!T.running)return;T.left=Math.max(0,(T.deadline-Date.now())/1000);{const s=Math.ceil(T.left);if(s<=10&&s>0&&s!==lastTick){lastTick=s;SFX.tick()}}if(T.left<=0){T.running=false;beep()}tPaint()}
+function tTick(){if(!T.running)return;T.left=Math.max(0,(T.deadline-Date.now())/1000);{const s=Math.ceil(T.left);if(s<=10&&s>0&&s!==lastTick){lastTick=s;SFX.tick()}}if(T.left<=0){T.running=false;beep();if(S&&S.cur&&S.cur.bid&&S.cur.bid.phase==='go')setTimeout(bidFinish,700)}tPaint()}
 function tPaint(){
   const n=$('tnum');if(!n)return;
   const s=Math.ceil(T.left);
@@ -1341,7 +1352,7 @@ function startDraft(){
   store.set('gaddha.names',names);
   const cats=sel.map(id=>BANK.find(c=>c.id===id)).map(c=>({id:c.id,name:c.name,type:c.type||'',
     qs:c.type?pickFresh(c.items,5).map(it=>makeChallenge(c.type,it))
-      :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.img?(q.hints||[]).concat(['','']).slice(0,2):(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{},q.img?{img:q.img,f:q.f||'',credit:q.credit||''}:{},q.n!=null?{n:q.n,unit:q.unit||''}:{},q.o?{o:q.o,dir:q.dir||'',hints:[`أول واحد: ${q.o[0].t}`,`آخر واحد: ${q.o[q.o.length-1].t}`]}:{}))}));
+      :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.img?(q.hints||[]).concat(['','']).slice(0,2):(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{},q.img?{img:q.img,f:q.f||'',credit:q.credit||''}:{},q.n!=null?{n:q.n,unit:q.unit||''}:{},q.o?{o:q.o,dir:q.dir||'',hints:[`أول واحد: ${q.o[0].t}`,`آخر واحد: ${q.o[q.o.length-1].t}`]}:{},Array.isArray(q.l)&&q.l.length?{l:q.l,hints:[]}:{}))}));
   cats.forEach(c=>c.qs.forEach(q=>{if(q.img){const im=new Image();im.src=q.img}}));
   const f=pickFresh(FINALS,1)[0]||{category:'',q:'',a:''};
   S={t0:Date.now(),room:ONLINE()?GADDHA_SB.code(8):'',screen:'draft',teams:names.map(n=>({name:n,score:0,helpers:[],used:[],st:{hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0}})),draftTurn:0,turn:0,timerSec,qrMode,cats,cur:null,armed:-1,lockOn:-1,
@@ -1397,10 +1408,16 @@ const ownerOf=c=>c.mode==='pass'||c.mode==='fam'?1-S.turn:S.turn;
 const ZOOM=[3,1.8,1];
 /* ---------- أقرب رقم (closest number) ---------- */
 const isNum=x=>x&&x.n!=null&&x.n!=='';
+/* «بزايد عليك»: x.l = every accepted answer; "الإمارات/الامارات" = one answer with spellings */
+const isBid=x=>x&&Array.isArray(x.l)&&x.l.length>0;
+const bidName=v=>String(v).split('/')[0].trim();
+const bidList=x=>x.l.map((v,i)=>({i,t:bidName(v)})).sort((a,b)=>a.t.localeCompare(b.t,'ar'));
+const bidScore=b=>b.got.length+b.extra;
+const BID_SEC=45;
 /* ---------- online (Supabase): live drawing, host phone, قدّنا؟ link ---------- */
 const ONLINE=()=>!!(window.GADDHA_SB&&GADDHA_SB.configured());
 const roomId=()=>S&&(S.room||(S.room=ONLINE()?GADDHA_SB.code(8):''));
-const cheatOkFor=(c,x)=>!isNum(x)&&!c.qadd&&!c.half&&c.hints<(x.hints||[]).length&&c.mode!=='steal'&&!(c.locked&&answering()===S.turn);
+const cheatOkFor=(c,x)=>!isNum(x)&&!isBid(x)&&!c.qadd&&!c.half&&c.hints<(x.hints||[]).length&&c.mode!=='steal'&&!(c.locked&&answering()===S.turn);
 let DRAWCH=null,HOSTCH=null,hostT=null,hostSeen=0;
 function drawCh(){
   if(!ONLINE()||!S)return null;const r=roomId();
@@ -1434,6 +1451,7 @@ function hostState(){
       mode:c.mode,phase:c.phase||'play',ans:N[answering()],o:x.o?x.o.map(i=>i.t):null,dir:x.dir||'',num:isNum(x),unit:x.unit||'',img:!!x.img,
       canHint:!c.revealed&&(x.type?c.phase==='play':true)&&cheatOkFor(c,x),canSteal:!c.revealed&&c.mode==='normal'&&!c.qadd&&!isNum(x)&&(!x.type||c.phase==='play'),
       canReveal:!c.revealed&&(!x.type||c.phase==='play')&&!isNum(x),scan:!!x.type&&c.phase==='scan'&&!c.revealed};
+    if(c.bid){const L=x.l.length;st.q.bid={phase:c.bid.phase,team:c.bid.team,n:c.bid.n,max:L,count:bidScore(c.bid),extra:c.bid.extra,teams:N,list:bidList(x).map(it=>({i:it.i,t:it.t,on:c.bid.got.includes(it.i)}))};st.q.canHint=false;st.q.canSteal=false;st.q.canReveal=false}
     if(c.revealed&&!(isNum(x)&&!c.g))st.awards=awardOptions().map(o=>({label:plain(o.label),neg:!!o.neg}));
   }
   return st;
@@ -1441,7 +1459,9 @@ function hostState(){
 function sendHost(now){if(!HOSTCH)return;clearTimeout(hostT);const go=()=>{if(HOSTCH&&S)HOSTCH.send('state',hostState())};if(now)go();else hostT=setTimeout(go,120)}
 function runHostCmd(p){
   if(!S||!p||busy)return;const a=p.act,d=p.data||{},scr=S.screen;
-  const ok={open:scr==='board',hint:scr==='question',steal:scr==='question',reveal:scr==='question',award:scr==='question'&&S.cur&&S.cur.revealed,go:scr==='question'};
+  const bq=scr==='question'&&S.cur&&S.cur.bid;
+  const ok={open:scr==='board',hint:scr==='question'&&!bq,steal:scr==='question'&&!bq,reveal:scr==='question'&&!bq,award:scr==='question'&&S.cur&&S.cur.revealed,go:scr==='question'&&!bq,'bid-set':bq,'bid-go':bq,'bid-tap':bq,'bid-extra':bq,'bid-stop':bq};
+  if(a==='bid-extra')d.ok='1';
   if(!ok[a]||!ACT[a])return;
   const ds={};Object.keys(d).forEach(k=>ds[k]=String(d[k]));
   ACT[a]({dataset:ds});
@@ -1663,7 +1683,7 @@ function canUse(t,id){
     const c=S.cur;if(c.revealed||c.mode!=='normal')return false;
     if(id==='qadd')return false;
     if(id==='lock')return S.lockOn!==1-t;
-    if(isNum(S.cats[c.c].qs[c.i]))return false;
+    if(isNum(S.cats[c.c].qs[c.i])||isBid(S.cats[c.c].qs[c.i]))return false;
     if(c.qadd)return false;
     if(id==='half')return !c.half&&!S.cats[c.c].qs[c.i].type&&!!S.cats[c.c].qs[c.i].x;
     return true;
@@ -1710,6 +1730,13 @@ function paintBoard(){
 }
 function awardOptions(){
   const c=S.cur,me=S.turn,o=1-me,v=qValue(),N=S.teams.map(t=>esc(t.name)),how=c.hints||c.elder?'hint':'clean';
+  if(c.bid&&c.bid.phase==='done'){
+    const bd=c.bid,bt=bd.team,ok=bidScore(bd)>=bd.n,L=[];
+    if(c.qadd&&bt===me)L.push(ok?{t:me,p:6,how:'clean',label:`${N[me]} قدّها <span dir="ltr">+6</span>`}:{t:me,p:-3,how:'fail',neg:1,label:`${N[me]} مش قدّها <span dir="ltr">−3</span>`});
+    else L.push(ok?{t:bt,p:3,how:'clean',label:`${N[bt]} قدّها <span dir="ltr">+3</span>`}:{t:1-bt,p:3,how:'steal',label:`${N[1-bt]} ربحوا المزاد <span dir="ltr">+3</span>`});
+    L.push({t:-1,p:0,how:'none',label:'ما لعبناها',neg:1});
+    return withFire(L);
+  }
   if(isNum(S.cats[c.c].qs[c.i])&&c.g){
     const x=S.cats[c.c].qs[c.i],w=nearest(x.n,c.g),exact=w>=0&&c.g[w]===x.n?1:0;
     if(c.qadd)return withFire(w===me?[{t:me,p:6,how:'clean',label:`${N[me]} الأقرب <span dir="ltr">+6</span>`}]:[{t:me,p:-3,how:'fail',neg:1,label:`${N[me]} مش الأقرب <span dir="ltr">−3</span>`}]);
@@ -1742,6 +1769,28 @@ function valueHtml(c,v){
     :`<span class="vnum"><b>${shownV===3?'3 نقاط':ptsWord(shownV)}</b></span>`;
   return `<div class="val"><span class="vsq" aria-hidden="true">${sq}</span>${num}</div>`;
 }
+function bidBody(x,c,N){
+  const b=c.bid,bt=b.team,L=x.l.length,cnt=bidScore(b);
+  if(b.phase==='bid')return `<div class="banner">زايدوا على بعض بصوت عالي: «بنعدّ 5»… «7!»… لحد ما فريق يقول للتاني <b>«فرجونا!»</b>. بالقائمة <b>${L}</b> جواب.</div>
+    <div class="bidset"><p class="ask">مين رسي عليه المزاد؟</p>
+      <div class="row bidteams">${[0,1].map(i=>`<button type="button" class="btn team t${i}" data-act="bid-team" data-t="${i}" aria-pressed="${bt===i}">${N[i]}</button>`).join('')}</div>
+      <p class="ask">قدّيش تعهّدوا يعدّوا؟</p>
+      <div class="bidnum"><button type="button" class="btn" data-act="bid-n" data-d="-1" aria-label="أقل">−</button><b dir="ltr" id="bidn">${b.n}</b><button type="button" class="btn" data-act="bid-n" data-d="1" aria-label="أكتر">+</button></div></div>
+    <div class="qbtns"><button type="button" class="btn solid big wide" data-act="bid-go">فرجونا! يلا ابدأ</button><button type="button" class="btn sm wide" data-act="back">رجوع</button></div>`;
+  const chips=bidList(x).map(it=>`<button type="button" class="bchip${b.got.includes(it.i)?' on':''}${b.phase==='done'&&!b.got.includes(it.i)?' miss':''}" data-act="bid-tap" data-i="${it.i}" ${b.phase==='done'?'disabled':''}>${esc(it.t)}</button>`).join('');
+  const host=Date.now()-hostSeen<60000;
+  if(b.phase==='go')return `<div class="bidhead t${bt}"><span>${N[bt]} تعهّدوا بـ</span><b dir="ltr" id="bidcount">${cnt} / ${b.n}</b></div>
+    <p class="judge">${host?'المضيف بيحكم من جواله، أو اضغطوا هون.':`يا <b>${N[1-bt]}</b>: إنتو الحكم. اضغطوا كل جواب صح بيقولوه ${N[bt]}.`}</p>
+    <input type="search" class="bidq" id="bidq" placeholder="دوّروا بالقائمة…" autocomplete="off">
+    <div class="bchips" id="bchips">${chips}</div>
+    <div class="qbtns"><button type="button" class="btn" data-act="bid-extra">+ جواب صح مش بالقائمة${b.extra?` (${b.extra})`:''}</button>${ONLINE()&&!host?'<button type="button" class="btn" data-act="host">احكموا من جوال</button>':''}<button type="button" class="btn solid wide" data-act="bid-stop">خلص الوقت / وقّفوا</button></div>`;
+  const ok=cnt>=b.n,miss=L-b.got.length;
+  return `<div class="bidhead t${bt}${ok?' ok':' no'}"><span>${N[bt]} ${ok?'عدّوا':'وقفوا عند'}</span><b dir="ltr">${cnt} / ${b.n}</b></div>
+    ${miss?`<p class="judge">${ok?'وهدول اللي ما انقالوا:':'هدول اللي فاتوكم:'}</p>`:''}<div class="bchips done">${chips}</div>
+    <p class="ask">النتيجة</p><div class="awards">${awardOptions().map((op,k)=>`<button type="button" class="btn ${op.neg?'neg':'team'} ${op.t>=0?'t'+op.t:''}" data-act="award" data-k="${k}">${op.label}</button>`).join('')}</div>`;
+}
+function bidFinish(){const c=S&&S.cur;if(!c||!c.bid||c.bid.phase!=='go')return;tStop();c.bid.phase='done';c.revealed=true;SFX.whoosh();render()}
+function bidPaintCount(){const c=S.cur,el=$('bidcount');if(el)el.textContent=`${bidScore(c.bid)} / ${c.bid.n}`;store.set(KEY,S);sendHost()}
 function paintQuestion(){
   const c=S.cur,cat=S.cats[c.c],x=cat.qs[c.i],me=S.turn,o=1-me,ans=answering(),v=qValue(),N=S.teams.map(t=>esc(t.name));
   const banners=[];
@@ -1762,7 +1811,9 @@ function paintQuestion(){
   const cheatOk=cheatOkFor(c,x);
   const scan=!!x.type&&c.phase==='scan'&&!c.revealed,drawQ=x.type==='draw';
   let body,timer='';
-  if(scan){
+  if(isBid(x)){
+    body=bidBody(x,c,N);if(c.bid.phase==='go')timer=ringHtml();
+  }else if(scan){
     const svg=qrSvg(qrPayload(x));
     body=`<div class="qrbox"><div class="qr">${svg||'الكود بدّه إنترنت. استعملوا «شوف السر هون».'}</div>
       <div class="qrtext"><b>يا ${N[ans]}: اللي بدّه ${CH[x.type].verb} يمسح الكود</b>
@@ -1841,7 +1892,7 @@ function setFinalQ(catId){
   S.screen='final-intro';
 }
 function enterFinal(){
-  const isPic=id=>{const b=BANK.find(c=>c.id===id);return !!(b&&b.questions&&b.questions.some(q=>q.img||q.n!=null||q.o))};
+  const isPic=id=>{const b=BANK.find(c=>c.id===id);return !!(b&&b.questions&&b.questions.some(q=>q.img||q.n!=null||q.o||q.l))};
   const reg=shuffle(S.cats.filter(c=>!c.type&&c.id!=='family'&&!isPic(c.id)).map(c=>c.id));
   const env=reg.filter(hasFinals).concat(reg.filter(id=>!hasFinals(id))).slice(0,3);
   const [a,b]=S.teams;
@@ -1852,7 +1903,7 @@ const finalMult=(f,i)=>f.clues&&f.clues.length?MULT[Math.min(f.lockAt[i]??f.step
 const gainOf=(f,i)=>Math.round(f.wager[i]*finalMult(f,i));
 function tbPick(){
   const used=new Set(S.cats.flatMap(c=>c.qs.map(q=>q.id))),done=(S.tb&&S.tb.done)||[];
-  const all=BANK.filter(c=>!c.type&&c.id!=='family').flatMap(c=>c.questions).filter(q=>!q.img&&!q.o&&!used.has(q.id)&&!done.includes(q.id));
+  const all=BANK.filter(c=>!c.type&&c.id!=='family').flatMap(c=>c.questions).filter(q=>!q.img&&!q.o&&!q.l&&!used.has(q.id)&&!done.includes(q.id));
   const nums=all.filter(q=>q.n!=null),q=pickFresh(nums.length?nums:all.filter(q=>q.n==null),1)[0]||{q:'—',a:'—'};
   S.tb={id:q.id,q:q.q,a:q.a,n:q.n,unit:q.unit||'',g:null,revealed:false,done:done.concat(q.id?[q.id]:[])};
 }
@@ -2182,14 +2233,28 @@ const ACT={
     const isCh=!!S.cats[ci].qs[i].type;
     const ox=S.cats[ci].qs[i];let ord=null;if(ox.o){const n=ox.o.length;do{ord=shuffle([...Array(n).keys()])}while(ord.every((v,k)=>v===k)&&n>1)}
     S.cur={ord,pins:[],pick:-1,c:ci,i,hints:0,mode:famSwap?'fam':'normal',qadd,locked,elder:false,call:false,ask:false,half:false,revealed:false,phase:isCh?'scan':'play'};
+    if(isBid(ox))S.cur.bid={phase:'bid',team:me,n:Math.min(5,ox.l.length),got:[],extra:0};
     S.screen='question';fx.open=true;render();
-    if(!isCh)tStart(locked?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec);
+    if(!isCh&&!isBid(ox))tStart(locked?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec);
     if(locked)toast(`مسكّر عليكم يا ${S.teams[me].name}: نص الوقت وبلا «غشّشني».`);
   },
   hint(){const c=S.cur,hx=S.cats[c.c].qs[c.i];if(c.hints<Math.min(2,(hx.hints||[]).length)){SFX.hint();ST(answering()).hints++;fx.prevV=qValue();if(hx.img)fx.zoom=zoomOf(c);if(hx.o&&c.ord){const n=hx.o.length,item=c.hints===0?0:n-1,pos=item,at=c.ord.indexOf(item);[c.ord[pos],c.ord[at]]=[c.ord[at],c.ord[pos]];c.pins.push(pos);c.pick=-1}c.hints++;fx.hint=true;if(qValue()===fx.prevV)fx.prevV=0;render()}},
   qrmode(b){qrMode=b.dataset.m;paintSetup()},
   go(b){const c=S.cur;if(b&&b.dataset&&b.dataset.surf){c.surface=b.dataset.surf;PAD={key:c.c+'-'+c.i,strokes:[],inst:null};if(c.surface==='phone')drawCh()}c.phase='play';fx.go=true;render();tStart(c.locked&&answering()===S.turn?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec)},
   'rv-hide'(b){const card=document.querySelector('.rv-card');card.classList.toggle('blurred');b.textContent=card.classList.contains('blurred')?'أظهر':'خبّي الشاشة'},
+  'bid-team'(b){const c=S.cur;c.bid.team=+b.dataset.t;render()},
+  'bid-n'(b){const c=S.cur,L=S.cats[c.c].qs[c.i].l.length;c.bid.n=Math.max(1,Math.min(L,c.bid.n+(+b.dataset.d||0)));const el=$('bidn');if(el)el.textContent=c.bid.n;store.set(KEY,S);sendHost()},
+  'bid-set'(b){const c=S.cur;if(!c||!c.bid||c.bid.phase!=='bid')return;const L=S.cats[c.c].qs[c.i].l.length;if(b.dataset.t!=null&&b.dataset.t!=='')c.bid.team=+b.dataset.t?1:0;if(b.dataset.n)c.bid.n=Math.max(1,Math.min(L,+b.dataset.n||1));render()},
+  'bid-go'(){const c=S.cur;if(!c.bid||c.bid.phase!=='bid')return;c.bid.phase='go';SFX.whoosh();fx.go=true;render();tStart(BID_SEC,BID_SEC);setTimeout(()=>{const q=$('bidq');if(q&&matchMedia('(pointer: fine)').matches)q.focus()},50)},
+  'bid-tap'(b){
+    const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;const i=+b.dataset.i,g=c.bid.got,k=g.indexOf(i);
+    if(k>=0)g.splice(k,1);else{g.push(i);SFX.tick()}
+    const el=document.querySelector(`.bchip[data-i="${i}"]`);if(el)el.classList.toggle('on',k<0);
+    const q=$('bidq');if(q&&q.value){q.value='';document.querySelectorAll('.bchip').forEach(x=>x.hidden=false)}
+    bidPaintCount();if(bidScore(c.bid)>=c.bid.n)setTimeout(bidFinish,450);
+  },
+  'bid-extra'(b){const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;if(!b.dataset.ok&&!confirm('جواب صح بس مش بالقائمة؟ نقبلها إذا الفريقين متّفقين.'))return;c.bid.extra++;render();bidPaintCount();if(bidScore(c.bid)>=c.bid.n)setTimeout(bidFinish,450)},
+  'bid-stop'(){bidFinish()},
   steal(){SFX.whoosh();S.cur.mode='steal';fx.steal=true;render();tStart(STEAL_SEC)},
   reveal(){const c=S.cur;if(isNum(S.cats[c.c].qs[c.i])){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');const el=document.querySelector(`[data-num="${g.indexOf(null)}"]`);el&&el.focus();return}c.g=g;SFX.whoosh()}if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},
   back(){if(S.undo){S=JSON.parse(S.undo);render()}},
@@ -2270,6 +2335,7 @@ const ACT={
   'quit-home'(){$('quitov').hidden=true;tStop();S=null;store.set(KEY,null);view='home';render();window.scrollTo(0,0)},
   new(){S=null;view='setup';render();window.scrollTo(0,0)}
 };
+document.addEventListener('input',e=>{if(e.target&&e.target.id==='bidq'){const raw=e.target.value.trim(),nz=t=>t.replace(/^ال/,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه'),v=nz(raw);document.querySelectorAll('#bchips .bchip').forEach(b=>{const t=b.textContent;b.hidden=!!raw&&!(nz(t).startsWith(v)||t.split(/\s+/).some(w=>nz(w).startsWith(v)))})}});
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-act]');
   if(!b||b.disabled||!ACT[b.dataset.act])return;

@@ -59,3 +59,7 @@ The game shuffles the items; players reorder them by tapping two to swap or usin
 ## Three-word challenge («بجملة وحدة»)
 
 A challenge category with `"type": "words"`. Items are `{id, status, s, k}` like «مثّلها»: `s` is the secret, `k` its kind. The describer may say only three words; the first «غشّة» allows a fourth word, the second one gesture.
+
+## Bidding («بزايد عليك»)
+
+A category with `"mode": "bid"` in `index.json`. Each question has `q` (the prompt, «عدّوا…»), `l` (every accepted answer; alternative spellings in one entry separated by `/`, display name first), `a` (a short summary such as «22 دولة») and optional `note` (for reviewers, not shown in the game). Teams bid out loud; the screen records who won the bid and the number, then a 45-second countdown starts. The other team (or the host phone) taps each correct answer from the list; «+ جواب صح مش بالقائمة» adds one after both teams agree. Reaching the bid ends the round: 3 points to the bidder, otherwise 3 to the other team. Missed answers are revealed at the end. These questions stay out of the final round and the tiebreaker.

@@ -88,7 +88,8 @@
     "hum",
     "taboo",
     "draw",
-    "words"
+    "words",
+    "bid"
    ],
    "visible": true
   }
@@ -422,6 +423,15 @@
    "visible": true,
    "art": "words",
    "bg": "#efe9f7"
+  },
+  {
+   "id": "bid",
+   "name": "بزايد عليك",
+   "file": "bid.json",
+   "mode": "bid",
+   "visible": true,
+   "art": "gavel",
+   "bg": "#fdebd7"
   }
  ],
  "finals": "finals.json"

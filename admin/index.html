@@ -149,8 +149,8 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
 const STATUS={draft:'مسودة',reviewed:'تمت المراجعة',published:'منشور'};
-const TYPES={'':'أسئلة عادية',num:'أقرب رقم',order:'رتّبها',act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها',words:'بجملة وحدة'};
-const tkey=m=>m.type||(m.mode==='num'||m.mode==='order'?m.mode:'');
+const TYPES={'':'أسئلة عادية',num:'أقرب رقم',order:'رتّبها',act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها',words:'بجملة وحدة',bid:'بزايد عليك'};
+const tkey=m=>m.type||(m.mode==='num'||m.mode==='order'||m.mode==='bid'?m.mode:'');
 const fmtN=n=>n==null||n===''?'':Number(n).toLocaleString('en-US',{maximumFractionDigits:3});
 const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4dff','#c8743a'];
 let ffilter='all',token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
@@ -268,6 +268,10 @@ function qCard(x,m,answers){
   if(m.type)return `<article class="q s-${x.status}"><span class="qt">${esc(x.s)}</span>
     <div class="meta">${x.k?`<span><b>${m.type==='hum'?'المغني':'النوع'}:</b> ${esc(x.k)}</span>`:''}${(x.b||[]).length?`<span><b>ممنوع:</b> ${esc(x.b.join('، '))}</span>`:''}<span class="mut" style="font-size:.85em">${x.id}</span></div>
     ${dup?'<span class="warn">في سر مكرر بنفس الكلمة</span>':''}${acts}</article>`;
+  if(m.mode==='bid'){const L=(x.l||[]).map(v=>String(v).split('/')[0]);return `<article class="q s-${x.status}"><span class="qt">${esc(x.q)}</span>
+    <div class="meta"><span><b>الأجوبة المقبولة (${L.length}):</b> <span class="ans">${esc(L.join('، '))}</span></span>${x.note?`<span><b>ملاحظة:</b> ${esc(x.note)}</span>`:''}${x.difficulty?`<span><b>الصعوبة:</b> ${['','سهل','متوسط','صعب'][x.difficulty]}</span>`:''}<span class="mut" style="font-size:.85em">${x.id}</span></div>
+    ${(x.sources||[]).length?`<div class="src">${x.sources.map(s=>`<a href="${esc(s)}" target="_blank" rel="noopener">${esc(decodeURI(s).slice(0,80))}</a>`).join(' · ')}</div>`:''}
+    ${L.length<5?'<span class="warn">لازم 5 أجوبة عالأقل</span>':''}${acts}</article>`}
   if(m.mode==='order')return `<article class="q s-${x.status}"><span class="qt">${esc(x.q)}</span>
     <div class="meta"><span><b>الترتيب الصح (${esc(x.dir||'')}):</b></span>${(x.o||[]).map((it,k)=>`<span>${k+1}. <span class="ans">${esc(it.t)}</span>${it.v?` <span class="mut">(${esc(it.v)})</span>`:''}</span>`).join('')}<span class="mut" style="font-size:.85em">${x.id}</span></div>
     ${(x.sources||[]).length?`<div class="src">${x.sources.map(s=>`<a href="${esc(s)}" target="_blank" rel="noopener">${esc(decodeURI(s).slice(0,80))}</a>`).join(' · ')}</div>`:''}
@@ -287,6 +291,10 @@ function editForm(x,m){
   if(m.mode==='order'){const o=x.o||[];return `<div class="edit">${f('q','السؤال',x.q,1,1)}${f('dir','اتجاه الترتيب (من الأقدم للأحدث…)',x.dir||'')}<span></span>
     ${[0,1,2,3].map(k=>f('o'+k+'t',`العنصر ${k+1} بالترتيب الصح`,(o[k]||{}).t||'')+f('o'+k+'v',`القيمة (سنة، طول… بتطلع بعد الجواب)`,(o[k]||{}).v||'')).join('')}
     ${f('sources','المصادر (رابط بكل سطر)',(x.sources||[]).join('\n'),1,1)}</div>`}
+  if(m.mode==='bid')return `<div class="edit">${f('q','الطلب (عدّوا… / سمّوا…)',x.q,1,1)}<label class="f wide">كل الأجوبة المقبولة: جواب بكل سطر. للكتابات التانية استعمل / (مثلاً: الإمارات/الامارات)<textarea data-e="l" data-id="${x.id}" rows="8">${esc((x.l||[]).join('\n'))}</textarea></label>
+    ${f('a','ملخّص (مثلاً: 22 دولة)',x.a||'')}${f('note','ملاحظة للمراجعة (ما بتطلع باللعبة)',x.note||'')}
+    <label class="f">الصعوبة<select data-e="difficulty" data-id="${x.id}"><option value="">بدون</option>${[1,2,3].map(n=>`<option value="${n}" ${x.difficulty==n?'selected':''}>${['','سهل','متوسط','صعب'][n]}</option>`).join('')}</select></label>
+    ${f('sources','المصادر (رابط بكل سطر)',(x.sources||[]).join('\n'),1,1)}</div>`;
   if(m.mode==='num')return `<div class="edit">${f('q','السؤال (جوابه رقم)',x.q,1,1)}${f('n','الجواب (رقم بس)',x.n==null?'':x.n)}${f('unit','الوحدة (متر، سنة، دولة… اختياري)',x.unit||'')}
     <label class="f">الصعوبة<select data-e="difficulty" data-id="${x.id}"><option value="">بدون</option>${[1,2,3].map(n=>`<option value="${n}" ${x.difficulty==n?'selected':''}>${['','سهل','متوسط','صعب'][n]}</option>`).join('')}</select></label>
     ${f('sources','المصادر (رابط بكل سطر)',(x.sources||[]).join('\n'),1,1)}</div>`;
@@ -454,7 +462,7 @@ const A={
   edit(b){editing=editing===b.dataset.id?null:b.dataset.id;paint();if(editing){const el=document.querySelector(`[data-id="${editing}"][data-e]`);el&&el.focus()}},
   del(b){if(!confirm('نحذف هالسؤال نهائيًا؟'))return;const d=catData(cur),k=d.items?'items':'questions';d[k]=d[k].filter(x=>x.id!==b.dataset.id);touch(catFile(cur));paint()},
   'new-q'(){const m=catMeta(cur),d=catData(cur),k=d.items?'items':'questions',id=nextId(cur,d[k]);
-    d[k].push(m.type?{id,status:'draft',s:'',k:'',b:[]}:m.mode==='num'?{id,status:'draft',difficulty:null,q:'',n:null,unit:'',a:'',hints:[],w:'',sources:[]}:m.mode==='order'?{id,status:'draft',difficulty:null,q:'',dir:'من الأقدم للأحدث',o:[{t:'',v:''},{t:'',v:''},{t:'',v:''},{t:'',v:''}],a:'',hints:[],w:'',sources:[]}:{id,status:'draft',difficulty:null,q:'',a:'',hints:['',''],w:'',sources:[]});
+    d[k].push(m.type?{id,status:'draft',s:'',k:'',b:[]}:m.mode==='num'?{id,status:'draft',difficulty:null,q:'',n:null,unit:'',a:'',hints:[],w:'',sources:[]}:m.mode==='bid'?{id,status:'draft',difficulty:null,q:'',l:[],a:'',hints:[],w:'',sources:[]}:m.mode==='order'?{id,status:'draft',difficulty:null,q:'',dir:'من الأقدم للأحدث',o:[{t:'',v:''},{t:'',v:''},{t:'',v:''},{t:'',v:''}],a:'',hints:[],w:'',sources:[]}:{id,status:'draft',difficulty:null,q:'',a:'',hints:['',''],w:'',sources:[]});
     editing=id;filter='all';touch(catFile(cur));paint();const el=document.querySelector(`[data-id="${id}"][data-e]`);el&&el.focus()},
   gvis(b){const g=idx().groups[+b.dataset.gi];g.visible=g.visible===false;touch('questions/index.json');paint()},
   gcolor(b){idx().groups[+b.dataset.gi].color=b.dataset.c;touch('questions/index.json');paint()},
@@ -474,7 +482,7 @@ const A={
   'create-cat'(){const name=$('nc-name').value.trim();if(!name){$('nc-name').focus();return}
     const type=$('nc-type').value,gi=+$('nc-group').value,id='cat-'+Date.now().toString(36),file=id+'.json',g=$('glyph').value.trim();
     const art=g?'glyph:'+g:draftArt;
-    const meta={id,name,file,visible:false,art,bg:draftBg};if(type==='num'||type==='order')meta.mode=type;else if(type)meta.type=type;
+    const meta={id,name,file,visible:false,art,bg:draftBg};if(type==='num'||type==='order'||type==='bid')meta.mode=type;else if(type)meta.type=type;
     idx().categories.push(meta);idx().groups[gi].categories.push(id);
     files['questions/'+file]=type&&type!=='num'&&type!=='order'?{category:id,type,items:[]}:{category:id,questions:[]};
     touch('questions/index.json');touch('questions/'+file);closeModal();cur=id;tab='q';paint();toast('انضافت. أضف أسئلة، انشرها، وبعدين ظهّر الفئة.')},
@@ -500,6 +508,7 @@ document.addEventListener('input',e=>{
   const t=e.target,d=t.dataset;
   if(d.e){const x=findQ(d.id);if(!x)return;const v=t.value;
     if(d.e==='h0'||d.e==='h1'){x.hints=x.hints||['',''];x.hints[+d.e[1]]=v}
+    else if(d.e==='l'){x.l=v.split('\n').map(s=>s.trim()).filter(Boolean);if(!x.a||/^\d+ جواب$/.test(x.a))x.a=x.l.length+' جواب'}
     else if(d.e==='sources')x.sources=v.split('\n').map(s=>s.trim()).filter(Boolean);
     else if(d.e==='b')x.b=v.split(/[،,]/).map(s=>s.trim()).filter(Boolean);
     else if(d.e==='difficulty')x.difficulty=v?+v:null;
