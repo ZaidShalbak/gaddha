@@ -402,7 +402,7 @@
    "name": "كأس العالم",
    "file": "world-cup.json",
    "visible": true,
-   "art": "worldcup",
+   "art": "wcup",
    "bg": "#fff3d1"
   },
   {
@@ -410,7 +410,7 @@
    "name": "أندية وألقاب",
    "file": "clubs.json",
    "visible": true,
-   "art": "crest",
+   "art": "shirt",
    "bg": "#e7eef7"
   }
  ],
