@@ -143,7 +143,7 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 <script src="/sb.js"></script>
 <script>
 (()=>{
-const OWNER='ZaidShalbak',REPO='gaddha',BRANCH='main',API='https://api.github.com';
+const OWNER='ZaidShalbak',REPO='gaddha',BRANCH='main';
 const GA=window.GADDHA_ART;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -153,13 +153,16 @@ const TYPES={'':'أسئلة عادية',num:'أقرب رقم',order:'رتّبه�
 const tkey=m=>m.type||(m.mode==='num'||m.mode==='order'||m.mode==='bid'?m.mode:'');
 const fmtN=n=>n==null||n===''?'':Number(n).toLocaleString('en-US',{maximumFractionDigits:3});
 const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4dff','#c8743a'];
-let ffilter='all',token=ls.get('gaddha.admin.token')||'',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
+let ffilter='all',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
 
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
 const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
+/* GitHub goes through /api/gh (server-side token); this page only holds the Gaddha login */
+async function sbToken(){const c=await GADDHA_SB.client();const r=await c.auth.getSession();return r&&r.data&&r.data.session&&r.data.session.access_token||''}
 async function gh(path,opt={}){
-  const r=await fetch(API+path,Object.assign({cache:'no-store'},opt,{headers:Object.assign({'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},opt.body?{'Content-Type':'application/json'}:{})}));
-  if(!r.ok){const e=new Error((await r.text()).slice(0,200));e.status=r.status;throw e}
+  const at=await sbToken();if(!at){const e=new Error('login');e.status=401;e.code='login';throw e}
+  const r=await fetch('/api/gh?p='+encodeURIComponent(path),Object.assign({cache:'no-store'},opt,{headers:Object.assign({'Authorization':'Bearer '+at},opt.body?{'Content-Type':'application/json'}:{})}));
+  if(!r.ok){const t=await r.text();let code='';try{code=JSON.parse(t).code||''}catch(x){}const e=new Error(t.slice(0,200));e.status=r.status;e.code=code;throw e}
   return r.status===204?null:r.json();
 }
 async function readFile(p){const j=await gh(`/repos/${OWNER}/${REPO}/contents/${encodeURI(p)}?ref=${BRANCH}`);return JSON.parse(b64dec(j.content))}
@@ -173,22 +176,24 @@ function paintDirty(){const n=dirty.size+Object.keys(uploads).length;$('dirty').
 window.addEventListener('beforeunload',e=>{if(dirty.size){e.preventDefault();e.returnValue=''}});
 
 /* ---------- login + load ---------- */
-function paintLogin(err){
+let LASTMAIL='';
+function paintLogin(err,extra){
   $('tabs').hidden=true;$('topend').hidden=true;
   $('main').innerHTML=`<div class="card login">
     <h1 style="font-weight:900;font-size:1.5em">دخول لوحة التحكم</h1>
-    <p class="mut">اللوحة بتحفظ التعديلات مباشرة بمستودع GitHub تبع اللعبة، وVercel بينشرها خلال دقيقة. بدها مفتاح وصول من GitHub مرة وحدة على هالجهاز.</p>
-    <ol>
-      <li>افتح <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
-      <li>الاسم: «قدّها أدمن». المدة: سنة.</li>
-      <li>Repository access: اختار <b>Only select repositories</b> ثم <b>gaddha</b>.</li>
-      <li>Permissions ← Repository permissions ← <b>Contents: Read and write</b>.</li>
-      <li>Generate token، انسخه والصقه هون.</li>
-    </ol>
-    <label class="f">مفتاح الوصول<input type="password" id="tok" placeholder="github_pat_…" autocomplete="off"></label>
-    ${err?`<p class="warn">${esc(err)}</p>`:''}
-    <div class="row"><button type="button" class="btn solid" data-a="login">دخول</button></div>
-    <p class="mut" style="font-size:.8em">المفتاح بينحفظ على هالمتصفح بس. لا تدخله على جهاز مش إلك.</p></div>`;
+    <p class="mut">ادخل بنفس حساب «قدّها» (الإيميل والكلمة السرّية). لازم يكون الحساب أدمن.</p>
+    <label class="f wide">الإيميل<input type="email" id="amail" dir="ltr" autocomplete="email"></label>
+    <label class="f wide">الكلمة السرّية<input type="password" id="apw" dir="ltr" autocomplete="current-password"></label>
+    ${err?`<p class="warn">${esc(err)}</p>`:''}${extra||''}
+    <div class="row"><button type="button" class="btn solid" data-a="login">دخول</button></div></div>`;
+  const m=$('amail');m&&m.focus();
+}
+const ADMIN_SQL=e=>`<pre dir="ltr" style="white-space:pre-wrap;background:#f1ecdf;padding:10px;border-radius:10px;font-size:.8em">insert into public.admins(user_id) select id from auth.users where email = '${esc(e)}' on conflict do nothing;</pre>`;
+async function loadErr(e){
+  if(e.code==='login'||e.status===401)return paintLogin('سجّل دخول.');
+  if(e.code==='not_admin'){let em='';try{const c=await GADDHA_SB.client();const u=(await c.auth.getUser()).data.user;em=u&&u.email||''}catch(x){}em=em||LASTMAIL;return paintLogin('هالحساب مش أدمن. شغّل هالسطر بـSupabase ← SQL Editor مرة وحدة، وبعدين ادخل كمان مرة:',ADMIN_SQL(em))}
+  if(e.code==='no_token')return paintLogin('لازم نحط مفتاح GitHub بإعدادات Vercel مرة وحدة:',`<ol style="font-size:.88em;line-height:1.9"><li>اعمل مفتاح من <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>: الاسم «قدّها أدمن»، Only select repositories ← <b>gaddha</b>، Repository permissions ← <b>Contents: Read and write</b>.</li><li>افتح Vercel ← مشروع gaddha ← Settings ← Environment Variables.</li><li>Name: <b dir="ltr">GITHUB_TOKEN</b>، Value: المفتاح، Environments: Production. Save.</li><li>Deployments ← آخر نشر ← ⋯ ← <b>Redeploy</b>. بعدها ارجع لهون.</li></ol>`);
+  $('main').innerHTML=`<p class="empty">صار خطأ بالتحميل: ${esc(e.message)}</p>`;
 }
 async function load(){
   $('main').innerHTML='<p class="empty">عم نحمّل الأسئلة…</p>';
@@ -197,7 +202,7 @@ async function load(){
     files['questions/index.json']=await readFile('questions/index.json');
     await Promise.all(idx().categories.map(async c=>{files['questions/'+c.file]=await readFile('questions/'+c.file)}));
     files['questions/finals.json']=await readFile('questions/finals.json');
-  }catch(e){if(e.status===401||e.status===403||e.status===404){ls.del('gaddha.admin.token');token='';return paintLogin('المفتاح مش شغّال أو ما إله صلاحية على gaddha.')}$('main').innerHTML=`<p class="empty">صار خطأ بالتحميل: ${esc(e.message)}</p>`;return}
+  }catch(e){return loadErr(e)}
   $('tabs').hidden=false;$('topend').hidden=false;paintDirty();
   if(!cur||!catMeta(cur))cur=idx().categories[0]&&idx().categories[0].id;
   paint();
@@ -443,8 +448,9 @@ let draftArt=null,draftBg=null;
 const nextId=(prefix,list)=>{let n=0;list.forEach(x=>{const m=String(x.id||'').match(/-(\d+)$/);if(m)n=Math.max(n,+m[1])});return `${prefix}-${String(n+1).padStart(3,'0')}`};
 const findQ=id=>listOf(cur).find(x=>x.id===id);
 const A={
-  async login(){token=($('tok').value||'').trim();if(!token)return;ls.set('gaddha.admin.token',token);load()},
-  logout(){if(dirty.size&&!confirm('في تعديلات ما انحفظت. تطلع؟'))return;ls.del('gaddha.admin.token');token='';files={};dirty.clear();paintLogin()},
+  async login(){const m=($('amail').value||'').trim(),pw=$('apw').value||'';if(!m||!pw)return;LASTMAIL=m;
+    try{const c=await GADDHA_SB.client();const r=await c.auth.signInWithPassword({email:m,password:pw});if(r.error)return paintLogin('الإيميل أو الكلمة السرّية غلط.');KD.ready=false;KD.user=null;KD.admin=null;load()}catch(e){paintLogin('ما قدرنا نتّصل.')}},
+  logout(){if(dirty.size&&!confirm('في تعديلات ما انحفظت. تطلع؟'))return;files={};dirty.clear();KD.ready=false;KD.user=null;KD.admin=null;KD.list=null;FBX=null;GADDHA_SB.client().then(c=>c.auth.signOut()).finally(()=>paintLogin())},
   save,
   tab(b){tab=b.dataset.t;editing=null;paint();window.scrollTo(0,0)},
   'k-login'(){const m=($('kmail').value||'').trim(),pw=$('kpw').value||'';if(!m||!pw)return;KD.busy=true;KD.err='';paint();
@@ -502,8 +508,9 @@ const A={
   fedit(b){editing=editing===b.dataset.id?null:b.dataset.id;paint()},
   fdel(b){if(!confirm('نحذفه؟'))return;const d=files['questions/finals.json'];d.finals=d.finals.filter(x=>x.id!==b.dataset.id);touch('questions/finals.json');paint()}
 };
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.target.id==='apw'||e.target.id==='amail')&&A.login)A.login()});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled||!A[b.dataset.a])return;A[b.dataset.a](b,e)});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(e.key==='Enter'&&e.target.id==='tok')A.login();if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();save()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();save()}});
 document.addEventListener('input',e=>{
   const t=e.target,d=t.dataset;
   if(d.e){const x=findQ(d.id);if(!x)return;const v=t.value;
@@ -536,7 +543,8 @@ document.addEventListener('change',e=>{
       const path=`questions/img/${x.id}-${Date.now().toString(36)}.jpg`;uploads[path]=du.split(',')[1];previews[path]=du;x.img='/'+path;if(!x.f)x.f='50% 35%';
       if(!x.q)x.q='مين هاد؟';touch(catFile(cur));paint();toast('الصورة جاهزة. اضغط «احفظ وانشر».')}).catch(()=>toast('ما قدرنا نقرأ الصورة.'))}
 });
-token?load():paintLogin();
+try{ls.del('gaddha.admin.token')}catch(e){}
+GADDHA_SB.client().then(c=>c.auth.getSession()).then(r=>{r&&r.data&&r.data.session?load():paintLogin()}).catch(()=>paintLogin('ما قدرنا نتّصل.'));
 })();
 </script>
 </body>

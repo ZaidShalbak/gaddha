@@ -520,9 +520,6 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
 .setbar{display:none}
 .grp-off span{font-size:.72em;font-weight:700;color:#8a867c;background:#fff;border-radius:99px;padding:3px 10px}
 .qrnote{font-size:.75em;color:var(--mut);line-height:1.7}
-details.more{background:#fff;border-radius:18px;box-shadow:var(--sh);padding:10px 14px}
-details.more summary{font-weight:800;font-size:.88em;cursor:pointer}
-details.more[open] summary{margin-bottom:10px}
 
 /* draft */
 .draft{display:flex;flex-direction:column;gap:var(--gap);width:100%}
@@ -898,7 +895,7 @@ details.more[open] summary{margin-bottom:10px}
 }
 @media (max-width:899px){
   .setup-side{display:contents}
-  .setup-side h1{order:0}.teams-in{order:1}.setup-main{order:2}.setup-side>.sec-h{order:3}.setup-side>.seg{order:4}details.more{order:5}#start{order:6}
+  .setup-side h1{order:0}.teams-in{order:1}.setup-main{order:2}.setup-side>.sec-h{order:3}.setup-side>.seg{order:4}#start{order:6}
   #setup{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   #start{display:none}
   .setbar{display:flex;align-items:center;gap:10px;position:fixed;inset-inline:0;bottom:0;z-index:25;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(247,245,239,.94);backdrop-filter:blur(8px);box-shadow:0 -6px 20px rgba(22,22,22,.08)}
@@ -1046,16 +1043,6 @@ details.more[open] summary{margin-bottom:10px}
           <button type="button" class="btn sm" data-act="time" data-s="90">90 ثانية</button>
           <button type="button" class="btn sm" data-act="time" data-s="0">بلا وقت</button>
         </div>
-        <details class="more">
-          <summary>إعدادات إضافية</summary>
-          <div class="seg seg2">
-            <button type="button" class="btn sm" data-act="qrmode" data-m="link">رابط (أحلى)</button>
-            <button type="button" class="btn sm" data-act="qrmode" data-m="text">نص (بدون إنترنت)</button>
-          </div>
-          <p class="qrnote">«رابط» بيفتح صفحة السر بمتصفح الجوال. «نص» بيطلع السر كنص بكاميرا الجوال، وبيشتغل بدون إنترنت.</p>
-          <p class="qrnote" style="margin-top:6px">اللعبة بتتذكّر الأسئلة اللي انلعبت على هالجهاز وما بتعيدها لحد ما تخلص.</p>
-          <button type="button" class="btn sm" data-act="reset-seen">رجّعوا كل الأسئلة جديدة</button>
-        </details>
         <button type="button" class="btn solid big" id="start" data-act="start">يلا نختار المساعدات</button>
       </div>
       <div class="setup-main">
@@ -1211,7 +1198,7 @@ const T={left:0,total:1,running:false,deadline:0,int:null};
 function tStop(){clearInterval(T.int);T.int=null;T.running=false}
 function tStart(sec,total){tStop();if(!S||!S.timerSec||!sec)return tPaint();T.left=sec;T.total=Math.max(sec,total||sec);T.deadline=Date.now()+sec*1000;T.running=true;T.int=setInterval(tTick,200);tPaint()}
 let lastTick=0;
-function tTick(){if(!T.running)return;T.left=Math.max(0,(T.deadline-Date.now())/1000);{const s=Math.ceil(T.left);if(s<=10&&s>0&&s!==lastTick){lastTick=s;SFX.tick()}}if(T.left<=0){T.running=false;beep();if(S&&S.cur&&S.cur.bid&&S.cur.bid.phase==='go')setTimeout(bidFinish,700)}tPaint()}
+function tTick(){if(!T.running)return;T.left=Math.max(0,(T.deadline-Date.now())/1000);{const s=Math.ceil(T.left);if(s<=10&&s>0&&s!==lastTick){lastTick=s;SFX.tick(s)}}if(T.left<=0){T.running=false;beep();if(S&&S.cur&&S.cur.bid&&S.cur.bid.phase==='go')setTimeout(bidFinish,700)}tPaint()}
 function tPaint(){
   const n=$('tnum');if(!n)return;
   const s=Math.ceil(T.left);
@@ -1225,17 +1212,34 @@ function tPaint(){
 let AC;
 let muted=!!store0('gaddha.mute');
 const ac=()=>{try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();return AC}catch(e){return null}};
-function tone(f,dur,{type='sine',vol=.15,to=0,delay=0}={}){const c=ac();if(!c||muted)return;const o=c.createOscillator(),g=c.createGain(),t=c.currentTime+delay;o.type=type;o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+dur);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0008,t+dur);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+dur+.02)}
-function noise(dur,{vol=.2,freq=1200,q=.8,delay=0,sweep=0}={}){const c=ac();if(!c||muted)return;const n=Math.floor(c.sampleRate*dur),buf=c.createBuffer(1,n,c.sampleRate),d=buf.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain(),t=c.currentTime+delay;s.buffer=buf;f.type='bandpass';f.frequency.setValueAtTime(freq,t);if(sweep)f.frequency.exponentialRampToValueAtTime(sweep,t+dur);f.Q.value=q;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);s.connect(f);f.connect(g);g.connect(c.destination);s.start(t);s.stop(t+dur)}
+let BUS=null;
+// all sounds go through a soft compressor plus a small room reverb, so they sound warm instead of beepy
+function bus(){const c=ac();if(!c)return null;if(BUS&&BUS.c===c)return BUS;const comp=c.createDynamicsCompressor();comp.threshold.value=-18;comp.knee.value=12;comp.ratio.value=3;comp.attack.value=.004;comp.release.value=.2;const out=c.createGain();out.gain.value=.9;comp.connect(out);out.connect(c.destination);
+  const len=Math.floor(c.sampleRate*1.4),ir=c.createBuffer(2,len,c.sampleRate);for(let ch=0;ch<2;ch++){const d=ir.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3.2)}
+  const rev=c.createConvolver();rev.buffer=ir;const wet=c.createGain();wet.gain.value=.28;rev.connect(wet);wet.connect(comp);BUS={c,dry:comp,rev};return BUS}
+// one voice: soft attack, natural decay, optional pitch glide, filter and reverb send
+function tone(f,dur,{type='sine',vol=.15,to=0,delay=0,att=.006,lp=0,rev=.5}={}){const B=bus();if(!B||muted)return;const c=B.c,o=c.createOscillator(),g=c.createGain(),t=c.currentTime+.01+delay;o.type=type;o.frequency.setValueAtTime(f,t);if(to)o.frequency.exponentialRampToValueAtTime(to,t+dur);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.exponentialRampToValueAtTime(.0005,t+dur);let n=o;if(lp){const fl=c.createBiquadFilter();fl.type='lowpass';fl.frequency.value=lp;o.connect(fl);n=fl}n.connect(g);g.connect(B.dry);if(rev){const s=c.createGain();s.gain.value=rev;g.connect(s);s.connect(B.rev)}o.start(t);o.stop(t+dur+.05)}
+function noise(dur,{vol=.2,freq=1200,q=.8,delay=0,sweep=0,att=.01,type='bandpass',rev=.3}={}){const B=bus();if(!B||muted)return;const c=B.c,n=Math.floor(c.sampleRate*dur),buf=c.createBuffer(1,n,c.sampleRate),d=buf.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain(),t=c.currentTime+.01+delay;s.buffer=buf;f.type=type;f.frequency.setValueAtTime(freq,t);if(sweep)f.frequency.exponentialRampToValueAtTime(sweep,t+dur);f.Q.value=q;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.exponentialRampToValueAtTime(.001,t+dur);s.connect(f);f.connect(g);g.connect(B.dry);if(rev){const r=c.createGain();r.gain.value=rev;g.connect(r);r.connect(B.rev)}s.start(t);s.stop(t+dur)}
+// little instruments built from the voices above
+const bell=(f,d=0,v=.12,len=1.3)=>{tone(f,len,{vol:v,delay:d,att:.004,rev:.7});tone(f*2.01,len*.5,{vol:v*.35,delay:d,att:.003,rev:.7});tone(f*3.02,len*.25,{vol:v*.15,delay:d,att:.002,rev:.7})};
+const mallet=(f,d=0,v=.14)=>{tone(f,.55,{vol:v,delay:d,att:.003,rev:.45});tone(f*4,.07,{vol:v*.3,delay:d,att:.001,rev:.2})};
 const SFX={
-  stamp(){tone(150,.35,{vol:.5,to:45});noise(.12,{vol:.35,freq:300,q:.5})},
-  fail(){tone(392,.22,{type:'triangle',vol:.16});tone(330,.22,{type:'triangle',vol:.16,delay:.2});tone(247,.5,{type:'triangle',vol:.16,to:200,delay:.4})},
-  tick(){tone(1400,.04,{type:'square',vol:.05})},
-  hint(){noise(.28,{vol:.25,freq:2500,q:1.2,sweep:900})},
-  whoosh(){noise(.45,{vol:.3,freq:400,q:1,sweep:3000})},
-  pop(){tone(660,.08,{vol:.08,to:880})},
-  end(){tone(440,.7,{type:'square',vol:.1})},
-  win(){[523,659,784,1047].forEach((f,i)=>tone(f,i===3?.9:.22,{type:'triangle',vol:.16,delay:i*.14}));noise(.6,{vol:.08,freq:6000,q:.3,delay:.5})}
+  // correct: warm thump + two rising bells
+  stamp(){tone(110,.22,{vol:.35,to:55,att:.003,rev:0});bell(784,.03,.11);bell(1175,.14,.12,1.6)},
+  // wrong: soft two-note "uh-oh" on a mallet, low and gentle
+  fail(){mallet(392,0,.16);mallet(311,.2,.16);tone(155,.7,{type:'triangle',vol:.08,delay:.2,lp:600,rev:.3})},
+  // countdown: a wooden tick, a bit higher for the last 3 seconds
+  tick(s){const hi=s&&s<=3;tone(hi?1320:1000,.06,{vol:hi?.3:.22,att:.001,rev:.08});tone(hi?2640:2000,.025,{vol:.08,att:.001,rev:0})},
+  // hint: three sparkling notes going up
+  hint(){[1319,1568,2093].forEach((f,i)=>bell(f,i*.07,.05,.7))},
+  // whoosh: airy swell that rises and fades
+  whoosh(){noise(.5,{vol:.3,freq:300,q:.7,sweep:2400,att:.2,type:'bandpass',rev:.4})},
+  // pop: a soft bubble
+  pop(){tone(520,.1,{vol:.28,to:880,att:.004,rev:.15})},
+  // time up: a gentle ding-dong
+  end(){bell(659,0,.14,1.2);bell(523,.32,.15,1.8)},
+  // win: bell arpeggio, then a warm chord with a shimmer
+  win(){[523,659,784,1047].forEach((f,i)=>bell(f,i*.11,.1,1));[523,659,784].forEach(f=>tone(f,1.8,{type:'triangle',vol:.06,delay:.46,att:.08,lp:2200,rev:.8}));tone(1047,1.8,{vol:.05,delay:.46,att:.08,rev:.8});noise(1.2,{vol:.05,freq:7000,q:.4,delay:.45,att:.3,type:'highpass',rev:.6})}
 };
 function beep(){SFX.end()}
 function setMute(v){muted=v;try{localStorage.setItem('gaddha.mute',JSON.stringify(v))}catch(e){}document.querySelectorAll('[data-act="mute"]').forEach(b=>{b.setAttribute('aria-pressed',String(!v));b.innerHTML=v?SPK_OFF:SPK_ON;b.setAttribute('aria-label',v?'شغّل الصوت':'اكتم الصوت')})}
@@ -1524,7 +1528,7 @@ function judgeState(){
 function sendJudge(now){if(!JUDGECH)return;clearTimeout(judgeT);const go=()=>{if(JUDGECH&&S)JUDGECH.send('state',judgeState())};if(now)go();else judgeT=setTimeout(go,100)}
 function runJudgeCmd(p){
   const c=S&&S.screen==='question'&&S.cur;if(!c||!c.bid||!p)return;const b=c.bid,a=p.act;
-  if(a==='ready'&&b.phase==='judge'){b.judge='ready';SFX.tick();render();return}
+  if(a==='ready'&&b.phase==='judge'){b.judge='ready';SFX.pop();render();return}
   if(a==='start'&&b.phase==='judge')return ACT['bid-start']();
   if(b.phase!=='go')return;
   if(a==='tap')return bidTap(+p.i);
@@ -1899,7 +1903,7 @@ function bidBody(x,c,N){
 function bidTap(i){
   const c=S.cur;if(!c||!c.bid||c.bid.phase!=='go'||c.bid.all)return;const b=c.bid,x=S.cats[c.c].qs[c.i],g=b.got,k=g.indexOf(i);
   if(i<0||i>=x.l.length)return;
-  if(k>=0){g.splice(k,1);fx.bidNew=-1}else{g.push(i);fx.bidNew=i;SFX.tick()}
+  if(k>=0){g.splice(k,1);fx.bidNew=-1}else{g.push(i);fx.bidNew=i;SFX.pop()}
   const typing=document.activeElement&&document.activeElement.id==='bidq';
   if(!b.hit&&bidScore(b)>=b.n&&g.length<x.l.length){b.hit=true;SFX.stamp();toast(`${S.teams[b.team].name} وصلوا للـ${b.n}! كل جواب زيادة بنقطة بونص`)}
   render();store.set(KEY,S);sendHost();
