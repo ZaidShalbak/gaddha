@@ -35,3 +35,11 @@ Hand-sold night passes and plans, before any payment provider is connected.
 - **Redeem:** players open the link (`/?redeem=CODE`) or «عندي كود» in the home footer, log in, and the code is added to their account. A second year stacks on the first.
 - **Safety:** codes and plans are only reachable through database functions; only admins can create codes; 10 wrong guesses in an hour blocks an account for an hour.
 - **Today:** all categories are open to everyone during the trial, so a code is stored as a pre-order and takes effect once the free plan limits switch on.
+
+## After-game feedback («كيف كانت السهرة؟»)
+
+The end screen asks: a 1–5 face rating, what they liked, what they would buy, a fair yearly price, and an optional comment. It works without login; when the host is logged in their account is attached. Run `supabase/feedback.sql` once (after `codes.sql`). Results are in admin → «الآراء»: totals, average rating, % who would pay, and every comment with the categories played, minutes and device.
+
+## Home-screen hint
+
+On phones, the home page shows «حطّوا «قدّها» على شاشة الجوال» until the game is installed or the hint is closed: an install button on Android Chrome, or step-by-step text (iPhone: Share → Add to Home Screen).

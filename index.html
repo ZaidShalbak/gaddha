@@ -760,6 +760,21 @@ details.more[open] summary{margin-bottom:10px}
 .endteam strong{font-weight:900;font-size:2.6em;line-height:1;color:var(--teamc)}
 .endteam small{color:var(--mut);font-size:.72em;line-height:1.7}
 .endside .btn.big{margin-top:auto}
+.a2hs{display:flex;align-items:center;gap:10px;background:#fff;border-radius:18px;padding:10px 12px;box-shadow:0 4px 14px rgba(22,22,22,.07);margin:4px 0 10px;font-size:.88em}
+.a2hs .ic{width:40px;height:40px;border-radius:11px;flex:none}
+.a2hs .tx{flex:1;display:flex;flex-direction:column;gap:2px;line-height:1.5}.a2hs .tx b{font-weight:900}.a2hs .tx small{color:var(--mut)}
+.a2hs .btn{min-height:38px;padding:0 14px;font-size:.9em;flex:none}
+.a2hs .x{border:0;background:none;font-size:1.1em;color:var(--mut);cursor:pointer;padding:4px;flex:none}
+.fbcard{background:#fff;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(22,22,22,.06)}
+.fbcard>b{font-weight:900;font-size:1.1em}.fbcard small{color:var(--mut);font-weight:800;font-size:.78em;margin-top:4px}
+.fbcard.sent{align-items:center;text-align:center}
+.fbfaces{display:flex;gap:6px;justify-content:space-between}
+.fbfaces button{flex:1;font-size:1.7em;line-height:1;padding:8px 0;border-radius:14px;border:2px solid transparent;background:var(--bg);cursor:pointer;filter:grayscale(.6);transition:transform .15s,filter .15s}
+.fbfaces button[aria-pressed="true"]{border-color:var(--g2);filter:none;transform:scale(1.08)}
+.fbchips{display:flex;flex-wrap:wrap;gap:6px}
+.fbchip{font:inherit;font-size:.8em;font-weight:800;padding:7px 12px;border-radius:99px;border:1.5px solid var(--soft);background:#fff;color:var(--ink);cursor:pointer}
+.fbchip[aria-pressed="true"]{background:var(--g1);border-color:var(--g1);color:#fff}
+.fbcard textarea{font:inherit;font-size:.9em;border:1.5px solid var(--soft);border-radius:12px;padding:8px 10px;resize:vertical;min-height:54px}
 
 /* reveal (scanned on a phone) */
 .reveal{min-height:100%;display:grid;place-items:center;padding:24px 16px}
@@ -868,6 +883,7 @@ details.more[open] summary{margin-bottom:10px}
       <button type="button" class="brand" data-act="home" aria-label="قدّها"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
       <div class="acts"><button type="button" class="btn sm iconbtn" data-act="mute"></button><button type="button" class="btn sm" id="fs2" data-act="fs">ملء الشاشة</button><button type="button" class="btn sm acct" data-act="acct" hidden>دخول</button><button type="button" class="btn solid sm" data-act="to-setup">العبوا</button></div>
     </header>
+    <div class="a2hs" id="a2hs" hidden></div>
 
     <section class="hm-hero">
       <div class="decos" aria-hidden="true"><i class="d1">؟</i><i class="d2">؟</i><i class="d3"></i><i class="d4"></i><i class="d5">قدّها!</i><i class="d6"></i><i class="d7">×2</i></div>
@@ -1328,7 +1344,7 @@ function startDraft(){
       :pickFresh(c.questions,5).map(q=>Object.assign({id:q.id,q:q.q,a:q.a,x:q.w,hints:q.img?(q.hints||[]).concat(['','']).slice(0,2):(q.hints||[]).filter(Boolean).slice(0,2),done:false,win:-1,how:''},q.by?{by:q.by,team:q.team,story:q.story}:{},q.img?{img:q.img,f:q.f||'',credit:q.credit||''}:{},q.n!=null?{n:q.n,unit:q.unit||''}:{},q.o?{o:q.o,dir:q.dir||'',hints:[`أول واحد: ${q.o[0].t}`,`آخر واحد: ${q.o[q.o.length-1].t}`]}:{}))}));
   cats.forEach(c=>c.qs.forEach(q=>{if(q.img){const im=new Image();im.src=q.img}}));
   const f=pickFresh(FINALS,1)[0]||{category:'',q:'',a:''};
-  S={room:ONLINE()?GADDHA_SB.code(8):'',screen:'draft',teams:names.map(n=>({name:n,score:0,helpers:[],used:[],st:{hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0}})),draftTurn:0,turn:0,timerSec,qrMode,cats,cur:null,armed:-1,lockOn:-1,
+  S={t0:Date.now(),room:ONLINE()?GADDHA_SB.code(8):'',screen:'draft',teams:names.map(n=>({name:n,score:0,helpers:[],used:[],st:{hints:0,steals:0,clean:0,passWin:0,qaddWin:0,qaddFail:0}})),draftTurn:0,turn:0,timerSec,qrMode,cats,cur:null,armed:-1,lockOn:-1,
      final:{id:f.id,category:f.category,q:f.q,a:f.a,wager:[0,0],right:[null,null]},undo:null};
   sel=[];confirmEnd=false;shown=[0,0];
   try{navigator.wakeLock&&navigator.wakeLock.request('screen').catch(()=>{})}catch(e){}
@@ -1935,6 +1951,45 @@ function confetti(){
   let o='';for(let k=0;k<34;k++)o+=`<i class="cf" style="left:${(r()*96+2).toFixed(1)}%;top:${(r()*92+2).toFixed(1)}%;width:${Math.round(7+r()*10)}px;height:${Math.round(12+r()*14)}px;background:${cols[k%5]};transform:rotate(${Math.round(r()*120-60)}deg)"></i>`;
   return o;
 }
+/* ---------- «حطّوها على الشاشة الرئيسية» (phones only, until installed or dismissed) ---------- */
+let A2P=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();A2P=e;paintA2hs()});
+window.addEventListener('appinstalled',()=>{try{localStorage.setItem('gaddha.a2hs','1')}catch(e){}paintA2hs()});
+const isStandalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+const isIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+function paintA2hs(){
+  const el=$('a2hs');if(!el)return;
+  let off=false;try{off=!!localStorage.getItem('gaddha.a2hs')}catch(e){}
+  const phone=matchMedia('(pointer: coarse)').matches&&innerWidth<1100;
+  if(off||!phone||isStandalone()){el.hidden=true;return}
+  const how=A2P?'':isIOS()?'اضغطوا زر المشاركة <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px" aria-label="مشاركة"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg> تحت، وبعدين «إضافة إلى الشاشة الرئيسية».':'من قائمة المتصفح <b>⋮</b> اختاروا «إضافة إلى الشاشة الرئيسية» أو «تثبيت التطبيق».';
+  el.innerHTML=`<img class="ic" src="/icon-192.png" alt=""><span class="tx"><b>حطّوا «قدّها» على شاشة الجوال</b><small>${A2P?'بتفتح متل التطبيق، بلا متصفح.':how}</small></span>${A2P?'<button type="button" class="btn solid" data-act="a2hs-go">ثبّتوها</button>':''}<button type="button" class="x" data-act="a2hs-x" aria-label="سكّر">✕</button>`;
+  el.hidden=false;
+}
+
+/* ---------- after-game feedback ---------- */
+const FB_LIKE=[['qs','الأسئلة والفئات'],['fam','«قدّنا؟» أسرار العيلة'],['ch','الرسم والتحدّيات'],['help','الغشّات والمساعدات'],['final','الظرف الأخير'],['tv','اللعب على التلفزيون']];
+const FB_PAY=[['no','ما بدفع'],['night','تذكرة سهرة'],['year','اشتراك سنة'],['depends','بعتمد عالسعر']];
+const FB_PRICE=[['lt10','أقل من \u2066$10\u2069'],['10-20','\u2066$10 – $20\u2069'],['20-30','\u2066$20 – $30\u2069'],['gt30','أكتر من \u2066$30\u2069']];
+const FB_FACE=['😴','😐','🙂','😄','🤩'];
+function fbCard(){
+  if(!ONLINE())return '';
+  const f=S.fb||(S.fb={r:0,liked:[],pay:'',price:'',sent:false});
+  if(f.sent)return `<div class="fbcard sent"><b>شكرًا! 🙏</b><span class="mut">رأيكم وصل، وبيساعدنا نخلّي «قدّها» أحلى.</span></div>`;
+  const chips=(act,list,on)=>list.map(([k,l])=>`<button type="button" class="fbchip" data-act="${act}" data-k="${k}" aria-pressed="${on(k)}">${l}</button>`).join('');
+  return `<div class="fbcard" id="fbcard"><b>كيف كانت السهرة؟</b>
+    <div class="fbfaces">${FB_FACE.map((e,i)=>`<button type="button" data-act="fb-rate" data-k="${i+1}" aria-pressed="${f.r===i+1}" aria-label="${i+1} من 5">${e}</button>`).join('')}</div>
+    <small>شو أكتر إشي عجبكم؟</small><div class="fbchips">${chips('fb-like',FB_LIKE,k=>f.liked.includes(k))}</div>
+    <small>لو كانت بمصاري، شو كنتوا بتشتروا؟</small><div class="fbchips">${chips('fb-pay',FB_PAY,k=>f.pay===k)}</div>
+    <small>قدّيش منطقي اشتراك سنة للعيلة كلها؟</small><div class="fbchips">${chips('fb-price',FB_PRICE,k=>f.price===k)}</div>
+    <small>شو زعّلكم أو ما زبط؟ (اختياري)</small><textarea id="fbpain" rows="2" maxlength="500" placeholder="أي إشي، حتى لو صغير"></textarea>
+    <button type="button" class="btn solid" data-act="fb-send">ابعتوا رأيكم</button></div>`;
+}
+function fbPick(b,key,multi){
+  const f=S.fb,k=b.dataset.k;
+  if(multi){f[key]=f[key].includes(k)?f[key].filter(x=>x!==k):f[key].concat(k)}else f[key]=(key==='r'?+k:(f[key]===k?'':k));
+  b.parentNode.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(multi?f[key].includes(x.dataset.k):(key==='r'?f.r===+x.dataset.k:f[key]===x.dataset.k))));
+}
 function paintEnd(){
   const [a,b]=S.teams,w=a.score===b.score?-1:(a.score>b.score?0:1);
   const titles=i=>{
@@ -1960,6 +2015,7 @@ function paintEnd(){
       ${w<0?'':`<span class="pts">${(n=>n===1?'نقطة':n===2?'نقطتين':n<=10?n+' نقاط':n+' نقطة')(S.teams[w].score)}</span>`}</div>
     <div class="endside"><h2>حصيلة السهرة</h2>
       <div class="endteams">${S.teams.map((tm,i)=>`<div class="endteam t${i}${w===i?' won':''}"><strong dir="ltr">${tm.score}</strong><span style="display:flex;flex-direction:column;gap:2px"><b>${esc(tm.name)}</b><small>${stat(i)}</small>${(t=>t.length?`<span class="titles">${t.map(([n,d])=>`<span class="ttl-chip"><b>${n}</b><small>${d}</small></span>`).join('')}</span>`:'')(titles(i))}</span></div>`).join('')}</div>
+      ${fbCard()}
       <button type="button" class="btn solid big" data-act="new">سهرة جديدة</button></div></div>`;
 }
 function render(){
@@ -2005,6 +2061,18 @@ const ACT={
   'fam-cyc'(b){const x=FAM.find(y=>y.id===b.dataset.id);if(!x)return;x.team=x.team===0?1:x.team===1?-1:0;x.unk=false;famSave();famSync();render()},
   acct(){if(!ONLINE())return;if(!ME){openAuth();return}if(S){toast('حسابكم بيطلع بعد ما تخلص اللعبة');return}view='account';ACC.nights=null;ACC.plan=null;render();window.scrollTo(0,0)},
   'acct-back'(){view='home';render();window.scrollTo(0,0)},
+  'a2hs-go'(){if(!A2P)return;A2P.prompt();A2P.userChoice.then(c=>{if(c&&c.outcome==='accepted'){try{localStorage.setItem('gaddha.a2hs','1')}catch(e){}}A2P=null;paintA2hs()}).catch(()=>{A2P=null;paintA2hs()})},
+  'a2hs-x'(){try{localStorage.setItem('gaddha.a2hs','1')}catch(e){}paintA2hs()},
+  'fb-rate'(b){fbPick(b,'r')},'fb-like'(b){fbPick(b,'liked',true)},'fb-pay'(b){fbPick(b,'pay')},'fb-price'(b){fbPick(b,'price')},
+  'fb-send'(b){
+    const f=S.fb,pain=($('fbpain')&&$('fbpain').value||'').trim();
+    if(!f.r&&!f.liked.length&&!f.pay&&!f.price&&!pain){toast('اختاروا إشي واحد عالأقل');return}
+    b.disabled=true;b.textContent='لحظة…';
+    const w=innerWidth,dev=w>=1100?'big':w>=700?'tablet':'phone';
+    GADDHA_SB.rpc('submit_feedback',{p:{rating:f.r||0,liked:f.liked,pain,pay:f.pay,price:f.price,cats:(S.cats||[]).map(k=>k.name),minutes:S.t0?Math.round((Date.now()-S.t0)/6e4):0,device:dev}})
+      .then(()=>{f.sent=true;store.set(KEY,S);paintEnd();toast('شكرًا على رأيكم!')})
+      .catch(()=>{b.disabled=false;b.textContent='ابعتوا رأيكم';toast('ما انبعت. تأكدوا من الإنترنت وجرّبوا كمان مرة.')});
+  },
   'redeem-open'(){if(!ONLINE()){toast('الأكواد بدها إنترنت');return}setPending(pendingCode()||' ');if(!ME){openAuth();return}setPending(pendingCode().trim());view='account';ACC.nights=null;ACC.plan=null;render();window.scrollTo(0,0);setTimeout(()=>{const i=$('codein');if(i)i.focus()},60)},
   'code-redeem'(){
     const i=$('codein'),v=(i&&i.value||'').trim();if(!v){ACC.msg='اكتبوا الكود.';ACC.err=true;paintAccount();return}
@@ -2220,7 +2288,7 @@ async function start(data){
   if(!document.fullscreenEnabled)$('fs').hidden=true;
   skip=store.get('gaddha.skip');if(!Array.isArray(skip))skip=[];
   {const q=new URLSearchParams(location.search),rc=q.get('redeem');if(rc){setPending(rc.slice(0,20));q.delete('redeem');history.replaceState(null,'',location.pathname+(q.toString()?'?'+q:'')+location.hash)}}
-  famSync();buildFan();setMute(muted);render();authInit();
+  famSync();buildFan();setMute(muted);render();authInit();paintA2hs();
   if(pendingCode()&&!hasSession()&&ONLINE())setTimeout(()=>openAuth(),400);
   if(/[?&]try\b/.test(location.search)){
     const OPTS=[['','الحالي'],['tatreez','1 تطريز'],['band','2 شريط غامق'],['shapes','3 أشكال'],['glow','4 ألوان']];
