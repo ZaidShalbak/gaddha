@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "pal-folk-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "كمّل: «على دلعونا، على دلعونا…»",
    "a": "هوا الشمالي غيّر اللونا",
@@ -18,7 +18,7 @@
   },
   {
    "id": "pal-folk-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كمّل: «يا ظريف الطول وقّف تا قلّك…»",
    "a": "رايح عالغربة وبلادك أحسنلك",
@@ -33,7 +33,7 @@
   },
   {
    "id": "pal-folk-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "أي أغنية شعبية بتبلّش بـ«… ويا هالربع»؟",
    "a": "جفرا",
@@ -48,7 +48,7 @@
   },
   {
    "id": "pal-folk-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم الغنا الشعبي اللي بيجي عادة بعد العتابا؟",
    "a": "الميجنا",
@@ -63,7 +63,7 @@
   },
   {
    "id": "pal-folk-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كم شطر بالمقطع الواحد من العتابا؟",
    "a": "أربعة",
@@ -79,7 +79,7 @@
   },
   {
    "id": "pal-folk-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "آخر شطر بالعتابا لازم يخلص بأي حرف؟",
    "a": "الباء",
@@ -94,7 +94,7 @@
   },
   {
    "id": "pal-folk-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم غنا العرس اللي بيصفّق فيه الرجال بصفّين متقابلين؟",
    "a": "السحجة",
@@ -109,7 +109,7 @@
   },
   {
    "id": "pal-folk-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كمّل الأغنية الشعبية: «على الأوف…»",
    "a": "مشعل",
@@ -122,7 +122,7 @@
   },
   {
    "id": "pal-folk-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الأغنية الشعبية «وين ع…» عن أي مدينة؟",
    "a": "رام الله",
@@ -135,7 +135,7 @@
   },
   {
    "id": "pal-folk-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كمّل: «يا حلالي…»",
    "a": "يا مالي",
@@ -148,7 +148,7 @@
   },
   {
    "id": "pal-folk-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "كمّل تهليلة النوم: «يلّا تنام يلّا تنام…»",
    "a": "لادبحلك طير الحمام",
@@ -161,7 +161,7 @@
   },
   {
    "id": "pal-folk-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم الأهزوجة اللي كانوا الأولاد يلفّوا فيها عالبيوت يطلبوا الشتا؟",
    "a": "أم الغيث",
@@ -176,7 +176,7 @@
   },
   {
    "id": "pal-folk-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "كمّل أغنية العرس: «عريسنا زين…»",
    "a": "الشباب",
@@ -189,7 +189,7 @@
   },
   {
    "id": "pal-folk-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم الصوت العالي «لولولولي» اللي بتعمله النسوان بالفرح؟",
    "a": "الزغرودة",
@@ -204,7 +204,7 @@
   },
   {
    "id": "pal-folk-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم الناي القصير اللي بيعزف عليه الراعي ومع الدلعونا؟",
    "a": "الشبّابة",
@@ -219,7 +219,7 @@
   },
   {
    "id": "pal-folk-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم الآلة الشعبية من قصبتين، وحدة أطول بتعطي صوت ممدود ثابت؟",
    "a": "الأرغول",
@@ -235,7 +235,7 @@
   },
   {
    "id": "pal-folk-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بيسمّوا سهرة الجيران بالليل للحكي والغنا والقصص؟",
    "a": "التعليلة",
@@ -248,7 +248,7 @@
   },
   {
    "id": "pal-folk-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم اللي كان يحكي القصص الشعبية بالقهوة؟",
    "a": "الحكواتي",
@@ -261,7 +261,7 @@
   },
   {
    "id": "pal-folk-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "كمّل: «كان يا ما كان…»",
    "a": "في قديم الزمان",
@@ -274,7 +274,7 @@
   },
   {
    "id": "pal-folk-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم المخلوقة المخيفة اللي بتوكل البشر بحكايات ستّي؟",
    "a": "الغولة",
@@ -287,7 +287,7 @@
   },
   {
    "id": "pal-folk-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "كتاب «قول يا طير» لشريف كناعنة شو بيجمع؟",
    "a": "حكايات شعبية فلسطينية",
@@ -302,7 +302,7 @@
   },
   {
    "id": "pal-folk-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كمّل: «يمّا مويل الهوى…»",
    "a": "يمّا مويليّا",
@@ -317,7 +317,7 @@
   },
   {
    "id": "pal-folk-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كمّل: «عالروزانا عالروزانا…»",
    "a": "كل الهنا فيها",
@@ -330,7 +330,7 @@
   },
   {
    "id": "pal-folk-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "المهاهاة بالعرس بتبلّش عادة بأي كلمة؟",
    "a": "آويها",
@@ -343,7 +343,7 @@
   },
   {
    "id": "pal-folk-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم الشعر الشعبي اللي بيرتجله الشاعر وبيرد عليه شاعر تاني بالسهرة؟",
    "a": "الزجل",
