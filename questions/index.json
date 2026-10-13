@@ -2,6 +2,17 @@
  "version": 1,
  "groups": [
   {
+   "id": "pal",
+   "name": "من فلسطين",
+   "color": "#c92a3a",
+   "categories": [
+    "pal-cities",
+    "pal-food",
+    "pal-heritage"
+   ],
+   "visible": true
+  },
+  {
    "id": "art",
    "name": "فن وتلفزيون",
    "color": "#f0475a",
@@ -179,6 +190,30 @@
    "art": "order",
    "bg": "#efe9f7",
    "mode": "order"
+  },
+  {
+   "id": "pal-cities",
+   "name": "مدن وقرى فلسطين",
+   "file": "pal-cities.json",
+   "visible": true,
+   "art": "map",
+   "bg": "#e6f2ea"
+  },
+  {
+   "id": "pal-food",
+   "name": "أكل فلسطيني",
+   "file": "pal-food.json",
+   "visible": true,
+   "art": "food",
+   "bg": "#fdebd7"
+  },
+  {
+   "id": "pal-heritage",
+   "name": "تراث وثقافة",
+   "file": "pal-heritage.json",
+   "visible": true,
+   "art": "tatreez",
+   "bg": "#fde4e6"
   }
  ],
  "finals": "finals.json"
