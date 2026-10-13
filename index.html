@@ -351,19 +351,12 @@ html,body{overflow-x:hidden}
 .ft-fam{background:#efe5fb;color:#3d1d6b}.ft-fam .btn{background:#8a4fd6;color:#fff;min-height:42px}
 .ft-fire{background:linear-gradient(135deg,#ffb000,#ff4d00);color:#fff}
 .ft-fire .ft-ic{width:auto;height:auto;padding:6px 14px;font-weight:900;font-size:1.3em;color:#ff4d00;border:3px solid #ff4d00;border-radius:12px;transform:rotate(-8deg)}
-.ft-pic{background:#e7eef7}
-.ft-zoom{position:relative;width:76px;height:58px;flex:none}
-.ft-zoom i{position:absolute;inset:0;border:3px solid #1d4e89;border-radius:10px;display:block}
-.ft-zoom i:nth-child(2){inset:12px 16px;border-color:#4aa8ff}
-.ft-zoom i:nth-child(3){inset:21px 29px;background:#f0475a;border:0;border-radius:50%}
 .ft-env{background:var(--ink);color:#fff}
 .ft-envs{display:flex;gap:6px;flex:none}
 .ft-envs i{font-style:normal;width:46px;height:34px;border-radius:6px;background:#e0a92a;color:var(--ink);font-weight:900;font-size:.8em;display:grid;place-items:center;position:relative}
 .ft-envs i:nth-child(2){background:#f1c75b}.ft-envs i:nth-child(3){background:#fff3d1}
-.ft-lang{background:var(--gt)}
-.ft-num{background:#fff3d1}
-.ft-draw{background:#fde4e6}
-.ft-order{background:#efe9f7}
+.ft-bid{background:#fdebd7}
+.ft-pal{background:#fde4e6}
 .ft-host{background:#12211a;color:#fff}
 .hm-groups{display:grid;gap:12px}
 .hg{background:#fff;border-radius:22px;box-shadow:var(--sh);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
@@ -410,7 +403,7 @@ html,body{overflow-x:hidden}
 @media (min-width:700px){
   .flow{grid-template-columns:repeat(2,1fr)}
   .bento{grid-template-columns:repeat(2,1fr)}
-  .ft-fam,.ft-lang,.ft-host{grid-column:1/-1}
+  .ft-fam,.ft-host{grid-column:1/-1}
   .hm-groups{grid-template-columns:repeat(2,1fr)}
 }
 @media (min-width:900px){
@@ -421,7 +414,6 @@ html,body{overflow-x:hidden}
   .ft{grid-column:span 2;flex-direction:column;align-items:flex-start}
   .ft-fam{grid-column:span 3;flex-direction:row;align-items:center}
   .ft-fire{grid-column:span 3;flex-direction:row;align-items:center}
-  .ft-lang{grid-column:span 2}
   .ft-host{grid-column:1/-1;flex-direction:row;align-items:center}
   .ft>div{min-width:0}
   .hm-groups{grid-template-columns:repeat(3,1fr)}
@@ -1030,17 +1022,14 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
     </section>
 
     <section class="hm-sec">
-      <h2 class="hm-h">شو الجديد</h2>
+      <h2 class="hm-h">شو اللي بيميّزها</h2>
       <div class="bento">
         <article class="ft ft-fam"><span class="ft-ic" id="ftfam"></span><div><h3>قدّنا؟</h3><p>كل واحد بيكتب سؤال عن العيلة أو الشلّة أو الشغل هو بيعرف جوابه: مرّروا الجهاز، أو ابعثوا رابط على واتساب وكل واحد بيكتب من جواله. سرّك ما بيطلع لفريقك.</p></div><button type="button" class="btn sm" data-act="to-setup">جرّبوها</button></article>
         <article class="ft ft-fire"><span class="ft-ic">ولّعت!</span><div><h3>على النار</h3><p>3 أجوبة صح ورا بعض، وكل جواب بعدها إله نقطة زيادة لحد ما تغلطوا.</p></div></article>
-        <article class="ft ft-pic"><span class="ft-zoom" aria-hidden="true"><i></i><i></i><i></i></span><div><h3>مين هاد بالصورة؟</h3><p>الصورة بتبلّش مقرّبة، وكل غشّة بتبعّدها شوي.</p></div></article>
-        <article class="ft ft-num"><span class="ft-ic" id="ftnum"></span><div><h3>أقرب رقم</h3><p>سؤال جوابه رقم، والفريقين بيكتبوا على الورق. اللي أقرب بياخد النقاط، واللي جابها بالضبط إله نقطة زيادة.</p></div></article>
+        <article class="ft ft-bid"><span class="ft-ic" id="ftbid"></span><div><h3>بزايد عليك</h3><p>«إحنا بنعدّ 6!» «لا، إحنا 8!». اللي بيرسى عليه المزاد لازم يعدّ قبل ما يخلص الوقت، والفريق التاني بيحكم من جواله.</p></div></article>
         <article class="ft ft-env"><span class="ft-envs" aria-hidden="true"><i>×2</i><i>×1.5</i><i>×1</i></span><div><h3>الظرف الأخير</h3><p>الفريق المتأخر بيختار من 3 ظروف، وكل غشّة بتنزّل المضاعف.</p></div></article>
-        <article class="ft ft-draw"><span class="ft-ic" id="ftdraw"></span><div><h3>ارسمها</h3><p>واحد بيرسم الكلمة والباقي بيخمّنوا. ارسموا على الشاشة الكبيرة، أو على الجوال والرسمة بتطلع لايف على الشاشة.</p></div></article>
-        <article class="ft ft-order"><span class="ft-ic" id="ftorder"></span><div><h3>رتّبها</h3><p>4 اختراعات أو أحداث أو أماكن، ورتّبوها صح. كل غشّة بتثبّتلكم وحدة بمكانها.</p></div></article>
+        <article class="ft ft-pal"><span class="ft-ic" id="ftpal"></span><div><h3>من فلسطين</h3><p>مدن وقرى، أكل ستّي، تطريز وأهازيج، وكلمات الختيارية. فئات ما رح تلاقوها بأي لعبة تانية.</p></div></article>
         <article class="ft ft-host"><span class="ft-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#14532d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/><path d="M3 8a8 8 0 0 1 2-4M21 8a8 8 0 0 0-2-4"/></svg></span><div><h3>جوال المضيف</h3><p>واحد بيدير السهرة من جواله: بيشوف الجواب والغشّات قبل الكل، وبيكشف ويعطي النقاط، والشاشة الكبيرة بتضل للأسئلة بس. مثالية للتلفزيون.</p></div></article>
-        <article class="ft ft-lang"><span class="ft-ic" id="ftlang"></span><div><h3>كمّل المثل · شو يعني؟</h3><p>أمثال من عنّا، وكلمات من لهجات العرب من المغرب للخليج.</p></div></article>
       </div>
     </section>
 
@@ -1429,7 +1418,7 @@ function buildFan(){
   $('hmstats').innerHTML=ids.length?`<div><b>${ids.length}</b><span>فئة</span></div><div><b>${nq>=100?Math.floor(nq/50)*50+'+':nq}</b><span>سؤال وتحدّي</span></div><div><b>7</b><span>مساعدات</span></div>`:'';
   $('hmgroups').innerHTML=GROUPS.map(g=>`<div class="hg" style="--gc:${g.c}"><div class="hg-h"><b><i></i>${esc(g.name)}</b><button type="button" data-act="to-setup" data-only="${g.id}">العبوا هاي ←</button></div>
     <div class="hg-cats">${g.ids.filter(catById).map(id=>`<span style="--cbg:${cbg(id)}">${catArt(id)}${esc(catById(id).name)}</span>`).join('')}</div></div>`).join('');
-  $('ftfam').innerHTML=GA.svg('family');$('ftlang').innerHTML=GA.svg('scroll');$('ftnum').innerHTML=GA.svg('numbers');$('ftdraw').innerHTML=GA.svg('brush');$('ftorder').innerHTML=GA.svg('order');
+  $('ftfam').innerHTML=GA.svg('family');$('ftbid').innerHTML=GA.svg('gavel');$('ftpal').innerHTML=GA.svg('tatreez');
   const KDESC={help:'بتساعدكم تجاوبوا',sab:'بتصعّبها على الفريق التاني',bold:'بتلعبوا فيها على النقاط'};
   $('helperlist').innerHTML=['help','sab','bold'].map(k=>`<div class="hk-col k-${k}"><h3><span>${KIND[k]}</span><small>${KDESC[k]}</small></h3>
     ${HIDS.filter(id=>HELPERS[id].kind===k).map(id=>`<div class="hmhc"><span class="hic">${helpIcon(id)}</span><div><b>${esc(HELPERS[id].name)}</b><p>${esc(HELPERS[id].desc)}</p></div></div>`).join('')}</div>`).join('');
