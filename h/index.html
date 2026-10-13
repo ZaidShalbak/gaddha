@@ -82,6 +82,8 @@ button:disabled{opacity:.35}
         h+='<p class="note">مين رسي عليه المزاد؟</p><div class="board">'+[0,1].map(function(i){return'<button type="button" class="'+(b.team===i?'solid':'neg')+'" data-bset="'+i+'">'+esc(T[i])+'</button>'}).join('')+'</div>'
           +'<p class="note">قدّيش تعهّدوا؟</p><div class="bidn"><button type="button" data-bn="'+(b.n-1)+'">−</button><b>'+b.n+'</b><button type="button" data-bn="'+(b.n+1)+'">+</button></div>'
           +'<div class="btns"><button class="solid" data-act="bid-go">فرجونا! ابدأ</button></div>';
+      }else if(b.phase==='judge'){
+        h+='<p class="bidc">'+esc(T[b.team])+' تعهّدوا بـ <b>'+b.n+'</b></p><p class="note">إنت الحكم من هون، أو خلّوا الفريق التاني يمسح الكود عالشاشة.</p><div class="btns"><button class="solid" data-act="bid-start">يلا ابدأ العدّ</button></div>';
       }else{
         h+='<p class="bidc">'+esc(T[b.team])+': <b>'+b.count+' / '+b.n+'</b></p>';
         if(b.phase==='go')h+='<p class="note">اضغط كل جواب صح بيقولوه</p>';

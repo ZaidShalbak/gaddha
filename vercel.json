@@ -41,6 +41,19 @@
       ]
     },
     {
+      "source": "/j/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
+    },
+    {
       "source": "/admin(.*)",
       "headers": [
         {

@@ -775,7 +775,19 @@ details.more[open] summary{margin-bottom:10px}
 .bchips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 0 10px}
 .bchip{font:inherit;font-weight:800;font-size:clamp(.85rem,1.6vw,1.05rem);padding:10px 14px;border-radius:14px;border:2px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;min-height:44px;transition:transform .12s}
 .bchip.on{background:var(--g2);border-color:var(--g1);color:#fff;transform:scale(1.04)}
-.bchips.done .bchip{cursor:default}.bchip.miss{background:var(--soft);color:var(--mut);border-style:dashed}
+.bchips.done .bchip{cursor:default}
+.bchips.said .bchip{cursor:default}
+.bchip.pop{animation:bpop .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes bpop{from{transform:scale(2.2);opacity:0}}
+.bigtime{text-align:center;font-weight:900;font-size:clamp(5rem,16vw,11rem);line-height:.95;color:var(--ink);font-variant-numeric:tabular-nums;margin:-4px 0 2px}
+.bigtime.low{color:var(--b);animation:tbeat 1s infinite}.bigtime.out{font-size:clamp(3rem,10vw,6rem);color:var(--b);animation:none}
+@keyframes tbeat{50%{transform:scale(1.08)}}
+.bidhit{text-align:center;font-weight:900;color:var(--g1);background:var(--gt);border-radius:99px;padding:6px 14px;align-self:center;margin:2px auto;width:max-content;max-width:100%}
+.jstat{font-weight:800;color:var(--mut)}.jstat.on{color:var(--g2)}
+.bidparty{position:fixed;inset:0;display:grid;place-items:center;z-index:30;pointer-events:none;background:rgba(18,33,26,.35)}
+.bidparty div{background:#fff;border-radius:28px;padding:22px 34px;text-align:center;transform:rotate(-4deg);box-shadow:0 30px 70px rgba(0,0,0,.35);animation:stamp .5s cubic-bezier(.2,1.6,.4,1);max-width:min(90vw,820px)}
+.bidparty small{display:block;font-weight:800;color:var(--mut);font-size:clamp(.9rem,2vw,1.2rem)}
+.bidparty b{display:block;font-weight:900;color:var(--b);font-size:clamp(1.8rem,5vw,3.6rem);line-height:1.3}.bchip.miss{background:var(--soft);color:var(--mut);border-style:dashed}
 .fbcard{background:#fff;border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 14px rgba(22,22,22,.06)}
 .fbcard>b{font-weight:900;font-size:1.1em}.fbcard small{color:var(--mut);font-weight:800;font-size:.78em;margin-top:4px}
 .fbcard.sent{align-items:center;text-align:center}
@@ -1156,6 +1168,7 @@ function tPaint(){
   const n=$('tnum');if(!n)return;
   const s=Math.ceil(T.left);
   n.textContent=s>0?s:'خلص!';n.classList.toggle('out',s<=0);
+  {const bt=$('bidtime');if(bt){bt.textContent=s>0?s:'خلص!';bt.classList.toggle('low',s<=10);bt.classList.toggle('out',s<=0)}}
   $('tbar').style.strokeDashoffset=(RING_C*(1-Math.max(0,Math.min(1,T.left/T.total)))).toFixed(1);
   $('timer').classList.toggle('low',s<=10);
   $('tpause').textContent=T.running?'وقّف':'كمّل';
@@ -1441,6 +1454,32 @@ function hostCh(){
   HOSTCH.on('cmd',p=>runHostCmd(p));
   return HOSTCH;
 }
+/* «بزايد عليك» judge phone: own channel, sees only the bidding list (never other answers) */
+let JUDGECH=null,judgeT=null;
+function judgeCh(){
+  if(!ONLINE()||!S)return null;const r=roomId();
+  if(JUDGECH&&JUDGECH._r===r)return JUDGECH;if(JUDGECH)JUDGECH.close();
+  JUDGECH=GADDHA_SB.room('gaddha-judge-'+r);JUDGECH._r=r;
+  JUDGECH.on('hello',()=>{const c=S&&S.cur;if(c&&c.bid&&c.bid.phase==='judge'&&c.bid.judge==='none'){c.bid.judge='on';render()}sendJudge(true)});
+  JUDGECH.on('cmd',p=>runJudgeCmd(p));
+  return JUDGECH;
+}
+function judgeState(){
+  const c=S&&S.screen==='question'&&S.cur;if(!c||!c.bid||c.bid.phase==='bid')return {phase:'idle'};
+  const x=S.cats[c.c].qs[c.i],b=c.bid;
+  return {phase:b.phase,id:x.id,prompt:x.q,bidder:S.teams[b.team].name,judge:S.teams[1-b.team].name,n:b.n,count:bidScore(b),extra:b.extra,ready:b.judge==='ready',local:b.local,
+    list:bidList(x).map(it=>({i:it.i,t:it.t,on:b.got.includes(it.i)}))};
+}
+function sendJudge(now){if(!JUDGECH)return;clearTimeout(judgeT);const go=()=>{if(JUDGECH&&S)JUDGECH.send('state',judgeState())};if(now)go();else judgeT=setTimeout(go,100)}
+function runJudgeCmd(p){
+  const c=S&&S.screen==='question'&&S.cur;if(!c||!c.bid||!p)return;const b=c.bid,a=p.act;
+  if(a==='ready'&&b.phase==='judge'){b.judge='ready';SFX.tick();render();return}
+  if(a==='start'&&b.phase==='judge')return ACT['bid-start']();
+  if(b.phase!=='go')return;
+  if(a==='tap')return bidTap(+p.i);
+  if(a==='extra')return ACT['bid-extra']({dataset:{ok:'1'}});
+  if(a==='stop')return bidFinish();
+}
 const plain=h=>{const d=document.createElement('div');d.innerHTML=h;return d.textContent.replace(/\s+/g,' ').trim()};
 function hostState(){
   const N=S.teams.map(t=>t.name),st={scr:S.screen,teams:S.teams.map(t=>({name:t.name,score:t.score})),turn:S.turn};
@@ -1460,7 +1499,7 @@ function sendHost(now){if(!HOSTCH)return;clearTimeout(hostT);const go=()=>{if(HO
 function runHostCmd(p){
   if(!S||!p||busy)return;const a=p.act,d=p.data||{},scr=S.screen;
   const bq=scr==='question'&&S.cur&&S.cur.bid;
-  const ok={open:scr==='board',hint:scr==='question'&&!bq,steal:scr==='question'&&!bq,reveal:scr==='question'&&!bq,award:scr==='question'&&S.cur&&S.cur.revealed,go:scr==='question'&&!bq,'bid-set':bq,'bid-go':bq,'bid-tap':bq,'bid-extra':bq,'bid-stop':bq};
+  const ok={open:scr==='board',hint:scr==='question'&&!bq,steal:scr==='question'&&!bq,reveal:scr==='question'&&!bq,award:scr==='question'&&S.cur&&S.cur.revealed,go:scr==='question'&&!bq,'bid-set':bq,'bid-go':bq,'bid-start':bq,'bid-tap':bq,'bid-extra':bq,'bid-stop':bq};
   if(a==='bid-extra')d.ok='1';
   if(!ok[a]||!ACT[a])return;
   const ds={};Object.keys(d).forEach(k=>ds[k]=String(d[k]));
@@ -1731,9 +1770,9 @@ function paintBoard(){
 function awardOptions(){
   const c=S.cur,me=S.turn,o=1-me,v=qValue(),N=S.teams.map(t=>esc(t.name)),how=c.hints||c.elder?'hint':'clean';
   if(c.bid&&c.bid.phase==='done'){
-    const bd=c.bid,bt=bd.team,ok=bidScore(bd)>=bd.n,L=[];
+    const bd=c.bid,bt=bd.team,cnt=bidScore(bd),ok=cnt>=bd.n,more=cnt>bd.n?1:0,L=[];
     if(c.qadd&&bt===me)L.push(ok?{t:me,p:6,how:'clean',label:`${N[me]} قدّها <span dir="ltr">+6</span>`}:{t:me,p:-3,how:'fail',neg:1,label:`${N[me]} مش قدّها <span dir="ltr">−3</span>`});
-    else L.push(ok?{t:bt,p:3,how:'clean',label:`${N[bt]} قدّها <span dir="ltr">+3</span>`}:{t:1-bt,p:3,how:'steal',label:`${N[1-bt]} ربحوا المزاد <span dir="ltr">+3</span>`});
+    else L.push(ok?{t:bt,p:3+more,how:'clean',label:`${N[bt]} قدّها <span dir="ltr">+${3+more}</span>${more?' · وزادوا':''}`}:{t:1-bt,p:3,how:'steal',label:`${N[1-bt]} ربحوا المزاد <span dir="ltr">+3</span>`});
     L.push({t:-1,p:0,how:'none',label:'ما لعبناها',neg:1});
     return withFire(L);
   }
@@ -1778,22 +1817,54 @@ function bidBody(x,c,N){
       <div class="bidnum"><button type="button" class="btn" data-act="bid-n" data-d="-1" aria-label="أقل">−</button><b dir="ltr" id="bidn">${b.n}</b><button type="button" class="btn" data-act="bid-n" data-d="1" aria-label="أكتر">+</button></div></div>
     <div class="qbtns"><button type="button" class="btn solid big wide" data-act="bid-go">فرجونا! يلا ابدأ</button><button type="button" class="btn sm wide" data-act="back">رجوع</button></div>`;
   const chips=bidList(x).map(it=>`<button type="button" class="bchip${b.got.includes(it.i)?' on':''}${b.phase==='done'&&!b.got.includes(it.i)?' miss':''}" data-act="bid-tap" data-i="${it.i}" ${b.phase==='done'?'disabled':''}>${esc(it.t)}</button>`).join('');
+  
   const host=Date.now()-hostSeen<60000;
+  if(b.phase==='judge'){
+    const url=`${location.origin}/j/#${roomId()}`,svg=qrSvg(url),ready=b.judge==='ready'||host;
+    const st=b.judge==='ready'?'● الحكم جاهز':b.judge==='on'?'● الحكم متّصل… بيتأكد إنه شايف القائمة':host?'● المضيف بيحكم من جواله':'بانتظار الحكم يمسح الكود…';
+    return `<div class="bidhead t${bt}"><span>${N[bt]} تعهّدوا بـ</span><b dir="ltr">${b.n}</b></div>
+    <div class="qrbox"><div class="qr">${svg||''}</div><div class="qrtext"><b>يا ${N[1-bt]}: واحد منكم يمسح الكود ويصير الحكم</b>
+      <span>القائمة الكاملة بتطلع على جواله هو بس. لما يكون جاهز، بيبلّش العدّ.</span><span class="jstat${b.judge!=='none'||host?' on':''}">${st}</span>
+      <div class="row"><button type="button" class="btn solid big" data-act="bid-start" ${ready?'':'disabled'}>يلا ابدأ العدّ</button>
+      <button type="button" class="btn sm" data-act="bid-local">ما في جوال؟ احكموا هون</button><button type="button" class="btn sm" data-act="back">رجوع</button></div></div></div>`;
+  }
   if(b.phase==='go'){
-    const said=b.got.map(i=>`<button type="button" class="bchip on" data-act="bid-tap" data-i="${i}" title="اضغطوا لتشيلوها">${esc(bidName(x.l[i]))}</button>`).join('');
-    return `<div class="bidhead t${bt}"><span>${N[bt]} تعهّدوا بـ</span><b dir="ltr" id="bidcount">${cnt} / ${b.n}</b></div>
-    <p class="judge">${host?'المضيف بيحكم من جواله، والقائمة عنده بس.':`يا <b>${N[1-bt]}</b>: إنتو الحكم. كل ما يقولوا جواب، اكتبوا أول حرفين منه واضغطوه.`}</p>
+    const said=b.got.map(i=>`<span class="bchip on${fx.bidNew===i?' pop':''}">${esc(bidName(x.l[i]))}</span>`).join('');
+    const local=b.local&&!host;
+    return `<div class="bigtime" id="bidtime" aria-live="off">${Math.max(0,Math.ceil(T.left))}</div>
+    <div class="bidhead t${bt}${cnt>=b.n?' ok':''}"><span>${N[bt]} تعهّدوا بـ</span><b dir="ltr" id="bidcount">${cnt} / ${b.n}</b></div>
+    ${cnt>=b.n?`<p class="bidhit">وصلوا! كل جواب زيادة بنقطة بونص</p>`:''}
+    ${local?`<p class="judge">يا <b>${N[1-bt]}</b>: إنتو الحكم. كل ما يقولوا جواب، اكتبوا أول حرفين منه واضغطوه.</p>
     <input type="search" class="bidq" id="bidq" placeholder="أول حرفين من الجواب…" autocomplete="off" autocorrect="off" spellcheck="false">
-    <div class="bchips" id="bidres" aria-live="polite"></div>
-    ${said?`<p class="judge" style="margin-top:2px">اللي انقالوا:</p><div class="bchips">${said}</div>`:''}
-    <div class="qbtns"><button type="button" class="btn" data-act="bid-extra">+ جواب صح مش بالقائمة${b.extra?` (${b.extra})`:''}</button>${ONLINE()&&!host?'<button type="button" class="btn" data-act="host">احكموا من جوال (القائمة كاملة)</button>':''}<button type="button" class="btn solid wide" data-act="bid-stop">خلص الوقت / وقّفوا</button></div>`;
+    <div class="bchips" id="bidres" aria-live="polite"></div>`:`<p class="judge">${host?'المضيف':'الحكم'} بيحكم من جواله. الأجوبة الصح بتطلع هون.</p>`}
+    <div class="bchips said" aria-live="polite">${said||'<span class="mut" style="font-weight:700">لسّا ولا جواب…</span>'}</div>
+    <div class="qbtns">${local?`<button type="button" class="btn" data-act="bid-extra">+ جواب صح مش بالقائمة${b.extra?` (${b.extra})`:''}</button>`:''}<button type="button" class="btn solid wide" data-act="bid-stop">خلص الوقت / وقّفوا</button></div>`;
   }
   const ok=cnt>=b.n,miss=L-b.got.length;
   return `<div class="bidhead t${bt}${ok?' ok':' no'}"><span>${N[bt]} ${ok?'عدّوا':'وقفوا عند'}</span><b dir="ltr">${cnt} / ${b.n}</b></div>
     ${miss?`<p class="judge">${ok?'وهدول اللي ما انقالوا:':'هدول اللي فاتوكم:'}</p>`:''}<div class="bchips done">${chips}</div>
     <p class="ask">النتيجة</p><div class="awards">${awardOptions().map((op,k)=>`<button type="button" class="btn ${op.neg?'neg':'team'} ${op.t>=0?'t'+op.t:''}" data-act="award" data-k="${k}">${op.label}</button>`).join('')}</div>`;
 }
+function bidTap(i){
+  const c=S.cur;if(!c||!c.bid||c.bid.phase!=='go'||c.bid.all)return;const b=c.bid,x=S.cats[c.c].qs[c.i],g=b.got,k=g.indexOf(i);
+  if(i<0||i>=x.l.length)return;
+  if(k>=0){g.splice(k,1);fx.bidNew=-1}else{g.push(i);fx.bidNew=i;SFX.tick()}
+  const typing=document.activeElement&&document.activeElement.id==='bidq';
+  if(!b.hit&&bidScore(b)>=b.n&&g.length<x.l.length){b.hit=true;SFX.stamp();toast(`${S.teams[b.team].name} وصلوا للـ${b.n}! كل جواب زيادة بنقطة بونص`)}
+  render();store.set(KEY,S);sendHost();
+  if(g.length===x.l.length){b.all=true;bidParty();return}
+  if(typing){const q=$('bidq');if(q)q.focus()}
+}
+function bidParty(){
+  const c=S.cur,x=S.cats[c.c].qs[c.i],tm=S.teams[c.bid.team].name,topic=x.q.replace(/^\s*(عدّوا|عدوا|سمّوا|سموا)\s+/,'');
+  const lines=[`قدّها وقدود! ${topic} كلها؟!`,`مين حافظ ${topic} عن ظهر قلب؟!`,`ولا وحدة فاتتكم من ${topic}!`,`${tm}… إنتو جوجل؟!`,`${tm} قدّها وزيادة!`];
+  const line=lines[Math.floor(Math.random()*lines.length)];
+  tStop();SFX.win();const ov=document.createElement('div');ov.className='bidparty';ov.innerHTML=`<div><small>${esc(tm)} عدّوا القائمة كلها</small><b>${esc(line)}</b></div>`;document.body.appendChild(ov);
+  try{burst(c.bid.team);setTimeout(()=>burst(c.bid.team),500)}catch(e){}
+  setTimeout(()=>{ov.remove();bidFinish()},2800);
+}
 function bidFinish(){const c=S&&S.cur;if(!c||!c.bid||c.bid.phase!=='go')return;tStop();c.bid.phase='done';c.revealed=true;SFX.whoosh();render()}
+function bidStartCount(){const c=S.cur;c.bid.phase='go';SFX.whoosh();fx.go=true;render();sendJudge(true);tStart(BID_SEC,BID_SEC);setTimeout(()=>{const q=$('bidq');if(q&&matchMedia('(pointer: fine)').matches)q.focus()},50)}
 function bidPaintCount(){const c=S.cur,el=$('bidcount');if(el)el.textContent=`${bidScore(c.bid)} / ${c.bid.n}`;store.set(KEY,S);sendHost()}
 function paintQuestion(){
   const c=S.cur,cat=S.cats[c.c],x=cat.qs[c.i],me=S.turn,o=1-me,ans=answering(),v=qValue(),N=S.teams.map(t=>esc(t.name));
@@ -1853,7 +1924,7 @@ function paintQuestion(){
   $('stage').innerHTML=`<div class="q">
     <aside class="qside">
       <div class="cc qcat" style="--cbg:${cbg(cat.id)}"><span class="art">${catArt(cat.id)}</span><span class="nm">${esc(cat.name)}</span></div>
-      <div class="qinfo">${numQ?`<span class="pill" style="background:var(--ink);color:#fff">الفريقين بيجاوبوا</span><div class="val"><span class="vbig">${c.qadd?'الأقرب: 6 أو ناقص 3':'الأقرب بياخد 3'}</span></div>`:`<span class="pill team t${ans}">${N[ans]} بيجاوبوا</span>${valueHtml(c,v)}`}${valtxt?`<span class="vtxt">${valtxt}</span>`:''}</div>
+      <div class="qinfo">${c.bid?(c.bid.phase==='bid'?`<span class="pill" style="background:var(--ink);color:#fff">مزاد مفتوح</span><div class="val"><span class="vbig">3 + بونص</span></div>`:`<span class="pill team t${c.bid.team}">${N[c.bid.team]} بيعدّوا</span><div class="val"><span class="vbig">${c.qadd&&c.bid.team===me?'6 أو ناقص 3':'3 + بونص'}</span></div>`):numQ?`<span class="pill" style="background:var(--ink);color:#fff">الفريقين بيجاوبوا</span><div class="val"><span class="vbig">${c.qadd?'الأقرب: 6 أو ناقص 3':'الأقرب بياخد 3'}</span></div>`:`<span class="pill team t${ans}">${N[ans]} بيجاوبوا</span>${valueHtml(c,v)}`}${valtxt?`<span class="vtxt">${valtxt}</span>`:''}</div>
       ${timer}
     </aside>
     <div class="qmain">${banners.join('')}
@@ -2096,6 +2167,7 @@ function render(){
   else{paintScore();if(scr==='board')paintBoard();else if(scr==='question')paintQuestion();else paintFinal()}
   store.set(KEY,S);
   if(S&&S.hostOn&&ONLINE()){hostCh();sendHost()}
+  if(JUDGECH&&S)sendJudge();
 }
 
 /* ---------- actions ---------- */
@@ -2237,7 +2309,7 @@ const ACT={
     const isCh=!!S.cats[ci].qs[i].type;
     const ox=S.cats[ci].qs[i];let ord=null;if(ox.o){const n=ox.o.length;do{ord=shuffle([...Array(n).keys()])}while(ord.every((v,k)=>v===k)&&n>1)}
     S.cur={ord,pins:[],pick:-1,c:ci,i,hints:0,mode:famSwap?'fam':'normal',qadd,locked,elder:false,call:false,ask:false,half:false,revealed:false,phase:isCh?'scan':'play'};
-    if(isBid(ox))S.cur.bid={phase:'bid',team:me,n:Math.min(5,ox.l.length),got:[],extra:0};
+    if(isBid(ox))S.cur.bid={phase:'bid',team:me,n:Math.min(5,ox.l.length),got:[],extra:0,judge:'none',local:false,hit:false,all:false};
     S.screen='question';fx.open=true;render();
     if(!isCh&&!isBid(ox))tStart(locked?Math.ceil(S.timerSec/2):S.timerSec,S.timerSec);
     if(locked)toast(`مسكّر عليكم يا ${S.teams[me].name}: نص الوقت وبلا «غشّشني».`);
@@ -2249,15 +2321,11 @@ const ACT={
   'bid-team'(b){const c=S.cur;c.bid.team=+b.dataset.t;render()},
   'bid-n'(b){const c=S.cur,L=S.cats[c.c].qs[c.i].l.length;c.bid.n=Math.max(1,Math.min(L,c.bid.n+(+b.dataset.d||0)));const el=$('bidn');if(el)el.textContent=c.bid.n;store.set(KEY,S);sendHost()},
   'bid-set'(b){const c=S.cur;if(!c||!c.bid||c.bid.phase!=='bid')return;const L=S.cats[c.c].qs[c.i].l.length;if(b.dataset.t!=null&&b.dataset.t!=='')c.bid.team=+b.dataset.t?1:0;if(b.dataset.n)c.bid.n=Math.max(1,Math.min(L,+b.dataset.n||1));render()},
-  'bid-go'(){const c=S.cur;if(!c.bid||c.bid.phase!=='bid')return;c.bid.phase='go';SFX.whoosh();fx.go=true;render();tStart(BID_SEC,BID_SEC);setTimeout(()=>{const q=$('bidq');if(q&&matchMedia('(pointer: fine)').matches)q.focus()},50)},
-  'bid-tap'(b){
-    const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;const i=+b.dataset.i,g=c.bid.got,k=g.indexOf(i);
-    if(k>=0)g.splice(k,1);else{g.push(i);SFX.tick()}
-    const typing=document.activeElement&&document.activeElement.id==='bidq';
-    render();bidPaintCount();if(bidScore(c.bid)>=c.bid.n){setTimeout(bidFinish,450);return}
-    if(typing){const q=$('bidq');if(q)q.focus()}
-  },
-  'bid-extra'(b){const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;if(!b.dataset.ok&&!confirm('جواب صح بس مش بالقائمة؟ نقبلها إذا الفريقين متّفقين.'))return;c.bid.extra++;render();bidPaintCount();if(bidScore(c.bid)>=c.bid.n)setTimeout(bidFinish,450)},
+  'bid-go'(){const c=S.cur;if(!c.bid||c.bid.phase!=='bid')return;if(!ONLINE()){c.bid.local=true;return bidStartCount()}c.bid.phase='judge';judgeCh();SFX.whoosh();render();sendJudge(true)},
+  'bid-start'(){const c=S.cur;if(!c.bid||c.bid.phase!=='judge')return;if(c.bid.judge!=='ready'&&!(Date.now()-hostSeen<60000))return;bidStartCount()},
+  'bid-local'(){const c=S.cur;if(!c.bid||c.bid.phase!=='judge')return;c.bid.local=true;bidStartCount()},
+  'bid-tap'(b){bidTap(+b.dataset.i)},
+  'bid-extra'(b){const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;if(!b.dataset.ok&&!confirm('جواب صح بس مش بالقائمة؟ نقبلها إذا الفريقين متّفقين.'))return;c.bid.extra++;if(!c.bid.hit&&bidScore(c.bid)>=c.bid.n){c.bid.hit=true;SFX.stamp()}render();bidPaintCount()},
   'bid-stop'(){bidFinish()},
   steal(){SFX.whoosh();S.cur.mode='steal';fx.steal=true;render();tStart(STEAL_SEC)},
   reveal(){const c=S.cur;if(isNum(S.cats[c.c].qs[c.i])){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');const el=document.querySelector(`[data-num="${g.indexOf(null)}"]`);el&&el.focus();return}c.g=g;SFX.whoosh()}if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},
