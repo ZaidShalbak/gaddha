@@ -35,7 +35,7 @@ main{max-width:1300px;margin:auto;padding:20px}
 .card{background:#fff;border-radius:20px;box-shadow:var(--sh);padding:16px 18px}
 .login{max-width:560px;margin:40px auto;display:flex;flex-direction:column;gap:14px}
 .login ol{margin:0;padding-inline-start:1.3em;color:var(--mut);font-size:.9em;display:flex;flex-direction:column;gap:4px}
-input[type=text],input[type=password],textarea,select{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:.5em .8em}
+input[type=text],input[type=password],input[type=email],input[type=number],textarea,select{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:.5em .8em}
 textarea{resize:vertical;min-height:3.2em}
 input:focus,textarea:focus,select:focus{border-color:var(--g2);outline:none}
 label.f{display:flex;flex-direction:column;gap:4px;font-size:.78em;font-weight:700;color:var(--mut)}
@@ -112,6 +112,8 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 .thumb{width:84px;aspect-ratio:4/3;border-radius:10px;object-fit:cover;flex:none}
 .upl{position:relative;overflow:hidden}
 .upl input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:800;color:var(--g1,#14532d);text-decoration:underline;cursor:pointer}a.btn{text-decoration:none;color:inherit}
+.ktable{width:100%;border-collapse:collapse;font-size:.88em;margin-top:8px}.ktable th,.ktable td{text-align:start;padding:8px 6px;border-top:1px solid #efece4;vertical-align:middle}.ktable th{color:#5b5a55;font-weight:800;border-top:0}
 </style>
 </head>
 <body>
@@ -121,6 +123,7 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
     <button type="button" data-a="tab" data-t="q" aria-selected="true">الأسئلة</button>
     <button type="button" data-a="tab" data-t="c" aria-selected="false">الفئات والمجموعات</button>
     <button type="button" data-a="tab" data-t="f" aria-selected="false">السؤال الأخير</button>
+    <button type="button" data-a="tab" data-t="k" aria-selected="false">الأكواد</button>
   </nav>
   <div class="end" id="topend" hidden>
     <span class="dirty" id="dirty"></span>
@@ -132,6 +135,7 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 <div class="toast" id="toast" hidden></div>
 <div id="modal"></div>
 <script src="/art.js"></script>
+<script src="/sb.js"></script>
 <script>
 (()=>{
 const OWNER='ZaidShalbak',REPO='gaddha',BRANCH='main',API='https://api.github.com';
@@ -229,7 +233,7 @@ function syncOrder(){
 /* ---------- paint ---------- */
 function paint(){
   document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.t===tab)));
-  if(tab==='q')paintQuestions();else if(tab==='c')paintCats();else paintFinals();
+  if(tab==='q')paintQuestions();else if(tab==='c')paintCats();else if(tab==='k')paintCodes();else paintFinals();
 }
 const counts=list=>{const c={draft:0,reviewed:0,published:0};list.forEach(x=>c[x.status]=(c[x.status]||0)+1);return c};
 const countBadges=c=>['draft','reviewed','published'].map(s=>c[s]?`<span class="badge b-${s}" title="${STATUS[s]}">${c[s]}</span>`:'').join('');
@@ -323,6 +327,43 @@ function paintCats(){
       </div>`}).join('')||'<p class="mut" style="font-size:.85em">ما فيها فئات.</p>'}
     </section>`).join('')}</div>`;
 }
+/* ---------- codes («عندي كود»): needs the Gaddha account login, not the GitHub token ---------- */
+const KD={ready:false,user:null,admin:null,err:'',busy:false,made:[],list:null};
+const KINDS=[['y','قدّها بلا حدود · سنة',0,365],['m','قدّها بلا حدود · شهر',0,30],['n1','تذكرة سهرة وحدة',1,0],['n3','3 تذاكر سهرة',3,0]];
+const kwhat=(n,d)=>d?(d>=360?'سنة بلا حدود':d+' يوم بلا حدود'):(n===1?'تذكرة سهرة':n+' تذاكر سهرة');
+const kshare=c=>`كود «قدّها» تبعكم: ${c}\nفعّلوه من هون (بدكم حساب بالإيميل): ${location.origin}/?redeem=${c}`;
+function kInit(){
+  if(KD.ready)return;KD.ready=true;
+  if(!window.GADDHA_SB||!GADDHA_SB.configured()){KD.err='Supabase مش مربوط.';paint();return}
+  GADDHA_SB.client().then(c=>c.auth.getSession()).then(r=>{const u=r&&r.data&&r.data.session&&r.data.session.user;KD.user=u||null;return u?kCheck():paint()}).catch(()=>{KD.err='ما قدرنا نتّصل.';paint()});
+}
+function kCheck(){return GADDHA_SB.rpc('is_admin').then(v=>{KD.admin=!!v;if(KD.admin)return kList();paint()}).catch(e=>{KD.admin=false;KD.err=/function|does not exist|schema cache/i.test(e&&e.message||'')?'شغّل supabase/codes.sql بـSupabase أول.':'';paint()})}
+function kList(){return GADDHA_SB.rpc('list_codes',{p_limit:200}).then(v=>{KD.list=v||[];paint()}).catch(e=>{KD.err=e&&e.message||'خطأ';paint()})}
+function paintCodes(){
+  kInit();
+  let h=`<div class="qhead"><div><h2>الأكواد</h2><span class="mut" style="font-size:.85em">أكواد بتبيعها بإيدك (تحويل، جوّال باي…). الشخص بيفعّل الكود بحسابه من «عندي كود» باللعبة.</span></div></div>`;
+  if(KD.err)h+=`<p class="warn">${esc(KD.err)}</p>`;
+  if(!KD.ready||(KD.user&&KD.admin==null))h+=`<p class="mut">عم نحمّل…</p>`;
+  else if(!KD.user)h+=`<div class="card" style="max-width:420px;display:flex;flex-direction:column;gap:10px"><b>ادخل بحساب «قدّها» تبعك</b><span class="mut" style="font-size:.85em">نفس الإيميل والكلمة السرّية اللي بتدخل فيهم على اللعبة.</span>
+    <label class="f wide">الإيميل<input type="email" id="kmail" dir="ltr" autocomplete="email"></label><label class="f wide">الكلمة السرّية<input type="password" id="kpw" dir="ltr" autocomplete="current-password"></label>
+    <div class="row"><button type="button" class="btn solid" data-a="k-login" ${KD.busy?'disabled':''}>${KD.busy?'لحظة…':'دخول'}</button></div></div>`;
+  else if(!KD.admin)h+=`<div class="card" style="max-width:640px"><b>هالحساب مش أدمن</b><p class="mut" style="font-size:.85em">مرة وحدة بس: افتح Supabase ← SQL Editor وشغّل هالسطر، وبعدين ارجع لهون:</p>
+    <pre dir="ltr" style="white-space:pre-wrap;background:#f1ecdf;padding:10px;border-radius:10px;font-size:.8em">insert into public.admins(user_id) select id from auth.users where email = '${esc(KD.user.email)}' on conflict do nothing;</pre>
+    <div class="row"><button type="button" class="btn sm" data-a="k-recheck">جرّبت، فحّص كمان مرة</button><button type="button" class="btn sm ghost" data-a="k-out">حساب تاني</button></div></div>`;
+  else{
+    h+=`<div class="card" style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px"><b>أكواد جديدة</b>
+      <div class="row" style="flex-wrap:wrap;gap:10px;align-items:flex-end">
+      <label class="f">شو الكود؟<select id="kkind">${KINDS.map(k=>`<option value="${k[0]}">${k[1]}</option>`).join('')}</select></label>
+      <label class="f" style="max-width:110px">كم كود؟<input type="number" id="kcount" min="1" max="50" value="1"></label>
+      <label class="f">ملاحظة (اسم المشتري، الدفعة…)<input type="text" id="knote" maxlength="80"></label>
+      <button type="button" class="btn solid" data-a="k-make" ${KD.busy?'disabled':''}>${KD.busy?'لحظة…':'اعمل الأكواد'}</button></div>
+      ${KD.made.length?`<div style="display:flex;flex-direction:column;gap:6px">${KD.made.map(c=>`<div class="row" style="gap:8px;flex-wrap:wrap"><code dir="ltr" style="font-weight:900;font-size:1.1em">${c}</code><button type="button" class="btn sm" data-a="k-copy" data-c="${c}">انسخ الرسالة</button><a class="btn sm" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(kshare(c))}">واتساب</a></div>`).join('')}</div>`:''}</div>`;
+    const L=KD.list||[],used=L.filter(x=>x.redeemed_at).length;
+    h+=`<div class="card"><div class="row" style="justify-content:space-between"><b>آخر الأكواد</b><span class="mut" style="font-size:.85em">${L.length} كود · ${used} مستعمل · <button type="button" class="linkbtn" data-a="k-out">خروج من الحساب</button></span></div>
+      ${L.length?`<table class="ktable"><tr><th>الكود</th><th>شو</th><th>ملاحظة</th><th>الحالة</th><th></th></tr>${L.map(x=>`<tr><td dir="ltr"><code>${esc(x.code)}</code></td><td>${esc(kwhat(x.nights,x.days))}</td><td>${esc(x.note||'')}</td><td>${x.redeemed_at?`<span class="mut">مستعمل · <span dir="ltr">${esc(x.redeemed_email||'')}</span> · ${new Date(x.redeemed_at).toLocaleDateString('ar')}</span>`:'<b style="color:#2f9e5f">جاهز</b>'}</td><td>${x.redeemed_at?'':`<button type="button" class="btn sm" data-a="k-copy" data-c="${esc(x.code)}">انسخ</button>`}</td></tr>`).join('')}</table>`:'<p class="mut">لسّا ما في أكواد.</p>'}</div>`;
+  }
+  $('main').innerHTML=h;
+}
 function paintFinals(){
   const F=files['questions/finals.json'].finals,I=idx();
   const regular=I.categories.filter(c=>!c.type&&!c.mode);
@@ -364,6 +405,13 @@ const A={
   logout(){if(dirty.size&&!confirm('في تعديلات ما انحفظت. تطلع؟'))return;ls.del('gaddha.admin.token');token='';files={};dirty.clear();paintLogin()},
   save,
   tab(b){tab=b.dataset.t;editing=null;paint();window.scrollTo(0,0)},
+  'k-login'(){const m=($('kmail').value||'').trim(),pw=$('kpw').value||'';if(!m||!pw)return;KD.busy=true;KD.err='';paint();
+    GADDHA_SB.client().then(c=>c.auth.signInWithPassword({email:m,password:pw})).then(r=>{KD.busy=false;if(r.error){KD.err='الإيميل أو الكلمة السرّية غلط.';paint();return}KD.user=r.data.user;KD.admin=null;paint();kCheck()}).catch(()=>{KD.busy=false;KD.err='ما قدرنا نتّصل.';paint()})},
+  'k-out'(){GADDHA_SB.client().then(c=>c.auth.signOut()).finally(()=>{KD.user=null;KD.admin=null;KD.list=null;KD.made=[];paint()})},
+  'k-recheck'(){KD.admin=null;KD.err='';paint();kCheck()},
+  'k-make'(){const k=KINDS.find(x=>x[0]===$('kkind').value)||KINDS[0],n=Math.max(1,Math.min(50,+$('kcount').value||1)),note=($('knote').value||'').trim();
+    KD.busy=true;KD.err='';paint();GADDHA_SB.rpc('create_codes',{p_count:n,p_nights:k[2],p_days:k[3],p_note:note||k[1]}).then(v=>{KD.busy=false;KD.made=v||[];toast(`انعمل ${KD.made.length} كود`);return kList()}).catch(e=>{KD.busy=false;KD.err=e&&e.message||'ما زبط';paint()})},
+  'k-copy'(b){const t=kshare(b.dataset.c);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('انتسخت الرسالة')).catch(()=>prompt('انسخ:',t))},
   cat(b){cur=b.dataset.id;editing=null;filter='all';paint()},
   filter(b){filter=b.dataset.f;paint()},
   status(b){const x=findQ(b.dataset.id);x.status=b.dataset.s;touch(catFile(cur));paint()},

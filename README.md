@@ -25,3 +25,13 @@ If the keys are removed or Supabase is unreachable, these features hide or fall 
 ## Accounts (Supabase Auth)
 
 Optional login with a 6-digit email code (Google can be switched on later with `google:true` in `sb.js`). Run `supabase/auth.sql` once; it adds `profiles` (name, group name, colour), `nights` (one row per finished game) and `delete_my_account()`. The email templates "Magic Link" and "Confirm signup" must include `{{ .Token }}` so the email carries the code. The supabase-js library loads only when someone signs in or already has a saved session.
+
+## Codes («عندي كود»)
+
+Hand-sold night passes and plans, before any payment provider is connected.
+
+- **Setup (once):** run `supabase/codes.sql` in Supabase → SQL Editor, then make your account an admin with the one-line insert at the top of that file (the admin page shows it with your email filled in).
+- **Create:** admin → «الأكواد» → sign in with your Gaddha account → choose the kind and how many → copy the message or send it on WhatsApp. Codes look like `QD-7K3M-P9XA` and work once.
+- **Redeem:** players open the link (`/?redeem=CODE`) or «عندي كود» in the home footer, log in, and the code is added to their account. A second year stacks on the first.
+- **Safety:** codes and plans are only reachable through database functions; only admins can create codes; 10 wrong guesses in an hour blocks an account for an hour.
+- **Today:** all categories are open to everyone during the trial, so a code is stored as a pre-order and takes effect once the free plan limits switch on.

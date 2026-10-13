@@ -272,6 +272,11 @@ html,body{overflow-x:hidden}
 .acch{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}.acch b{font-weight:900;font-size:1.15em}
 .champ{font-size:.8em;font-weight:800;color:var(--b)}
 .prow{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--soft)}
+.accplan{display:flex;flex-direction:column;gap:10px}
+.accplan .pline{margin:0;font-size:1.05em}.accplan .pline b{font-weight:900;color:var(--g1)}
+.accplan .pnote{margin:0;font-size:.8em;line-height:1.7}
+.coderow{display:flex;gap:8px}.coderow input{flex:1;min-width:0;letter-spacing:.08em;font-weight:800;text-transform:uppercase}
+.hm-legal .linkbtn{font:inherit;color:var(--mut);font-weight:700;text-decoration:underline;padding:0;min-height:0}
 .prow .pc{width:44px;height:44px;border-radius:12px;flex:none}.prow>span:nth-child(2){flex:1;display:flex;flex-direction:column}
 .prow .pill{font-size:.72em;font-weight:800;padding:3px 10px;border-radius:99px;background:var(--ink);color:#fff;box-shadow:none}
 .prow .pill.on{background:var(--gt);color:var(--g1)}
@@ -937,7 +942,7 @@ details.more[open] summary{margin-bottom:10px}
       </section>
     </div>
     <section class="cta"><div><h2>جاهزين؟</h2><p>جهاز واحد، فريقين، وسهرة ما بتنتسى.</p></div><button type="button" class="btn white big" data-act="to-setup">يلا نبلّش</button></section>
-    <footer class="hm-legal"><a href="/privacy">سياسة الخصوصية</a><span>·</span><a href="/terms">شروط الاستخدام</a><span>·</span><span>© قدّها</span></footer>
+    <footer class="hm-legal"><a href="/privacy">سياسة الخصوصية</a><span>·</span><a href="/terms">شروط الاستخدام</a><span>·</span><button type="button" class="linkbtn" data-act="redeem-open">عندي كود</button><span>·</span><span>© قدّها</span></footer>
   </main>
 
   <main class="screen" id="setup" hidden>
@@ -1426,7 +1431,7 @@ function runHostCmd(p){
   ACT[a]({dataset:ds});
 }
 /* ---------- accounts (Supabase Auth: email code; Google behind a flag) ---------- */
-let ME=null,AUTH={step:'entry',email:'',err:'',busy:false,resendAt:0},ACC={nights:null};
+let ME=null,AUTH={step:'entry',email:'',err:'',busy:false,resendAt:0},ACC={nights:null,plan:null,msg:'',err:false,busy:false};
 const ACOLS=['#2f9e5f','#f0475a','#e0a92a','#8a4fd6','#1d6fd6','#161616'];
 const hasSession=()=>{try{return !!localStorage.getItem('gaddha.auth')}catch(e){return false}};
 const sbc=()=>GADDHA_SB.client();
@@ -1447,6 +1452,7 @@ function authLoad(user){
   return sbc().then(c=>c.from('profiles').select('*').eq('id',user.id).maybeSingle()).then(r=>{
     ME.profile=r&&r.data||null;paintAcctBtns();
     if(!meName()){AUTH.step='welcome';openAuth(true)}
+    else if(pendingCode()){closeAuth();checkPending()}
     if(S==null&&view==='account')render();
   }).catch(()=>{});
 }
@@ -1522,6 +1528,28 @@ const authErr=e=>{const m=String(e&&(e.message||e.msg)||'');
 function saveNight(teams,winner){
   sbc().then(c=>c.from('nights').insert({teams,winner,cats:(S.cats||[]).map(k=>k.name)})).then(r=>{if(r&&r.error)console.warn('night',r.error);ACC.nights=null}).catch(()=>{});
 }
+/* ---------- redeemable codes («عندي كود») ---------- */
+const RKEY='gaddha.redeem';
+const pendingCode=()=>{try{return sessionStorage.getItem(RKEY)||''}catch(e){return ''}};
+const setPending=v=>{try{v?sessionStorage.setItem(RKEY,v):sessionStorage.removeItem(RKEY)}catch(e){}};
+function loadPlan(){
+  if(!ME)return;sbc().then(c=>c.rpc('my_plan')).then(r=>{ACC.plan=r&&r.data||{nights_left:0,until:null};if(view==='account'&&!S)paintAccount()}).catch(()=>{ACC.plan={nights_left:0,until:null};if(view==='account'&&!S)paintAccount()});
+}
+const planUntil=p=>p&&p.until&&new Date(p.until)>new Date()?new Date(p.until):null;
+function planLine(p){
+  const u=planUntil(p),n=p&&p.nights_left||0,parts=[];
+  if(u)parts.push(`<b>قدّها بلا حدود</b> لحد ${esc(u.toLocaleDateString('ar',{day:'numeric',month:'long',year:'numeric'}))}`);
+  if(n)parts.push(`<b>${n===1?'تذكرة سهرة وحدة':n===2?'تذكرتين سهرة':n+' تذاكر سهرة'}</b>`);
+  return parts.length?parts.join(' · '):'<b>الخطة المجانية</b>';
+}
+const CODE_ERR={'bad code':'الكود مش صحيح. تأكدوا منه وجرّبوا كمان مرة.','used':'هالكود انستعمل قبل على حساب تاني.','already yours':'هالكود مفعّل على حسابكم من قبل.','too many':'جرّبتوا كتير. استنّوا ساعة وجرّبوا كمان مرة.','login':'لازم تسجّلوا دخول أول.'};
+function checkPending(){
+  const c=pendingCode();if(!c)return;
+  if(!ME){openAuth();return}
+  if(S)return;
+  if(view!=='account'){view='account';ACC.nights=null;ACC.plan=null;render();window.scrollTo(0,0)}
+  if(!c.trim())setPending('');
+}
 function loadNights(){
   if(!ME)return;sbc().then(c=>c.from('nights').select('*').order('played_at',{ascending:false}).limit(60)).then(r=>{ACC.nights=r&&r.data||[];if(view==='account'&&!S)paintAccount()}).catch(()=>{ACC.nights=[];if(view==='account'&&!S)paintAccount()});
 }
@@ -1529,6 +1557,8 @@ function paintAccount(){
   const el=$('account');
   if(!ME){el.innerHTML=`<div class="accwrap"><div class="card accempty"><h1>حسابي</h1><p class="mut">سجّلوا دخول لتشوفوا سجل سهراتكم.</p><button type="button" class="btn solid big" data-act="acct">دخول</button><button type="button" class="btn" data-act="acct-back">رجوع</button></div></div>`;return}
   if(ACC.nights==null){ACC.nights=[];ACC.loading=true;loadNights()}
+  if(ACC.plan==null){ACC.plan={nights_left:0,until:null,loading:true};loadPlan()}
+  const PL=ACC.plan,pc=pendingCode().trim();
   const N=ACC.nights||[],p=ME.profile||{},now=new Date(),mon=N.filter(n=>{const d=new Date(n.played_at);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear()});
   const wins={};N.forEach(n=>{if(n.winner>=0){const k=n.teams[n.winner].name;wins[k]=(wins[k]||0)+1}});
   const mw={};mon.forEach(n=>{if(n.winner>=0){const k=n.teams[n.winner].name;mw[k]=(mw[k]||0)+1}});
@@ -1539,6 +1569,11 @@ function paintAccount(){
     <div class="card accme"><i class="av" style="background:${meColor()}">${esc(initial(meName()||'؟'))}</i><b class="nm">${esc(meName()||'بدون اسم')}</b><small class="mut">${p.circle?esc(p.circle)+'<br>':''}<span dir="ltr">${esc(ME.user.email||'')}</span></small>
       <div class="accstats"><div><b>${N.length}</b><small>سهرة</small></div><div><b>${best?best[1]:0}</b><small>${best?'فوز لـ«'+esc(best[0])+'»':'فوز'}</small></div><div><b>${FAM.length}</b><small>سر «قدّنا؟»</small></div><div><b>1</b><small>باقة</small></div></div>
       <div class="accbtns"><button type="button" class="btn" data-act="acct-edit">تعديل الاسم واللون</button><button type="button" class="btn" data-act="acct-pw">تغيير الكلمة السرّية</button><button type="button" class="btn" data-act="acct-out">تسجيل الخروج</button><button type="button" class="linkbtn danger" data-act="acct-del">حذف الحساب</button></div></div>
+    <div class="card accplan"><div class="acch"><b>خطتكم</b></div>
+      <p class="pline">${PL.loading?'<span class="mut">عم نحمّل…</span>':planLine(PL)}</p>
+      <p class="mut pnote">كل الفئات مفتوحة للكل خلال فترة التجربة. اللي بتفعّلوه هون محفوظ بحسابكم، وبيشتغل لما تبلّش الخطط المدفوعة.</p>
+      <label class="af">عندكم كود؟<span class="coderow"><input id="codein" dir="ltr" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="QD-XXXX-XXXX" value="${esc(pc)}"><button type="button" class="btn solid" data-act="code-redeem" ${ACC.busy?'disabled':''}>${ACC.busy?'لحظة…':'فعّلوا'}</button></span></label>
+      ${ACC.msg?`<p class="${ACC.err?'aerr':'anote'}" role="status">${esc(ACC.msg)}</p>`:''}</div>
     <div class="card accpacks"><div class="acch"><b>باقاتي</b></div>
       <div class="prow"><span class="pc" style="background:#e6f2ea"></span><span><b>الأساسية</b><small class="mut">${GROUPS.flatMap(g=>g.ids).filter(catById).length} فئة</small></span><span class="pill on">مفتوحة</span></div>
       <div class="prow"><span class="pc" style="background:#fff3d1"></span><span><b>باقة رمضان والعيد</b><small class="mut">قريبًا</small></span><span class="pill">قريبًا</span></div>
@@ -1968,8 +2003,21 @@ const ACT={
   'fam-pull'(){famPull(false)},
   'fam-unlink'(){if(!confirm('نعمل رابط جديد؟ الرابط القديم بيوقف يستقبل أسرار (الأسرار اللي وصلت بتضل هون).'))return;REMOTE=null;try{localStorage.removeItem(REM_KEY)}catch(e){}render()},
   'fam-cyc'(b){const x=FAM.find(y=>y.id===b.dataset.id);if(!x)return;x.team=x.team===0?1:x.team===1?-1:0;x.unk=false;famSave();famSync();render()},
-  acct(){if(!ONLINE())return;if(!ME){openAuth();return}if(S){toast('حسابكم بيطلع بعد ما تخلص اللعبة');return}view='account';ACC.nights=null;render();window.scrollTo(0,0)},
+  acct(){if(!ONLINE())return;if(!ME){openAuth();return}if(S){toast('حسابكم بيطلع بعد ما تخلص اللعبة');return}view='account';ACC.nights=null;ACC.plan=null;render();window.scrollTo(0,0)},
   'acct-back'(){view='home';render();window.scrollTo(0,0)},
+  'redeem-open'(){if(!ONLINE()){toast('الأكواد بدها إنترنت');return}setPending(pendingCode()||' ');if(!ME){openAuth();return}setPending(pendingCode().trim());view='account';ACC.nights=null;ACC.plan=null;render();window.scrollTo(0,0);setTimeout(()=>{const i=$('codein');if(i)i.focus()},60)},
+  'code-redeem'(){
+    const i=$('codein'),v=(i&&i.value||'').trim();if(!v){ACC.msg='اكتبوا الكود.';ACC.err=true;paintAccount();return}
+    if(!ME){setPending(v);openAuth();return}
+    ACC.busy=true;ACC.msg='';setPending(v);paintAccount();
+    sbc().then(c=>c.rpc('redeem_code',{p_code:v})).then(r=>{
+      ACC.busy=false;const e=r&&r.error,d=r&&r.data||{};
+      if(e||d.error){ACC.err=true;const k=d.error||(/login/.test(e.message||'')?'login':'');ACC.msg=CODE_ERR[k]||'ما زبط. تأكدوا من الإنترنت وجرّبوا كمان مرة.'}
+      else{ACC.err=false;setPending('');ACC.plan={nights_left:d.nights_left,until:d.until};
+        ACC.msg=d.days?`انفعّل! ${d.days>=360?'سنة':d.days+' يوم'} «قدّها بلا حدود» صارت بحسابكم.`:`انفعّل! ${d.nights===1?'تذكرة سهرة وحدة':d.nights+' تذاكر سهرة'} صارت بحسابكم.`;SFX.stamp();toast('انفعّل الكود!')}
+      paintAccount();
+    }).catch(()=>{ACC.busy=false;ACC.err=true;ACC.msg='ما زبط. تأكدوا من الإنترنت وجرّبوا كمان مرة.';paintAccount()});
+  },
   'acct-edit'(){AUTH.step='welcome';AUTH.color=null;openAuth(true)},
   'acct-out'(){sbc().then(c=>c.auth.signOut()).finally(()=>{ME=null;ACC.nights=null;paintAcctBtns();view='home';render();toast('طلعتوا من الحساب')})},
   'acct-del'(){if(!confirm('أكيد بدكم تحذفوا الحساب؟ بينمحى سجل السهرات وكل إشي محفوظ فيه.'))return;if(!confirm('آخر مرة: الحذف نهائي. نكمّل؟'))return;
@@ -2005,7 +2053,7 @@ const ACT={
   'auth-color'(b){const n=$('aname'),ci=$('acircle');AUTH.color=b.dataset.c;const keep=[n&&n.value,ci&&ci.value];paintAuth();if(n)$('aname').value=keep[0];if(ci)$('acircle').value=keep[1]},
   'auth-save'(){const name=($('aname').value||'').trim(),circle=($('acircle').value||'').trim(),color=AUTH.color||(ME.profile&&ME.profile.color)||ACOLS[0];
     if(!name){AUTH.err='اكتبوا اسمكم';paintAuth();return}if(AUTH.busy)return;AUTH.busy=true;
-    sbc().then(c=>c.from('profiles').upsert({id:ME.user.id,name,circle:circle||null,color,updated_at:new Date().toISOString()})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;ME.profile={name,circle,color};closeAuth();paintAcctBtns();if(view==='account'&&!S)paintAccount();toast(`أهلين يا ${name}!`)}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
+    sbc().then(c=>c.from('profiles').upsert({id:ME.user.id,name,circle:circle||null,color,updated_at:new Date().toISOString()})).then(r=>{AUTH.busy=false;if(r&&r.error)throw r.error;ME.profile={name,circle,color};closeAuth();paintAcctBtns();if(view==='account'&&!S)paintAccount();toast(`أهلين يا ${name}!`);checkPending()}).catch(e=>{AUTH.busy=false;AUTH.err=authErr(e);paintAuth()})},
   host(){if(!S||!ONLINE())return;S.hostOn=true;hostCh();sendHost(true);const url=`${location.origin}/h/#${roomId()}`,q=$('quitov'),svg=qrSvg(url);
     q.innerHTML=`<div class="card hostcard" role="dialog" aria-modal="true" aria-labelledby="hosth"><h2 id="hosth">جوال المضيف</h2>
       <p>امسحوا الكود بجوال اللي بدّه يدير اللعبة. بيشوف الجواب والغشّات قبل الكل، وبيقدر يكبس «غشّشني» و«اكشف» ويعطي النقاط من جواله، والشاشة الكبيرة بتضل للأسئلة بس.</p>
@@ -2171,7 +2219,9 @@ async function start(data){
   if(S)shown=S.teams.map(t=>t.score);
   if(!document.fullscreenEnabled)$('fs').hidden=true;
   skip=store.get('gaddha.skip');if(!Array.isArray(skip))skip=[];
+  {const q=new URLSearchParams(location.search),rc=q.get('redeem');if(rc){setPending(rc.slice(0,20));q.delete('redeem');history.replaceState(null,'',location.pathname+(q.toString()?'?'+q:'')+location.hash)}}
   famSync();buildFan();setMute(muted);render();authInit();
+  if(pendingCode()&&!hasSession()&&ONLINE())setTimeout(()=>openAuth(),400);
   if(/[?&]try\b/.test(location.search)){
     const OPTS=[['','الحالي'],['tatreez','1 تطريز'],['band','2 شريط غامق'],['shapes','3 أشكال'],['glow','4 ألوان']];
     const set=v=>{if(v)document.documentElement.dataset.bg=v;else delete document.documentElement.dataset.bg;try{localStorage.setItem('gaddha.bgtry',v)}catch(e){}bar.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.v===v)))};
