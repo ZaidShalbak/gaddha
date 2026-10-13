@@ -1770,9 +1770,9 @@ function paintBoard(){
 function awardOptions(){
   const c=S.cur,me=S.turn,o=1-me,v=qValue(),N=S.teams.map(t=>esc(t.name)),how=c.hints||c.elder?'hint':'clean';
   if(c.bid&&c.bid.phase==='done'){
-    const bd=c.bid,bt=bd.team,cnt=bidScore(bd),ok=cnt>=bd.n,more=cnt>bd.n?1:0,L=[];
+    const bd=c.bid,bt=bd.team,cnt=bidScore(bd),ok=cnt>=bd.n,full=bd.got.length>=S.cats[c.c].qs[c.i].l.length,more=cnt>bd.n||full?1:0,L=[];
     if(c.qadd&&bt===me)L.push(ok?{t:me,p:6,how:'clean',label:`${N[me]} قدّها <span dir="ltr">+6</span>`}:{t:me,p:-3,how:'fail',neg:1,label:`${N[me]} مش قدّها <span dir="ltr">−3</span>`});
-    else L.push(ok?{t:bt,p:3+more,how:'clean',label:`${N[bt]} قدّها <span dir="ltr">+${3+more}</span>${more?' · وزادوا':''}`}:{t:1-bt,p:3,how:'steal',label:`${N[1-bt]} ربحوا المزاد <span dir="ltr">+3</span>`});
+    else L.push(ok?{t:bt,p:3+more,how:'clean',label:`${N[bt]} قدّها <span dir="ltr">+${3+more}</span>${more?(full?' · القائمة كلها':' · وزادوا'):''}`}:{t:1-bt,p:3,how:'steal',label:`${N[1-bt]} ربحوا المزاد <span dir="ltr">+3</span>`});
     L.push({t:-1,p:0,how:'none',label:'ما لعبناها',neg:1});
     return withFire(L);
   }
@@ -1810,7 +1810,7 @@ function valueHtml(c,v){
 }
 function bidBody(x,c,N){
   const b=c.bid,bt=b.team,L=x.l.length,cnt=bidScore(b);
-  if(b.phase==='bid')return `<div class="banner">زايدوا على بعض بصوت عالي: «بنعدّ 5»… «7!»… لحد ما فريق يقول للتاني <b>«فرجونا!»</b>. بالقائمة <b>${L}</b> جواب.</div>
+  if(b.phase==='bid')return `<div class="banner"><b>${N[S.turn]} بيفتحوا المزاد.</b> زايدوا على بعض بصوت عالي: «بنعدّ 5»… «7!»… لحد ما فريق يقول للتاني <b>«فرجونا!»</b>. بالقائمة <b>${L}</b> جواب.</div>
     <div class="bidset"><p class="ask">مين رسي عليه المزاد؟</p>
       <div class="row bidteams">${[0,1].map(i=>`<button type="button" class="btn team t${i}" data-act="bid-team" data-t="${i}" aria-pressed="${bt===i}">${N[i]}</button>`).join('')}</div>
       <p class="ask">قدّيش تعهّدوا يعدّوا؟</p>
