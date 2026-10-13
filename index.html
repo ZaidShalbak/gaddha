@@ -1779,11 +1779,15 @@ function bidBody(x,c,N){
     <div class="qbtns"><button type="button" class="btn solid big wide" data-act="bid-go">فرجونا! يلا ابدأ</button><button type="button" class="btn sm wide" data-act="back">رجوع</button></div>`;
   const chips=bidList(x).map(it=>`<button type="button" class="bchip${b.got.includes(it.i)?' on':''}${b.phase==='done'&&!b.got.includes(it.i)?' miss':''}" data-act="bid-tap" data-i="${it.i}" ${b.phase==='done'?'disabled':''}>${esc(it.t)}</button>`).join('');
   const host=Date.now()-hostSeen<60000;
-  if(b.phase==='go')return `<div class="bidhead t${bt}"><span>${N[bt]} تعهّدوا بـ</span><b dir="ltr" id="bidcount">${cnt} / ${b.n}</b></div>
-    <p class="judge">${host?'المضيف بيحكم من جواله، أو اضغطوا هون.':`يا <b>${N[1-bt]}</b>: إنتو الحكم. اضغطوا كل جواب صح بيقولوه ${N[bt]}.`}</p>
-    <input type="search" class="bidq" id="bidq" placeholder="دوّروا بالقائمة…" autocomplete="off">
-    <div class="bchips" id="bchips">${chips}</div>
-    <div class="qbtns"><button type="button" class="btn" data-act="bid-extra">+ جواب صح مش بالقائمة${b.extra?` (${b.extra})`:''}</button>${ONLINE()&&!host?'<button type="button" class="btn" data-act="host">احكموا من جوال</button>':''}<button type="button" class="btn solid wide" data-act="bid-stop">خلص الوقت / وقّفوا</button></div>`;
+  if(b.phase==='go'){
+    const said=b.got.map(i=>`<button type="button" class="bchip on" data-act="bid-tap" data-i="${i}" title="اضغطوا لتشيلوها">${esc(bidName(x.l[i]))}</button>`).join('');
+    return `<div class="bidhead t${bt}"><span>${N[bt]} تعهّدوا بـ</span><b dir="ltr" id="bidcount">${cnt} / ${b.n}</b></div>
+    <p class="judge">${host?'المضيف بيحكم من جواله، والقائمة عنده بس.':`يا <b>${N[1-bt]}</b>: إنتو الحكم. كل ما يقولوا جواب، اكتبوا أول حرفين منه واضغطوه.`}</p>
+    <input type="search" class="bidq" id="bidq" placeholder="أول حرفين من الجواب…" autocomplete="off" autocorrect="off" spellcheck="false">
+    <div class="bchips" id="bidres" aria-live="polite"></div>
+    ${said?`<p class="judge" style="margin-top:2px">اللي انقالوا:</p><div class="bchips">${said}</div>`:''}
+    <div class="qbtns"><button type="button" class="btn" data-act="bid-extra">+ جواب صح مش بالقائمة${b.extra?` (${b.extra})`:''}</button>${ONLINE()&&!host?'<button type="button" class="btn" data-act="host">احكموا من جوال (القائمة كاملة)</button>':''}<button type="button" class="btn solid wide" data-act="bid-stop">خلص الوقت / وقّفوا</button></div>`;
+  }
   const ok=cnt>=b.n,miss=L-b.got.length;
   return `<div class="bidhead t${bt}${ok?' ok':' no'}"><span>${N[bt]} ${ok?'عدّوا':'وقفوا عند'}</span><b dir="ltr">${cnt} / ${b.n}</b></div>
     ${miss?`<p class="judge">${ok?'وهدول اللي ما انقالوا:':'هدول اللي فاتوكم:'}</p>`:''}<div class="bchips done">${chips}</div>
@@ -2249,9 +2253,9 @@ const ACT={
   'bid-tap'(b){
     const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;const i=+b.dataset.i,g=c.bid.got,k=g.indexOf(i);
     if(k>=0)g.splice(k,1);else{g.push(i);SFX.tick()}
-    const el=document.querySelector(`.bchip[data-i="${i}"]`);if(el)el.classList.toggle('on',k<0);
-    const q=$('bidq');if(q&&q.value){q.value='';document.querySelectorAll('.bchip').forEach(x=>x.hidden=false)}
-    bidPaintCount();if(bidScore(c.bid)>=c.bid.n)setTimeout(bidFinish,450);
+    const typing=document.activeElement&&document.activeElement.id==='bidq';
+    render();bidPaintCount();if(bidScore(c.bid)>=c.bid.n){setTimeout(bidFinish,450);return}
+    if(typing){const q=$('bidq');if(q)q.focus()}
   },
   'bid-extra'(b){const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;if(!b.dataset.ok&&!confirm('جواب صح بس مش بالقائمة؟ نقبلها إذا الفريقين متّفقين.'))return;c.bid.extra++;render();bidPaintCount();if(bidScore(c.bid)>=c.bid.n)setTimeout(bidFinish,450)},
   'bid-stop'(){bidFinish()},
@@ -2335,7 +2339,14 @@ const ACT={
   'quit-home'(){$('quitov').hidden=true;tStop();S=null;store.set(KEY,null);view='home';render();window.scrollTo(0,0)},
   new(){S=null;view='setup';render();window.scrollTo(0,0)}
 };
-document.addEventListener('input',e=>{if(e.target&&e.target.id==='bidq'){const raw=e.target.value.trim(),nz=t=>t.replace(/^ال/,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه'),v=nz(raw);document.querySelectorAll('#bchips .bchip').forEach(b=>{const t=b.textContent;b.hidden=!!raw&&!(nz(t).startsWith(v)||t.split(/\s+/).some(w=>nz(w).startsWith(v)))})}});
+document.addEventListener('input',e=>{if(!e.target||e.target.id!=='bidq'||!S||!S.cur||!S.cur.bid)return;
+  const c=S.cur,x=S.cats[c.c].qs[c.i],box=$('bidres');if(!box)return;
+  const nz=t=>String(t).trim().replace(/^ال/,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي'),v=nz(e.target.value);
+  if(v.length<2){box.innerHTML=e.target.value.trim()?'<span class="mut" style="font-weight:700">كمّلوا حرف كمان…</span>':'';return}
+  const hits=x.l.map((val,i)=>({i,t:bidName(val),all:String(val).split('/')})).filter(it=>!c.bid.got.includes(it.i)&&it.all.some(a=>nz(a).startsWith(v)||a.split(/\s+/).some(w=>nz(w).startsWith(v))));
+  if(hits.length>3){box.innerHTML='<span class="mut" style="font-weight:700">في أكتر من جواب بيبلّش هيك. كمّلوا حرف كمان.</span>';return}
+  box.innerHTML=hits.length?hits.map(it=>`<button type="button" class="bchip" data-act="bid-tap" data-i="${it.i}">${esc(it.t)}</button>`).join(''):'<span class="mut" style="font-weight:700">مش بالقائمة. إذا الجواب صح، استعملوا «+ جواب صح مش بالقائمة».</span>';
+});
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-act]');
   if(!b||b.disabled||!ACT[b.dataset.act])return;
