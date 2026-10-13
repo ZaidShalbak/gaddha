@@ -512,6 +512,11 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
 .grp-cards .cc{height:clamp(96px,24vw,150px)}
 .grp-cards .cc .nm{font-size:clamp(9.5px,2.4vw,13px);padding:6px 3px;min-height:2.9em;display:grid;place-items:center}
 .grp-off{display:flex;flex-wrap:wrap;gap:6px}
+.fold{margin-inline-start:auto;font:inherit;font-size:.78em;font-weight:800;color:var(--mut);background:var(--soft);border:0;border-radius:99px;padding:5px 12px;cursor:pointer}
+.grp-sum{display:flex;flex-wrap:wrap;gap:6px;background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:start}
+.grp-sum span{font-size:.75em;font-weight:700;color:var(--mut);background:var(--bg);border-radius:99px;padding:4px 10px}
+.grp-sum span.on{background:var(--g1);color:#fff}
+.setbar{display:none}
 .grp-off span{font-size:.72em;font-weight:700;color:#8a867c;background:#fff;border-radius:99px;padding:3px 10px}
 .qrnote{font-size:.75em;color:var(--mut);line-height:1.7}
 details.more{background:#fff;border-radius:18px;box-shadow:var(--sh);padding:10px 14px}
@@ -826,7 +831,9 @@ details.more[open] summary{margin-bottom:10px}
   .grp{flex-direction:row;align-items:stretch;padding:16px 18px;gap:20px}
   .grp-head{flex-direction:column;align-items:flex-start;width:150px;flex:none;flex-wrap:nowrap}
   .sw{margin-inline-start:0;margin-top:auto}
-  .grp-cards{grid-template-columns:repeat(4,128px)}
+  .grp-cards{grid-template-columns:repeat(auto-fill,minmax(124px,1fr));flex:1}
+  .grp-head .fold{margin-inline-start:0;margin-top:auto}
+  .grp-sum{flex:1;align-content:center}
   .grp-cards .cc{height:140px}
   .grp-off{align-items:center;flex:1}
   .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -891,6 +898,12 @@ details.more[open] summary{margin-bottom:10px}
 @media (max-width:899px){
   .setup-side{display:contents}
   .setup-side h1{order:0}.teams-in{order:1}.setup-main{order:2}.setup-side>.sec-h{order:3}.setup-side>.seg{order:4}details.more{order:5}#start{order:6}
+  #setup{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  #start{display:none}
+  .setbar{display:flex;align-items:center;gap:10px;position:fixed;inset-inline:0;bottom:0;z-index:25;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(247,245,239,.94);backdrop-filter:blur(8px);box-shadow:0 -6px 20px rgba(22,22,22,.08)}
+  .setbar span{flex:1;font-weight:800;font-size:.85em;color:var(--mut)}
+  .setbar .btn{min-height:50px;padding-inline:1.4em}
+  #setup[hidden]~.setbar,#setup[hidden] .setbar{display:none}
 }
 @media (max-width:420px){
   .grp-cards .cc{height:92px}
@@ -1049,6 +1062,7 @@ details.more[open] summary{margin-bottom:10px}
         <div id="groups" style="display:flex;flex-direction:column;gap:10px"></div>
       </div>
     </div>
+    <div class="setbar" id="setbar"><span></span><button type="button" class="btn solid" data-act="start" disabled>يلا نختار المساعدات</button></div>
   </main>
 
   <main class="screen" id="family" hidden></main>
@@ -1264,7 +1278,7 @@ function burst(t){
 }
 
 /* ---------- home + setup ---------- */
-let view='home',skip=[];
+let view='home',skip=[],FOLD=(()=>{try{const v=JSON.parse(localStorage.getItem('gaddha.fold'));return Array.isArray(v)?v:[]}catch(e){return []}})();
 const catById=id=>BANK.find(c=>c.id===id);
 const enabledIds=()=>GROUPS.filter(g=>!skip.includes(g.id)).flatMap(g=>g.ids).filter(catById).concat(catById('family')?['family']:[]);
 /* ---------- قدّنا؟ (players write questions about their own circle) ---------- */
@@ -1381,14 +1395,17 @@ function paintSetup(){
     const on=!skip.includes(g.id),ids=g.ids.filter(catById),n=ids.filter(id=>sel.includes(id)).length;
     const cards=ids.map(id=>{const c=catById(id),p=sel.includes(id);
       return `<button type="button" class="cc" data-act="cat" data-id="${esc(id)}" aria-pressed="${p}" style="--cbg:${cbg(id)}"><span class="ck">${CHECK}</span>${c.type?'<span class="tag">تحدّي</span>':''}<span class="art">${catArt(id)}</span><span class="nm">${esc(c.name)}${(n=>`<small class="${n<5?'low':''}">${n?n+' جديد':'كلها انلعبت'}</small>`)(freshCount(c))}</span></button>`}).join('');
-    return `<section class="grp${on?'':' off'}" aria-label="${esc(g.name)}">
+    const fold=on&&FOLD.includes(g.id);
+    return `<section class="grp${on?'':' off'}${fold?' folded':''}" aria-label="${esc(g.name)}">
       <div class="grp-head"><span class="gpill" style="--gc:${g.c}">${esc(g.name)}</span><span class="gcount">${on?`${n} من ${ids.length} مختارة`:`تخطّيناها · ${ids.length} فئات`}</span>
+        ${on?`<button type="button" class="fold" data-act="fold" data-g="${g.id}" aria-expanded="${!fold}" aria-label="${fold?'افتحوا':'سكّروا'} ${esc(g.name)}">${fold?'افتحوا ▾':'سكّروا ▴'}</button>`:''}
         <button type="button" class="sw" role="switch" aria-checked="${on}" data-act="grp" data-g="${g.id}" aria-label="${on?'تخطّي':'رجّع'} ${esc(g.name)}"><i></i>${on?'مفعّلة':'مخفية'}</button></div>
-      ${on?`<div class="grp-cards">${cards}</div>`:`<div class="grp-off">${ids.map(id=>`<span>${esc(catById(id).name)}</span>`).join('')}</div>`}</section>`;
+      ${fold?`<button type="button" class="grp-sum" data-act="fold" data-g="${g.id}">${ids.map(id=>`<span class="${sel.includes(id)?'on':''}">${esc(catById(id).name)}</span>`).join('')}</button>`:on?`<div class="grp-cards">${cards}</div>`:`<div class="grp-off">${ids.map(id=>`<span>${esc(catById(id).name)}</span>`).join('')}</div>`}</section>`;
   }).join('');
   $('groups').classList.toggle('full',sel.length>=MAX);
   $('count').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;
   $('start').disabled=sel.length<MIN;
+  {const sb=$('setbar');if(sb){sb.querySelector('span').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;sb.querySelector('button').disabled=sel.length<MIN}}
   document.querySelectorAll('[data-act="time"]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.s===timerSec)));
   document.querySelectorAll('[data-act="qrmode"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.m===qrMode)));
 }
@@ -2208,6 +2225,7 @@ const snapshot=()=>JSON.stringify(Object.assign({},S,{undo:null}));
 const ACT={
   cat(b){const id=b.dataset.id;if(!enabledIds().includes(id))return;const i=sel.indexOf(id);if(i>=0)sel.splice(i,1);else if(sel.length<MAX)sel.push(id);paintSetup()},
   random(){const pool=enabledIds();sel=shuffle(pool.slice()).slice(0,Math.min(MAX,pool.length));paintSetup()},
+  fold(b){const g=b.dataset.g,i=FOLD.indexOf(g);if(i>=0)FOLD.splice(i,1);else FOLD.push(g);try{localStorage.setItem('gaddha.fold',JSON.stringify(FOLD))}catch(e){}paintSetup()},
   grp(b){const g=b.dataset.g,i=skip.indexOf(g);if(i>=0)skip.splice(i,1);else skip.push(g);store.set('gaddha.skip',skip);paintSetup()},
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
   mute(){setMute(!muted);if(!muted)SFX.pop()},
