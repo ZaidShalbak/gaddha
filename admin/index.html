@@ -88,6 +88,7 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 .crow .ic{width:56px;height:56px;border-radius:14px;display:grid;place-items:center}
 .crow .ic svg{width:42px;height:42px}
 .crow .counts{display:flex;gap:4px;flex-wrap:wrap}
+.crow .cdesc{grid-column:2/-1}
 .sw{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;font-size:.78em;font-weight:700;color:var(--mut);padding:0}
 .sw i{width:40px;height:23px;border-radius:99px;background:#d9d4c6;position:relative;display:block;flex:none;transition:background .2s}
 .sw i::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:17px;height:17px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:inset-inline-start .2s}
@@ -140,6 +141,7 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 <div class="toast" id="toast" hidden></div>
 <div id="modal"></div>
 <script src="/art.js"></script>
+<script src="/cats.js"></script>
 <script src="/sb.js"></script>
 <script>
 (()=>{
@@ -362,6 +364,8 @@ function paintCats(){
         <span class="counts">${countBadges(c)||'<span class="badge b-off">فاضية</span>'}<span class="badge b-off">${TYPES[tkey(m)]}</span></span>
         <button type="button" class="sw" role="switch" aria-checked="${m.visible!==false}" data-a="cvis" data-id="${id}"><i></i>${m.visible!==false?'ظاهرة':'مخفية'}</button>
         <span class="row" style="gap:6px;flex-wrap:nowrap"><span class="arrows"><button type="button" data-a="cmove" data-gi="${gi}" data-ci="${ci}" data-d="-1" ${ci?'':'disabled'} aria-label="لفوق">↑</button><button type="button" data-a="cmove" data-gi="${gi}" data-ci="${ci}" data-d="1" ${ci<g.categories.length-1?'':'disabled'} aria-label="لتحت">↓</button></span><button type="button" class="btn sm" data-a="art" data-id="${id}">الصورة</button></span>
+      
+        <label class="f cdesc">وصف قصير (بيطلع لما يكبسوا «i» على البطاقة)<input type="text" data-c="desc" data-id="${id}" maxlength="140" value="${esc(m.desc||'')}" placeholder="${esc((window.GADDHA_DESC&&GADDHA_DESC.desc[id])||'جملة وحدة بتوصف الفئة، بدون ما تذكر أجوبة')}"></label>
       </div>`}).join('')||'<p class="mut" style="font-size:.85em">ما فيها فئات.</p>'}
     </section>`).join('')}</div>`;
 }
@@ -554,6 +558,7 @@ document.addEventListener('input',e=>{
     touch('questions/finals.json');return}
   if(d.g==='name'){idx().groups[+d.gi].name=t.value;touch('questions/index.json');return}
   if(d.c==='name'){catMeta(d.id).name=t.value;touch('questions/index.json');return}
+  if(d.c==='desc'){const m=catMeta(d.id),v=t.value.trim();if(v)m.desc=v;else delete m.desc;touch('questions/index.json');return}
 });
 document.addEventListener('change',e=>{
   const t=e.target,d=t.dataset;

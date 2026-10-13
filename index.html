@@ -908,6 +908,56 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
   .hcard .desc{font-size:.7em}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* category cards v2: big picture cards with an «i» (setup only) */
+.grp-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ccw{position:relative;min-width:0;transition:transform .15s}
+.ccw:hover{transform:translateY(-3px)}
+.grp-cards .cc{width:100%;height:auto;aspect-ratio:4/5;border-radius:22px;box-shadow:0 0 0 1.5px rgba(22,22,22,.07),0 6px 14px rgba(22,22,22,.08)}
+.grp-cards .cc:hover:not(:disabled){transform:none}
+.grp-cards .cc[aria-pressed="false"]{opacity:1}
+.full .grp-cards .cc[aria-pressed="false"]{opacity:.45}
+.grp-cards .cc[aria-pressed="true"]{box-shadow:0 0 0 3.5px var(--g2),0 10px 22px rgba(20,83,45,.25)}
+.grp-cards .cc .art{padding:8% 8% 4%}
+.grp-cards .cc .art svg{width:78%;max-width:170px}
+.grp-cards .cc .nm{background:var(--gc,var(--ink));font-size:clamp(13px,3.9vw,16px);padding:9px 6px 8px;min-height:0;display:block;line-height:1.35}
+.grp-cards .cc .nm small{opacity:.88;font-size:.74em;margin-top:1px}
+.grp-cards .cc .nm small.low{color:#fff;opacity:1;text-decoration:underline;text-underline-offset:3px}
+.grp-cards .cc .art{position:relative}
+.grp-cards .cc .tag{top:auto;bottom:8px;inset-inline-end:auto;inset-inline-start:8px;font-size:.66em;padding:3px 10px}
+.grp-cards .cc .ck{z-index:2;width:28px;height:28px;top:9px;inset-inline-start:9px;box-shadow:0 0 0 3px #fff}
+.grp-cards .cc .ck svg{width:15px;height:15px}
+.ci{position:absolute;z-index:3;top:9px;inset-inline-end:9px;width:32px;height:32px;border-radius:50%;border:0;padding:0;background:#fff;color:var(--ink);font:italic 900 17px/1 Georgia,'Times New Roman',serif;box-shadow:0 2px 7px rgba(0,0,0,.2);cursor:pointer;display:grid;place-items:center}
+.ci[aria-expanded="true"]{background:var(--ink);color:#fff}
+.ci::after{content:"";position:absolute;inset:-7px}
+.cinfo{position:absolute;z-index:60;background:#fff;color:var(--ink);border-radius:24px;box-shadow:0 18px 50px rgba(0,0,0,.24),0 0 0 1px rgba(0,0,0,.05);padding:18px;text-align:start}
+.cinfo.pop[data-side="l"]::before,.cinfo.pop[data-side="r"]::before{content:"";position:absolute;top:var(--ay,28px);width:16px;height:16px;background:#fff;transform:rotate(45deg)}
+.cinfo.pop[data-side="l"]::before{right:-7px}
+.cinfo.pop[data-side="r"]::before{left:-7px}
+.cinfo .grab{display:none}
+.cix{position:absolute;top:12px;inset-inline-end:12px;width:32px;height:32px;border-radius:50%;border:0;background:var(--soft,#f1ecdf);color:var(--ink);font:inherit;font-weight:800;cursor:pointer}
+.cinfo .ih{display:flex;gap:12px;align-items:center;margin:0 0 10px;padding-inline-end:36px}
+.cinfo .ih .a{width:58px;height:58px;border-radius:16px;background:var(--cbg);display:grid;place-items:center;flex:none}
+.cinfo .ih .a svg{width:44px;height:44px}
+.cinfo .ih b{font-size:1.12em;font-weight:900;display:block;line-height:1.35}
+.cinfo .ih span{font-size:.72em;font-weight:800;color:#fff;background:var(--gc);border-radius:99px;padding:2px 10px;display:inline-block;margin-top:3px}
+.idesc{margin:0 0 12px;line-height:1.8;font-size:.92em;color:#3c3b37}
+.isteps{display:flex;gap:6px;margin:0 0 12px;padding:0;list-style:none}
+.isteps li{flex:1;background:var(--bg,#f6f2e8);border-radius:14px;padding:8px 6px;font-size:.74em;font-weight:700;text-align:center;line-height:1.5}
+.isteps li b{display:grid;place-items:center;width:22px;height:22px;margin:0 auto 3px;border-radius:50%;background:var(--ink);color:#fff;font-size:.95em}
+.imeta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.imeta span{font-size:.74em;font-weight:800;background:var(--gt,#e6f2ea);color:var(--g1);border-radius:99px;padding:4px 10px;display:inline-flex;align-items:center;gap:3px}
+.imeta .lvl i{width:8px;height:8px;border-radius:2px;background:var(--g2);display:inline-block}
+.imeta .lvl i:first-child{margin-inline-start:3px}
+.imeta .lvl i.off{background:#cfdcd3}
+.cinfo .ipick{width:100%}
+.cdim{position:fixed;inset:0;z-index:59;background:rgba(22,22,22,.45)}
+.cinfo.sheet{position:fixed;inset:auto 0 0 0;max-height:85vh;overflow:auto;border-radius:28px 28px 0 0;padding:10px 18px calc(20px + env(safe-area-inset-bottom,0px));animation:sheetup .22s ease-out}
+.cinfo.sheet .grab{display:block;width:44px;height:5px;border-radius:9px;background:#d9d5ca;margin:0 auto 12px}
+.cinfo.sheet .cix{top:18px}
+@keyframes sheetup{from{transform:translateY(40%);opacity:.4}to{transform:none;opacity:1}}
+@media (min-width:600px){.grp-cards{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+@media (min-width:900px){.grp-cards .cc{height:auto}.grp-cards{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}}
+@media (max-width:420px){.grp-cards .cc{height:auto}}
 /* TV-sized screens: last so it wins */
 @media (min-width:1400px) and (min-height:760px){
   .qcard{min-height:40vh}
@@ -1071,7 +1121,9 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
 <main class="reveal" id="reveal" dir="rtl" lang="ar" hidden></main>
 
 
+<div id="cinfo" class="cinfo" role="dialog" aria-label="عن الفئة" hidden></div><div id="cdim" class="cdim" data-act="cinfo-x" hidden></div>
 <script src="/art.js"></script>
+<script src="/cats.js"></script>
 <script src="/pad.js"></script>
 <script src="/sb.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
@@ -1102,7 +1154,7 @@ async function loadBank(){
     :(f=>fetch('/questions/'+f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(f);return r.json()}));
   const idx=await get('index.json');
   const cats=idx.categories.filter(c=>c.visible!==false);
-  META={};cats.forEach(c=>META[c.id]={art:c.art,bg:c.bg});
+  META={};cats.forEach(c=>META[c.id]={art:c.art,bg:c.bg,desc:c.desc});
   const files=await Promise.all(cats.map(c=>get(c.file)));
   BANK=cats.map((c,i)=>{const f=files[i];return c.type?{id:c.id,name:c.name,type:c.type,items:(f.items||[]).filter(live)}:{id:c.id,name:c.name,questions:(f.questions||[]).filter(live)}});
   BANK=BANK.filter(c=>(c.type?c.items:c.questions).length);{const keep=new Set(BANK.map(c=>c.id));Object.keys(META).forEach(k=>{if(!keep.has(k))delete META[k]})}
@@ -1411,13 +1463,13 @@ function paintSetup(){
   $('groups').innerHTML=famCard()+GROUPS.map(g=>{
     const on=true,ids=g.ids.filter(catById),n=ids.filter(id=>sel.includes(id)).length;
     const cards=ids.map(id=>{const c=catById(id),p=sel.includes(id);
-      return `<button type="button" class="cc" data-act="cat" data-id="${esc(id)}" aria-pressed="${p}" style="--cbg:${cbg(id)}"><span class="ck">${CHECK}</span>${c.type?'<span class="tag">تحدّي</span>':''}<span class="art">${catArt(id)}</span><span class="nm">${esc(c.name)}${(n=>`<small class="${n<5?'low':''}">${n?n+' جديد':'كلها انلعبت'}</small>`)(freshCount(c))}</span></button>`}).join('');
+      return `<div class="ccw" data-id="${esc(id)}"><button type="button" class="cc" data-act="cat" data-id="${esc(id)}" aria-pressed="${p}" style="--cbg:${cbg(id)}"><span class="ck">${CHECK}</span><span class="art">${catArt(id)}${c.type||catKind(c)==='bid'?'<span class="tag">تحدّي</span>':''}</span><span class="nm">${esc(c.name)}${(n=>`<small class="${n<5?'low':''}">${n?n+(c.type?' كلمة جديدة':' سؤال جديد'):'كلها انلعبت'}</small>`)(freshCount(c))}</span></button><button type="button" class="ci" data-act="cinfo" data-id="${esc(id)}" aria-expanded="${INFO===id}" aria-label="شو هاي الفئة؟">i</button></div>`}).join('');
     const fold=on&&FOLD.includes(g.id);
     return `<section class="grp${on?'':' off'}${fold?' folded':''}" aria-label="${esc(g.name)}">
       <div class="grp-head"><span class="gpill" style="--gc:${g.c}">${esc(g.name)}</span><span class="gcount">${on?`${n} من ${ids.length} مختارة`:`تخطّيناها · ${ids.length} فئات`}</span>
         ${on?`<button type="button" class="fold" data-act="fold" data-g="${g.id}" aria-expanded="${!fold}" aria-label="${fold?'افتحوا':'سكّروا'} ${esc(g.name)}">${fold?'افتحوا ▾':'سكّروا ▴'}</button>`:''}
         </div>
-      ${fold?`<button type="button" class="grp-sum" data-act="fold" data-g="${g.id}">${ids.map(id=>`<span class="${sel.includes(id)?'on':''}">${esc(catById(id).name)}</span>`).join('')}<small class="sumhint">مسكّرة: «اختيار عشوائي» ما بيختار منها</small></button>`:on?`<div class="grp-cards">${cards}</div>`:`<div class="grp-off">${ids.map(id=>`<span>${esc(catById(id).name)}</span>`).join('')}</div>`}</section>`;
+      ${fold?`<button type="button" class="grp-sum" data-act="fold" data-g="${g.id}">${ids.map(id=>`<span class="${sel.includes(id)?'on':''}">${esc(catById(id).name)}</span>`).join('')}<small class="sumhint">مسكّرة: «اختيار عشوائي» ما بيختار منها</small></button>`:on?`<div class="grp-cards" style="--gc:${g.c}">${cards}</div>`:`<div class="grp-off">${ids.map(id=>`<span>${esc(catById(id).name)}</span>`).join('')}</div>`}</section>`;
   }).join('');
   $('groups').classList.toggle('full',sel.length>=MAX);
   $('count').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;
@@ -1425,7 +1477,43 @@ function paintSetup(){
   {const sb=$('setbar');if(sb){sb.querySelector('span').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;sb.querySelector('button').disabled=sel.length<MIN}}
   document.querySelectorAll('[data-act="time"]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.s===timerSec)));
   document.querySelectorAll('[data-act="qrmode"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.m===qrMode)));
+  if(INFO)paintInfo();
 }
+/* ---------- «i» on a category card: what it is and how it plays (no sample question: it would burn one) ---------- */
+let INFO=null;
+const DS=window.GADDHA_DESC||{desc:{},steps:{}};
+const catKind=c=>{if(c.type)return c.type;const q=c.questions||[];return q.some(x=>x.l)?'bid':q.some(x=>x.n!=null)?'num':q.some(x=>x.o)?'order':q.some(x=>x.img)?'pic':''};
+function catDesc(id){const m=META[id]||{};return m.desc||DS.desc[id]||''}
+function paintInfo(){
+  const el=$('cinfo'),dim=$('cdim');if(!el)return;
+  const c=INFO&&catById(INFO),w=INFO&&document.querySelector(`.ccw[data-id="${CSS.escape(INFO)}"]`);
+  document.querySelectorAll('.ci').forEach(b=>b.setAttribute('aria-expanded',String(b.dataset.id===INFO)));
+  if(!c||!w||view!=='setup'){el.hidden=true;dim.hidden=true;INFO=null;return}
+  const g=GROUPS.find(x=>x.ids.includes(INFO))||{name:'',c:'#161616'},k=catKind(c),steps=DS.steps[k];
+  const L=c.type?c.items:c.questions,fresh=freshCount(c),p=sel.includes(INFO),full=!p&&sel.length>=MAX;
+  const ds=L.map(x=>+x.difficulty).filter(Boolean),lvl=ds.length?Math.round(ds.reduce((a,b)=>a+b,0)/ds.length):0;
+  const desc=catDesc(INFO);
+  el.style.setProperty('--gc',g.c);el.style.setProperty('--cbg',cbg(INFO));
+  el.innerHTML=`<div class="grab"></div><button type="button" class="cix" data-act="cinfo-x" aria-label="سكّروا">✕</button>
+    <div class="ih"><span class="a">${catArt(INFO)}</span><div><b>${esc(c.name)}</b><span>${c.type||k==='bid'?'تحدّي · ':''}${esc(g.name)}</span></div></div>
+    ${desc?`<p class="idesc">${esc(desc)}</p>`:''}
+    ${steps?`<ol class="isteps">${steps.map((s,i)=>`<li><b>${i+1}</b>${esc(s)}</li>`).join('')}</ol>`:''}
+    <div class="imeta"><span>${L.length} ${c.type?'كلمة':'سؤال'}</span><span>${fresh?fresh+' جديد عليكم':'كلها انلعبت'}</span>${lvl?`<span class="lvl">الصعوبة ${[1,2,3].map(n=>`<i class="${n>lvl?'off':''}"></i>`).join('')}</span>`:''}</div>
+    <button type="button" class="btn ${p?'line':'solid'} wide ipick" data-act="cat" data-id="${esc(INFO)}" ${full?'disabled':''}>${p?'✓ مختارة · شيلوها':full?`اخترتم ${MAX} فئات`:'اختاروها'}</button>`;
+  el.hidden=false;
+  const phone=innerWidth<700;el.classList.toggle('sheet',phone);el.classList.toggle('pop',!phone);dim.hidden=!phone;
+  if(phone){el.style.top=el.style.left=el.style.width='';return}
+  const r=w.getBoundingClientRect(),W=Math.min(360,innerWidth-24);el.style.width=W+'px';
+  let x=r.left-W-14,side='l';if(x<12){x=r.right+14;side='r'}if(x+W>innerWidth-12){x=Math.max(12,innerWidth-W-12);side=''}
+  el.dataset.side=side;el.style.left=(x+scrollX)+'px';
+  const h=el.offsetHeight;let y=r.top+scrollY-6;const max=scrollY+innerHeight-h-12;if(y>max)y=Math.max(scrollY+12,max);el.style.top=y+'px';
+  el.style.setProperty('--ay',Math.max(18,Math.min(h-30,r.top+scrollY+24-y))+'px');
+}
+const closeInfo=()=>{if(INFO){INFO=null;paintInfo()}};
+document.addEventListener('click',e=>{if(INFO&&!e.target.closest('#cinfo,.ci'))closeInfo()},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeInfo()});
+addEventListener('resize',()=>{if(INFO&&innerWidth>=700)paintInfo()});
+
 function startDraft(){
   famSync();
   const names=[0,1].map(i=>($('team'+i).value.trim()||['الفريق الأول','الفريق الثاني'][i]).slice(0,20));
@@ -2240,6 +2328,8 @@ function render(){
 /* ---------- actions ---------- */
 const snapshot=()=>JSON.stringify(Object.assign({},S,{undo:null}));
 const ACT={
+  cinfo(b){INFO=INFO===b.dataset.id?null:b.dataset.id;paintInfo()},
+  'cinfo-x'(){closeInfo()},
   cat(b){const id=b.dataset.id;if(!enabledIds().includes(id))return;const i=sel.indexOf(id);if(i>=0)sel.splice(i,1);else if(sel.length<MAX)sel.push(id);paintSetup()},
   random(){const open=GROUPS.filter(g=>!FOLD.includes(g.id)).flatMap(g=>g.ids).filter(catById),pool=open.length>=MIN?open:enabledIds();sel=shuffle(pool.slice()).slice(0,Math.min(MAX,pool.length));paintSetup()},
   fold(b){const g=b.dataset.g,i=FOLD.indexOf(g);if(i>=0)FOLD.splice(i,1);else FOLD.push(g);try{localStorage.setItem('gaddha.fold',JSON.stringify(FOLD))}catch(e){}paintSetup()},
