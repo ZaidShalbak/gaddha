@@ -335,12 +335,42 @@ html,body{overflow-x:hidden}
 .dm-stamp span.neg{color:var(--ink);border-color:var(--ink)}
 /* sections */
 .hm-h{font-weight:900;font-size:clamp(1.4rem,3vw,2.2rem);margin-bottom:16px}
-.flow{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:st}
-.flow li{counter-increment:st;position:relative;background:#fff;border-radius:20px;box-shadow:var(--sh);padding:14px 16px 14px 16px;padding-inline-start:62px;display:flex;flex-direction:column;gap:2px}
-.flow li::before{content:counter(st);position:absolute;inset-inline-start:14px;top:14px;width:34px;height:34px;border-radius:11px;background:var(--ink);color:#fff;font-weight:900;display:grid;place-items:center}
-.flow li:nth-child(4)::before{background:#c48a12}.flow li:nth-child(5)::before{background:var(--b)}.flow li:nth-child(6)::before{background:var(--g2)}
-.flow b{font-weight:900}
-.flow span{color:var(--mut);font-size:.86em;line-height:1.7}
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:st}
+.flow li{counter-increment:st;position:relative;background:#fff;border-radius:24px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column}
+.fl-art{height:140px;background:var(--fc);display:grid;place-items:center;position:relative}
+.fl-art::before{content:counter(st);position:absolute;top:12px;inset-inline-start:12px;width:34px;height:34px;border-radius:11px;background:var(--ink);color:#fff;font-weight:900;display:grid;place-items:center;z-index:1}
+.flow li:nth-child(4) .fl-art::before{background:#e0a92a;color:var(--ink)}
+.fl-tx{padding:14px 16px 18px;display:flex;flex-direction:column;gap:4px}
+.fl-tx b{font-weight:900;font-size:1.08em}
+.fl-tx span{color:var(--mut);font-size:.86em;line-height:1.75}
+.fl-fan{display:flex}
+.fl-fan i{width:70px;height:70px;border-radius:18px;background:#fff;display:grid;place-items:center;box-shadow:0 4px 10px rgba(0,0,0,.1);margin-inline:-8px}
+.fl-fan i svg{width:52px;height:52px}
+.fl-fan i:nth-child(1){transform:rotate(9deg) translateY(6px)}.fl-fan i:nth-child(3){transform:rotate(-9deg) translateY(6px)}.fl-fan i:nth-child(2){position:relative;z-index:1;transform:translateY(-4px)}
+.fl-chips{display:flex;flex-direction:column;gap:7px;align-items:center}
+.fl-chips em{font-style:normal;font-weight:900;font-size:.82em;color:#fff;border-radius:99px;padding:5px 16px;box-shadow:0 3px 8px rgba(0,0,0,.12)}
+.fl-chips em:nth-child(1){background:#2f9e5f;transform:rotate(-4deg)}.fl-chips em:nth-child(2){background:#f0475a;transform:rotate(3deg)}.fl-chips em:nth-child(3){background:#c48a12;transform:rotate(-2deg)}
+.fl-board{display:grid;grid-template-columns:repeat(4,34px);gap:6px}
+.fl-board i{height:34px;border-radius:9px;background:#fff;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:.85em;color:var(--ink);box-shadow:0 2px 5px rgba(0,0,0,.08)}
+.fl-board i.a{background:var(--g2);color:#fff}.fl-board i.b{background:var(--b);color:#fff}
+.fl-env{display:flex;gap:7px;align-items:flex-end}
+.fl-env i{font-style:normal;width:54px;height:40px;border-radius:7px;background:#e0a92a;color:var(--ink);font-weight:900;font-size:.85em;display:grid;place-items:center;position:relative}
+.fl-env i::before{content:"";position:absolute;inset:0 0 auto;height:55%;clip-path:polygon(0 0,100% 0,50% 100%);background:rgba(0,0,0,.14);border-radius:7px 7px 0 0}
+.fl-env i:nth-child(2){background:#f1c75b;transform:translateY(-8px)}.fl-env i:nth-child(3){background:#fff3d1}
+.fl-coin{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe9a8,#e0a92a);display:grid;place-items:center;margin-inline-start:8px;box-shadow:0 0 0 3px #b7841a}
+.fl-coin svg{width:24px;height:24px}
+.fl-big svg{width:92px;height:92px}
+.fl-crown{display:grid;place-items:center;position:relative}
+.fl-crown svg{width:84px;height:84px}
+.flow-dots{display:none}
+@media (max-width:699px){
+  .flow{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * var(--gut,14px));padding:4px var(--gut,14px) 12px;scrollbar-width:none;scroll-padding-inline:var(--gut,14px)}
+  .flow::-webkit-scrollbar{display:none}
+  .flow li{flex:0 0 80%;scroll-snap-align:start}
+  .flow-dots{display:flex;justify-content:center;gap:6px;margin-top:4px}
+  .flow-dots i{width:7px;height:7px;border-radius:99px;background:#d9d4c6;transition:width .2s,background .2s}
+  .flow-dots i.on{width:22px;background:var(--ink)}
+}
 .bento{display:grid;gap:12px}
 .ft{border-radius:24px;padding:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;position:relative;overflow:hidden}
 .ft>div{flex:1;min-width:180px}
@@ -1011,14 +1041,15 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
 
     <section class="hm-sec" id="flow">
       <h2 class="hm-h">السهرة، من أولها لآخرها</h2>
-      <ol class="flow">
-        <li><b>اختاروا الفئات</b><span>لحد 6 فئات من المجموعات اللي بتحبوها، وزيدوا عليها «قدّنا؟» إذا بدكم.</span></li>
-        <li><b>كل فريق بياخد 3 مساعدات</b><span>من 7: مساعدة، تخريب، أو مغامرة. كل وحدة بتنلعب مرة.</span></li>
-        <li><b>العبوا على اللوح</b><span>كل سؤال بـ3 نقاط. «غشّشني» بتنزّله نقطة، والفريق التاني بيقدر «يخطفها».</span></li>
-        <li><b>الظرف الأخير</b><span>«ملك أو كتابة» بتقرّر مين بيختار، وبعدين ظرف من فئاتكم وغشّات بـ×2 و×1.5 و×1.</span></li>
-        <li><b>تعادل؟ سؤال الحسم</b><span>سؤال جوابه رقم: كل فريق بيكتب رقمه على ورقة، والأقرب بيفوز.</span></li>
-        <li><b>ألقاب السهرة</b><span>مين «الخطّافين»، مين «ملوك الغش»، ومين كان «على النار».</span></li>
+      <ol class="flow" id="flowlist">
+        <li style="--fc:#fdebd7"><div class="fl-art" id="fl1" aria-hidden="true"></div><div class="fl-tx"><b>اختاروا الفئات</b><span>لحد 6 فئات من المجموعات اللي بتحبوها، وزيدوا عليها «قدّنا؟» إذا بدكم.</span></div></li>
+        <li style="--fc:#e6f2ea"><div class="fl-art" id="fl2" aria-hidden="true"></div><div class="fl-tx"><b>كل فريق بياخد 3 مساعدات</b><span>من 7: مساعدة، تخريب، أو مغامرة. كل وحدة بتنلعب مرة.</span></div></li>
+        <li style="--fc:#e7eef7"><div class="fl-art" id="fl3" aria-hidden="true"></div><div class="fl-tx"><b>العبوا على اللوح</b><span>كل سؤال بـ3 نقاط. «غشّشني» بتنزّله نقطة، والفريق التاني بيقدر «يخطفها».</span></div></li>
+        <li style="--fc:#161616"><div class="fl-art" id="fl4" aria-hidden="true"></div><div class="fl-tx"><b>الظرف الأخير</b><span>«ملك أو كتابة» بتقرّر مين بيختار، وبعدين ظرف من فئاتكم وغشّات بـ×2 و×1.5 و×1.</span></div></li>
+        <li style="--fc:#fde4e6"><div class="fl-art" id="fl5" aria-hidden="true"></div><div class="fl-tx"><b>تعادل؟ سؤال الحسم</b><span>سؤال جوابه رقم: كل فريق بيكتب رقمه على ورقة، والأقرب بيفوز.</span></div></li>
+        <li style="--fc:#fff3d1"><div class="fl-art" id="fl6" aria-hidden="true"></div><div class="fl-tx"><b>ألقاب السهرة</b><span>مين «الخطّافين»، مين «ملوك الغش»، ومين كان «على النار».</span></div></li>
       </ol>
+      <div class="flow-dots" id="flowdots" aria-hidden="true"></div>
     </section>
 
     <section class="hm-sec">
@@ -1418,7 +1449,18 @@ function buildFan(){
   $('hmstats').innerHTML=ids.length?`<div><b>${ids.length}</b><span>فئة</span></div><div><b>${nq>=100?Math.floor(nq/50)*50+'+':nq}</b><span>سؤال وتحدّي</span></div><div><b>7</b><span>مساعدات</span></div>`:'';
   $('hmgroups').innerHTML=GROUPS.map(g=>`<div class="hg" style="--gc:${g.c}"><div class="hg-h"><b><i></i>${esc(g.name)}</b><button type="button" data-act="to-setup" data-only="${g.id}">العبوا هاي ←</button></div>
     <div class="hg-cats">${g.ids.filter(catById).map(id=>`<span style="--cbg:${cbg(id)}">${catArt(id)}${esc(catById(id).name)}</span>`).join('')}</div></div>`).join('');
-  $('ftfam').innerHTML=GA.svg('family');$('ftbid').innerHTML=GA.svg('gavel');$('ftpal').innerHTML=GA.svg('tatreez');
+  $('ftfam').innerHTML=GA.svg('family');$('ftbid').innerHTML=GA.svg('gavel');
+  {const F=(id,h)=>{const e=$(id);if(e)e.innerHTML=h};
+   F('fl1',`<span class="fl-fan"><i>${GA.svg('food')}</i><i>${GA.svg('map')}</i><i>${GA.svg('flag')}</i></span>`);
+   F('fl2','<span class="fl-chips"><em>مساعدة</em><em>تخريب</em><em>مغامرة</em></span>');
+   F('fl3',`<span class="fl-board">${['a','','3','b','3','a','3','','b','3','','3'].map(c=>`<i class="${c}">${c==='a'||c==='b'?'✓':c||3}</i>`).join('')}</span>`);
+   F('fl4',`<span class="fl-env"><i>×2</i><i>×1.5</i><i>×1</i></span><span class="fl-coin">${CROWN}</span>`.replace('</span><span','</span><span'));
+   F('fl5',`<span class="fl-big">${GA.svg('numbers')}</span>`);
+   F('fl6',`<span class="fl-crown">${CROWN}</span>`);
+   const fl=$('flowlist'),dots=$('flowdots');
+   if(fl&&dots){dots.innerHTML=[...fl.children].map(()=>'<i></i>').join('');
+     const upd=()=>{const L=[...fl.children],r=fl.getBoundingClientRect();let k=0,best=1e9;L.forEach((li,i)=>{const d=Math.abs(li.getBoundingClientRect().right-r.right);if(d<best){best=d;k=i}});[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===k))};
+     if(!fl.dataset.on){fl.dataset.on=1;fl.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true})}upd()}}$('ftpal').innerHTML=GA.svg('tatreez');
   const KDESC={help:'بتساعدكم تجاوبوا',sab:'بتصعّبها على الفريق التاني',bold:'بتلعبوا فيها على النقاط'};
   $('helperlist').innerHTML=['help','sab','bold'].map(k=>`<div class="hk-col k-${k}"><h3><span>${KIND[k]}</span><small>${KDESC[k]}</small></h3>
     ${HIDS.filter(id=>HELPERS[id].kind===k).map(id=>`<div class="hmhc"><span class="hic">${helpIcon(id)}</span><div><b>${esc(HELPERS[id].name)}</b><p>${esc(HELPERS[id].desc)}</p></div></div>`).join('')}</div>`).join('');
