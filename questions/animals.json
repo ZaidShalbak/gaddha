@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "animals-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو أسرع حيوان عاليابسة؟",
    "a": "الفهد",
@@ -18,7 +18,7 @@
   },
   {
    "id": "animals-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو أكبر حيوان عاش على وجه الأرض؟",
    "a": "الحوت الأزرق",
@@ -33,7 +33,7 @@
   },
   {
    "id": "animals-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو أطول حيوان بالعالم؟",
    "a": "الزرافة",
@@ -48,7 +48,7 @@
   },
   {
    "id": "animals-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم ابن الأسد؟",
    "a": "الشبل",
@@ -63,7 +63,7 @@
   },
   {
    "id": "animals-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو الحيوان اللي بيسمّوه «سفينة الصحراء»؟",
    "a": "الجمل",
@@ -76,7 +76,7 @@
   },
   {
    "id": "animals-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "قدّيش رجل للعنكبوت؟",
    "a": "ثمانية",
@@ -91,7 +91,7 @@
   },
   {
    "id": "animals-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو الحيوان اللي بيعيش بأستراليا وبتحمل أنثاه صغيرها بجيبة ببطنها؟",
    "a": "الكنغر",
@@ -106,7 +106,7 @@
   },
   {
    "id": "animals-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو الزاحف المشهور إنه بيغيّر لونه وكل عين بتتحرّك لحالها؟",
    "a": "الحرباء",
@@ -121,7 +121,7 @@
   },
   {
    "id": "animals-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم ابن الحصان؟",
    "a": "المُهر",
@@ -136,7 +136,7 @@
   },
   {
    "id": "animals-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم ابن الناقة؟",
    "a": "الحُوار",
@@ -151,7 +151,7 @@
   },
   {
    "id": "animals-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بيمصّ طائر الشمس الفلسطيني بمنقاره الطويل من الزهور؟",
    "a": "الرحيق",
@@ -166,7 +166,7 @@
   },
   {
    "id": "animals-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الحيوان اللي اسمه بالإنجليزي «Palestine mountain gazelle»؟",
    "a": "الغزال الفلسطيني",
@@ -181,7 +181,7 @@
   },
   {
    "id": "animals-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو لون دم الأخطبوط؟",
    "a": "أزرق",
@@ -196,7 +196,7 @@
   },
   {
    "id": "animals-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الحيوان الثديي الوحيد اللي بيقدر يطير طيران حقيقي؟",
    "a": "الخفّاش",
@@ -211,7 +211,7 @@
   },
   {
    "id": "animals-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الحيوان البحري اللي الذكر فيه هو اللي بيحمل البيض وبيولّد الصغار؟",
    "a": "حصان البحر",
@@ -226,7 +226,7 @@
   },
   {
    "id": "animals-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو أكبر طائر بالعالم؟",
    "a": "النعامة",
@@ -241,7 +241,7 @@
   },
   {
    "id": "animals-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الأكل اللي بيشكّل تقريبًا كل أكل الباندا العملاق؟",
    "a": "الخيزران",
@@ -256,7 +256,7 @@
   },
   {
    "id": "animals-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم صوت الحصان بالعربي؟",
    "a": "الصهيل",
@@ -271,7 +271,7 @@
   },
   {
    "id": "animals-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو لون جلد الدب القطبي تحت فروه الأبيض؟",
    "a": "أسود",
@@ -286,7 +286,7 @@
   },
   {
    "id": "animals-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو الحيوان اللي بصمات أصابعه بتشبه بصمات الإنسان لدرجة بتلخبط؟",
    "a": "الكوالا",
@@ -301,7 +301,7 @@
   },
   {
    "id": "animals-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو الحيوان الصغير اللي بيعيش بين الصخور بفلسطين ومن أقاربه البعيدين الفيل؟",
    "a": "الوبر الصخري",
@@ -316,7 +316,7 @@
   },
   {
    "id": "animals-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم ابن الأرنب؟",
    "a": "الخِرنق",
@@ -331,7 +331,7 @@
   },
   {
    "id": "animals-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو الحيوان الفقاري اللي بيعيش أطول عمر معروف، ممكن مئات السنين؟",
    "a": "قرش غرينلاند",
@@ -346,7 +346,7 @@
   },
   {
    "id": "animals-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "قدّيش بيطوّل حمل أنثى الفيل تقريبًا؟",
    "a": "حوالي سنتين",
@@ -361,7 +361,7 @@
   },
   {
    "id": "animals-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم بيت الأسد بالعربي؟",
    "a": "العرين",

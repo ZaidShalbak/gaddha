@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "world-food-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "السوشي أكلة مشهورة من أي بلد؟",
    "a": "اليابان",
@@ -18,7 +18,7 @@
   },
   {
    "id": "world-food-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الباييا، طبق الرز الأصفر بثمار البحر، من أي بلد؟",
    "a": "إسبانيا",
@@ -33,7 +33,7 @@
   },
   {
    "id": "world-food-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الكبسة بتُعتبر الطبق الوطني لأي دولة؟",
    "a": "السعودية",
@@ -48,7 +48,7 @@
   },
   {
    "id": "world-food-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "التاكو بالتورتيلا والحشوة من أي بلد؟",
    "a": "المكسيك",
@@ -63,7 +63,7 @@
   },
   {
    "id": "world-food-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو المكوّن الأساسي بصلصة «الغواكامولي»؟",
    "a": "الأفوكادو",
@@ -78,7 +78,7 @@
   },
   {
    "id": "world-food-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم الجبنة الإيطالية البيضا المطّاطية اللي بتنحطّ عالبيتزا؟",
    "a": "الموتزاريلا",
@@ -93,7 +93,7 @@
   },
   {
    "id": "world-food-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "«فيش أند تشيبس» (سمك وبطاطا مقلية) أكلة مشهورة بأي بلد؟",
    "a": "بريطانيا",
@@ -108,7 +108,7 @@
   },
   {
    "id": "world-food-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو الأكلة المغاربية المعمولة من حبيبات السميد المفوّرة؟",
    "a": "الكسكسي",
@@ -123,7 +123,7 @@
   },
   {
    "id": "world-food-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الكيمتشي، الملفوف المخلّل الحار، من أي بلد؟",
    "a": "كوريا",
@@ -138,7 +138,7 @@
   },
   {
    "id": "world-food-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "البوتين (بطاطا مقلية مع جبنة وصلصة مرق) من أي بلد؟",
    "a": "كندا",
@@ -153,7 +153,7 @@
   },
   {
    "id": "world-food-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الملوخية بالأرانب أكلة مشهورة بأي بلد؟",
    "a": "مصر",
@@ -168,7 +168,7 @@
   },
   {
    "id": "world-food-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الفوندو، جبنة ذايبة بنغمّس فيها خبز، من أي بلد؟",
    "a": "سويسرا",
@@ -183,7 +183,7 @@
   },
   {
    "id": "world-food-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بيسمّوا الفلافل بمصر؟",
    "a": "الطعمية",
@@ -198,7 +198,7 @@
   },
   {
    "id": "world-food-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم طبق الرز باللحمة والبهارات المشهور بالهند وباكستان؟",
    "a": "البرياني",
@@ -213,7 +213,7 @@
   },
   {
    "id": "world-food-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو البهار اللي بيعطي الباييا لونها الأصفر تقليديًا؟",
    "a": "الزعفران",
@@ -229,7 +229,7 @@
   },
   {
    "id": "world-food-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كلمة «همبرغر» جاية من اسم أي مدينة؟",
    "a": "هامبورغ",
@@ -244,7 +244,7 @@
   },
   {
    "id": "world-food-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "المسقوف، السمك المشوي عالحطب، أكلة مشهورة بأي بلد؟",
    "a": "العراق",
@@ -259,7 +259,7 @@
   },
   {
    "id": "world-food-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم الخبز الهندي اللي بينخبز بفرن «التنّور»؟",
    "a": "النان",
@@ -274,7 +274,7 @@
   },
   {
    "id": "world-food-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "الغولاش، يخنة اللحمة بالبابريكا، من أي بلد؟",
    "a": "هنغاريا (المجر)",
@@ -289,7 +289,7 @@
   },
   {
    "id": "world-food-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم الشوربة الإسبانية الباردة المعمولة من البندورة والخضرة النيّة؟",
    "a": "الغازباتشو",
@@ -304,7 +304,7 @@
   },
   {
    "id": "world-food-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "«الفو»، شوربة النودلز بالمرق، أكلة مشهورة بأي بلد؟",
    "a": "فيتنام",
@@ -319,7 +319,7 @@
   },
   {
    "id": "world-food-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "قهوة «الموكا» اسمها جاي من ميناء بأي بلد عربي؟",
    "a": "اليمن",
@@ -334,7 +334,7 @@
   },
   {
    "id": "world-food-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "«الإنجيرا»، الخبز الإسفنجي الحامض، أكلة مشهورة بأي بلد؟",
    "a": "إثيوبيا",
@@ -349,7 +349,7 @@
   },
   {
    "id": "world-food-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "بأي مدينة إيطالية انولدت بيتزا «مارغريتا»؟",
    "a": "نابولي",
@@ -364,7 +364,7 @@
   },
   {
    "id": "world-food-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم الطبق الياباني من شرايح السمك النيّ بدون رز؟",
    "a": "الساشيمي",
