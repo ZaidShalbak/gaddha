@@ -516,6 +516,7 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
 .grp-sum{display:flex;flex-wrap:wrap;gap:6px;background:none;border:0;padding:0;cursor:pointer;font:inherit;text-align:start}
 .grp-sum span{font-size:.75em;font-weight:700;color:var(--mut);background:var(--bg);border-radius:99px;padding:4px 10px}
 .grp-sum span.on{background:var(--g1);color:#fff}
+.grp-sum .sumhint{flex-basis:100%;font-size:.72em;font-weight:700;color:#8a867c;margin-top:2px}
 .setbar{display:none}
 .grp-off span{font-size:.72em;font-weight:700;color:#8a867c;background:#fff;border-radius:99px;padding:3px 10px}
 .qrnote{font-size:.75em;color:var(--mut);line-height:1.7}
@@ -1392,15 +1393,15 @@ function paintSetup(){
   famSync();
   sel=sel.filter(id=>enabledIds().includes(id));
   $('groups').innerHTML=famCard()+GROUPS.map(g=>{
-    const on=!skip.includes(g.id),ids=g.ids.filter(catById),n=ids.filter(id=>sel.includes(id)).length;
+    const on=true,ids=g.ids.filter(catById),n=ids.filter(id=>sel.includes(id)).length;
     const cards=ids.map(id=>{const c=catById(id),p=sel.includes(id);
       return `<button type="button" class="cc" data-act="cat" data-id="${esc(id)}" aria-pressed="${p}" style="--cbg:${cbg(id)}"><span class="ck">${CHECK}</span>${c.type?'<span class="tag">تحدّي</span>':''}<span class="art">${catArt(id)}</span><span class="nm">${esc(c.name)}${(n=>`<small class="${n<5?'low':''}">${n?n+' جديد':'كلها انلعبت'}</small>`)(freshCount(c))}</span></button>`}).join('');
     const fold=on&&FOLD.includes(g.id);
     return `<section class="grp${on?'':' off'}${fold?' folded':''}" aria-label="${esc(g.name)}">
       <div class="grp-head"><span class="gpill" style="--gc:${g.c}">${esc(g.name)}</span><span class="gcount">${on?`${n} من ${ids.length} مختارة`:`تخطّيناها · ${ids.length} فئات`}</span>
         ${on?`<button type="button" class="fold" data-act="fold" data-g="${g.id}" aria-expanded="${!fold}" aria-label="${fold?'افتحوا':'سكّروا'} ${esc(g.name)}">${fold?'افتحوا ▾':'سكّروا ▴'}</button>`:''}
-        <button type="button" class="sw" role="switch" aria-checked="${on}" data-act="grp" data-g="${g.id}" aria-label="${on?'تخطّي':'رجّع'} ${esc(g.name)}"><i></i>${on?'مفعّلة':'مخفية'}</button></div>
-      ${fold?`<button type="button" class="grp-sum" data-act="fold" data-g="${g.id}">${ids.map(id=>`<span class="${sel.includes(id)?'on':''}">${esc(catById(id).name)}</span>`).join('')}</button>`:on?`<div class="grp-cards">${cards}</div>`:`<div class="grp-off">${ids.map(id=>`<span>${esc(catById(id).name)}</span>`).join('')}</div>`}</section>`;
+        </div>
+      ${fold?`<button type="button" class="grp-sum" data-act="fold" data-g="${g.id}">${ids.map(id=>`<span class="${sel.includes(id)?'on':''}">${esc(catById(id).name)}</span>`).join('')}<small class="sumhint">مسكّرة: «اختيار عشوائي» ما بيختار منها</small></button>`:on?`<div class="grp-cards">${cards}</div>`:`<div class="grp-off">${ids.map(id=>`<span>${esc(catById(id).name)}</span>`).join('')}</div>`}</section>`;
   }).join('');
   $('groups').classList.toggle('full',sel.length>=MAX);
   $('count').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;
@@ -2224,7 +2225,7 @@ function render(){
 const snapshot=()=>JSON.stringify(Object.assign({},S,{undo:null}));
 const ACT={
   cat(b){const id=b.dataset.id;if(!enabledIds().includes(id))return;const i=sel.indexOf(id);if(i>=0)sel.splice(i,1);else if(sel.length<MAX)sel.push(id);paintSetup()},
-  random(){const pool=enabledIds();sel=shuffle(pool.slice()).slice(0,Math.min(MAX,pool.length));paintSetup()},
+  random(){const open=GROUPS.filter(g=>!FOLD.includes(g.id)).flatMap(g=>g.ids).filter(catById),pool=open.length>=MIN?open:enabledIds();sel=shuffle(pool.slice()).slice(0,Math.min(MAX,pool.length));paintSetup()},
   fold(b){const g=b.dataset.g,i=FOLD.indexOf(g);if(i>=0)FOLD.splice(i,1);else FOLD.push(g);try{localStorage.setItem('gaddha.fold',JSON.stringify(FOLD))}catch(e){}paintSetup()},
   grp(b){const g=b.dataset.g,i=skip.indexOf(g);if(i>=0)skip.splice(i,1);else skip.push(g);store.set('gaddha.skip',skip);paintSetup()},
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
@@ -2485,6 +2486,7 @@ async function start(data){
   if(S)shown=S.teams.map(t=>t.score);
   if(!document.fullscreenEnabled)$('fs').hidden=true;
   skip=store.get('gaddha.skip');if(!Array.isArray(skip))skip=[];
+  if(skip.length){skip.forEach(g=>{if(!FOLD.includes(g))FOLD.push(g)});skip=[];store.set('gaddha.skip',skip);try{localStorage.setItem('gaddha.fold',JSON.stringify(FOLD))}catch(e){}}
   {const q=new URLSearchParams(location.search),rc=q.get('redeem');if(rc){setPending(rc.slice(0,20));q.delete('redeem');history.replaceState(null,'',location.pathname+(q.toString()?'?'+q:'')+location.hash)}}
   famSync();buildFan();setMute(muted);render();authInit();paintA2hs();
   if(pendingCode()&&!hasSession()&&ONLINE())setTimeout(()=>openAuth(),400);
