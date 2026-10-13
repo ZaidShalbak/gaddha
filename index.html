@@ -390,6 +390,10 @@ html,body{overflow-x:hidden}
 .cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:var(--ink);color:#fff;border-radius:26px;padding:22px 26px}
 .cta h2{font-weight:900;font-size:clamp(1.3rem,3vw,2rem)}
 .cta p{opacity:.75;font-size:.9em}
+.hm-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;color:var(--mut);font-size:.82em;padding:6px 0 18px}
+.hm-legal a{color:var(--mut);font-weight:700}
+.alegal{color:var(--mut);font-size:.78em;line-height:1.7;text-align:center;margin:0}
+.alegal a{color:var(--g1);font-weight:700}
 .cta .btn.white{background:#fff;color:var(--g1)}
 @media (max-width:699px){.hm-top #fs2{display:none}}
 @media (min-width:700px){
@@ -933,6 +937,7 @@ details.more[open] summary{margin-bottom:10px}
       </section>
     </div>
     <section class="cta"><div><h2>جاهزين؟</h2><p>جهاز واحد، فريقين، وسهرة ما بتنتسى.</p></div><button type="button" class="btn white big" data-act="to-setup">يلا نبلّش</button></section>
+    <footer class="hm-legal"><a href="/privacy">سياسة الخصوصية</a><span>·</span><a href="/terms">شروط الاستخدام</a><span>·</span><span>© قدّها</span></footer>
   </main>
 
   <main class="screen" id="setup" hidden>
@@ -1468,6 +1473,7 @@ function paintAuth(){
       <label class="af">الإيميل<input id="aemail" type="email" inputmode="email" autocomplete="email" dir="ltr" value="${esc(a.email)}" placeholder="name@example.com"></label>
       <label class="af">الكلمة السرّية${a.step==='signup'?' (8 حروف أو أكتر)':''}<span class="pwrow"><input id="apw" type="password" autocomplete="${a.step==='login'?'current-password':'new-password'}" dir="ltr"><button type="button" class="pwshow" data-act="auth-pwshow" aria-label="أظهر الكلمة السرّية">👁</button></span></label>${err}${a.note?`<p class="anote">${esc(a.note)}</p>`:''}
       <button type="button" class="btn solid big" data-act="${a.step==='login'?'auth-login':'auth-signup'}" ${a.busy?'disabled':''}>${a.busy?'لحظة…':a.step==='login'?'ادخلوا':'اعملوا الحساب'}</button>
+      ${a.step==='signup'?`<p class="alegal">لما تعملوا الحساب، يعني إنكم موافقين على <a href="/terms" target="_blank" rel="noopener">شروط الاستخدام</a> و<a href="/privacy" target="_blank" rel="noopener">سياسة الخصوصية</a>.</p>`:''}
       ${a.step==='login'?`<button type="button" class="linkbtn" data-act="auth-go" data-s="signup">ما عندكم حساب؟ اعملوا واحد</button><button type="button" class="linkbtn" data-act="auth-go" data-s="email">نسيتوا الكلمة السرّية؟ ادخلوا بكود على الإيميل</button>`
         :`<button type="button" class="linkbtn" data-act="auth-go" data-s="login">عندكم حساب؟ ادخلوا</button>`}</div>`;
   else if(a.step==='setpw')h=`<div class="amain one"><div class="ahead"><span></span><button type="button" class="ax" data-act="auth-close" aria-label="سكّر">✕</button></div>
