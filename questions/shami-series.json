@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "shami-series-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من الفنان الذي ابتكر سلسلة «مرايا» الكوميدية وقام ببطولتها؟",
    "a": "ياسر العظمة",
@@ -18,7 +18,7 @@
   },
   {
    "id": "shami-series-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "في أي عام عُرض الجزء الأول من سلسلة «مرايا» لياسر العظمة؟",
    "a": "1982",
@@ -33,7 +33,7 @@
   },
   {
    "id": "shami-series-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اسم الضيعة التي تدور فيها أحداث مسلسل «ضيعة ضايعة»؟",
    "a": "أم الطنافس الفوقا",
@@ -48,7 +48,7 @@
   },
   {
    "id": "shami-series-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من الممثل الذي جسّد شخصية «جودة أبو خميس» في «ضيعة ضايعة»؟",
    "a": "باسم ياخور",
@@ -64,7 +64,7 @@
   },
   {
    "id": "shami-series-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في «ضيعة ضايعة»، من الشاب الذي يحب «عفوفة»؟",
    "a": "سلنكو",
@@ -79,7 +79,7 @@
   },
   {
    "id": "shami-series-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من المخرج الذي أخرج مسلسل «ضيعة ضايعة»؟",
    "a": "الليث حجو",
@@ -94,7 +94,7 @@
   },
   {
    "id": "shami-series-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من المخرج الذي أخرج مسلسل «التغريبة الفلسطينية»؟",
    "a": "حاتم علي",
@@ -110,7 +110,7 @@
   },
   {
    "id": "shami-series-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من الممثل الذي جسّد شخصية «أبو صالح» في «التغريبة الفلسطينية»؟",
    "a": "جمال سليمان",
@@ -125,7 +125,7 @@
   },
   {
    "id": "shami-series-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الممثل الذي أدّى دور الأب «أبو أحمد» في «التغريبة الفلسطينية»؟",
    "a": "خالد تاجا",
@@ -140,7 +140,7 @@
   },
   {
    "id": "shami-series-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الممثل الذي جسّد شخصية «نصّار ابن عريبي» في مسلسل «الخوالي»؟",
    "a": "بسام كوسا",
@@ -156,7 +156,7 @@
   },
   {
    "id": "shami-series-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "في أي حيّ دمشقي تدور أحداث مسلسل «الخوالي»؟",
    "a": "الشاغور",
@@ -171,7 +171,7 @@
   },
   {
    "id": "shami-series-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الممثل الذي جسّد شخصية «المعلّم عمر» في «ليالي الصالحية»؟",
    "a": "عباس النوري",
@@ -187,7 +187,7 @@
   },
   {
    "id": "shami-series-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "أي مسلسل بيئة شامية أخرجه بسام الملا عام 1992، قبل «الخوالي» بثماني سنوات؟",
    "a": "أيام شامية",
@@ -202,7 +202,7 @@
   },
   {
    "id": "shami-series-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من كاتب مسلسل «عطر الشام»؟",
    "a": "مروان قاووق",
@@ -217,7 +217,7 @@
   },
   {
    "id": "shami-series-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الممثل الذي قام ببطولة الجزأين الأول والثاني من «عطر الشام»؟",
    "a": "رشيد عساف",
@@ -232,7 +232,7 @@
   },
   {
    "id": "shami-series-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الكاتب الذي ألّف مسلسل «الزير سالم» (2000)؟",
    "a": "ممدوح عدوان",
@@ -247,7 +247,7 @@
   },
   {
    "id": "shami-series-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الممثل الذي أدّى دور «الجرو» ابن كليب في مسلسل «الزير سالم»؟",
    "a": "تيم حسن",
@@ -262,7 +262,7 @@
   },
   {
    "id": "shami-series-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "ما اسم الحرب الطويلة التي يدور حولها مسلسل «الزير سالم»؟",
    "a": "حرب البسوس",
@@ -277,7 +277,7 @@
   },
   {
    "id": "shami-series-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "أي ممثلَين سوريَّين أطلقا فكرة مسلسل «بقعة ضوء»؟",
    "a": "أيمن رضا وباسم ياخور",
@@ -292,7 +292,7 @@
   },
   {
    "id": "shami-series-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من بطل المسلسل الكوميدي «يوميات مدير عام» (1995)؟",
    "a": "أيمن زيدان",
@@ -307,7 +307,7 @@
   },
   {
    "id": "shami-series-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "مسلسل «نهاية رجل شجاع» مأخوذ عن رواية أي أديب سوري؟",
    "a": "حنا مينه",
@@ -322,7 +322,7 @@
   },
   {
    "id": "shami-series-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي منطقة سورية تدور أحداث مسلسل «نهاية رجل شجاع»؟",
    "a": "الساحل السوري",
@@ -337,7 +337,7 @@
   },
   {
    "id": "shami-series-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كم بنتًا لكريم ونبيلة في مسلسل «الفصول الأربعة»؟",
    "a": "خمس بنات",
@@ -352,7 +352,7 @@
   },
   {
    "id": "shami-series-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "في مسلسلات البيئة الشامية، ماذا يُسمّى قائد شباب الحارة الذي يدافع عنها؟",
    "a": "العكيد",
@@ -367,7 +367,7 @@
   },
   {
    "id": "shami-series-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من الممثل الذي جسّد شخصية «العكيد معتز» في «باب الحارة»؟",
    "a": "وائل شرف",

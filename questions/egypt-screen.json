@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "egypt-screen-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "أي ممثل مصري يُلقّب بـ«الزعيم»؟",
    "a": "عادل إمام",
@@ -18,7 +18,7 @@
   },
   {
    "id": "egypt-screen-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من الفنانة الملقّبة بـ«سيدة الشاشة العربية»؟",
    "a": "فاتن حمامة",
@@ -33,7 +33,7 @@
   },
   {
    "id": "egypt-screen-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من بطلة فيلم «خلّي بالك من زوزو» الملقّبة بـ«سندريلا الشاشة»؟",
    "a": "سعاد حسني",
@@ -48,7 +48,7 @@
   },
   {
    "id": "egypt-screen-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "في أي مسرحية لعب عادل إمام شخصية الطالب «بهجت الأباصيري»؟",
    "a": "مدرسة المشاغبين",
@@ -63,7 +63,7 @@
   },
   {
    "id": "egypt-screen-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي مسرحية لعب عادل إمام شخصية «سرحان عبد البصير»؟",
    "a": "شاهد ما شافش حاجة",
@@ -78,7 +78,7 @@
   },
   {
    "id": "egypt-screen-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "ما آخر فيلم سينمائي قام ببطولته عبد الحليم حافظ (1969)؟",
    "a": "أبي فوق الشجرة",
@@ -93,7 +93,7 @@
   },
   {
    "id": "egypt-screen-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في أي فيلم جسّد أحمد زكي شخصية الرئيس أنور السادات؟",
    "a": "أيام السادات",
@@ -108,7 +108,7 @@
   },
   {
    "id": "egypt-screen-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في آخر أفلامه «حليم»، أي مطرب جسّد أحمد زكي شخصيته؟",
    "a": "عبد الحليم حافظ",
@@ -123,7 +123,7 @@
   },
   {
    "id": "egypt-screen-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "أي نجم مصري عالمي كان زوجًا لفاتن حمامة؟",
    "a": "عمر الشريف",
@@ -139,7 +139,7 @@
   },
   {
    "id": "egypt-screen-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "أي ممثل مصري رُشّح للأوسكار عن دوره في فيلم «لورنس العرب»؟",
    "a": "عمر الشريف",
@@ -154,7 +154,7 @@
   },
   {
    "id": "egypt-screen-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "أي كوميديان مصري حملت أفلامه اسمه، مثل «... في الجيش» و«... في البوليس»؟",
    "a": "إسماعيل ياسين",
@@ -169,7 +169,7 @@
   },
   {
    "id": "egypt-screen-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الموسيقار الذي ألّف موسيقى مسلسل «رأفت الهجان»؟",
    "a": "عمار الشريعي",
@@ -184,7 +184,7 @@
   },
   {
    "id": "egypt-screen-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من الممثل الذي جسّد شخصية «سليم البدري» في «ليالي الحلمية»؟",
    "a": "يحيى الفخراني",
@@ -199,7 +199,7 @@
   },
   {
    "id": "egypt-screen-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "ما اسم عنزة «بكّار» في مسلسل الكرتون المصري الشهير؟",
    "a": "رشيدة",
@@ -214,7 +214,7 @@
   },
   {
    "id": "egypt-screen-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "من المطرب الذي غنّى شارة مسلسل الكرتون «بكّار»؟",
    "a": "محمد منير",
@@ -229,7 +229,7 @@
   },
   {
    "id": "egypt-screen-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "في «الكبير أوي»، ما اسم شقيق «الكبير» التوأم القادم من أمريكا؟",
    "a": "جوني",
@@ -244,7 +244,7 @@
   },
   {
    "id": "egypt-screen-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اسم شخصية أحمد مكي، ابن المليونير المدلّل، التي ظهرت في «تامر وشوقية» ثم صار لها فيلم خاص؟",
    "a": "هيثم دبور",
@@ -259,7 +259,7 @@
   },
   {
    "id": "egypt-screen-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من الممثل الذي لعب «بابا ونيس» في مسلسل «يوميات ونيس»؟",
    "a": "محمد صبحي",
@@ -274,7 +274,7 @@
   },
   {
    "id": "egypt-screen-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ما اسم زوجة «ونيس» في مسلسل «يوميات ونيس»؟",
    "a": "مايسة",
@@ -289,7 +289,7 @@
   },
   {
    "id": "egypt-screen-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "من بطل فيلم «صعيدي في الجامعة الأمريكية» (1998)؟",
    "a": "محمد هنيدي",
@@ -304,7 +304,7 @@
   },
   {
    "id": "egypt-screen-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "فيلم «الفيل الأزرق» مأخوذ عن رواية أي كاتب مصري؟",
    "a": "أحمد مراد",
@@ -319,7 +319,7 @@
   },
   {
    "id": "egypt-screen-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شخصية «اللمبي» لمحمد سعد ظهرت في فيلم لعلاء ولي الدين عن مدرسة عام 2000. ما اسمه؟",
    "a": "الناظر",
@@ -334,7 +334,7 @@
   },
   {
    "id": "egypt-screen-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الممثل الذي جسّد «العمدة» في فيلم «الزوجة الثانية» (1967)؟",
    "a": "صلاح منصور",
@@ -349,7 +349,7 @@
   },
   {
    "id": "egypt-screen-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من شارك ليلى مراد بطولة فيلم «غزل البنات» (1949) بدور الأستاذ «حمام»؟",
    "a": "نجيب الريحاني",
@@ -364,7 +364,7 @@
   },
   {
    "id": "egypt-screen-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "من الممثل الذي جسّد شخصية «سي السيد» في أفلام ثلاثية نجيب محفوظ؟",
    "a": "يحيى شاهين",
