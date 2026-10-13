@@ -1086,8 +1086,20 @@ let seen=new Set(Array.isArray(store0('gaddha.seen'))?store0('gaddha.seen'):[]);
 function store0(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
 function markSeen(id){if(!id||seen.has(id))return;seen.add(id);try{localStorage.setItem('gaddha.seen',JSON.stringify([...seen]))}catch(e){}}
 const live=x=>x&&x.status==='published';
+// questions come from the database (published only); the last good copy is kept on the device for offline play,
+// and the files in /questions/ are the last fallback
+async function bankFromDb(){
+  const c=window.GADDHA_SB&&GADDHA_SB.cfg&&GADDHA_SB.cfg();if(!c||!c.url||!c.key)throw new Error('offline');
+  const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),8000);
+  try{const r=await fetch(c.url+'/rest/v1/rpc/get_bank',{method:'POST',headers:{apikey:c.key,Authorization:'Bearer '+c.key,'Content-Type':'application/json'},body:'{}',signal:ctl.signal});
+    if(!r.ok)throw new Error('db '+r.status);const b=await r.json();if(!b||!b.index||!b.index.categories)throw new Error('empty');return b}finally{clearTimeout(tm)}
+}
 async function loadBank(){
-  const get=f=>fetch('/questions/'+f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(f);return r.json()});
+  let B=null;
+  try{B=await bankFromDb();try{localStorage.setItem('gaddha.bank',JSON.stringify(B))}catch(e){}}
+  catch(e){B=store0('gaddha.bank')}
+  const get=B?(f=>{const x=f==='index.json'?B.index:(B.files[f]||{});return x?Promise.resolve(x):Promise.reject(new Error(f))})
+    :(f=>fetch('/questions/'+f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(f);return r.json()}));
   const idx=await get('index.json');
   const cats=idx.categories.filter(c=>c.visible!==false);
   META={};cats.forEach(c=>META[c.id]={art:c.art,bg:c.bg});

@@ -39,5 +39,5 @@
     return api;
   }
   var code=function(n){var a='abcdefghjkmnpqrstuvwxyz23456789',o='';var r=new Uint8Array(n||8);crypto.getRandomValues(r);for(var i=0;i<r.length;i++)o+=a[r[i]%a.length];return o};
-  window.GADDHA_SB={configured:function(){return !!(CFG.url&&CFG.key)},google:function(){return !!CFG.google},client:load,rpc:rpc,room:room,code:code};
+  window.GADDHA_SB={cfg:function(){return {url:CFG.url,key:CFG.key}},configured:function(){return !!(CFG.url&&CFG.key)},google:function(){return !!CFG.google},client:load,rpc:rpc,room:room,code:code};
 })();

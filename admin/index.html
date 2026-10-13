@@ -143,7 +143,6 @@ label.f>input,label.f>textarea,label.f>select{font-size:1.25em;font-weight:600;c
 <script src="/sb.js"></script>
 <script>
 (()=>{
-const OWNER='ZaidShalbak',REPO='gaddha',BRANCH='main';
 const GA=window.GADDHA_ART;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -156,16 +155,18 @@ const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4
 let ffilter='all',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
 
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
-const b64dec=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
-/* GitHub goes through /api/gh (server-side token); this page only holds the Gaddha login */
-async function sbToken(){const c=await GADDHA_SB.client();const r=await c.auth.getSession();return r&&r.data&&r.data.session&&r.data.session.access_token||''}
-async function gh(path,opt={}){
-  const at=await sbToken();if(!at){const e=new Error('login');e.status=401;e.code='login';throw e}
-  const r=await fetch('/api/gh?p='+encodeURIComponent(path),Object.assign({cache:'no-store'},opt,{headers:Object.assign({'Authorization':'Bearer '+at},opt.body?{'Content-Type':'application/json'}:{})}));
-  if(!r.ok){const t=await r.text();let code='';try{code=JSON.parse(t).code||''}catch(x){}const e=new Error(t.slice(0,200));e.status=r.status;e.code=code;throw e}
-  return r.status===204?null:r.json();
+/* questions live in Supabase (supabase/questions.sql). Only admins can read drafts or save. */
+async function rpcA(name,args){
+  const c=await GADDHA_SB.client();const ss=(await c.auth.getSession()).data.session;
+  if(!ss){const e=new Error('login');e.code='login';throw e}
+  const r=await c.rpc(name,args||{});
+  if(r.error){const m=String(r.error.message||'');const e=new Error(m);
+    e.code=/not admin/i.test(m)?'not_admin':(r.error.code==='PGRST202'||/could not find the function|does not exist/i.test(m))?'no_sql':/jwt|login/i.test(m)?'login':'';throw e}
+  return r.data;
 }
-async function readFile(p){const j=await gh(`/repos/${OWNER}/${REPO}/contents/${encodeURI(p)}?ref=${BRANCH}`);return JSON.parse(b64dec(j.content))}
+const b64blob=(b64,type)=>{const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type})};
+const LISTKEYS=['questions','items','finals'];
+const fileList=d=>{for(const k of LISTKEYS)if(Array.isArray(d&&d[k]))return d[k];return []};
 const idx=()=>files['questions/index.json'];
 const catFile=id=>'questions/'+(idx().categories.find(c=>c.id===id)||{}).file;
 const catData=id=>files[catFile(id)];
@@ -192,47 +193,66 @@ const ADMIN_SQL=e=>`<pre dir="ltr" style="white-space:pre-wrap;background:#f1ecd
 async function loadErr(e){
   if(e.code==='login'||e.status===401)return paintLogin('سجّل دخول.');
   if(e.code==='not_admin'){let em='';try{const c=await GADDHA_SB.client();const u=(await c.auth.getUser()).data.user;em=u&&u.email||''}catch(x){}em=em||LASTMAIL;return paintLogin('هالحساب مش أدمن. شغّل هالسطر بـSupabase ← SQL Editor مرة وحدة، وبعدين ادخل كمان مرة:',ADMIN_SQL(em))}
-  if(e.code==='no_token')return paintLogin('لازم نحط مفتاح GitHub بإعدادات Vercel مرة وحدة:',`<ol style="font-size:.88em;line-height:1.9"><li>اعمل مفتاح من <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a>: الاسم «قدّها أدمن»، Only select repositories ← <b>gaddha</b>، Repository permissions ← <b>Contents: Read and write</b>.</li><li>افتح Vercel ← مشروع gaddha ← Settings ← Environment Variables.</li><li>Name: <b dir="ltr">GITHUB_TOKEN</b>، Value: المفتاح، Environments: Production. Save.</li><li>Deployments ← آخر نشر ← ⋯ ← <b>Redeploy</b>. بعدها ارجع لهون.</li></ol>`);
+  if(e.code==='no_sql')return paintLogin('لازم نجهّز قاعدة البيانات للأسئلة مرة وحدة:',`<ol style="font-size:.88em;line-height:1.9"><li>افتح ملف <a href="https://github.com/ZaidShalbak/gaddha/blob/main/supabase/questions.sql" target="_blank" rel="noopener">supabase/questions.sql</a> وانسخ كل اللي فيه.</li><li>Supabase ← SQL Editor ← New query ← الصق ← <b>Run</b>.</li><li>ارجع لهون وادخل كمان مرة.</li></ol>`);
   $('main').innerHTML=`<p class="empty">صار خطأ بالتحميل: ${esc(e.message)}</p>`;
+}
+function fixFiles(){
+  idx().categories.forEach(c=>{const p='questions/'+c.file;if(!files[p])files[p]=c.type&&c.type!=='num'&&c.type!=='order'?{category:c.id,type:c.type,items:[]}:{category:c.id,questions:[]}});
+  if(!files['questions/finals.json'])files['questions/finals.json']={finals:[]};
 }
 async function load(){
   $('main').innerHTML='<p class="empty">عم نحمّل الأسئلة…</p>';
-  try{
-    files={};dirty.clear();
-    files['questions/index.json']=await readFile('questions/index.json');
-    await Promise.all(idx().categories.map(async c=>{files['questions/'+c.file]=await readFile('questions/'+c.file)}));
-    files['questions/finals.json']=await readFile('questions/finals.json');
-  }catch(e){return loadErr(e)}
+  let b;
+  try{b=await rpcA('admin_bank')}catch(e){return loadErr(e)}
+  if(!b||!b.index)return paintImport();
+  files={};dirty.clear();uploads={};
+  files['questions/index.json']=b.index;
+  Object.entries(b.files||{}).forEach(([f,d])=>files['questions/'+f]=d);
+  fixFiles();
   $('tabs').hidden=false;$('topend').hidden=false;paintDirty();
   if(!cur||!catMeta(cur))cur=idx().categories[0]&&idx().categories[0].id;
   paint();
 }
-let lastSha=null;
-async function commitOnce(){
-  const ref=await gh(`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}?t=${Date.now()}`);
-  const head=ref.object.sha;
-  const base=await gh(`/repos/${OWNER}/${REPO}/git/commits/${head}`);
-  const imgs=await Promise.all(Object.entries(uploads).map(async([p,b64])=>{const bl=await gh(`/repos/${OWNER}/${REPO}/git/blobs`,{method:'POST',body:JSON.stringify({content:b64,encoding:'base64'})});return {path:p,mode:'100644',type:'blob',sha:bl.sha}}));
-  const tree=await gh(`/repos/${OWNER}/${REPO}/git/trees`,{method:'POST',body:JSON.stringify({base_tree:base.tree.sha,tree:[...dirty].map(p=>({path:p,mode:'100644',type:'blob',content:JSON.stringify(files[p],null,1)+'\n'})).concat(imgs)})});
-  const n=dirty.size;
-  const commit=await gh(`/repos/${OWNER}/${REPO}/git/commits`,{method:'POST',body:JSON.stringify({message:`لوحة التحكم: تعديل ${n} ${n===1?'ملف':'ملفات'}\n\n${[...dirty].join('\n')}`,tree:tree.sha,parents:[head]})});
-  await gh(`/repos/${OWNER}/${REPO}/git/refs/heads/${BRANCH}`,{method:'PATCH',body:JSON.stringify({sha:commit.sha})});
-  lastSha=commit.sha;
+/* one time: copy the question files that ship with the site into the database */
+function paintImport(err){
+  $('tabs').hidden=true;$('topend').hidden=false;
+  $('main').innerHTML=`<div class="card login"><h1 style="font-weight:900;font-size:1.4em">ننقل الأسئلة لقاعدة البيانات</h1>
+    <p class="mut">قاعدة البيانات لسّا فاضية. بكبسة وحدة بننسخ كل الفئات والأسئلة الموجودة هلّأ (مع المسودات) لـSupabase. من بعدها كل تعديل بينحفظ هناك وبيطلع باللعبة فورًا.</p>
+    ${err?`<p class="warn">${esc(err)}</p>`:''}<div class="row"><button type="button" class="btn solid" data-a="import">انقل الأسئلة</button></div></div>`;
+}
+async function importFiles(){
+  const get=f=>fetch('/questions/'+f,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(f);return r.json()});
+  const I=await get('index.json');const names=[...new Set(I.categories.map(c=>c.file).concat([I.finals||'finals.json']))];
+  const all={};await Promise.all(names.map(async n=>{try{all[n]=await get(n)}catch(e){}}));
+  const keys=Object.keys(all);let first=true;
+  for(let i=0;i<keys.length||first;i+=8){const part={};keys.slice(i,i+8).forEach(k=>part[k]=all[k]);
+    await rpcA('admin_save',{p_index:first?I:null,p_files:part});first=false;
+    $('main').innerHTML=`<p class="empty">عم ننقل… ${Math.min(i+8,keys.length)} / ${keys.length}</p>`}
+  return keys.length;
 }
 let saving=false;
+async function uploadPics(){
+  const c=await GADDHA_SB.client();
+  for(const [p,b64] of Object.entries(uploads)){
+    const name=p.split('/').pop();
+    const up=await c.storage.from('qimg').upload(name,b64blob(b64,'image/jpeg'),{contentType:'image/jpeg',upsert:true});
+    if(up.error)throw new Error('الصورة ما انرفعت: '+up.error.message);
+    const url=c.storage.from('qimg').getPublicUrl(name).data.publicUrl;previews[url]=previews[p];
+    Object.keys(files).forEach(f=>{if(f==='questions/index.json')return;fileList(files[f]).forEach(x=>{if(x.img==='/'+p){x.img=url;dirty.add(f)}})});
+    delete uploads[p];
+  }
+}
 async function save(){
   if(saving||!(dirty.size||Object.keys(uploads).length))return;saving=true;
   const btn=$('save');btn.disabled=true;btn.textContent='عم نحفظ…';
   try{
     syncOrder();
-    let ok=false,err;
-    for(let i=0;i<4&&!ok;i++){
-      try{await commitOnce();ok=true}
-      catch(e){err=e;if(e.status!==422&&e.status!==409)break;await new Promise(r=>setTimeout(r,1200*(i+1)))}
-    }
-    if(!ok)throw err;
-    dirty.clear();uploads={};paintDirty();toast('انحفظ! بيطلع باللعبة خلال دقيقة تقريبًا.');
-  }catch(e){toast('ما انحفظ: '+(e.status===401||e.status===403?'المفتاح ما إله صلاحية كتابة':e.message.slice(0,90)))}
+    await uploadPics();
+    let p_index=null;const p_files={};
+    dirty.forEach(p=>{if(p==='questions/index.json')p_index=files[p];else p_files[p.replace(/^questions\//,'')]=files[p]});
+    await rpcA('admin_save',{p_index,p_files});
+    dirty.clear();paintDirty();toast('انحفظ! صار باللعبة.');
+  }catch(e){toast('ما انحفظ: '+(e.code==='not_admin'?'هالحساب مش أدمن':e.code==='login'?'سجّل دخول من جديد':e.message.slice(0,90)))}
   saving=false;btn.textContent='احفظ وانشر';paintDirty();
 }
 function syncOrder(){
@@ -345,7 +365,7 @@ function paintCats(){
       </div>`}).join('')||'<p class="mut" style="font-size:.85em">ما فيها فئات.</p>'}
     </section>`).join('')}</div>`;
 }
-/* ---------- codes («عندي كود»): needs the Gaddha account login, not the GitHub token ---------- */
+/* ---------- codes («عندي كود»): uses the same Gaddha account login ---------- */
 const KD={ready:false,user:null,admin:null,err:'',busy:false,made:[],list:null};
 const KINDS=[['y','قدّها بلا حدود · سنة',0,365],['m','قدّها بلا حدود · شهر',0,30],['n1','تذكرة سهرة وحدة',1,0],['n3','3 تذاكر سهرة',3,0]];
 const kwhat=(n,d)=>d?(d>=360?'سنة بلا حدود':d+' يوم بلا حدود'):(n===1?'تذكرة سهرة':n+' تذاكر سهرة');
@@ -448,6 +468,8 @@ let draftArt=null,draftBg=null;
 const nextId=(prefix,list)=>{let n=0;list.forEach(x=>{const m=String(x.id||'').match(/-(\d+)$/);if(m)n=Math.max(n,+m[1])});return `${prefix}-${String(n+1).padStart(3,'0')}`};
 const findQ=id=>listOf(cur).find(x=>x.id===id);
 const A={
+  async import(){const b=document.querySelector('[data-a="import"]');if(b){b.disabled=true;b.textContent='عم ننقل…'}
+    try{const n=await importFiles();toast(`انتقلوا ${n} ملفات. أهلين بقاعدة البيانات!`);load()}catch(e){if(e.code)return loadErr(e);paintImport('ما زبط النقل: '+String(e.message).slice(0,120))}},
   async login(){const m=($('amail').value||'').trim(),pw=$('apw').value||'';if(!m||!pw)return;LASTMAIL=m;
     try{const c=await GADDHA_SB.client();const r=await c.auth.signInWithPassword({email:m,password:pw});if(r.error)return paintLogin('الإيميل أو الكلمة السرّية غلط.');KD.ready=false;KD.user=null;KD.admin=null;load()}catch(e){paintLogin('ما قدرنا نتّصل.')}},
   logout(){if(dirty.size&&!confirm('في تعديلات ما انحفظت. تطلع؟'))return;files={};dirty.clear();KD.ready=false;KD.user=null;KD.admin=null;KD.list=null;FBX=null;GADDHA_SB.client().then(c=>c.auth.signOut()).finally(()=>paintLogin())},
