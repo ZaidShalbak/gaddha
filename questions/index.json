@@ -53,7 +53,8 @@
    "color": "#161616",
    "categories": [
     "football",
-    "sports"
+    "sports",
+    "cat-mv6c9jgi"
    ],
    "visible": true
   },
@@ -72,10 +73,28 @@
  ],
  "categories": [
   {
-   "id": "capitals",
-   "name": "عواصم ودول",
-   "file": "capitals.json",
-   "visible": true
+   "id": "pal-cities",
+   "name": "مدن وقرى فلسطين",
+   "file": "pal-cities.json",
+   "visible": true,
+   "art": "map",
+   "bg": "#e6f2ea"
+  },
+  {
+   "id": "pal-food",
+   "name": "أكل فلسطيني",
+   "file": "pal-food.json",
+   "visible": true,
+   "art": "food",
+   "bg": "#fdebd7"
+  },
+  {
+   "id": "pal-heritage",
+   "name": "تراث وثقافة",
+   "file": "pal-heritage.json",
+   "visible": true,
+   "art": "tatreez",
+   "bg": "#fde4e6"
   },
   {
    "id": "arab-screen",
@@ -102,6 +121,60 @@
    "visible": true
   },
   {
+   "id": "capitals",
+   "name": "عواصم ودول",
+   "file": "capitals.json",
+   "visible": true
+  },
+  {
+   "id": "riddles",
+   "name": "ألغاز",
+   "file": "riddles.json",
+   "visible": true
+  },
+  {
+   "id": "photos",
+   "name": "مين هاد بالصورة؟",
+   "file": "photos.json",
+   "visible": true,
+   "art": "camera",
+   "bg": "#e7eef7"
+  },
+  {
+   "id": "numbers",
+   "name": "أقرب رقم",
+   "file": "numbers.json",
+   "visible": true,
+   "art": "numbers",
+   "bg": "#fff3d1",
+   "mode": "num"
+  },
+  {
+   "id": "order",
+   "name": "رتّبها",
+   "file": "order.json",
+   "visible": true,
+   "art": "order",
+   "bg": "#efe9f7",
+   "mode": "order"
+  },
+  {
+   "id": "proverbs",
+   "name": "كمّل المثل",
+   "file": "proverbs.json",
+   "visible": true,
+   "art": "scroll",
+   "bg": "#fdebd7"
+  },
+  {
+   "id": "dialects",
+   "name": "شو يعني؟",
+   "file": "dialects.json",
+   "visible": true,
+   "art": "dialect",
+   "bg": "#e6f2ea"
+  },
+  {
    "id": "football",
    "name": "كرة القدم",
    "file": "football.json",
@@ -114,10 +187,12 @@
    "visible": true
   },
   {
-   "id": "riddles",
-   "name": "ألغاز",
-   "file": "riddles.json",
-   "visible": true
+   "id": "cat-mv6c9jgi",
+   "name": "الدوري الإسباني",
+   "file": "cat-mv6c9jgi.json",
+   "visible": true,
+   "art": "sports",
+   "bg": "#e7eef7"
   },
   {
    "id": "act",
@@ -141,39 +216,6 @@
    "visible": true
   },
   {
-   "id": "photos",
-   "name": "مين هاد بالصورة؟",
-   "file": "photos.json",
-   "visible": true,
-   "art": "camera",
-   "bg": "#e7eef7"
-  },
-  {
-   "id": "proverbs",
-   "name": "كمّل المثل",
-   "file": "proverbs.json",
-   "visible": true,
-   "art": "scroll",
-   "bg": "#fdebd7"
-  },
-  {
-   "id": "dialects",
-   "name": "شو يعني؟",
-   "file": "dialects.json",
-   "visible": true,
-   "art": "dialect",
-   "bg": "#e6f2ea"
-  },
-  {
-   "id": "numbers",
-   "name": "أقرب رقم",
-   "file": "numbers.json",
-   "visible": true,
-   "art": "numbers",
-   "bg": "#fff3d1",
-   "mode": "num"
-  },
-  {
    "id": "draw",
    "name": "ارسمها",
    "file": "draw.json",
@@ -181,39 +223,6 @@
    "type": "draw",
    "art": "brush",
    "bg": "#e7eef7"
-  },
-  {
-   "id": "order",
-   "name": "رتّبها",
-   "file": "order.json",
-   "visible": true,
-   "art": "order",
-   "bg": "#efe9f7",
-   "mode": "order"
-  },
-  {
-   "id": "pal-cities",
-   "name": "مدن وقرى فلسطين",
-   "file": "pal-cities.json",
-   "visible": true,
-   "art": "map",
-   "bg": "#e6f2ea"
-  },
-  {
-   "id": "pal-food",
-   "name": "أكل فلسطيني",
-   "file": "pal-food.json",
-   "visible": true,
-   "art": "food",
-   "bg": "#fdebd7"
-  },
-  {
-   "id": "pal-heritage",
-   "name": "تراث وثقافة",
-   "file": "pal-heritage.json",
-   "visible": true,
-   "art": "tatreez",
-   "bg": "#fde4e6"
   }
  ],
  "finals": "finals.json"
