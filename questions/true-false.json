@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "true-false-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الجمل بيخزّن مي بسنامه.",
    "a": "غلط",
@@ -18,7 +18,7 @@
   },
   {
    "id": "true-false-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الأخطبوط إله تلت قلوب.",
    "a": "صح",
@@ -33,7 +33,7 @@
   },
   {
    "id": "true-false-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "النعامة بتدفن راسها بالرمل لما تخاف.",
    "a": "غلط",
@@ -48,7 +48,7 @@
   },
   {
    "id": "true-false-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "البحر الميت هو أوطى مكان على اليابسة بالعالم.",
    "a": "صح",
@@ -63,7 +63,7 @@
   },
   {
    "id": "true-false-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "سور الصين العظيم بينشاف من القمر بالعين المجرّدة.",
    "a": "غلط",
@@ -78,7 +78,7 @@
   },
   {
    "id": "true-false-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "البندورة علميًا بتنحسب فاكهة.",
    "a": "صح",
@@ -93,7 +93,7 @@
   },
   {
    "id": "true-false-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الإنسان بيستعمل بس 10% من دماغه.",
    "a": "غلط",
@@ -108,7 +108,7 @@
   },
   {
    "id": "true-false-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "المي بتغلي على راس الجبل بحرارة أقل من على شط البحر.",
    "a": "صح",
@@ -123,7 +123,7 @@
   },
   {
    "id": "true-false-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "البرق ما بيضرب نفس المكان مرتين.",
    "a": "غلط",
@@ -138,7 +138,7 @@
   },
   {
    "id": "true-false-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "رقبة الزرافة فيها نفس عدد فقرات رقبة الإنسان.",
    "a": "صح",
@@ -153,7 +153,7 @@
   },
   {
    "id": "true-false-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "ذاكرة السمكة الذهبية بس تلت ثواني.",
    "a": "غلط",
@@ -168,7 +168,7 @@
   },
   {
    "id": "true-false-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الألماس والفحم من نفس العنصر.",
    "a": "صح",
@@ -183,7 +183,7 @@
   },
   {
    "id": "true-false-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الثور بيعصّب من اللون الأحمر بالذات.",
    "a": "غلط",
@@ -198,7 +198,7 @@
   },
   {
    "id": "true-false-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "الصوت بيمشي بالمي أسرع من الهوا.",
    "a": "صح",
@@ -213,7 +213,7 @@
   },
   {
    "id": "true-false-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الخفافيش عمياء.",
    "a": "غلط",
@@ -228,7 +228,7 @@
   },
   {
    "id": "true-false-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "بالفضاء ما في صوت.",
    "a": "صح",
@@ -243,7 +243,7 @@
   },
   {
    "id": "true-false-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "نابليون بونابرت كان قصير كتير بالنسبة لزمانه.",
    "a": "غلط",
@@ -258,7 +258,7 @@
   },
   {
    "id": "true-false-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الحوت الأزرق أكبر حيوان عاش على الأرض، حتى أكبر من الديناصورات.",
    "a": "صح",
@@ -273,7 +273,7 @@
   },
   {
    "id": "true-false-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "البطريق بيعيش بالقطب الشمالي.",
    "a": "غلط",
@@ -288,7 +288,7 @@
   },
   {
    "id": "true-false-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "الموز فيه شوية إشعاع طبيعي.",
    "a": "صح",
@@ -303,7 +303,7 @@
   },
   {
    "id": "true-false-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "عطارد أسخن كوكب لأنه الأقرب للشمس.",
    "a": "غلط",
@@ -318,7 +318,7 @@
   },
   {
    "id": "true-false-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "العسل إذا انحفظ مسكّر منيح بيضل صالح للأكل آلاف السنين.",
    "a": "صح",
@@ -333,7 +333,7 @@
   },
   {
    "id": "true-false-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الكوالا نوع من الدببة.",
    "a": "غلط",
@@ -348,7 +348,7 @@
   },
   {
    "id": "true-false-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "الضفادع بتقدر تمتص المي من جلدها.",
    "a": "صح",
@@ -363,7 +363,7 @@
   },
   {
    "id": "true-false-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "أينشتاين رسب بالرياضيات وهو صغير.",
    "a": "غلط",
