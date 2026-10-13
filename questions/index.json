@@ -8,7 +8,11 @@
    "categories": [
     "pal-cities",
     "pal-food",
-    "pal-heritage"
+    "pal-heritage",
+    "pal-people",
+    "pal-oldwords",
+    "pal-folk",
+    "pal-places"
    ],
    "visible": true
   },
@@ -20,7 +24,13 @@
     "arab-screen",
     "world-screen",
     "bab-alhara",
-    "arab-songs"
+    "arab-songs",
+    "cartoons",
+    "ramadan-series",
+    "shami-series",
+    "egypt-screen",
+    "quotes",
+    "old-ads"
    ],
    "visible": true
   },
@@ -33,7 +43,13 @@
     "riddles",
     "photos",
     "numbers",
-    "order"
+    "order",
+    "science",
+    "history",
+    "animals",
+    "world-food",
+    "flags",
+    "true-false"
    ],
    "visible": true
   },
@@ -43,7 +59,10 @@
    "color": "#1d4e89",
    "categories": [
     "proverbs",
-    "dialects"
+    "dialects",
+    "fusha",
+    "arab-dialects",
+    "hazazeer"
    ],
    "visible": true
   },
@@ -54,7 +73,9 @@
    "categories": [
     "football",
     "sports",
-    "cat-mv6c9jgi"
+    "cat-mv6c9jgi",
+    "world-cup",
+    "clubs"
    ],
    "visible": true
   },
@@ -222,6 +243,174 @@
    "visible": true,
    "type": "draw",
    "art": "brush",
+   "bg": "#e7eef7"
+  },
+  {
+   "id": "pal-people",
+   "name": "شخصيات فلسطينية",
+   "file": "pal-people.json",
+   "visible": true,
+   "art": "book",
+   "bg": "#efe9f7"
+  },
+  {
+   "id": "pal-oldwords",
+   "name": "حكي ختيارية",
+   "file": "pal-oldwords.json",
+   "visible": true,
+   "art": "scroll",
+   "bg": "#fdebd7"
+  },
+  {
+   "id": "pal-folk",
+   "name": "أهازيج وأغاني شعبية",
+   "file": "pal-folk.json",
+   "visible": true,
+   "art": "hum",
+   "bg": "#fde4e6"
+  },
+  {
+   "id": "pal-places",
+   "name": "أماكن فلسطينية بالصورة",
+   "file": "pal-places.json",
+   "visible": true,
+   "art": "camera",
+   "bg": "#e6f2ea"
+  },
+  {
+   "id": "cartoons",
+   "name": "كرتون زمان",
+   "file": "cartoons.json",
+   "visible": true,
+   "art": "star",
+   "bg": "#fff3d1"
+  },
+  {
+   "id": "ramadan-series",
+   "name": "مسلسلات رمضان",
+   "file": "ramadan-series.json",
+   "visible": true,
+   "art": "arab-screen",
+   "bg": "#efe9f7"
+  },
+  {
+   "id": "shami-series",
+   "name": "مسلسلات شامية",
+   "file": "shami-series.json",
+   "visible": true,
+   "art": "bab-alhara",
+   "bg": "#f1ecdf"
+  },
+  {
+   "id": "egypt-screen",
+   "name": "أفلام ومسلسلات مصرية",
+   "file": "egypt-screen.json",
+   "visible": true,
+   "art": "world-screen",
+   "bg": "#fdebd7"
+  },
+  {
+   "id": "quotes",
+   "name": "مين قال هالجملة؟",
+   "file": "quotes.json",
+   "visible": true,
+   "art": "riddles",
+   "bg": "#e7eef7"
+  },
+  {
+   "id": "old-ads",
+   "name": "إعلانات زمان",
+   "file": "old-ads.json",
+   "visible": true,
+   "art": "bulb",
+   "bg": "#fff3d1"
+  },
+  {
+   "id": "science",
+   "name": "علوم وطبيعة",
+   "file": "science.json",
+   "visible": true,
+   "art": "science",
+   "bg": "#e7eef7"
+  },
+  {
+   "id": "history",
+   "name": "تاريخ",
+   "file": "history.json",
+   "visible": true,
+   "art": "history",
+   "bg": "#f1ecdf"
+  },
+  {
+   "id": "animals",
+   "name": "حيوانات",
+   "file": "animals.json",
+   "visible": true,
+   "art": "camel",
+   "bg": "#fff3d1"
+  },
+  {
+   "id": "world-food",
+   "name": "أكل العالم",
+   "file": "world-food.json",
+   "visible": true,
+   "art": "food",
+   "bg": "#fde4e6"
+  },
+  {
+   "id": "flags",
+   "name": "أعلام الدول",
+   "file": "flags.json",
+   "visible": true,
+   "art": "flag",
+   "bg": "#e6f2ea"
+  },
+  {
+   "id": "true-false",
+   "name": "صح ولا غلط",
+   "file": "true-false.json",
+   "visible": true,
+   "art": "tf",
+   "bg": "#efe9f7"
+  },
+  {
+   "id": "fusha",
+   "name": "شو بالفصحى؟",
+   "file": "fusha.json",
+   "visible": true,
+   "art": "book",
+   "bg": "#e6f2ea"
+  },
+  {
+   "id": "arab-dialects",
+   "name": "لهجات عربية",
+   "file": "arab-dialects.json",
+   "visible": true,
+   "art": "dialect",
+   "bg": "#fde4e6"
+  },
+  {
+   "id": "hazazeer",
+   "name": "حزازير",
+   "file": "hazazeer.json",
+   "visible": true,
+   "art": "riddles",
+   "bg": "#fdebd7"
+  },
+  {
+   "id": "world-cup",
+   "name": "كأس العالم",
+   "file": "world-cup.json",
+   "visible": true,
+   "art": "sports",
+   "bg": "#fff3d1"
+  },
+  {
+   "id": "clubs",
+   "name": "أندية وألقاب",
+   "file": "clubs.json",
+   "visible": true,
+   "art": "football",
    "bg": "#e7eef7"
   }
  ],

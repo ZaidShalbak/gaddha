@@ -1,0 +1,383 @@
+{
+ "category": "pal-people",
+ "questions": [
+  {
+   "id": "pal-people-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "مين الشاعر اللي كتب «على هذه الأرض ما يستحق الحياة»؟",
+   "a": "محمود درويش",
+   "hints": [
+    "شاعر من الجليل، قصايده بتنغنّى كتير.",
+    "كاتب «سجّل أنا عربي»."
+   ],
+   "w": "سميح القاسم",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mahmoud_Darwish"
+   ]
+  },
+  {
+   "id": "pal-people-002",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "محمود درويش انولد بأي قرية بالجليل؟",
+   "a": "البروة",
+   "hints": [
+    "قرية قريبة من عكا.",
+    "اسمها بيبلّش بحرف الباء."
+   ],
+   "w": "الرامة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mahmoud_Darwish"
+   ]
+  },
+  {
+   "id": "pal-people-003",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "الأديب غسان كنفاني انولد بأي مدينة؟",
+   "a": "عكا",
+   "hints": [
+    "مدينة ساحلية إلها سور على البحر.",
+    "مشهورة بجامع الجزّار."
+   ],
+   "w": "حيفا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ghassan_Kanafani"
+   ]
+  },
+  {
+   "id": "pal-people-004",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "رواية «عائد إلى حيفا» لمين؟",
+   "a": "غسان كنفاني",
+   "hints": [
+    "أديب وصحفي، وكان يرسم كمان.",
+    "كاتب «رجال في الشمس»."
+   ],
+   "w": "إميل حبيبي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ghassan_Kanafani"
+   ]
+  },
+  {
+   "id": "pal-people-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "ناجي العلي شو كانت مهنته؟",
+   "a": "رسام كاريكاتير",
+   "hints": [
+    "شغله كان بالجرايد.",
+    "رسوماته ساخرة وبتحكي بلا كلام كتير."
+   ],
+   "w": "شاعر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Handala"
+   ]
+  },
+  {
+   "id": "pal-people-006",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "قدّيش عمر «حنظلة» اللي رسمه ناجي العلي؟",
+   "a": "عشر سنين",
+   "hints": [
+    "عمره نفس عمر ناجي لما طلع من بلده.",
+    "رقم مدوّر، وحنظلة ما بيكبر أبدًا."
+   ],
+   "w": "سبع سنين",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Handala"
+   ]
+  },
+  {
+   "id": "pal-people-007",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم كتاب إدوارد سعيد المشهور عن نظرة الغرب للشرق؟",
+   "a": "الاستشراق",
+   "hints": [
+    "صدر سنة 1978.",
+    "صار من أهم الكتب اللي بتندرس بالجامعات."
+   ],
+   "w": "الاستعمار",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Edward_Said"
+   ]
+  },
+  {
+   "id": "pal-people-008",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "المفكر إدوارد سعيد انولد بأي مدينة فلسطينية؟",
+   "a": "القدس",
+   "hints": [
+    "درّس سنين طويلة بجامعة كولومبيا بأمريكا، بس أصله من مدينة كبيرة.",
+    "مدينة فيها البلدة القديمة."
+   ],
+   "w": "يافا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Edward_Said"
+   ]
+  },
+  {
+   "id": "pal-people-009",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "مين أخو الشاعرة فدوى طوقان اللي لقّبوه «شاعر فلسطين»؟",
+   "a": "إبراهيم طوقان",
+   "hints": [
+    "هو اللي علّمها الشعر.",
+    "كاتب «موطني»."
+   ],
+   "w": "عبد الرحيم محمود",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fadwa_Tuqan",
+    "https://en.wikipedia.org/wiki/Mawtini"
+   ]
+  },
+  {
+   "id": "pal-people-010",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "الشاعرة فدوى طوقان من أي مدينة؟",
+   "a": "نابلس",
+   "hints": [
+    "مدينة بين جبلين.",
+    "مشهورة بالكنافة والصابون."
+   ],
+   "w": "الخليل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fadwa_Tuqan"
+   ]
+  },
+  {
+   "id": "pal-people-011",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم السيرة الذاتية لفدوى طوقان؟",
+   "a": "«رحلة جبلية، رحلة صعبة»",
+   "hints": [
+    "اسمها بيوصف طريق مش سهل.",
+    "فيه كلمة «رحلة» مرتين."
+   ],
+   "w": "«رأيت رام الله»",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fadwa_Tuqan"
+   ]
+  },
+  {
+   "id": "pal-people-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "المغنية ريم البنا من أي مدينة؟",
+   "a": "الناصرة",
+   "hints": [
+    "مدينة بالجليل.",
+    "أكبر مدينة عربية بالداخل."
+   ],
+   "w": "عكا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Rim_Banna"
+   ]
+  },
+  {
+   "id": "pal-people-013",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "فيلم «يا طير الطاير» بيحكي قصة أي مطرب فلسطيني؟",
+   "a": "محمد عساف",
+   "hints": [
+    "مطرب من غزة.",
+    "ربح «أراب آيدول»."
+   ],
+   "w": "عمار حسن",
+   "sources": [
+    "https://en.wikipedia.org/wiki/The_Idol_(2015_film)",
+    "https://en.wikipedia.org/wiki/Mohammed_Assaf"
+   ]
+  },
+  {
+   "id": "pal-people-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين كتب قصيدة «منتصب القامة أمشي»؟",
+   "a": "سميح القاسم",
+   "hints": [
+    "غنّاها مارسيل خليفة.",
+    "شاعر من قرية الرامة بالجليل."
+   ],
+   "w": "توفيق زياد",
+   "sources": [
+    "https://diwanalarab.com/%D9%85%D9%86%D8%AA%D8%B5%D8%A8-%D8%A7%D9%84%D9%82%D8%A7%D9%85%D8%A9-%D8%A3%D9%85%D8%B4%D9%8A.html"
+   ]
+  },
+  {
+   "id": "pal-people-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "قصيدة «أناديكم» لأي شاعر فلسطيني؟",
+   "a": "توفيق زياد",
+   "hints": [
+    "كان رئيس بلدية الناصرة.",
+    "اسمه الأول متل اسم «التوفيق»."
+   ],
+   "w": "سميح القاسم",
+   "sources": [
+    "https://diwanalarab.com/%D8%A3%D9%86%D8%A7%D8%AF%D9%8A%D9%83%D9%85.html",
+    "https://en.wikipedia.org/wiki/Tawfiq_Ziad"
+   ]
+  },
+  {
+   "id": "pal-people-016",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "مين كاتب رواية «المتشائل»؟",
+   "a": "إميل حبيبي",
+   "hints": [
+    "«المتشائل» كلمة خليط من متشائم ومتفائل.",
+    "أديب من حيفا."
+   ],
+   "w": "جبرا إبراهيم جبرا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Emile_Habibi"
+   ]
+  },
+  {
+   "id": "pal-people-017",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "جبرا إبراهيم جبرا ترجم مسرحيات أي كاتب إنجليزي مشهور؟",
+   "a": "شكسبير",
+   "hints": [
+    "كاتب «هاملت».",
+    "«أكون أو لا أكون»."
+   ],
+   "w": "برنارد شو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Jabra_Ibrahim_Jabra"
+   ]
+  },
+  {
+   "id": "pal-people-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "كتاب «رأيت رام الله» لأي شاعر؟",
+   "a": "مريد البرغوثي",
+   "hints": [
+    "ربح فيه جائزة نجيب محفوظ.",
+    "أبو شاعر مشهور كمان."
+   ],
+   "w": "تميم البرغوثي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mourid_Barghouti"
+   ]
+  },
+  {
+   "id": "pal-people-019",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "الشاعر تميم البرغوثي اشتهر بقصيدة عن أي مدينة؟",
+   "a": "القدس",
+   "hints": [
+    "قرأها ببرنامج «أمير الشعراء».",
+    "مدينة فيها قبة الصخرة."
+   ],
+   "w": "حيفا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tamim_al-Barghouti"
+   ]
+  },
+  {
+   "id": "pal-people-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "أم الشاعر تميم البرغوثي روائية مصرية مشهورة، مين هي؟",
+   "a": "رضوى عاشور",
+   "hints": [
+    "كانت أستاذة جامعة بالقاهرة.",
+    "جوزها مريد البرغوثي."
+   ],
+   "w": "سحر خليفة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mourid_Barghouti"
+   ]
+  },
+  {
+   "id": "pal-people-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "رواية «الصبّار» لأي روائية من نابلس؟",
+   "a": "سحر خليفة",
+   "hints": [
+    "روائية بتكتب كتير عن المرأة.",
+    "ربحت ميدالية نجيب محفوظ سنة 2006."
+   ],
+   "w": "فدوى طوقان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sahar_Khalifeh"
+   ]
+  },
+  {
+   "id": "pal-people-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "إبراهيم نصر الله ربح «البوكر العربية» سنة 2018 عن أي رواية؟",
+   "a": "«حرب الكلب الثانية»",
+   "hints": [
+    "مش «زمن الخيول البيضاء».",
+    "في اسمها حيوان ورقم."
+   ],
+   "w": "«زمن الخيول البيضاء»",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ibrahim_Nasrallah"
+   ]
+  },
+  {
+   "id": "pal-people-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "مين أول رياضي فلسطيني شارك بالألعاب الأولمبية؟",
+   "a": "ماجد أبو مراحيل",
+   "hints": [
+    "شارك بأولمبياد أتلانتا سنة 1996.",
+    "عدّاء ركض مسافات طويلة."
+   ],
+   "w": "نادر المصري",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Majed_Abu_Maraheel"
+   ]
+  },
+  {
+   "id": "pal-people-024",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين ألّف كتاب القراءة القديم اللي أول درس فيه «راس، روس»؟",
+   "a": "خليل السكاكيني",
+   "hints": [
+    "مربّي وأديب مقدسي.",
+    "أسّس المدرسة الدستورية بالقدس."
+   ],
+   "w": "إسعاف النشاشيبي",
+   "sources": [
+    "https://ar.wikipedia.org/wiki/%D8%AE%D9%84%D9%8A%D9%84_%D8%A7%D9%84%D8%B3%D9%83%D8%A7%D9%83%D9%8A%D9%86%D9%8A"
+   ]
+  },
+  {
+   "id": "pal-people-025",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "فيلم «يد إلهية» للمخرج إيليا سليمان ربح جائزة بأي مهرجان سنة 2002؟",
+   "a": "مهرجان كان",
+   "hints": [
+    "مهرجان أفلام بفرنسا.",
+    "بيمشوا فيه النجوم على السجادة الحمرا."
+   ],
+   "w": "مهرجان البندقية",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Elia_Suleiman"
+   ]
+  }
+ ]
+}

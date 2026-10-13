@@ -1,0 +1,368 @@
+{
+ "category": "arab-dialects",
+ "questions": [
+  {
+   "id": "arab-dialects-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو يعني «باجر» باللهجة الخليجية؟",
+   "a": "بكرا",
+   "hints": [
+    "إلها علاقة بالوقت.",
+    "«نشوفك ___ إن شاء الله»."
+   ],
+   "w": "مبارح",
+   "sources": [
+    "https://www.gulfarabic.com/v72_why_now.php"
+   ]
+  },
+  {
+   "id": "arab-dialects-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو بيسمّوا المصريين الطاولة؟",
+   "a": "ترابيزة",
+   "hints": [
+    "كلمة أصلها مش عربي.",
+    "بتسمعوها كتير بالأفلام المصرية القديمة."
+   ],
+   "w": "كنبة",
+   "sources": []
+  },
+  {
+   "id": "arab-dialects-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو يعني «جزمة» باللهجة المصرية؟",
+   "a": "صبّاط / كندرة",
+   "hints": [
+    "إشي بتلبسه.",
+    "بتلبسه بإجريك."
+   ],
+   "w": "طاقية",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Egyptian_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-004",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو يعني «إزّيك» باللهجة المصرية؟",
+   "a": "كيفك",
+   "hints": [
+    "أول كلمة بتنقال لما تلتقي حدا.",
+    "جوابها «الحمد لله، تمام»."
+   ],
+   "w": "وينك",
+   "sources": []
+  },
+  {
+   "id": "arab-dialects-005",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «كوبري» باللهجة المصرية؟",
+   "a": "جسر",
+   "hints": [
+    "إشي كبير بتشوفه بالشارع.",
+    "بتقطع عليه من ضفّة لضفّة بالقاهرة."
+   ],
+   "w": "نفق",
+   "sources": []
+  },
+  {
+   "id": "arab-dialects-006",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو بيسمّي العراقيين الرز؟",
+   "a": "تمّن",
+   "hints": [
+    "كلمة من حرفين وشدّة.",
+    "بيقولوا «___ ومرق»."
+   ],
+   "w": "برغل",
+   "sources": [
+    "https://www.alquds.co.uk/أسطورة-حكاية-تن-مين-والرز-العراقي/"
+   ]
+  },
+  {
+   "id": "arab-dialects-007",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو يعني «كلّش» باللهجة العراقية؟",
+   "a": "كتير / جدًّا",
+   "hints": [
+    "بتنحطّ قبل الصفة لتقوّيها.",
+    "«هذا ___ حلو»."
+   ],
+   "w": "شوي",
+   "sources": [
+    "https://talkinarabic.com/iraqi/grammar/very-not-very-not-at-all"
+   ]
+  },
+  {
+   "id": "arab-dialects-008",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «نوخذة» بالخليج؟",
+   "a": "قبطان السفينة",
+   "hints": [
+    "كلمة من أيام الغوص على اللؤلؤ.",
+    "هو اللي بيقود المركب."
+   ],
+   "w": "صيّاد السمك",
+   "sources": [
+    "https://www.aljazeera.net/culture/2019/1/3/الموسوعة-الميسرة-الكويت-اللجهة"
+   ]
+  },
+  {
+   "id": "arab-dialects-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «جنجفة» باللهجة الكويتية؟",
+   "a": "ورق الشدّة",
+   "hints": [
+    "إشي بيتسلّوا فيه بالسهرات.",
+    "فيه «كبّة» و«بنت» و«شايب»."
+   ],
+   "w": "طاولة الزهر",
+   "sources": [
+    "https://www.aljazeera.net/culture/2019/1/3/الموسوعة-الميسرة-الكويت-اللجهة"
+   ]
+  },
+  {
+   "id": "arab-dialects-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «زوليّة» باللهجة الكويتية؟",
+   "a": "سجّادة",
+   "hints": [
+    "إشي موجود بأرض الصالون.",
+    "بتنفرش على البلاط."
+   ],
+   "w": "مخدّة",
+   "sources": [
+    "https://kuwaittimes.com/kuwaiti-dialect-rich-in-geographical-diversity"
+   ]
+  },
+  {
+   "id": "arab-dialects-011",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «ديرم» باللهجة الكويتية؟",
+   "a": "أحمر الشفايف",
+   "hints": [
+    "إشي بتستعمله الصبايا.",
+    "بتلاقيه بشنطة المكياج."
+   ],
+   "w": "كحل",
+   "sources": [
+    "https://kuwaittimes.com/kuwaiti-dialect-rich-in-geographical-diversity"
+   ]
+  },
+  {
+   "id": "arab-dialects-012",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «بنزهير» باللهجة الحجازية؟",
+   "a": "ليمون",
+   "hints": [
+    "إشي بيتاكل.",
+    "طعمه حامض وأخضر أو أصفر."
+   ],
+   "w": "نعنع",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hejazi_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-013",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «فهيقة» باللهجة الحجازية؟",
+   "a": "حازوقة",
+   "hints": [
+    "إشي بيصير بجسمك فجأة.",
+    "بيقولوا بتروح إذا شربت مي أو حدا خوّفك."
+   ],
+   "w": "عطسة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hejazi_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «عافاك» باللهجة المغربية؟",
+   "a": "لو سمحت",
+   "hints": [
+    "كلمة أدب ومجاملة.",
+    "بتقولها لما تطلب إشي من حدا."
+   ],
+   "w": "شكرًا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Moroccan_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-015",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو يعني «علاش» باللهجة المغربية؟",
+   "a": "ليش",
+   "hints": [
+    "كلمة سؤال.",
+    "بتسأل فيها عن السبب."
+   ],
+   "w": "وين",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Moroccan_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «سبيطار» باللهجة المغربية؟",
+   "a": "مستشفى",
+   "hints": [
+    "كلمة أصلها أجنبي.",
+    "فيه دكاترة وممرّضين."
+   ],
+   "w": "مدرسة",
+   "sources": []
+  },
+  {
+   "id": "arab-dialects-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «درك» باللهجة الجزائرية؟",
+   "a": "هلّأ",
+   "hints": [
+    "إلها علاقة بالوقت.",
+    "«أنا جاي ___»."
+   ],
+   "w": "بكرا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Algerian_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «هلبا» باللهجة الليبية؟",
+   "a": "كتير",
+   "hints": [
+    "كلمة بتحكي عن الكمية.",
+    "عكسها «شوي»."
+   ],
+   "w": "قليل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Libyan_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «حوش» باللهجة الليبية؟",
+   "a": "بيت",
+   "hints": [
+    "مش نفس معناها عنّا بفلسطين.",
+    "المكان اللي بتسكن فيه العيلة كلها."
+   ],
+   "w": "ساحة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Libyan_Arabic"
+   ]
+  },
+  {
+   "id": "arab-dialects-020",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «يعيشك» باللهجة التونسية؟",
+   "a": "شكرًا",
+   "hints": [
+    "كلمة بتنقال كتير بالشارع والدكانة.",
+    "بتقولها لما حدا يعملّك معروف."
+   ],
+   "w": "لو سمحت",
+   "sources": [
+    "https://www.engagingcultures.com/7-useful-arabic-phrases-for-traveling-in-tunisia/"
+   ]
+  },
+  {
+   "id": "arab-dialects-021",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «بنين» باللهجة التونسية؟",
+   "a": "زاكي / طيّب",
+   "hints": [
+    "كلمة بتسمعها على السفرة.",
+    "بتمدح فيها الأكل."
+   ],
+   "w": "مالح",
+   "sources": [
+    "https://www.engagingcultures.com/7-useful-arabic-phrases-for-traveling-in-tunisia/"
+   ]
+  },
+  {
+   "id": "arab-dialects-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «ملاح» بالمطبخ السوداني؟",
+   "a": "طبيخ مرقة",
+   "hints": [
+    "إشي بيتاكل.",
+    "بياكلوه مع خبز «الكسرة»."
+   ],
+   "w": "حلو",
+   "sources": [
+    "https://sudanese.kitchen/recipe/mullah-base"
+   ]
+  },
+  {
+   "id": "arab-dialects-023",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو بيسمّوا السودانيين الجدّة؟",
+   "a": "حبوبة",
+   "hints": [
+    "كلمة فيها حب ودلع.",
+    "بتشبه كلمة «حبيبة»."
+   ],
+   "w": "عمّة",
+   "sources": []
+  },
+  {
+   "id": "arab-dialects-024",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو يعني «زلط» باللهجة اليمنية؟",
+   "a": "مصاري",
+   "hints": [
+    "إشي كلنا بدنا منه.",
+    "بتحطّه بالجزدان."
+   ],
+   "w": "أكل",
+   "sources": []
+  },
+  {
+   "id": "arab-dialects-025",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو يعني «مُطراق» باللهجة الصنعانية؟",
+   "a": "زقاق",
+   "hints": [
+    "إشي بالحارة.",
+    "طريق ضيّق بين البيوت."
+   ],
+   "w": "سطح البيت",
+   "sources": [
+    "https://3rabica.org/لهجة_صنعانية"
+   ]
+  }
+ ]
+}

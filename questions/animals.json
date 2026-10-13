@@ -1,0 +1,376 @@
+{
+ "category": "animals",
+ "questions": [
+  {
+   "id": "animals-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو أسرع حيوان عاليابسة؟",
+   "a": "الفهد",
+   "hints": [
+    "من عيلة القطط.",
+    "جلده منقّط أسود."
+   ],
+   "w": "النمر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cheetah"
+   ]
+  },
+  {
+   "id": "animals-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو أكبر حيوان عاش على وجه الأرض؟",
+   "a": "الحوت الأزرق",
+   "hints": [
+    "بيعيش بالبحر.",
+    "لونه على اسمه."
+   ],
+   "w": "الفيل الإفريقي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Blue_whale"
+   ]
+  },
+  {
+   "id": "animals-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو أطول حيوان بالعالم؟",
+   "a": "الزرافة",
+   "hints": [
+    "بتعيش بإفريقيا.",
+    "رقبتها طويلة كتير."
+   ],
+   "w": "الفيل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Giraffe"
+   ]
+  },
+  {
+   "id": "animals-004",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم ابن الأسد؟",
+   "a": "الشبل",
+   "hints": [
+    "بيقولوا «هذا ... من ذاك الأسد».",
+    "بيبدأ بحرف الشين."
+   ],
+   "w": "الجرو",
+   "sources": [
+    "https://forums.alkafeel.net/node/34430"
+   ]
+  },
+  {
+   "id": "animals-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو الحيوان اللي بيسمّوه «سفينة الصحراء»؟",
+   "a": "الجمل",
+   "hints": [
+    "بيصبر عالعطش أيام.",
+    "عنده سنام."
+   ],
+   "w": "الحصان",
+   "sources": []
+  },
+  {
+   "id": "animals-006",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "قدّيش رجل للعنكبوت؟",
+   "a": "ثمانية",
+   "hints": [
+    "أكتر من الحشرات.",
+    "ضعف الأربعة."
+   ],
+   "w": "ستة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Spider"
+   ]
+  },
+  {
+   "id": "animals-007",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو الحيوان اللي بيعيش بأستراليا وبتحمل أنثاه صغيرها بجيبة ببطنها؟",
+   "a": "الكنغر",
+   "hints": [
+    "بيتنقّل نطّ.",
+    "اسم ابنه بالإنجليزي «جوي»."
+   ],
+   "w": "الكوالا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Kangaroo"
+   ]
+  },
+  {
+   "id": "animals-008",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو الزاحف المشهور إنه بيغيّر لونه وكل عين بتتحرّك لحالها؟",
+   "a": "الحرباء",
+   "hints": [
+    "بيعيش عالشجر.",
+    "لسانه طويل وبيصيد فيه حشرات."
+   ],
+   "w": "السحلية",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Chameleon"
+   ]
+  },
+  {
+   "id": "animals-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم ابن الحصان؟",
+   "a": "المُهر",
+   "hints": [
+    "بيبدأ بحرف الميم.",
+    "في كتير بنات اسمهم بيشبهه مع تاء."
+   ],
+   "w": "الجحش",
+   "sources": [
+    "https://forums.alkafeel.net/node/34430"
+   ]
+  },
+  {
+   "id": "animals-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم ابن الناقة؟",
+   "a": "الحُوار",
+   "hints": [
+    "مش «الجحش» ولا «العجل».",
+    "اسمه بيشبه كلمة «حِوار» يعني نقاش."
+   ],
+   "w": "الفصيل",
+   "sources": [
+    "https://mawdoo3.com/ماذا_يسمى_صغير_الناقة"
+   ]
+  },
+  {
+   "id": "animals-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو بيمصّ طائر الشمس الفلسطيني بمنقاره الطويل من الزهور؟",
+   "a": "الرحيق",
+   "hints": [
+    "النحل كمان بيحبه.",
+    "منه بيطلع العسل."
+   ],
+   "w": "حبوب اللقاح",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Palestine_sunbird"
+   ]
+  },
+  {
+   "id": "animals-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الحيوان اللي اسمه بالإنجليزي «Palestine mountain gazelle»؟",
+   "a": "الغزال الفلسطيني",
+   "hints": [
+    "حيوان رشيق وسريع بقرون.",
+    "بيضربوا فيه المثل بجمال العيون."
+   ],
+   "w": "الوعل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Palestine_mountain_gazelle"
+   ]
+  },
+  {
+   "id": "animals-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو لون دم الأخطبوط؟",
+   "a": "أزرق",
+   "hints": [
+    "مش أحمر متلنا.",
+    "لون البحر."
+   ],
+   "w": "أخضر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Octopus"
+   ]
+  },
+  {
+   "id": "animals-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الحيوان الثديي الوحيد اللي بيقدر يطير طيران حقيقي؟",
+   "a": "الخفّاش",
+   "hints": [
+    "بيطلع بالليل.",
+    "بينام راسه لتحت."
+   ],
+   "w": "السنجاب الطائر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bat"
+   ]
+  },
+  {
+   "id": "animals-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الحيوان البحري اللي الذكر فيه هو اللي بيحمل البيض وبيولّد الصغار؟",
+   "a": "حصان البحر",
+   "hints": [
+    "سمكة صغيرة بتسبح وهي واقفة.",
+    "راسه بيشبه حيوان بري مشهور."
+   ],
+   "w": "نجم البحر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Seahorse"
+   ]
+  },
+  {
+   "id": "animals-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو أكبر طائر بالعالم؟",
+   "a": "النعامة",
+   "hints": [
+    "ما بتطير بس بتركض كتير سريع.",
+    "بيقولوا إنها بتدفن راسها بالرمل."
+   ],
+   "w": "النسر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Common_ostrich"
+   ]
+  },
+  {
+   "id": "animals-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الأكل اللي بيشكّل تقريبًا كل أكل الباندا العملاق؟",
+   "a": "الخيزران",
+   "hints": [
+    "نبتة مش لحمة.",
+    "اسمه بالإنجليزي «بامبو»."
+   ],
+   "w": "الأوكاليبتوس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Giant_panda"
+   ]
+  },
+  {
+   "id": "animals-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم صوت الحصان بالعربي؟",
+   "a": "الصهيل",
+   "hints": [
+    "مش «زئير» ولا «نهيق».",
+    "بيبدأ بحرف الصاد."
+   ],
+   "w": "النهيق",
+   "sources": [
+    "https://mawdoo3.com/أسماء_أصوات_الطيور_والحيوانات"
+   ]
+  },
+  {
+   "id": "animals-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو لون جلد الدب القطبي تحت فروه الأبيض؟",
+   "a": "أسود",
+   "hints": [
+    "عكس اللي بتتوقّعوه.",
+    "لون بيمتصّ حرارة الشمس."
+   ],
+   "w": "أبيض",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Polar_bear"
+   ]
+  },
+  {
+   "id": "animals-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو الحيوان اللي بصمات أصابعه بتشبه بصمات الإنسان لدرجة بتلخبط؟",
+   "a": "الكوالا",
+   "hints": [
+    "بيعيش بأستراليا.",
+    "بياكل ورق الأوكاليبتوس."
+   ],
+   "w": "الشمبانزي",
+   "sources": [
+    "https://www.mentalfloss.com/animals/koalas-have-fingerprints-just-humans"
+   ]
+  },
+  {
+   "id": "animals-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو الحيوان الصغير اللي بيعيش بين الصخور بفلسطين ومن أقاربه البعيدين الفيل؟",
+   "a": "الوبر الصخري",
+   "hints": [
+    "شكله بيشبه الأرنب بدون دينين طوال.",
+    "بيحب يتشمّس عالصخور جنب البحر الميت."
+   ],
+   "w": "الغرير",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Rock_hyrax"
+   ]
+  },
+  {
+   "id": "animals-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم ابن الأرنب؟",
+   "a": "الخِرنق",
+   "hints": [
+    "اسم غريب شوي.",
+    "بيبدأ بحرف الخاء."
+   ],
+   "w": "الخِشف",
+   "sources": [
+    "https://mawdoo3.com/ما_اسم_صغير_الأرنب"
+   ]
+  },
+  {
+   "id": "animals-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو الحيوان الفقاري اللي بيعيش أطول عمر معروف، ممكن مئات السنين؟",
+   "a": "قرش غرينلاند",
+   "hints": [
+    "بيعيش بالمي الباردة كتير.",
+    "اسمه على اسم جزيرة جليدية كبيرة."
+   ],
+   "w": "السلحفاة العملاقة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Greenland_shark"
+   ]
+  },
+  {
+   "id": "animals-024",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "قدّيش بيطوّل حمل أنثى الفيل تقريبًا؟",
+   "a": "حوالي سنتين",
+   "hints": [
+    "أطول بكتير من حمل الإنسان.",
+    "أكتر من سنة ونص."
+   ],
+   "w": "تسع شهور",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Elephant"
+   ]
+  },
+  {
+   "id": "animals-025",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم بيت الأسد بالعربي؟",
+   "a": "العرين",
+   "hints": [
+    "بيقولوا «دخل ... الأسد» عن الشجاع.",
+    "بيبدأ بحرف العين."
+   ],
+   "w": "الوكر",
+   "sources": []
+  }
+ ]
+}

@@ -1,0 +1,383 @@
+{
+ "category": "world-cup",
+ "questions": [
+  {
+   "id": "world-cup-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "أي دولة استضافت أول بطولة لكأس العالم عام 1930 وفازت بها؟",
+   "a": "الأوروغواي",
+   "hints": [
+    "دولة صغيرة بأمريكا الجنوبية.",
+    "جارة الأرجنتين، عاصمتها مونتيفيديو."
+   ],
+   "w": "البرازيل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "أي منتخب فاز بكأس العالم أكثر من أي منتخب آخر؟",
+   "a": "البرازيل",
+   "hints": [
+    "فاز فيها خمس مرات.",
+    "منتخب «السامبا» بالقميص الأصفر."
+   ],
+   "w": "ألمانيا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FIFA_World_Cup",
+    "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-003",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من اللاعب الوحيد الذي فاز بكأس العالم ثلاث مرات؟",
+   "a": "بيليه",
+   "hints": [
+    "فاز بـ1958 و1962 و1970.",
+    "ملك الكرة البرازيلي."
+   ],
+   "w": "مارادونا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-004",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "ما اسم الكأس الأصلية التي احتفظت بها البرازيل للأبد بعد فوزها الثالث عام 1970؟",
+   "a": "كأس جول ريميه",
+   "hints": [
+    "انسرقت سنة 1983 وما رجعت.",
+    "على اسم رئيس فرنسي سابق للفيفا."
+   ],
+   "w": "كأس هنري ديلوناي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-005",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من سجّل هدفين برأسه لفرنسا في نهائي كأس العالم 1998 أمام البرازيل؟",
+   "a": "زين الدين زيدان",
+   "hints": [
+    "لاعب جزائري الأصل.",
+    "هو نفسه اللي نطح ماتيراتسي بعد ثماني سنين."
+   ],
+   "w": "تييري هنري",
+   "sources": [
+    "https://en.wikipedia.org/wiki/1998_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "world-cup-006",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من سجّل هدفَي البرازيل في نهائي كأس العالم 2002 أمام ألمانيا؟",
+   "a": "رونالدو",
+   "hints": [
+    "مهاجم برازيلي ملقّب بـ«الظاهرة».",
+    "مش كريستيانو، البرازيلي!"
+   ],
+   "w": "ريفالدو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "world-cup-007",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من سجّل هدف فوز إسبانيا في نهائي كأس العالم 2010 أمام هولندا؟",
+   "a": "أندريس إنييستا",
+   "hints": [
+    "سجّله بالدقيقة 116 بالوقت الإضافي.",
+    "لاعب وسط برشلونة، كان يلبس رقم 8."
+   ],
+   "w": "فرناندو توريس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2010_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "world-cup-008",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما اسم الأخطبوط الذي اشتهر بتوقّع نتائج مباريات كأس العالم 2010؟",
+   "a": "بول",
+   "hints": [
+    "كان عايش بحوض أسماك بألمانيا.",
+    "اسمه قصير، متل اسم شب إنجليزي."
+   ],
+   "w": "أوتو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Paul_the_Octopus"
+   ]
+  },
+  {
+   "id": "world-cup-009",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "أغنية «واكا واكا» لشاكيرا كانت أغنية كأس العالم في أي دولة؟",
+   "a": "جنوب أفريقيا",
+   "hints": [
+    "أول مونديال بقارة أفريقيا، سنة 2010.",
+    "الدولة اللي عاصمتها بريتوريا."
+   ],
+   "w": "البرازيل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Waka_Waka_(This_Time_for_Africa)"
+   ]
+  },
+  {
+   "id": "world-cup-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "ما اسم تميمة كأس العالم 2022 في قطر؟",
+   "a": "لعيب",
+   "hints": [
+    "شكلها متل الغترة أو الشماغ الطاير.",
+    "يعني «اللاعب الماهر» بالعربي."
+   ],
+   "w": "زعبول",
+   "sources": [
+    "https://en.wikipedia.org/wiki/La%27eeb"
+   ]
+  },
+  {
+   "id": "world-cup-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من سجّل «هاتريك» في نهائي كأس العالم 2022 لكنه خسر اللقب؟",
+   "a": "كيليان مبابي",
+   "hints": [
+    "لاعب فرنسي سريع جدًا.",
+    "صار بعدين لاعب بريال مدريد."
+   ],
+   "w": "أوليفييه جيرو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "world-cup-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من اللاعب الوحيد الذي فاز بالكرة الذهبية لأفضل لاعب في كأس العالم مرتين؟",
+   "a": "ليونيل ميسي",
+   "hints": [
+    "فاز فيها 2014 و2022.",
+    "أسطورة أرجنتينية لعب لبرشلونة."
+   ],
+   "w": "كريستيانو رونالدو",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2022_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "world-cup-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من حارس المغرب الذي صدّ ركلات ترجيح إسبانيا في ثمن نهائي مونديال 2022؟",
+   "a": "ياسين بونو",
+   "hints": [
+    "لعب لإشبيلية ولعب بعدين بالهلال السعودي.",
+    "اسمه الأول «ياسين»."
+   ],
+   "w": "منير المحمدي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Morocco_national_football_team"
+   ]
+  },
+  {
+   "id": "world-cup-014",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "من مدرّب المغرب الذي قاده إلى نصف نهائي كأس العالم 2022؟",
+   "a": "وليد الركراكي",
+   "hints": [
+    "مدرب مغربي شاب، كان لاعب دفاع.",
+    "اشتهر بكلمة «ديرو النية»."
+   ],
+   "w": "وحيد خليلودزيتش",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Morocco_national_football_team"
+   ]
+  },
+  {
+   "id": "world-cup-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "أمام أي منتخب خسر المغرب في نصف نهائي كأس العالم 2022؟",
+   "a": "فرنسا",
+   "hints": [
+    "كانت حاملة اللقب وقتها.",
+    "فيها مبابي وغريزمان."
+   ],
+   "w": "كرواتيا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Morocco_national_football_team"
+   ]
+  },
+  {
+   "id": "world-cup-016",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "أي منتخبين لعبا مباراة «فضيحة خيخون» عام 1982 التي أخرجت الجزائر من البطولة؟",
+   "a": "ألمانيا الغربية والنمسا",
+   "hints": [
+    "انتهت 1-0 وتأهّل الفريقين مع بعض.",
+    "منتخبين جيران بيحكوا ألماني."
+   ],
+   "w": "ألمانيا الغربية وتشيلي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Disgrace_of_Gij%C3%B3n"
+   ]
+  },
+  {
+   "id": "world-cup-017",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "أمام أي منتخب خرجت الجزائر من ثمن نهائي كأس العالم 2014 بعد التمديد؟",
+   "a": "ألمانيا",
+   "hints": [
+    "خسرت 2-1 بالوقت الإضافي.",
+    "المنتخب اللي فاز باللقب بنفس البطولة."
+   ],
+   "w": "فرنسا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Algeria_at_the_FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-018",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "من سجّل هدف فوز تونس على فرنسا 1-0 في كأس العالم 2022؟",
+   "a": "وهبي الخزري",
+   "hints": [
+    "كان قائد المنتخب التونسي.",
+    "اسمه الأول «وهبي»."
+   ],
+   "w": "يوسف المساكني",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tunisia_at_the_FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي عام شاركت السعودية لأول مرة في كأس العالم؟",
+   "a": "1994",
+   "hints": [
+    "كانت البطولة بأمريكا ووصلت فيها لدور الـ16.",
+    "السنة اللي سجّل فيها العويران هدفه المشهور."
+   ],
+   "w": "1998",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Saudi_Arabia_at_the_FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "في أي دولة أقيم كأس العالم الذي شارك فيه العراق لأول مرة عام 1986؟",
+   "a": "المكسيك",
+   "hints": [
+    "نفس البطولة اللي سجّل فيها مارادونا «يد الله».",
+    "دولة بأمريكا الشمالية، أكلها مشهور بالتاكو."
+   ],
+   "w": "إيطاليا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Iraq_at_the_FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-021",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "أي دولتين استضافتا معًا كأس العالم 2002، أول مونديال في آسيا؟",
+   "a": "كوريا الجنوبية واليابان",
+   "hints": [
+    "دولتين بشرق آسيا.",
+    "وحدة منهن عاصمتها طوكيو."
+   ],
+   "w": "الصين واليابان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2002_FIFA_World_Cup_final"
+   ]
+  },
+  {
+   "id": "world-cup-022",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "أي منتخب فاز بكأس العالم 2026 بعد أن هزم الأرجنتين 1-0 في النهائي؟",
+   "a": "إسبانيا",
+   "hints": [
+    "هاد ثاني لقب إله بعد 2010.",
+    "أفضل لاعب بالبطولة كان «رودري» من نفس المنتخب."
+   ],
+   "w": "فرنسا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup",
+    "https://allafrica.com/stories/202607210766.html"
+   ]
+  },
+  {
+   "id": "world-cup-023",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "من هدّاف كأس العالم 2026 برصيد 10 أهداف؟",
+   "a": "كيليان مبابي",
+   "hints": [
+    "لاعب فرنسي، كان كمان هدّاف مونديال 2022.",
+    "هو نفسه اللي سجّل هاتريك بنهائي 2022."
+   ],
+   "w": "إيرلينغ هالاند",
+   "sources": [
+    "https://allafrica.com/stories/202607210766.html"
+   ]
+  },
+  {
+   "id": "world-cup-024",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "أي منتخب عربي شارك لأول مرة في تاريخه بكأس العالم عام 2026؟",
+   "a": "الأردن",
+   "hints": [
+    "منتخب «النشامى».",
+    "عاصمته عمّان."
+   ],
+   "w": "العراق",
+   "sources": [
+    "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup"
+   ]
+  },
+  {
+   "id": "world-cup-025",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "كم منتخبًا شارك في كأس العالم 2026؟",
+   "a": "48 منتخبًا",
+   "hints": [
+    "أول مرة بيكون العدد هيك كبير.",
+    "زيادة 16 عن مونديال قطر."
+   ],
+   "w": "40 منتخبًا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FIFA_World_Cup",
+    "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup"
+   ]
+  }
+ ]
+}

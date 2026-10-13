@@ -1,0 +1,380 @@
+{
+ "category": "history",
+ "questions": [
+  {
+   "id": "history-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "بأي دولة موجودة أهرامات الجيزة؟",
+   "a": "مصر",
+   "hints": [
+    "دولة عربية بإفريقيا.",
+    "قريبة من القاهرة."
+   ],
+   "w": "السودان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Giza_pyramid_complex"
+   ]
+  },
+  {
+   "id": "history-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "مين القائد اللي حرّر القدس من الصليبيين سنة 1187؟",
+   "a": "صلاح الدين الأيوبي",
+   "hints": [
+    "قائد كردي الأصل.",
+    "انتصر قبلها بمعركة حطّين."
+   ],
+   "w": "الظاهر بيبرس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Saladin"
+   ]
+  },
+  {
+   "id": "history-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو كان الاسم القديم لأرض فلسطين وما حولها؟",
+   "a": "أرض كنعان",
+   "hints": [
+    "على اسم شعب قديم سكنها.",
+    "اسم الشعب بيبدأ بحرف الكاف."
+   ],
+   "w": "أرض بابل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Canaan"
+   ]
+  },
+  {
+   "id": "history-004",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "مين الملكة المصرية المشهورة اللي كانت آخر حكّام البطالمة؟",
+   "a": "كليوباترا",
+   "hints": [
+    "قصتها مع يوليوس قيصر ومارك أنطونيو.",
+    "اسمها بيبدأ بحرف الكاف."
+   ],
+   "w": "نفرتيتي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cleopatra"
+   ]
+  },
+  {
+   "id": "history-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "مين المستكشف اللي وصل لأمريكا سنة 1492؟",
+   "a": "كريستوفر كولومبوس",
+   "hints": [
+    "إيطالي سافر باسم ملوك إسبانيا.",
+    "كان مفكّر حاله واصل عالهند."
+   ],
+   "w": "فاسكو دا غاما",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus"
+   ]
+  },
+  {
+   "id": "history-006",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم السفينة المشهورة اللي غرقت سنة 1912 بأول رحلة إلها؟",
+   "a": "تيتانيك",
+   "hints": [
+    "صدمت جبل جليد.",
+    "عملوا عنها فيلم مشهور سنة 1997."
+   ],
+   "w": "لوسيتانيا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Titanic"
+   ]
+  },
+  {
+   "id": "history-007",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم الطريق التجاري القديم اللي كان يوصل الصين بالعالم؟",
+   "a": "طريق الحرير",
+   "hints": [
+    "اسمه على اسم قماش.",
+    "قماش ناعم أصله من دودة."
+   ],
+   "w": "طريق البخور",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Silk_Road"
+   ]
+  },
+  {
+   "id": "history-008",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم الكتابة المصرية القديمة اللي كلها رسومات ورموز؟",
+   "a": "الهيروغليفية",
+   "hints": [
+    "منقوشة على جدران المعابد.",
+    "اسمها طويل وبيبدأ بحرف الهاء."
+   ],
+   "w": "المسمارية",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Egyptian_hieroglyphs"
+   ]
+  },
+  {
+   "id": "history-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين الشعب العربي القديم اللي نحت مدينة البتراء بالصخر؟",
+   "a": "الأنباط",
+   "hints": [
+    "كانوا تجّار قوافل.",
+    "اسمهم بيبدأ بحرف النون."
+   ],
+   "w": "الآراميون",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Petra"
+   ]
+  },
+  {
+   "id": "history-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم المعركة اللي انتصر فيها صلاح الدين على الصليبيين قرب طبريا؟",
+   "a": "معركة حطّين",
+   "hints": [
+    "صارت سنة 1187.",
+    "المكان بيسمّوه «قرون ...»."
+   ],
+   "w": "معركة عين جالوت",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Battle_of_Hattin"
+   ]
+  },
+  {
+   "id": "history-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين العالِم العربي صاحب «كتاب المناظر» واللي بيسمّوه أبو علم البصريات؟",
+   "a": "ابن الهيثم",
+   "hints": [
+    "عاش بالقاهرة أيام الفاطميين.",
+    "اسمه بيبدأ بـ«ابن» وبعدها حرف الهاء."
+   ],
+   "w": "ابن رشد",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ibn_al-Haytham"
+   ]
+  },
+  {
+   "id": "history-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين العالِم المسلم اللي من اسمه جاءت كلمة «خوارزمية» ومن كتابه كلمة «الجبر»؟",
+   "a": "الخوارزمي",
+   "hints": [
+    "عالِم رياضيات ببيت الحكمة ببغداد.",
+    "اسمه منسوب لمنطقة خوارزم."
+   ],
+   "w": "البيروني",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Al-Khwarizmi"
+   ]
+  },
+  {
+   "id": "history-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين ألّف كتاب «القانون في الطب»؟",
+   "a": "ابن سينا",
+   "hints": [
+    "بيسمّوه بأوروبا «أفيسينا».",
+    "لقبه «الشيخ الرئيس»."
+   ],
+   "w": "الرازي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/The_Canon_of_Medicine"
+   ]
+  },
+  {
+   "id": "history-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين الفرعون الشاب اللي انكشفت مقبرته شبه كاملة سنة 1922؟",
+   "a": "توت عنخ آمون",
+   "hints": [
+    "مات وهو صغير بالعمر.",
+    "قناعه الذهبي من أشهر الآثار بالعالم."
+   ],
+   "w": "رمسيس الثاني",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tutankhamun"
+   ]
+  },
+  {
+   "id": "history-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم الحجر اللي ساعد العلماء يفكّوا رموز الكتابة الهيروغليفية؟",
+   "a": "حجر رشيد",
+   "hints": [
+    "انكتب عليه نفس النص بتلات كتابات.",
+    "اسمه على اسم مدينة مصرية عالبحر."
+   ],
+   "w": "حجر ميشع",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Rosetta_Stone"
+   ]
+  },
+  {
+   "id": "history-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "بأي مدينة أندلسية موجود «قصر الحمراء»؟",
+   "a": "غرناطة",
+   "hints": [
+    "آخر مملكة إسلامية بالأندلس.",
+    "اسمها بيشبه اسم فاكهة حمرا."
+   ],
+   "w": "قرطبة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Alhambra"
+   ]
+  },
+  {
+   "id": "history-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين الأخوين اللي طيّروا أول طيارة بمحرّك سنة 1903؟",
+   "a": "الأخوان رايت",
+   "hints": [
+    "أمريكيين كانوا يصلّحوا بسكليتات.",
+    "اسمهم بالإنجليزي بيشبه كلمة «صحّ»."
+   ],
+   "w": "الأخوان لوميير",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wright_brothers"
+   ]
+  },
+  {
+   "id": "history-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين أول إنسان طلع عالفضاء؟",
+   "a": "يوري غاغارين",
+   "hints": [
+    "رائد فضاء سوفييتي.",
+    "طلع سنة 1961."
+   ],
+   "w": "نيل آرمسترونغ",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Yuri_Gagarin"
+   ]
+  },
+  {
+   "id": "history-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "مين الشعب القديم اللي اخترع الكتابة المسمارية؟",
+   "a": "السومريون",
+   "hints": [
+    "عاشوا بجنوب العراق.",
+    "اسمهم بيبدأ بحرف السين."
+   ],
+   "w": "الآشوريون",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cuneiform"
+   ]
+  },
+  {
+   "id": "history-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "الأبجدية اليونانية مأخوذة من أبجدية أي شعب قديم؟",
+   "a": "الفينيقيون",
+   "hints": [
+    "شعب بحّارة من ساحل الشام.",
+    "من مدنهم صور وصيدا."
+   ],
+   "w": "المصريون القدماء",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Phoenician_alphabet"
+   ]
+  },
+  {
+   "id": "history-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "مين الخليفة الأموي اللي أمر ببناء قبة الصخرة؟",
+   "a": "عبد الملك بن مروان",
+   "hints": [
+    "خلّص بناءها حوالي سنة 691م.",
+    "اسمه فيه كلمة «الملك»."
+   ],
+   "w": "الوليد بن عبد الملك",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Dome_of_the_Rock"
+   ]
+  },
+  {
+   "id": "history-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم الجامعة بمدينة فاس اللي أسّستها فاطمة الفهرية؟",
+   "a": "جامعة القرويين",
+   "hints": [
+    "بيعتبروها أقدم جامعة لسا شغّالة بالعالم.",
+    "اسمها على اسم أهل مدينة القيروان."
+   ],
+   "w": "جامعة الأزهر",
+   "sources": [
+    "https://en.wikipedia.org/wiki/University_of_al-Qarawiyyin"
+   ]
+  },
+  {
+   "id": "history-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم القصر الأموي قرب أريحا المشهور بلوحة فسيفساء «شجرة الحياة»؟",
+   "a": "قصر هشام",
+   "hints": [
+    "على اسم خليفة أموي.",
+    "اسمه التاني «خربة المفجر»."
+   ],
+   "w": "قصر المشتى",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hisham%27s_Palace"
+   ]
+  },
+  {
+   "id": "history-024",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم التل الأثري بأريحا اللي فيه بقايا من أقدم مدن العالم؟",
+   "a": "تل السلطان",
+   "hints": [
+    "جنبه عين ميّ مشهورة.",
+    "اسمه فيه لقب حاكم."
+   ],
+   "w": "تل الفول",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tell_es-Sultan"
+   ]
+  },
+  {
+   "id": "history-025",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "مين الرحّالة المغربي صاحب كتاب «تحفة النظّار في غرائب الأمصار»؟",
+   "a": "ابن بطوطة",
+   "hints": [
+    "من مدينة طنجة.",
+    "لف العالم حوالي 30 سنة."
+   ],
+   "w": "ابن جبير",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ibn_Battuta"
+   ]
+  }
+ ]
+}

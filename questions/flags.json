@@ -1,0 +1,527 @@
+{
+ "category": "flags",
+ "questions": [
+  {
+   "id": "flags-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "اليابان",
+   "hints": [
+    "بلد في آسيا.",
+    "بلد السوشي والساموراي."
+   ],
+   "w": "كوريا الجنوبية",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Japan.svg?width=1000",
+   "f": "62% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Japan",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Japan.svg"
+   ]
+  },
+  {
+   "id": "flags-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "البرازيل",
+   "hints": [
+    "بلد في أمريكا الجنوبية.",
+    "أكثر منتخب فاز بكأس العالم."
+   ],
+   "w": "البرتغال",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Brazil.svg?width=1000",
+   "f": "75% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Brazil",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Brazil.svg"
+   ]
+  },
+  {
+   "id": "flags-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "كندا",
+   "hints": [
+    "بلد في أمريكا الشمالية.",
+    "فيها شلالات نياغارا وشراب القيقب."
+   ],
+   "w": "الولايات المتحدة",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canada.svg?width=1000",
+   "f": "50% 62%",
+   "credit": "ويكيميديا كومنز · Flag of Canada",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Canada.svg"
+   ]
+  },
+  {
+   "id": "flags-004",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "تركيا",
+   "hints": [
+    "بلد بين آسيا وأوروبا.",
+    "فيها إسطنبول والبوسفور."
+   ],
+   "w": "تونس",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Turkey.svg?width=1000",
+   "f": "40% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Turkey",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Turkey.svg"
+   ]
+  },
+  {
+   "id": "flags-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "السعودية",
+   "hints": [
+    "بلد عربي في آسيا.",
+    "فيها مكة والمدينة."
+   ],
+   "w": "العراق",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saudi_Arabia.svg?width=1000",
+   "f": "50% 72%",
+   "credit": "ويكيميديا كومنز · Flag of Saudi Arabia",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Saudi_Arabia.svg"
+   ]
+  },
+  {
+   "id": "flags-006",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "لبنان",
+   "hints": [
+    "بلد عربي في آسيا، جارنا من الشمال.",
+    "بلد فيروز والأرز."
+   ],
+   "w": "قبرص",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Lebanon.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Lebanon",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Lebanon.svg"
+   ]
+  },
+  {
+   "id": "flags-007",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "مصر",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "فيها الأهرامات ونهر النيل."
+   ],
+   "w": "اليمن",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Egypt.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Egypt",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Egypt.svg"
+   ]
+  },
+  {
+   "id": "flags-008",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "لمين هالعلم؟",
+   "a": "الأردن",
+   "hints": [
+    "بلد عربي في آسيا.",
+    "فيها البترا ووادي رم."
+   ],
+   "w": "فلسطين",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Jordan.svg?width=1000",
+   "f": "17% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Jordan",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Jordan.svg"
+   ]
+  },
+  {
+   "id": "flags-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "كوريا الجنوبية",
+   "hints": [
+    "بلد في آسيا.",
+    "بلد الكيبوب وشركة سامسونج."
+   ],
+   "w": "اليابان",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Korea.svg?width=1000",
+   "f": "25% 28%",
+   "credit": "ويكيميديا كومنز · Flag of South Korea",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_South_Korea.svg"
+   ]
+  },
+  {
+   "id": "flags-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "نيبال",
+   "hints": [
+    "بلد في آسيا، علمه الوحيد بالعالم اللي مش مستطيل.",
+    "على حدوده قمة إيفرست."
+   ],
+   "w": "بوتان",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Nepal.svg?width=1000",
+   "f": "25% 35%",
+   "credit": "ويكيميديا كومنز · Flag of Nepal",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Nepal.svg"
+   ]
+  },
+  {
+   "id": "flags-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "الجزائر",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "بلد المليون شهيد."
+   ],
+   "w": "تونس",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Algeria.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Algeria",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Algeria.svg"
+   ]
+  },
+  {
+   "id": "flags-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "المغرب",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "فيها مراكش والدار البيضاء."
+   ],
+   "w": "تونس",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Morocco.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Morocco",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Morocco.svg"
+   ]
+  },
+  {
+   "id": "flags-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "تونس",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "فيها مدينة القيروان وسوسة."
+   ],
+   "w": "تركيا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Tunisia.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Tunisia",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Tunisia.svg"
+   ]
+  },
+  {
+   "id": "flags-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "العراق",
+   "hints": [
+    "بلد عربي في آسيا.",
+    "بلد دجلة والفرات."
+   ],
+   "w": "سوريا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Iraq.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Iraq",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Iraq.svg"
+   ]
+  },
+  {
+   "id": "flags-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "الإمارات",
+   "hints": [
+    "بلد عربي في الخليج.",
+    "فيها برج خليفة."
+   ],
+   "w": "الكويت",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_United_Arab_Emirates.svg?width=1000",
+   "f": "12% 50%",
+   "credit": "ويكيميديا كومنز · Flag of the United Arab Emirates",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Arab_Emirates.svg"
+   ]
+  },
+  {
+   "id": "flags-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "الكويت",
+   "hints": [
+    "بلد عربي في الخليج.",
+    "فيها أبراج مشهورة على البحر، وجارة العراق والسعودية."
+   ],
+   "w": "الإمارات",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Kuwait.svg?width=1000",
+   "f": "12% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Kuwait",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Kuwait.svg"
+   ]
+  },
+  {
+   "id": "flags-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "قطر",
+   "hints": [
+    "بلد عربي في الخليج.",
+    "استضافت كأس العالم 2022."
+   ],
+   "w": "البحرين",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Qatar.svg?width=1000",
+   "f": "35% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Qatar",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Qatar.svg"
+   ]
+  },
+  {
+   "id": "flags-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "عُمان",
+   "hints": [
+    "بلد عربي في جنوب شرق الجزيرة العربية.",
+    "عاصمتها مسقط."
+   ],
+   "w": "الإمارات",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Oman.svg?width=1000",
+   "f": "12% 15%",
+   "credit": "ويكيميديا كومنز · Flag of Oman",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Oman.svg"
+   ]
+  },
+  {
+   "id": "flags-019",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "لمين هالعلم؟",
+   "a": "قبرص",
+   "hints": [
+    "جزيرة في البحر المتوسط.",
+    "علمها فيه خريطة الجزيرة نفسها، وهي قريبة من لبنان."
+   ],
+   "w": "مالطا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Cyprus.svg?width=1000",
+   "f": "50% 45%",
+   "credit": "ويكيميديا كومنز · Flag of Cyprus",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg"
+   ]
+  },
+  {
+   "id": "flags-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "تشاد",
+   "hints": [
+    "بلد في إفريقيا.",
+    "عاصمتها إنجامينا، وعلمها توأم علم رومانيا تقريبًا."
+   ],
+   "w": "رومانيا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Chad.svg?width=1000",
+   "f": "17% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Chad",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Chad.svg"
+   ]
+  },
+  {
+   "id": "flags-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "رومانيا",
+   "hints": [
+    "بلد في أوروبا.",
+    "فيها منطقة ترانسيلفانيا، بلد قصة دراكولا."
+   ],
+   "w": "تشاد",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Romania.svg?width=1000",
+   "f": "17% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Romania",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Romania.svg"
+   ]
+  },
+  {
+   "id": "flags-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "إندونيسيا",
+   "hints": [
+    "بلد في آسيا.",
+    "أكبر بلد إسلامي بعدد السكان، وفيه جزيرة بالي."
+   ],
+   "w": "موناكو",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Indonesia.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Indonesia",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Indonesia.svg"
+   ]
+  },
+  {
+   "id": "flags-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "موناكو",
+   "hints": [
+    "بلد صغير في أوروبا.",
+    "إمارة صغيرة جنب فرنسا، مشهورة بسباق الفورمولا 1."
+   ],
+   "w": "إندونيسيا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Monaco.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Monaco",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Monaco.svg"
+   ]
+  },
+  {
+   "id": "flags-024",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "ساحل العاج",
+   "hints": [
+    "بلد في إفريقيا.",
+    "أكبر بلد بنتج الكاكاو بالعالم، وعلمها عكس علم أيرلندا."
+   ],
+   "w": "أيرلندا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Côte_d'Ivoire.svg?width=1000",
+   "f": "17% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Côte d'Ivoire",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Côte_d'Ivoire.svg"
+   ]
+  },
+  {
+   "id": "flags-025",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "السودان",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "فيها ملتقى النيل الأبيض والأزرق بالخرطوم."
+   ],
+   "w": "الأردن",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sudan.svg?width=1000",
+   "f": "15% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Sudan",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Sudan.svg"
+   ]
+  },
+  {
+   "id": "flags-026",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "البحرين",
+   "hints": [
+    "بلد عربي في الخليج.",
+    "مملكة على جزيرة، وعلمها فيه خمس رؤوس بيضا."
+   ],
+   "w": "قطر",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Bahrain.svg?width=1000",
+   "f": "25% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Bahrain",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Bahrain.svg"
+   ]
+  },
+  {
+   "id": "flags-027",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "اليمن",
+   "hints": [
+    "بلد عربي في آسيا.",
+    "فيها مدينة شبام، «مانهاتن الصحراء»."
+   ],
+   "w": "مصر",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yemen.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Yemen",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Yemen.svg"
+   ]
+  },
+  {
+   "id": "flags-028",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "ليبيا",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "عاصمتها طرابلس، بس مش طرابلس لبنان."
+   ],
+   "w": "الجزائر",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Libya.svg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Flag of Libya",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Libya.svg"
+   ]
+  },
+  {
+   "id": "flags-029",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "لمين هالعلم؟",
+   "a": "موريتانيا",
+   "hints": [
+    "بلد عربي في إفريقيا.",
+    "بلد المليون شاعر."
+   ],
+   "w": "باكستان",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Mauritania.svg?width=1000",
+   "f": "50% 8%",
+   "credit": "ويكيميديا كومنز · Flag of Mauritania",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Flag_of_Mauritania.svg"
+   ]
+  }
+ ]
+}

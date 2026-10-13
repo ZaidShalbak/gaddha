@@ -1,0 +1,378 @@
+{
+ "category": "science",
+ "questions": [
+  {
+   "id": "science-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو أقرب كوكب للشمس؟",
+   "a": "عطارد",
+   "hints": [
+    "كوكب صغير وسريع كتير.",
+    "اسمه بالإنجليزي متل اسم معدن سائل."
+   ],
+   "w": "الزهرة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solar_System"
+   ]
+  },
+  {
+   "id": "science-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم العملية اللي النبات بيصنع فيها أكله من ضو الشمس؟",
+   "a": "البناء الضوئي",
+   "hints": [
+    "بتصير بالورق الأخضر.",
+    "اسمها فيه كلمة «ضوء»."
+   ],
+   "w": "التنفّس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Photosynthesis"
+   ]
+  },
+  {
+   "id": "science-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "قدّيش عدد كواكب المجموعة الشمسية؟",
+   "a": "ثمانية",
+   "hints": [
+    "زمان كانوا يعدّوا بلوتو معهم.",
+    "أكتر من سبعة وأقل من تسعة."
+   ],
+   "w": "تسعة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solar_System"
+   ]
+  },
+  {
+   "id": "science-004",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو الكوكب اللي بيسمّوه «الكوكب الأحمر»؟",
+   "a": "المريخ",
+   "hints": [
+    "تربته فيها صدأ حديد.",
+    "أقرب جار للأرض من برّا."
+   ],
+   "w": "الزهرة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solar_System"
+   ]
+  },
+  {
+   "id": "science-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "على قدّيش درجة مئوية بيغلي الماء عند مستوى سطح البحر؟",
+   "a": "100 درجة",
+   "hints": [
+    "رقم مدوّر.",
+    "أكبر من 90 وأقل من 110."
+   ],
+   "w": "90 درجة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Boiling_point"
+   ]
+  },
+  {
+   "id": "science-006",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو أكبر كوكب بالمجموعة الشمسية؟",
+   "a": "المشتري",
+   "hints": [
+    "كوكب غازي فيه بقعة حمرا كبيرة.",
+    "خامس كوكب من الشمس."
+   ],
+   "w": "زحل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solar_System"
+   ]
+  },
+  {
+   "id": "science-007",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "مين العالِم صاحب «نظرية النسبية»؟",
+   "a": "ألبرت أينشتاين",
+   "hints": [
+    "عالِم ألماني الأصل شعره منكوش.",
+    "صاحب المعادلة E=mc²."
+   ],
+   "w": "إسحاق نيوتن",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Theory_of_relativity"
+   ]
+  },
+  {
+   "id": "science-008",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم المجرّة اللي فيها كوكب الأرض؟",
+   "a": "درب التبانة",
+   "hints": [
+    "بتبيّن بالليل متل شريط أبيض بالسما.",
+    "اسمها مرتبط بالتبن."
+   ],
+   "w": "أندروميدا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Milky_Way"
+   ]
+  },
+  {
+   "id": "science-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الرمز الكيميائي للذهب؟",
+   "a": "Au",
+   "hints": [
+    "حرفين بالإنجليزي.",
+    "من الكلمة اللاتينية «أوروم»."
+   ],
+   "w": "Ag",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Gold"
+   ]
+  },
+  {
+   "id": "science-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو أقسى مادة طبيعية معروفة؟",
+   "a": "الألماس",
+   "hints": [
+    "بيعملوا منها خواتم غالية.",
+    "أصلها كربون متل الفحم."
+   ],
+   "w": "الياقوت",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Diamond"
+   ]
+  },
+  {
+   "id": "science-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الغاز الأكتر وجودًا بالهوا اللي بنتنفّسه؟",
+   "a": "النيتروجين",
+   "hints": [
+    "مش الأكسجين، صدّقوني.",
+    "نسبته حوالي 78 بالمية."
+   ],
+   "w": "الأكسجين",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Atmosphere_of_Earth"
+   ]
+  },
+  {
+   "id": "science-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو أقرب نجم للأرض؟",
+   "a": "الشمس",
+   "hints": [
+    "سؤال فيه خدعة.",
+    "بتشوفوه كل يوم الصبح."
+   ],
+   "w": "نجم الشعرى",
+   "sources": []
+  },
+  {
+   "id": "science-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "مين العالِم اللي اكتشف البنسلين سنة 1928؟",
+   "a": "ألكسندر فليمنغ",
+   "hints": [
+    "عالِم اسكتلندي.",
+    "اكتشفه بالصدفة من عفن بصحن مختبر."
+   ],
+   "w": "لويس باستور",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Penicillin"
+   ]
+  },
+  {
+   "id": "science-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو الفيتامين اللي الجسم بيصنعه لما الجلد يتعرّض للشمس؟",
+   "a": "فيتامين د",
+   "hints": [
+    "مهم للعظام.",
+    "حرفه بيجي بعد «ج»."
+   ],
+   "w": "فيتامين ج",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Vitamin_D"
+   ]
+  },
+  {
+   "id": "science-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم الطبقة بالغلاف الجوي اللي بتحمينا من الأشعة فوق البنفسجية؟",
+   "a": "طبقة الأوزون",
+   "hints": [
+    "بيحكوا عن «ثقب» فيها.",
+    "اسمها من غاز كل جزيء فيه تلات ذرات أكسجين."
+   ],
+   "w": "طبقة الستراتوسفير",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ozone_layer"
+   ]
+  },
+  {
+   "id": "science-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو المعدن السائل اللي كانوا يحطّوه بموازين الحرارة القديمة؟",
+   "a": "الزئبق",
+   "hints": [
+    "لونه فضي ولمّاع.",
+    "اسمه متل كوكب صغير بالإنجليزي."
+   ],
+   "w": "الرصاص",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mercury_(element)"
+   ]
+  },
+  {
+   "id": "science-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو أطول عظمة بجسم الإنسان؟",
+   "a": "عظمة الفخذ",
+   "hints": [
+    "موجودة بالرجل.",
+    "فوق الركبة."
+   ],
+   "w": "عظمة الساق",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Femur"
+   ]
+  },
+  {
+   "id": "science-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "قدّيش بيحتاج ضو الشمس تقريبًا ليوصل للأرض؟",
+   "a": "8 دقائق",
+   "hints": [
+    "أقل من ربع ساعة.",
+    "أكتر من 5 دقائق بشوي."
+   ],
+   "w": "8 ثواني",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sunlight"
+   ]
+  },
+  {
+   "id": "science-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو أسخن كوكب بالمجموعة الشمسية؟",
+   "a": "الزهرة",
+   "hints": [
+    "مش الأقرب للشمس.",
+    "غلافه الجوي سميك كتير وبيحبس الحرارة."
+   ],
+   "w": "عطارد",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Venus"
+   ]
+  },
+  {
+   "id": "science-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم أصغر عظمة بجسم الإنسان؟",
+   "a": "الركاب",
+   "hints": [
+    "موجودة جوّا الأذن.",
+    "شكلها متل الحلقة اللي بيحط فيها الخيّال رجله."
+   ],
+   "w": "المطرقة",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Stapes"
+   ]
+  },
+  {
+   "id": "science-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو أكبر قمر بالمجموعة الشمسية؟",
+   "a": "غانيميد",
+   "hints": [
+    "بيدور حوالين المشتري.",
+    "أكبر من كوكب عطارد نفسه."
+   ],
+   "w": "تيتان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Ganymede_(moon)"
+   ]
+  },
+  {
+   "id": "science-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو الكوكب اللي بيدور وهو نايم على جنبه تقريبًا؟",
+   "a": "أورانوس",
+   "hints": [
+    "كوكب جليدي لونه أزرق مخضرّ.",
+    "سابع كوكب من الشمس."
+   ],
+   "w": "نبتون",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Uranus"
+   ]
+  },
+  {
+   "id": "science-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو أكتر عنصر كيميائي موجود بالكون؟",
+   "a": "الهيدروجين",
+   "hints": [
+    "أخف عنصر.",
+    "رقمه 1 بالجدول الدوري."
+   ],
+   "w": "الهيليوم",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hydrogen"
+   ]
+  },
+  {
+   "id": "science-024",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم أول قمر صناعي أطلقه الإنسان سنة 1957؟",
+   "a": "سبوتنيك 1",
+   "hints": [
+    "أطلقه الاتحاد السوفييتي.",
+    "اسمه روسي بيعني «رفيق السفر»."
+   ],
+   "w": "فوستوك 1",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sputnik_1"
+   ]
+  },
+  {
+   "id": "science-025",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو الخلايا بالدم اللي بتوقّف النزيف لما ننجرح؟",
+   "a": "الصفائح الدموية",
+   "hints": [
+    "مش الحمرا ولا البيضا.",
+    "اسمها بيذكّر بالألواح الرفيعة."
+   ],
+   "w": "كريات الدم البيضاء",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Platelet"
+   ]
+  }
+ ]
+}

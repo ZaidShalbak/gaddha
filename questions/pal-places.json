@@ -1,0 +1,383 @@
+{
+ "category": "pal-places",
+ "questions": [
+  {
+   "id": "pal-places-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو هالمكان؟",
+   "a": "قبة الصخرة",
+   "hints": [
+    "بناها الأمويين قبل أكثر من 1300 سنة.",
+    "بالقدس، وقبتها الذهبية بتنشاف من بعيد."
+   ],
+   "w": "قبة السلسلة",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Dome_of_The_Rock,_Jerusalem.jpg?width=1000",
+   "f": "50% 35%",
+   "credit": "ويكيميديا كومنز · Dome of The Rock, Jerusalem",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Dome_of_The_Rock,_Jerusalem.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-002",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو هالمكان؟",
+   "a": "المسجد الأقصى (المصلى القبلي)",
+   "hints": [
+    "بالقدس.",
+    "قبته رصاصية مش ذهبية."
+   ],
+   "w": "قبة الصخرة",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem-2013-Temple_Mount-Al-Aqsa_Mosque_(NE_exposure).jpg?width=1000",
+   "f": "50% 40%",
+   "credit": "ويكيميديا كومنز · Jerusalem-2013-Temple Mount-Al-Aqsa Mosque (NE exposure)",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Jerusalem-2013-Temple_Mount-Al-Aqsa_Mosque_(NE_exposure).jpg"
+   ]
+  },
+  {
+   "id": "pal-places-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو هالمكان؟",
+   "a": "كنيسة المهد",
+   "hints": [
+    "من أقدم الكنائس بالعالم.",
+    "في بيت لحم، وبابها صغير اسمه «باب التواضع»."
+   ],
+   "w": "كنيسة القيامة",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Church_of_the_Nativity_(Bethlehem)_05.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Church of the Nativity (Bethlehem) 05",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Church_of_the_Nativity_(Bethlehem)_05.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-004",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو هالمكان؟",
+   "a": "كنيسة القيامة",
+   "hints": [
+    "في البلدة القديمة بالقدس.",
+    "مفتاحها من مئات السنين مع عائلات مقدسية مسلمة."
+   ],
+   "w": "كنيسة المهد",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Church_of_the_Holy_Sepulchre_-_Ilan_Arad.jpg?width=1000",
+   "f": "50% 45%",
+   "credit": "ويكيميديا كومنز · Church of the Holy Sepulchre - Ilan Arad",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Church_of_the_Holy_Sepulchre_-_Ilan_Arad.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو هالمكان؟",
+   "a": "الحرم الإبراهيمي",
+   "hints": [
+    "مبنى محاط بسور ضخم من حجارة كبيرة كثير.",
+    "في الخليل."
+   ],
+   "w": "المسجد العمري",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Hebron_Cave_of_the_Patriarchs.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Hebron Cave of the Patriarchs",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Hebron_Cave_of_the_Patriarchs.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-006",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو هالمكان؟",
+   "a": "قصر هشام",
+   "hints": [
+    "آثار من زمن الأمويين.",
+    "في أريحا، وفيه لوحة فسيفساء «شجرة الحياة»."
+   ],
+   "w": "تل السلطان",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Hisham's_palace_Jericho.JPG?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Hisham's palace Jericho",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Hisham's_palace_Jericho.JPG"
+   ]
+  },
+  {
+   "id": "pal-places-007",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "وين هاد؟",
+   "a": "سبسطية",
+   "hints": [
+    "آثار رومانية على تلة.",
+    "بلدة قريبة من نابلس."
+   ],
+   "w": "قيسارية",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Sebastia.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Sebastia",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Sebastia.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-008",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو هالمكان؟",
+   "a": "دير مار سابا",
+   "hints": [
+    "دير معلّق على صخر وادي.",
+    "بالبرية شرق بيت لحم."
+   ],
+   "w": "دير قرنطل",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Palestine-2013-Aerial-Mar_Saba_Monastery.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Palestine-2013-Aerial-Mar Saba Monastery",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Palestine-2013-Aerial-Mar_Saba_Monastery.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "وين هاد؟",
+   "a": "أسوار عكا",
+   "hints": [
+    "مدينة ساحلية قديمة.",
+    "نابليون ما قدر عليها، وبيقولوا «يا خوف … من هدير البحر»."
+   ],
+   "w": "أسوار القدس",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Walls_of_Acre.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Walls of Acre",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Walls_of_Acre.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-010",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو هالمكان؟",
+   "a": "جامع الجزار",
+   "hints": [
+    "مسجد عثماني انبنى سنة 1781.",
+    "في مدينة ساحلية بشمال فلسطين، واسمه على اسم واليها أحمد باشا."
+   ],
+   "w": "جامع المحمودية",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/El-Jazzar_Mosque_(Acre)_2008-01.jpg?width=1000",
+   "f": "50% 40%",
+   "credit": "ويكيميديا كومنز · El-Jazzar Mosque (Acre) 2008-01",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:El-Jazzar_Mosque_(Acre)_2008-01.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو هالمكان؟",
+   "a": "برج الساعة في يافا",
+   "hints": [
+    "برج انبنى أيام العثمانيين قبل حوالي 120 سنة.",
+    "في المدينة المشهورة بالبرتقال."
+   ],
+   "w": "برج الساعة في نابلس",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Jaffa_Clock_Tower,_Tel_Aviv-Jaffa_2019.jpg?width=1000",
+   "f": "50% 40%",
+   "credit": "ويكيميديا كومنز · Jaffa Clock Tower, Tel Aviv-Jaffa 2019",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Jaffa_Clock_Tower,_Tel_Aviv-Jaffa_2019.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "وين هاد؟",
+   "a": "بحيرة طبريا",
+   "hints": [
+    "أكبر بحيرة مية حلوة بفلسطين.",
+    "بالجليل، وعلى شطّها مدينة بنفس الاسم."
+   ],
+   "w": "البحر الميت",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Tiberias_(Sea_of_Galilee),_Northern_Israel.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Lake Tiberias (Sea of Galilee), Northern Israel",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Lake_Tiberias_(Sea_of_Galilee),_Northern_Israel.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-013",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "وين هاد؟",
+   "a": "البحر الميت",
+   "hints": [
+    "ميّته مالحة كثير.",
+    "أوطى نقطة على اليابسة بالعالم."
+   ],
+   "w": "بحيرة طبريا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Dead_Sea,_stones_covered_by_salt.JPG?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Dead Sea, stones covered by salt",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Dead_Sea,_stones_covered_by_salt.JPG"
+   ]
+  },
+  {
+   "id": "pal-places-014",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو هالمكان؟",
+   "a": "تل السلطان",
+   "hints": [
+    "من أقدم المدن بالعالم.",
+    "في أريحا، وفيه برج حجري عمره آلاف السنين."
+   ],
+   "w": "قصر هشام",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Tell_es-Sultan,_Jericho,_Palestine2.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Tell es-Sultan, Jericho, Palestine2",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Tell_es-Sultan,_Jericho,_Palestine2.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-015",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "وين هاد؟",
+   "a": "البلدة القديمة في نابلس",
+   "hints": [
+    "أسواق وحارات قديمة بمدينة بين جبلين.",
+    "بلد الكنافة والصابون."
+   ],
+   "w": "البلدة القديمة في الخليل",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Nablus_Old_Town_street.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Nablus Old Town street",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Nablus_Old_Town_street.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-016",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو هالمكان؟",
+   "a": "باب العامود",
+   "hints": [
+    "بوابة بسور القدس.",
+    "أشهر أبواب البلدة القديمة، ومنه بتفوت على سوق خان الزيت."
+   ],
+   "w": "باب الخليل",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Damascus_Gate_Jerusalem.jpg?width=1000",
+   "f": "50% 45%",
+   "credit": "ويكيميديا كومنز · Damascus Gate Jerusalem",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Damascus_Gate_Jerusalem.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو هالمكان؟",
+   "a": "دير قرنطل (جبل التجربة)",
+   "hints": [
+    "دير محفور بجبل.",
+    "في أريحا، وبتطلعله بالتلفريك."
+   ],
+   "w": "دير مار سابا",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Monastery_of_the_Temptation_(Jeriho).jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Monastery of the Temptation (Jeriho)",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Monastery_of_the_Temptation_(Jeriho).jpg"
+   ]
+  },
+  {
+   "id": "pal-places-018",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو هالمكان؟",
+   "a": "مقام النبي موسى",
+   "hints": [
+    "مقام قديم بالبرية.",
+    "بين القدس وأريحا، وإله موسم شعبي كل سنة."
+   ],
+   "w": "مقام النبي يونس",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Mosque_of_the_shrine_of_the_Prophet_Musa.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Mosque of the shrine of the Prophet Musa",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Mosque_of_the_shrine_of_the_Prophet_Musa.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو هالمكان؟",
+   "a": "جبل الفريديس (هيروديون)",
+   "hints": [
+    "جبل شكله مخروط مقطوع راسه، وفوقه قلعة قديمة.",
+    "جنوب شرق بيت لحم."
+   ],
+   "w": "تل السلطان",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Herodium_from_above_2.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Herodium from above 2",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Herodium_from_above_2.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-020",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "وين هاد؟",
+   "a": "ساحة المهد",
+   "hints": [
+    "ساحة بتتزين بشجرة ميلاد كبيرة كل سنة.",
+    "في بيت لحم، قدام أقدم كنيسة فيها."
+   ],
+   "w": "ميدان المنارة",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Manger_square_on_Christmas.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Manger square on Christmas",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Manger_square_on_Christmas.jpg"
+   ]
+  },
+  {
+   "id": "pal-places-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو هالمكان؟",
+   "a": "بئر يعقوب",
+   "hints": [
+    "بئر قديم عليه كنيسة.",
+    "في نابلس."
+   ],
+   "w": "بئر السبع",
+   "img": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacob's_Well_in_2013.jpg?width=1000",
+   "f": "50% 50%",
+   "credit": "ويكيميديا كومنز · Jacob's Well in 2013",
+   "sources": [
+    "https://commons.wikimedia.org/wiki/File:Jacob's_Well_in_2013.jpg"
+   ]
+  }
+ ]
+}

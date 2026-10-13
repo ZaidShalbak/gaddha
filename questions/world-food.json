@@ -1,0 +1,381 @@
+{
+ "category": "world-food",
+ "questions": [
+  {
+   "id": "world-food-001",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "السوشي أكلة مشهورة من أي بلد؟",
+   "a": "اليابان",
+   "hints": [
+    "بلد بآسيا.",
+    "عاصمتها طوكيو."
+   ],
+   "w": "الصين",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sushi"
+   ]
+  },
+  {
+   "id": "world-food-002",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "الباييا، طبق الرز الأصفر بثمار البحر، من أي بلد؟",
+   "a": "إسبانيا",
+   "hints": [
+    "بلد أوروبي.",
+    "أصلها من منطقة فالنسيا."
+   ],
+   "w": "إيطاليا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Paella"
+   ]
+  },
+  {
+   "id": "world-food-003",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "الكبسة بتُعتبر الطبق الوطني لأي دولة؟",
+   "a": "السعودية",
+   "hints": [
+    "دولة خليجية.",
+    "أكبر دولة بالجزيرة العربية."
+   ],
+   "w": "الإمارات",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Kabsa"
+   ]
+  },
+  {
+   "id": "world-food-004",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "التاكو بالتورتيلا والحشوة من أي بلد؟",
+   "a": "المكسيك",
+   "hints": [
+    "بأمريكا الشمالية.",
+    "بلد الصومبريرو."
+   ],
+   "w": "إسبانيا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Taco"
+   ]
+  },
+  {
+   "id": "world-food-005",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو المكوّن الأساسي بصلصة «الغواكامولي»؟",
+   "a": "الأفوكادو",
+   "hints": [
+    "فاكهة خضرا.",
+    "جواتها بزرة كبيرة."
+   ],
+   "w": "الخيار",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Guacamole"
+   ]
+  },
+  {
+   "id": "world-food-006",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو اسم الجبنة الإيطالية البيضا المطّاطية اللي بتنحطّ عالبيتزا؟",
+   "a": "الموتزاريلا",
+   "hints": [
+    "بتمطّ لما تسخن.",
+    "اسمها بيبدأ بحرف الميم."
+   ],
+   "w": "البارميزان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mozzarella"
+   ]
+  },
+  {
+   "id": "world-food-007",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "«فيش أند تشيبس» (سمك وبطاطا مقلية) أكلة مشهورة بأي بلد؟",
+   "a": "بريطانيا",
+   "hints": [
+    "بلد أوروبي عالجزيرة.",
+    "عاصمتها لندن."
+   ],
+   "w": "أمريكا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fish_and_chips"
+   ]
+  },
+  {
+   "id": "world-food-008",
+   "status": "draft",
+   "difficulty": 1,
+   "q": "شو الأكلة المغاربية المعمولة من حبيبات السميد المفوّرة؟",
+   "a": "الكسكسي",
+   "hints": [
+    "بتنطبخ عالبخار.",
+    "بتنوكل مع خضرة ولحمة بالمغرب والجزائر وتونس."
+   ],
+   "w": "البرغل",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Couscous"
+   ]
+  },
+  {
+   "id": "world-food-009",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "الكيمتشي، الملفوف المخلّل الحار، من أي بلد؟",
+   "a": "كوريا",
+   "hints": [
+    "بشرق آسيا.",
+    "جارة اليابان."
+   ],
+   "w": "اليابان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Kimchi"
+   ]
+  },
+  {
+   "id": "world-food-010",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "البوتين (بطاطا مقلية مع جبنة وصلصة مرق) من أي بلد؟",
+   "a": "كندا",
+   "hints": [
+    "بأمريكا الشمالية.",
+    "من مقاطعة كيبيك."
+   ],
+   "w": "فرنسا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Poutine"
+   ]
+  },
+  {
+   "id": "world-food-011",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "الملوخية بالأرانب أكلة مشهورة بأي بلد؟",
+   "a": "مصر",
+   "hints": [
+    "دولة عربية بإفريقيا.",
+    "كمان مشهورين بالكشري والفول."
+   ],
+   "w": "سوريا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mulukhiyah"
+   ]
+  },
+  {
+   "id": "world-food-012",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "الفوندو، جبنة ذايبة بنغمّس فيها خبز، من أي بلد؟",
+   "a": "سويسرا",
+   "hints": [
+    "بلد أوروبي فيه جبال الألب.",
+    "مشهور بالساعات والشوكولاتة."
+   ],
+   "w": "فرنسا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fondue"
+   ]
+  },
+  {
+   "id": "world-food-013",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو بيسمّوا الفلافل بمصر؟",
+   "a": "الطعمية",
+   "hints": [
+    "بيعملوها من الفول مش الحمّص.",
+    "اسمها من كلمة «طعم»."
+   ],
+   "w": "الفول المدمّس",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Falafel"
+   ]
+  },
+  {
+   "id": "world-food-014",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم طبق الرز باللحمة والبهارات المشهور بالهند وباكستان؟",
+   "a": "البرياني",
+   "hints": [
+    "بيشبه الكبسة شوي.",
+    "اسمه بيبدأ بحرف الباء."
+   ],
+   "w": "الكاري",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Biryani"
+   ]
+  },
+  {
+   "id": "world-food-015",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو البهار اللي بيعطي الباييا لونها الأصفر تقليديًا؟",
+   "a": "الزعفران",
+   "hints": [
+    "من أغلى البهارات بالعالم.",
+    "خيوط حمرا من زهرة."
+   ],
+   "w": "الكركم",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Paella",
+    "https://en.wikipedia.org/wiki/Saffron"
+   ]
+  },
+  {
+   "id": "world-food-016",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "كلمة «همبرغر» جاية من اسم أي مدينة؟",
+   "a": "هامبورغ",
+   "hints": [
+    "مدينة ألمانية.",
+    "فيها نادي كرة قدم مشهور اسمه على اسمها."
+   ],
+   "w": "فرانكفورت",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hamburger"
+   ]
+  },
+  {
+   "id": "world-food-017",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "المسقوف، السمك المشوي عالحطب، أكلة مشهورة بأي بلد؟",
+   "a": "العراق",
+   "hints": [
+    "بلد فيه نهرين.",
+    "عاصمته بغداد."
+   ],
+   "w": "اليمن",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Masgouf"
+   ]
+  },
+  {
+   "id": "world-food-018",
+   "status": "draft",
+   "difficulty": 2,
+   "q": "شو اسم الخبز الهندي اللي بينخبز بفرن «التنّور»؟",
+   "a": "النان",
+   "hints": [
+    "خبز طري وبيتقدّم مع الكاري.",
+    "اسمه كلمة قصيرة من تلات حروف."
+   ],
+   "w": "التشاباتي",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Naan"
+   ]
+  },
+  {
+   "id": "world-food-019",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "الغولاش، يخنة اللحمة بالبابريكا، من أي بلد؟",
+   "a": "هنغاريا (المجر)",
+   "hints": [
+    "بلد بوسط أوروبا.",
+    "عاصمته بودابست."
+   ],
+   "w": "النمسا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Goulash"
+   ]
+  },
+  {
+   "id": "world-food-020",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم الشوربة الإسبانية الباردة المعمولة من البندورة والخضرة النيّة؟",
+   "a": "الغازباتشو",
+   "hints": [
+    "بتنشرب بالصيف بالأندلس.",
+    "اسمها بيبدأ بحرف الغين."
+   ],
+   "w": "المينستروني",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Gazpacho"
+   ]
+  },
+  {
+   "id": "world-food-021",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "«الفو»، شوربة النودلز بالمرق، أكلة مشهورة بأي بلد؟",
+   "a": "فيتنام",
+   "hints": [
+    "بجنوب شرق آسيا.",
+    "عاصمته هانوي."
+   ],
+   "w": "تايلاند",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Pho"
+   ]
+  },
+  {
+   "id": "world-food-022",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "قهوة «الموكا» اسمها جاي من ميناء بأي بلد عربي؟",
+   "a": "اليمن",
+   "hints": [
+    "بلد بجنوب الجزيرة العربية.",
+    "اسم الميناء «المخا»."
+   ],
+   "w": "عُمان",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mocha_coffee"
+   ]
+  },
+  {
+   "id": "world-food-023",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "«الإنجيرا»، الخبز الإسفنجي الحامض، أكلة مشهورة بأي بلد؟",
+   "a": "إثيوبيا",
+   "hints": [
+    "بلد بالقرن الإفريقي.",
+    "عاصمته أديس أبابا."
+   ],
+   "w": "الصومال",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Injera"
+   ]
+  },
+  {
+   "id": "world-food-024",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "بأي مدينة إيطالية انولدت بيتزا «مارغريتا»؟",
+   "a": "نابولي",
+   "hints": [
+    "مدينة بجنوب إيطاليا.",
+    "جنبها بركان فيزوف."
+   ],
+   "w": "روما",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Pizza_Margherita"
+   ]
+  },
+  {
+   "id": "world-food-025",
+   "status": "draft",
+   "difficulty": 3,
+   "q": "شو اسم الطبق الياباني من شرايح السمك النيّ بدون رز؟",
+   "a": "الساشيمي",
+   "hints": [
+    "مش السوشي.",
+    "بيبدأ بحرف السين كمان."
+   ],
+   "w": "التمبورا",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sashimi"
+   ]
+  }
+ ]
+}
