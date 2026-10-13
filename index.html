@@ -34,6 +34,12 @@ h1,h2,h3,p{margin:0}
 .t1{--team:var(--b);--teamc:var(--b);--on:#fff;--tint:var(--bt);--tsh:rgba(240,71,90,.3)}
 .app{min-height:100%;display:flex;flex-direction:column;gap:var(--gap);padding:env(safe-area-inset-top,0px) clamp(14px,3vw,40px) 18px;max-width:1440px;margin-inline:auto}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px}
+.menuwrap{position:relative}
+.menubtn{font-size:1.4em;line-height:1;font-weight:900;letter-spacing:.05em}
+.menu{position:absolute;top:calc(100% + 8px);inset-inline-end:0;z-index:40;background:#fff;border-radius:18px;box-shadow:0 18px 40px rgba(22,22,22,.18);padding:8px;display:flex;flex-direction:column;gap:6px;min-width:190px}
+.menu[hidden]{display:none}
+.menu .btn{justify-content:flex-start;width:100%;box-shadow:none;background:var(--bg)}
+.menu .btn.quit{color:#c92a3a}
 .brand{display:flex;align-items:baseline;gap:10px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
 .wm{font-weight:900;font-size:1.9em;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .brand small{font-size:.6em;font-weight:800;letter-spacing:.24em;color:var(--mut)}
@@ -873,6 +879,7 @@ details.more[open] summary{margin-bottom:10px}
   .qrtext b{font-size:1.8em}
   .qrtext .row .btn.big{flex:0 1 auto;padding-inline:3em}
   .finalwrap{display:grid;grid-template-columns:1fr 1.25fr;align-items:stretch}
+  .qmain .qcard{flex:1 1 auto}
   .wagers{grid-template-columns:1fr}
   .wager{padding:24px 28px}
   .endbox{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:stretch}
@@ -890,6 +897,25 @@ details.more[open] summary{margin-bottom:10px}
   .hcard .desc{font-size:.7em}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* TV-sized screens: last so it wins */
+@media (min-width:1400px) and (min-height:760px){
+  .qcard{min-height:40vh}
+  .qcard p{font-size:clamp(2.6rem,3.7vw,4.8rem);line-height:1.45}
+  .panel .score{font-size:4.4rem}
+  .panel .nm>span{font-size:1.45em}
+  .hl .tile{width:40px;height:40px;border-radius:11px}
+  .hl small{font-size:15px}
+  .q:not(.solo){grid-template-columns:330px minmax(0,1fr)}
+  .tring{flex-direction:column;justify-content:center;padding:18px}
+  .dial{width:150px;height:150px}
+  .dial .num{font-size:3.2em}
+  .tring.low .dial .num{color:var(--b)}
+  .answer strong{font-size:clamp(4rem,6vw,7rem)}
+  .qbtns .btn{min-height:72px;font-size:1.15em}
+  .notes .note span{font-size:1.5em}
+  .qinfo{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+  .qinfo .val{align-self:stretch}
+}
 </style>
 
 </head>
@@ -898,7 +924,14 @@ details.more[open] summary{margin-bottom:10px}
 <div class="app" dir="rtl" lang="ar">
   <header class="top" id="top">
     <button type="button" class="brand" data-act="home" aria-label="قدّها، الصفحة الرئيسية"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
-    <span class="row" style="gap:8px"><button type="button" class="btn sm quit" id="quitbtn" data-act="quit" hidden>إنهاء اللعبة</button><button type="button" class="btn sm" id="hostbtn" data-act="host" hidden>جوال المضيف</button><button type="button" class="btn sm acct" data-act="acct" hidden>دخول</button><button type="button" class="btn sm iconbtn" data-act="mute"></button><button type="button" class="btn sm" id="fs" data-act="fs">ملء الشاشة</button></span>
+    <span class="row topacts" style="gap:8px"><button type="button" class="btn sm iconbtn" data-act="mute"></button>
+      <span class="menuwrap"><button type="button" class="btn sm iconbtn menubtn" data-act="menu" aria-haspopup="true" aria-expanded="false" aria-label="القائمة">⋯</button>
+        <span class="menu" id="topmenu" hidden role="menu">
+          <button type="button" class="btn sm" id="hostbtn" data-act="host" role="menuitem" hidden>جوال المضيف</button>
+          <button type="button" class="btn sm acct" data-act="acct" role="menuitem" hidden>دخول</button>
+          <button type="button" class="btn sm" id="fs" data-act="fs" role="menuitem">ملء الشاشة</button>
+          <button type="button" class="btn sm quit" id="quitbtn" data-act="quit" role="menuitem" hidden>إنهاء اللعبة</button>
+        </span></span></span>
   </header>
 
   <main class="screen" id="home">
@@ -2178,6 +2211,7 @@ const ACT={
   grp(b){const g=b.dataset.g,i=skip.indexOf(g);if(i>=0)skip.splice(i,1);else skip.push(g);store.set('gaddha.skip',skip);paintSetup()},
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
   mute(){setMute(!muted);if(!muted)SFX.pop()},
+  menu(b){const m=$('topmenu'),open=m.hidden;m.hidden=!open;b.setAttribute('aria-expanded',String(open))},
   'reset-seen'(){if(!confirm('نرجّع كل الأسئلة كأنها جديدة؟'))return;seen=new Set();try{localStorage.removeItem('gaddha.seen')}catch(e){}paintSetup();toast('رجعت كل الأسئلة جديدة.')},
   circle(b){circle=b.dataset.c;try{localStorage.setItem(CIR_KEY,circle)}catch(e){};famSync();SFX.pop();render()},
   'fam-open'(){view='family';render();window.scrollTo(0,0);if(REMOTE)famPull(true)},
@@ -2415,6 +2449,7 @@ document.addEventListener('input',e=>{if(!e.target||e.target.id!=='bidq'||!S||!S
   if(hits.length>3){box.innerHTML='<span class="mut" style="font-weight:700">في أكتر من جواب بيبلّش هيك. كمّلوا حرف كمان.</span>';return}
   box.innerHTML=hits.length?hits.map(it=>`<button type="button" class="bchip" data-act="bid-tap" data-i="${it.i}">${esc(it.t)}</button>`).join(''):'<span class="mut" style="font-weight:700">مش بالقائمة. إذا الجواب صح، استعملوا «+ جواب صح مش بالقائمة».</span>';
 });
+document.addEventListener('click',e=>{const tm=$('topmenu');if(tm&&!tm.hidden&&!e.target.closest('.menuwrap')){tm.hidden=true;const mb=document.querySelector('.menubtn');mb&&mb.setAttribute('aria-expanded','false')}else if(tm&&!tm.hidden&&e.target.closest('#topmenu [data-act]')){setTimeout(()=>{tm.hidden=true},0)}});
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-act]');
   if(!b||b.disabled||!ACT[b.dataset.act])return;
