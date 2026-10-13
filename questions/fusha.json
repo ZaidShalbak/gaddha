@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "fusha-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «بندورة»؟",
    "a": "طماطم",
@@ -16,7 +16,7 @@
   },
   {
    "id": "fusha-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «بوظة»؟",
    "a": "مثلّجات",
@@ -29,7 +29,7 @@
   },
   {
    "id": "fusha-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «شبّاك»؟",
    "a": "نافذة",
@@ -42,7 +42,7 @@
   },
   {
    "id": "fusha-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «كندرة»؟",
    "a": "حذاء",
@@ -55,7 +55,7 @@
   },
   {
    "id": "fusha-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «مخدّة»؟",
    "a": "وسادة",
@@ -68,7 +68,7 @@
   },
   {
    "id": "fusha-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «مبارح»؟",
    "a": "أمس",
@@ -81,7 +81,7 @@
   },
   {
    "id": "fusha-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «هسّا»؟",
    "a": "الآن",
@@ -94,7 +94,7 @@
   },
   {
    "id": "fusha-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بالفصحى «ليش»؟",
    "a": "لماذا",
@@ -107,7 +107,7 @@
   },
   {
    "id": "fusha-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «بشكير»؟",
    "a": "منشفة",
@@ -120,7 +120,7 @@
   },
   {
    "id": "fusha-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «جزدان»؟",
    "a": "محفظة",
@@ -133,7 +133,7 @@
   },
   {
    "id": "fusha-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «شنتة»؟",
    "a": "حقيبة",
@@ -146,7 +146,7 @@
   },
   {
    "id": "fusha-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «طنجرة»؟",
    "a": "قِدْر",
@@ -159,7 +159,7 @@
   },
   {
    "id": "fusha-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «عجقة»؟",
    "a": "ازدحام",
@@ -172,7 +172,7 @@
   },
   {
    "id": "fusha-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «بلّش»؟",
    "a": "بدأ",
@@ -185,7 +185,7 @@
   },
   {
    "id": "fusha-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «برندة»؟",
    "a": "شُرفة",
@@ -198,7 +198,7 @@
   },
   {
    "id": "fusha-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «كنبة»؟",
    "a": "أريكة",
@@ -211,7 +211,7 @@
   },
   {
    "id": "fusha-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «سطل»؟",
    "a": "دلو",
@@ -224,7 +224,7 @@
   },
   {
    "id": "fusha-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بالفصحى «تخت»؟",
    "a": "سرير",
@@ -237,7 +237,7 @@
   },
   {
    "id": "fusha-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «سندويشة»؟",
    "a": "شطيرة",
@@ -250,7 +250,7 @@
   },
   {
    "id": "fusha-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «شوفير»؟",
    "a": "سائق",
@@ -263,7 +263,7 @@
   },
   {
    "id": "fusha-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «برداية»؟",
    "a": "ستارة",
@@ -276,7 +276,7 @@
   },
   {
    "id": "fusha-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «بنطلون»؟",
    "a": "سروال",
@@ -289,7 +289,7 @@
   },
   {
    "id": "fusha-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «كمبيوتر»؟",
    "a": "حاسوب",
@@ -302,7 +302,7 @@
   },
   {
    "id": "fusha-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «مريول» المدرسة؟",
    "a": "مِئزَر",
@@ -315,7 +315,7 @@
   },
   {
    "id": "fusha-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو بالفصحى «بلكي»؟",
    "a": "ربّما",

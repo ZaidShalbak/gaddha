@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "hazazeer-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي إله أسنان وما بيعضّ؟",
    "a": "المشط",
@@ -16,7 +16,7 @@
   },
   {
    "id": "hazazeer-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي إله وجّ وعقارب وما بيلسع؟",
    "a": "الساعة",
@@ -29,7 +29,7 @@
   },
   {
    "id": "hazazeer-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي بيضوّي وبيبكي، وكل ما ضوّى قصر؟",
    "a": "الشمعة",
@@ -42,7 +42,7 @@
   },
   {
    "id": "hazazeer-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي كل ما غسلت فيه بيوسخ؟",
    "a": "المي",
@@ -55,7 +55,7 @@
   },
   {
    "id": "hazazeer-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي بيكتب وما بيقرأ؟",
    "a": "القلم",
@@ -68,7 +68,7 @@
   },
   {
    "id": "hazazeer-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شي فيه مدن بلا بيوت، وبحور بلا مي، وجبال بلا حجار؟",
    "a": "الخريطة",
@@ -81,7 +81,7 @@
   },
   {
    "id": "hazazeer-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي إله أوراق وما هو شجرة، وإله جلد وما هو حيوان؟",
    "a": "الكتاب",
@@ -94,7 +94,7 @@
   },
   {
    "id": "hazazeer-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي بيلحقك وين ما رحت، وما بتقدر تمسكه، وبيختفي بالعتمة؟",
    "a": "الظل",
@@ -107,7 +107,7 @@
   },
   {
    "id": "hazazeer-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي إله راس وما إله عيون، وإذا حكّيته بيولّع؟",
    "a": "عود الكبريت",
@@ -120,7 +120,7 @@
   },
   {
    "id": "hazazeer-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شي إذا أكلته كله بتستفيد، وإذا أكلت نصّه بتموت؟",
    "a": "السمسم",
@@ -133,7 +133,7 @@
   },
   {
    "id": "hazazeer-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شي إذا حطّيته بالتلاجة بيضلّه حار؟",
    "a": "الفلفل الحار",
@@ -146,7 +146,7 @@
   },
   {
    "id": "hazazeer-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي إله لسان وما بيحكي، وبيمشي معك وما بيشوف؟",
    "a": "الحذاء",
@@ -159,7 +159,7 @@
   },
   {
    "id": "hazazeer-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي بياكل وما بيشبع، وإذا شرب مي بيموت؟",
    "a": "النار",
@@ -172,7 +172,7 @@
   },
   {
    "id": "hazazeer-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي كلّه تقوب، وبرضو بيحمل مي؟",
    "a": "الإسفنجة",
@@ -185,7 +185,7 @@
   },
   {
    "id": "hazazeer-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي برّاته أخضر، وجوّاته أحمر، وبزره أسود؟",
    "a": "البطيخ",
@@ -198,7 +198,7 @@
   },
   {
    "id": "hazazeer-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي بينشّفك وهو بيتبلّل؟",
    "a": "المنشفة",
@@ -211,7 +211,7 @@
   },
   {
    "id": "hazazeer-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شي بتشتريه أسود، وبتستعمله أحمر، وبترميه رمادي؟",
    "a": "الفحم",
@@ -224,7 +224,7 @@
   },
   {
    "id": "hazazeer-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شي كل ما قرّبت عليه بيبعد عنك؟",
    "a": "الأفق",
@@ -237,7 +237,7 @@
   },
   {
    "id": "hazazeer-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "أخفّ من الريشة، بس أقوى زلمة ما بيقدر يمسكه أكتر من كم دقيقة؟",
    "a": "النَّفَس",
@@ -250,7 +250,7 @@
   },
   {
    "id": "hazazeer-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي إله أربع إجرين وما بيمشي، وبنحطّ عليه الأكل؟",
    "a": "الطاولة",
@@ -263,7 +263,7 @@
   },
   {
    "id": "hazazeer-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي بيطلع بالليل بلا ما حدا يعزمه، وبيختفي بالنهار بلا ما حدا يسرقه؟",
    "a": "النجوم",
@@ -276,7 +276,7 @@
   },
   {
    "id": "hazazeer-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي بيحمل بيته على ضهره، وبيطلع بعد الشتوية، وإله قرنين صغار؟",
    "a": "الحلزون",
@@ -289,7 +289,7 @@
   },
   {
    "id": "hazazeer-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شي بيدقّ ليل نهار، وما حدا بيفتحله؟",
    "a": "القلب",
@@ -302,7 +302,7 @@
   },
   {
    "id": "hazazeer-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شي بيلفّ حوالين البيت كله، وهو ما بيتحرّك من محلّه؟",
    "a": "السور",
@@ -315,7 +315,7 @@
   },
   {
    "id": "hazazeer-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شي بنفتحه لما تشتّي، وبنسكّره لما توقف؟",
    "a": "الشمسية",

@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "arab-dialects-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «باجر» باللهجة الخليجية؟",
    "a": "بكرا",
@@ -18,7 +18,7 @@
   },
   {
    "id": "arab-dialects-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بيسمّوا المصريين الطاولة؟",
    "a": "ترابيزة",
@@ -31,7 +31,7 @@
   },
   {
    "id": "arab-dialects-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «جزمة» باللهجة المصرية؟",
    "a": "صبّاط / كندرة",
@@ -46,7 +46,7 @@
   },
   {
    "id": "arab-dialects-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «إزّيك» باللهجة المصرية؟",
    "a": "كيفك",
@@ -59,7 +59,7 @@
   },
   {
    "id": "arab-dialects-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «كوبري» باللهجة المصرية؟",
    "a": "جسر",
@@ -72,7 +72,7 @@
   },
   {
    "id": "arab-dialects-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو بيسمّي العراقيين الرز؟",
    "a": "تمّن",
@@ -87,7 +87,7 @@
   },
   {
    "id": "arab-dialects-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «كلّش» باللهجة العراقية؟",
    "a": "كتير / جدًّا",
@@ -102,7 +102,7 @@
   },
   {
    "id": "arab-dialects-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «نوخذة» بالخليج؟",
    "a": "قبطان السفينة",
@@ -117,7 +117,7 @@
   },
   {
    "id": "arab-dialects-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «جنجفة» باللهجة الكويتية؟",
    "a": "ورق الشدّة",
@@ -132,7 +132,7 @@
   },
   {
    "id": "arab-dialects-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «زوليّة» باللهجة الكويتية؟",
    "a": "سجّادة",
@@ -147,7 +147,7 @@
   },
   {
    "id": "arab-dialects-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «ديرم» باللهجة الكويتية؟",
    "a": "أحمر الشفايف",
@@ -162,7 +162,7 @@
   },
   {
    "id": "arab-dialects-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «بنزهير» باللهجة الحجازية؟",
    "a": "ليمون",
@@ -177,7 +177,7 @@
   },
   {
    "id": "arab-dialects-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «فهيقة» باللهجة الحجازية؟",
    "a": "حازوقة",
@@ -192,7 +192,7 @@
   },
   {
    "id": "arab-dialects-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «عافاك» باللهجة المغربية؟",
    "a": "لو سمحت",
@@ -207,7 +207,7 @@
   },
   {
    "id": "arab-dialects-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «علاش» باللهجة المغربية؟",
    "a": "ليش",
@@ -222,7 +222,7 @@
   },
   {
    "id": "arab-dialects-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «سبيطار» باللهجة المغربية؟",
    "a": "مستشفى",
@@ -235,7 +235,7 @@
   },
   {
    "id": "arab-dialects-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «درك» باللهجة الجزائرية؟",
    "a": "هلّأ",
@@ -250,7 +250,7 @@
   },
   {
    "id": "arab-dialects-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «هلبا» باللهجة الليبية؟",
    "a": "كتير",
@@ -265,7 +265,7 @@
   },
   {
    "id": "arab-dialects-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «حوش» باللهجة الليبية؟",
    "a": "بيت",
@@ -280,7 +280,7 @@
   },
   {
    "id": "arab-dialects-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «يعيشك» باللهجة التونسية؟",
    "a": "شكرًا",
@@ -295,7 +295,7 @@
   },
   {
    "id": "arab-dialects-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «بنين» باللهجة التونسية؟",
    "a": "زاكي / طيّب",
@@ -310,7 +310,7 @@
   },
   {
    "id": "arab-dialects-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «ملاح» بالمطبخ السوداني؟",
    "a": "طبيخ مرقة",
@@ -325,7 +325,7 @@
   },
   {
    "id": "arab-dialects-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو بيسمّوا السودانيين الجدّة؟",
    "a": "حبوبة",
@@ -338,7 +338,7 @@
   },
   {
    "id": "arab-dialects-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «زلط» باللهجة اليمنية؟",
    "a": "مصاري",
@@ -351,7 +351,7 @@
   },
   {
    "id": "arab-dialects-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «مُطراق» باللهجة الصنعانية؟",
    "a": "زقاق",
