@@ -87,7 +87,8 @@
     "act",
     "hum",
     "taboo",
-    "draw"
+    "draw",
+    "words"
    ],
    "visible": true
   }
@@ -412,6 +413,15 @@
    "visible": true,
    "art": "shirt",
    "bg": "#e7eef7"
+  },
+  {
+   "id": "words",
+   "name": "بجملة وحدة",
+   "file": "words.json",
+   "type": "words",
+   "visible": true,
+   "art": "words",
+   "bg": "#efe9f7"
   }
  ],
  "finals": "finals.json"

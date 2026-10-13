@@ -140,7 +140,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
 const STATUS={draft:'مسودة',reviewed:'تمت المراجعة',published:'منشور'};
-const TYPES={'':'أسئلة عادية',num:'أقرب رقم',order:'رتّبها',act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها'};
+const TYPES={'':'أسئلة عادية',num:'أقرب رقم',order:'رتّبها',act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها',words:'بجملة وحدة'};
 const tkey=m=>m.type||(m.mode==='num'||m.mode==='order'?m.mode:'');
 const fmtN=n=>n==null||n===''?'':Number(n).toLocaleString('en-US',{maximumFractionDigits:3});
 const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4dff','#c8743a'];
@@ -274,7 +274,7 @@ function qCard(x,m,answers){
 }
 function editForm(x,m){
   const f=(k,l,v,wide,ta)=>`<label class="f${wide?' wide':''}">${l}${ta?`<textarea data-e="${k}" data-id="${x.id}" rows="2">${esc(v)}</textarea>`:`<input type="text" data-e="${k}" data-id="${x.id}" value="${esc(v)}">`}</label>`;
-  if(m.type)return `<div class="edit">${f('s','السر',x.s,1)}${m.type!=='taboo'?f('k',m.type==='hum'?'المغني':m.type==='draw'?'النوع (أكل، حيوان، مكان…)':'النوع (فيلم، مسلسل…)',x.k||''):''}${m.type==='taboo'?f('b','الكلمات الممنوعة (افصل بفاصلة)',(x.b||[]).join('، '),1):''}</div>`;
+  if(m.type)return `<div class="edit">${f('s','السر',x.s,1)}${m.type!=='taboo'?f('k',m.type==='hum'?'المغني':m.type==='draw'||m.type==='words'?'النوع (أكل، حيوان، مكان…)':'النوع (فيلم، مسلسل…)',x.k||''):''}${m.type==='taboo'?f('b','الكلمات الممنوعة (افصل بفاصلة)',(x.b||[]).join('، '),1):''}</div>`;
   if(m.mode==='order'){const o=x.o||[];return `<div class="edit">${f('q','السؤال',x.q,1,1)}${f('dir','اتجاه الترتيب (من الأقدم للأحدث…)',x.dir||'')}<span></span>
     ${[0,1,2,3].map(k=>f('o'+k+'t',`العنصر ${k+1} بالترتيب الصح`,(o[k]||{}).t||'')+f('o'+k+'v',`القيمة (سنة، طول… بتطلع بعد الجواب)`,(o[k]||{}).v||'')).join('')}
     ${f('sources','المصادر (رابط بكل سطر)',(x.sources||[]).join('\n'),1,1)}</div>`}

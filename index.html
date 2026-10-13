@@ -1066,20 +1066,22 @@ const CH={
   act:{label:'مثّلها',verb:'يمثّل',prompt:'واحد من الفريق بيمسح الكود وبيمثّل اسم فيلم أو مسلسل أو مسرحية… بدون ولا كلمة.'},
   hum:{label:'دندنها',verb:'يدندن',prompt:'واحد من الفريق بيمسح الكود وبيدندن الأغنية بدون كلام، والفريق بيعرف اسمها.'},
   taboo:{label:'بلا ما تقول',verb:'يوصف',prompt:'واحد من الفريق بيمسح الكود وبيوصف الكلمة بدون ما يقول ولا وحدة من الكلمات الممنوعة.'},
-  draw:{label:'ارسمها',verb:'يرسم',prompt:'واحد من الفريق بيمسح الكود وبيرسم الكلمة… بلا حروف ولا أرقام ولا كلام.'}
+  draw:{label:'ارسمها',verb:'يرسم',prompt:'واحد من الفريق بيمسح الكود وبيرسم الكلمة… بلا حروف ولا أرقام ولا كلام.'},
+  words:{label:'بجملة وحدة',verb:'يوصف',prompt:'واحد من الفريق بيمسح الكود وبيوصف الكلمة بثلاث كلمات بس… ولا كلمة زيادة.'}
 };
 let PAD={key:'',strokes:[],inst:null};
 function makeChallenge(type,it){
   const n=it.s.trim().split(/\s+/).length;
   const hints=type==='act'?[`نوعه: ${it.k} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الممثل صار بيقدر يقول كلمة وحدة من العنوان.']
     :type==='hum'?[`الصوت: ${it.k}`,`أول كلمة من الاسم: «${it.s.split(/\s+/)[0]}»`]
+    :type==='words'?['صار مسموح كلمة رابعة.','وكمان حركة وحدة بالإيد (بلا كلام).']
     :type==='draw'?[`النوع: ${it.k||'شي'} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الرسام صار بيقدر يأشّر بإيده (بلا كلام).']
     :[`صار مسموح يقول: «${it.b[0]}»`,`وكمان: «${it.b[1]}»`];
   return{id:it.id,type,s:it.s,k:it.k||'',b:it.b||[],q:CH[type].prompt,a:type==='hum'?`${it.s} · ${it.k}`:it.s,x:'',hints,done:false,win:-1,how:''};
 }
 const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const b64d=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)))};
-const secretText=x=>x.type==='draw'?`قدّها · ارسمها: ${x.s}`:x.type==='act'?`قدّها · مثّلها: ${x.s}`:x.type==='hum'?`قدّها · دندنها: ${x.s} (${x.k})`:`قدّها · بلا ما تقول: ${x.s}\nممنوع: ${x.b.join('، ')}`;
+const secretText=x=>x.type==='words'?`قدّها · بجملة وحدة: ${x.s}\n3 كلمات بس!`:x.type==='draw'?`قدّها · ارسمها: ${x.s}`:x.type==='act'?`قدّها · مثّلها: ${x.s}`:x.type==='hum'?`قدّها · دندنها: ${x.s} (${x.k})`:`قدّها · بلا ما تقول: ${x.s}\nممنوع: ${x.b.join('، ')}`;
 const qrPayload=x=>S.qrMode==='text'?secretText(x):BASE+'#s'+b64e(JSON.stringify(Object.assign({t:x.type,s:x.s,k:x.k,b:x.b},x.type==='draw'&&ONLINE()?{r:roomId(),q:x.id}:{})));
 function qrSvg(text){
   try{
@@ -1097,6 +1099,7 @@ function showReveal(tok){
   rv.innerHTML=`<div class="rv-card"><p class="rv-type">${esc(ch.label)} · قدّها</p><h1 class="rv-word">${esc(d.s)}</h1>
     ${d.t==='hum'?`<p class="rv-extra">الصوت: ${esc(d.k)}</p>`:''}
     ${d.t==='act'?`<p class="rv-extra">${esc(d.k)} · مثّل بدون ولا كلمة</p>`:''}
+    ${d.t==='words'?`<p class="rv-extra">${d.k?esc(d.k)+' · ':''}3 كلمات بس!</p>`:''}
     ${d.t==='taboo'?`<div class="rv-ban"><small>ممنوع تقول:</small>${(d.b||[]).map(w=>`<span>${esc(w)}</span>`).join('')}</div>`:''}
     <p class="rv-note">لا تفرجي حدا! لما تجهز، خلّيهم يضغطوا «يلا ابدأ» على الشاشة الكبيرة.</p>
     <button type="button" class="btn" data-act="rv-hide">خبّي الشاشة</button></div>`;

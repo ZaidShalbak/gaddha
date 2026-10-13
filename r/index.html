@@ -48,7 +48,7 @@ button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
 <script src="/sb.js"></script>
 <script>
 (function(){
-  var LABEL={act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها'};
+  var LABEL={act:'مثّلها',hum:'دندنها',taboo:'بلا ما تقول',draw:'ارسمها',words:'بجملة وحدة'};
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function b64d(s){s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)))}
   var h=location.hash||'',card=document.getElementById('card');
@@ -57,6 +57,7 @@ button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
   try{d=JSON.parse(b64d(h.slice(2)))}catch(e){card.innerHTML='<p class="brand">قدّها</p><p class="note">الكود مش واضح. امسحوه مرة ثانية.</p>';return}
   var html='<p class="brand">قدّها</p><p class="type">'+esc(LABEL[d.t]||'السر')+'</p><h1 class="word">'+esc(d.s)+'</h1>';
   if(d.t==='hum')html+='<p class="extra">الصوت: '+esc(d.k)+'</p>';
+  if(d.t==='words')html+='<p class="extra">'+(d.k?esc(d.k)+' · ':'')+'وصّفها بـ3 كلمات بس!</p>';
   if(d.t==='act')html+='<p class="extra">'+esc(d.k)+' · مثّل بدون ولا كلمة</p>';
   if(d.t==='taboo')html+='<div class="ban"><small>ممنوع تقول:</small>'+(d.b||[]).map(function(w){return'<span>'+esc(w)+'</span>'}).join('')+'</div>';
   if(d.t==='draw'){

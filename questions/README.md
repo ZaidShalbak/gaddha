@@ -55,3 +55,7 @@ A category with `"mode": "order"` holds questions with:
 - `dir`: the direction shown to players («من الأقدم للأحدث», «من الأكبر للأصغر»…).
 
 The game shuffles the items; players reorder them by tapping two to swap or using the arrows. Each «غشّشني» pins one item in its place (first, then last). Points only for a fully correct order. These questions are kept out of the final round and the tiebreaker.
+
+## Three-word challenge («بجملة وحدة»)
+
+A challenge category with `"type": "words"`. Items are `{id, status, s, k}` like «مثّلها»: `s` is the secret, `k` its kind. The describer may say only three words; the first «غشّة» allows a fourth word, the second one gesture.
