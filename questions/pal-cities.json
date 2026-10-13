@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "pal-cities-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة فلسطينية ساحلية تُلقّب بـ«عروس البحر»؟",
    "a": "يافا",
@@ -16,7 +16,7 @@
   },
   {
    "id": "pal-cities-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة فلسطينية تُعدّ من أقدم المدن المأهولة في العالم؟",
    "a": "أريحا",
@@ -29,7 +29,7 @@
   },
   {
    "id": "pal-cities-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي مدينة يقع الحرم الإبراهيمي؟",
    "a": "الخليل",
@@ -42,7 +42,7 @@
   },
   {
    "id": "pal-cities-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي مدينة تقع كنيسة المهد؟",
    "a": "بيت لحم",
@@ -55,7 +55,7 @@
   },
   {
    "id": "pal-cities-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة فلسطينية مشهورة بالكنافة والصابون؟",
    "a": "نابلس",
@@ -68,7 +68,7 @@
   },
   {
    "id": "pal-cities-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة ساحلية صمدت أسوارها أمام حصار نابليون سنة 1799؟",
    "a": "عكا",
@@ -81,7 +81,7 @@
   },
   {
    "id": "pal-cities-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "على أي جبل تقع مدينة حيفا؟",
    "a": "جبل الكرمل",
@@ -94,7 +94,7 @@
   },
   {
    "id": "pal-cities-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي مدينة تقع كنيسة البشارة؟",
    "a": "الناصرة",
@@ -107,7 +107,7 @@
   },
   {
    "id": "pal-cities-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة فلسطينية تطل على بحيرة تحمل اسمها؟",
    "a": "طبريا",
@@ -120,7 +120,7 @@
   },
   {
    "id": "pal-cities-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة في الجليل الأعلى تُعدّ من أعلى المدن الفلسطينية ارتفاعًا؟",
    "a": "صفد",
@@ -133,7 +133,7 @@
   },
   {
    "id": "pal-cities-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما المدينة الواقعة في أقصى جنوب قطاع غزة على الحدود مع مصر؟",
    "a": "رفح",
@@ -146,7 +146,7 @@
   },
   {
    "id": "pal-cities-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي مدينة تقع قبة الصخرة؟",
    "a": "القدس",
@@ -159,7 +159,7 @@
   },
   {
    "id": "pal-cities-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة فلسطينية تجاور البيرة حتى صارتا كأنهما مدينة واحدة؟",
    "a": "رام الله",
@@ -172,7 +172,7 @@
   },
   {
    "id": "pal-cities-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة فلسطينية تقع على الطرف الجنوبي لمرج ابن عامر؟",
    "a": "جنين",
@@ -185,7 +185,7 @@
   },
   {
    "id": "pal-cities-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "في أي مدينة تقع جامعة فلسطين التقنية «خضوري»؟",
    "a": "طولكرم",
@@ -198,7 +198,7 @@
   },
   {
    "id": "pal-cities-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة أسّسها الخليفة الأموي سليمان بن عبد الملك وفيها «البرج الأبيض»؟",
    "a": "الرملة",
@@ -211,7 +211,7 @@
   },
   {
    "id": "pal-cities-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما أكبر مدينة في صحراء النقب؟",
    "a": "بئر السبع",
@@ -224,7 +224,7 @@
   },
   {
    "id": "pal-cities-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي بلدة قرب نابلس فيها آثار رومانية كبيرة ويُنسب إليها قبر النبي يحيى؟",
    "a": "سبسطية",
@@ -237,7 +237,7 @@
   },
   {
    "id": "pal-cities-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي قرية قرب القدس يُقال إنها مسقط رأس النبي يحيى؟",
    "a": "عين كارم",
@@ -250,7 +250,7 @@
   },
   {
    "id": "pal-cities-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي بلدة قرب بيت لحم فيها «حقل الرعاة»؟",
    "a": "بيت ساحور",
@@ -263,7 +263,7 @@
   },
   {
    "id": "pal-cities-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة في الغور الشمالي فيها مدرج روماني كبير؟",
    "a": "بيسان",
@@ -276,7 +276,7 @@
   },
   {
    "id": "pal-cities-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة في الضفة الغربية فيها حديقة الحيوانات الوحيدة هناك؟",
    "a": "قلقيلية",
@@ -289,7 +289,7 @@
   },
   {
    "id": "pal-cities-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "أي مدينة في قطاع غزة سُمّيت نسبة لخان بناه أمير مملوكي؟",
    "a": "خان يونس",
@@ -302,7 +302,7 @@
   },
   {
    "id": "pal-cities-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما اسما الجبلين اللذين تقع بينهما مدينة نابلس؟",
    "a": "جرزيم وعيبال",
@@ -315,7 +315,7 @@
   },
   {
    "id": "pal-cities-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": null,
    "q": "ما أعلى جبل في فلسطين؟",
    "a": "جبل الجرمق",
