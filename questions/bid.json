@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "bid-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا دول الجامعة العربية",
    "l": [
@@ -39,7 +39,7 @@
   },
   {
    "id": "bid-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "سمّوا عواصم الدول العربية",
    "l": [
@@ -76,7 +76,7 @@
   },
   {
    "id": "bid-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا الدول العربية في قارة آسيا",
    "l": [
@@ -102,7 +102,7 @@
   },
   {
    "id": "bid-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا الدول العربية في قارة أفريقيا",
    "l": [
@@ -126,7 +126,7 @@
   },
   {
    "id": "bid-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا محافظات فلسطين (الضفة وغزة)",
    "l": [
@@ -156,7 +156,7 @@
   },
   {
    "id": "bid-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا محافظات الضفة الغربية",
    "l": [
@@ -181,7 +181,7 @@
   },
   {
    "id": "bid-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا محافظات الأردن",
    "l": [
@@ -207,7 +207,7 @@
   },
   {
    "id": "bid-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا محافظات مصر",
    "l": [
@@ -249,7 +249,7 @@
   },
   {
    "id": "bid-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا محافظات سوريا",
    "l": [
@@ -277,7 +277,7 @@
   },
   {
    "id": "bid-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "عدّوا مناطق السعودية الإدارية",
    "l": [
@@ -305,7 +305,7 @@
   },
   {
    "id": "bid-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا المنتخبات العربية اللي لعبت بكأس العالم",
    "l": [
@@ -331,7 +331,7 @@
   },
   {
    "id": "bid-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "سمّوا الأشهر بأسمائها الشامية (كانون…)",
    "l": [
@@ -358,7 +358,7 @@
   },
   {
    "id": "bid-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا الأشهر الهجرية",
    "l": [
@@ -384,7 +384,7 @@
   },
   {
    "id": "bid-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا كواكب المجموعة الشمسية",
    "l": [
@@ -407,7 +407,7 @@
   },
   {
    "id": "bid-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا الدول اللي فازت بكأس العالم",
    "l": [
@@ -430,7 +430,7 @@
   },
   {
    "id": "bid-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا الدول اللي استضافت كأس العالم",
    "l": [
@@ -464,7 +464,7 @@
   },
   {
    "id": "bid-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "سمّوا الفائزين بالكرة الذهبية من 2000 لـ 2025",
    "l": [
@@ -493,7 +493,7 @@
   },
   {
    "id": "bid-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا الحروف الشمسية",
    "l": [
@@ -522,7 +522,7 @@
   },
   {
    "id": "bid-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا الأنبياء المذكورين بالقرآن",
    "l": [
@@ -562,7 +562,7 @@
   },
   {
    "id": "bid-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا العشرة المبشّرين بالجنة",
    "l": [
@@ -586,7 +586,7 @@
   },
   {
    "id": "bid-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "عدّوا أميرات ديزني الرسميات",
    "l": [
@@ -614,7 +614,7 @@
   },
   {
    "id": "bid-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا الدول العربية اللي على البحر المتوسط",
    "l": [
@@ -636,7 +636,7 @@
   },
   {
    "id": "bid-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا دول أمريكا الجنوبية",
    "l": [
@@ -663,7 +663,7 @@
   },
   {
    "id": "bid-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "عدّوا الدول اللي على حدود ألمانيا",
    "l": [
@@ -686,7 +686,7 @@
   },
   {
    "id": "bid-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "عدّوا دول الاتحاد الأوروبي",
    "l": [
@@ -728,7 +728,7 @@
   },
   {
    "id": "bid-026",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا المنتخبات اللي فازت بكأس أمم أوروبا",
    "l": [
@@ -753,7 +753,7 @@
   },
   {
    "id": "bid-027",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا المنتخبات اللي فازت بكأس أمم أفريقيا",
    "l": [
@@ -783,7 +783,7 @@
   },
   {
    "id": "bid-028",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "عدّوا الأندية اللي فازت بدوري أبطال أوروبا",
    "l": [
@@ -822,7 +822,7 @@
   },
   {
    "id": "bid-029",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "عدّوا الأندية اللي فازت بالدوري الإسباني",
    "l": [
@@ -845,7 +845,7 @@
   },
   {
    "id": "bid-030",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "عدّوا الدول اللي على حدود تركيا",
    "l": [
