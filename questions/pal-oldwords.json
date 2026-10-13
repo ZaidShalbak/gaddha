@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "pal-oldwords-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «ستّي»؟",
    "a": "جدّتي",
@@ -16,7 +16,7 @@
   },
   {
    "id": "pal-oldwords-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «الطابون»؟",
    "a": "فرن طين للخبز",
@@ -29,7 +29,7 @@
   },
   {
    "id": "pal-oldwords-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «الحاكورة»؟",
    "a": "أرض صغيرة مزروعة جنب البيت",
@@ -42,7 +42,7 @@
   },
   {
    "id": "pal-oldwords-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «البابور»؟",
    "a": "موقد بيشتغل عالكاز",
@@ -55,7 +55,7 @@
   },
   {
    "id": "pal-oldwords-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «الخابية»؟",
    "a": "جرّة فخار كبيرة للتخزين",
@@ -68,7 +68,7 @@
   },
   {
    "id": "pal-oldwords-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «الطاسة»؟",
    "a": "وعاء معدن صغير للشرب أو الصبّ",
@@ -81,7 +81,7 @@
   },
   {
    "id": "pal-oldwords-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «الدست»؟",
    "a": "طنجرة كبيرة",
@@ -94,7 +94,7 @@
   },
   {
    "id": "pal-oldwords-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «البقجة»؟",
    "a": "صرّة قماش بتنلفّ فيها الأواعي",
@@ -107,7 +107,7 @@
   },
   {
    "id": "pal-oldwords-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «المصطبة»؟",
    "a": "مقعد حجر عالي قدّام البيت",
@@ -120,7 +120,7 @@
   },
   {
    "id": "pal-oldwords-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «العرزال»؟",
    "a": "كوخ عالي من الخشب والأغصان",
@@ -133,7 +133,7 @@
   },
   {
    "id": "pal-oldwords-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «البيدر»؟",
    "a": "المكان اللي بيدرسوا فيه القمح",
@@ -146,7 +146,7 @@
   },
   {
    "id": "pal-oldwords-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «الجاروشة»؟",
    "a": "رحى حجر لطحن الحبوب",
@@ -159,7 +159,7 @@
   },
   {
    "id": "pal-oldwords-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «الجرن»؟",
    "a": "حجر مجوّف للدقّ",
@@ -172,7 +172,7 @@
   },
   {
    "id": "pal-oldwords-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «النمليّة»؟",
    "a": "خزانة بشبك لحفظ الأكل",
@@ -185,7 +185,7 @@
   },
   {
    "id": "pal-oldwords-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «القمباز»؟",
    "a": "ثوب رجالي طويل",
@@ -198,7 +198,7 @@
   },
   {
    "id": "pal-oldwords-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «الحطّة»؟",
    "a": "الكوفية",
@@ -211,7 +211,7 @@
   },
   {
    "id": "pal-oldwords-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «الصرماية»؟",
    "a": "الحذاء",
@@ -224,7 +224,7 @@
   },
   {
    "id": "pal-oldwords-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «القبقاب»؟",
    "a": "حذاء خشب",
@@ -237,7 +237,7 @@
   },
   {
    "id": "pal-oldwords-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «الصيرة»؟",
    "a": "حظيرة الغنم",
@@ -250,7 +250,7 @@
   },
   {
    "id": "pal-oldwords-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «الطرّاحة»؟",
    "a": "فرشة رقيقة للقعدة عالأرض",
@@ -263,7 +263,7 @@
   },
   {
    "id": "pal-oldwords-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «العبّ»؟",
    "a": "جيبة الصدر تحت الأواعي",
@@ -276,7 +276,7 @@
   },
   {
    "id": "pal-oldwords-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «المهباش»؟",
    "a": "أداة خشب لدقّ القهوة",
@@ -289,7 +289,7 @@
   },
   {
    "id": "pal-oldwords-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو يعني «اللوكس»؟",
    "a": "فانوس كاز ضوّه قوي",
@@ -302,7 +302,7 @@
   },
   {
    "id": "pal-oldwords-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو يعني «عشيّة»؟",
    "a": "وقت المسا",
@@ -315,7 +315,7 @@
   },
   {
    "id": "pal-oldwords-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو يعني «الخُرج»؟",
    "a": "كيس مزدوج على ظهر الدابة",
