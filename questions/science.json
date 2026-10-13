@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "science-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو أقرب كوكب للشمس؟",
    "a": "عطارد",
@@ -18,7 +18,7 @@
   },
   {
    "id": "science-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم العملية اللي النبات بيصنع فيها أكله من ضو الشمس؟",
    "a": "البناء الضوئي",
@@ -33,7 +33,7 @@
   },
   {
    "id": "science-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "قدّيش عدد كواكب المجموعة الشمسية؟",
    "a": "ثمانية",
@@ -48,7 +48,7 @@
   },
   {
    "id": "science-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو الكوكب اللي بيسمّوه «الكوكب الأحمر»؟",
    "a": "المريخ",
@@ -63,7 +63,7 @@
   },
   {
    "id": "science-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "على قدّيش درجة مئوية بيغلي الماء عند مستوى سطح البحر؟",
    "a": "100 درجة",
@@ -78,7 +78,7 @@
   },
   {
    "id": "science-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو أكبر كوكب بالمجموعة الشمسية؟",
    "a": "المشتري",
@@ -93,7 +93,7 @@
   },
   {
    "id": "science-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "مين العالِم صاحب «نظرية النسبية»؟",
    "a": "ألبرت أينشتاين",
@@ -108,7 +108,7 @@
   },
   {
    "id": "science-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "شو اسم المجرّة اللي فيها كوكب الأرض؟",
    "a": "درب التبانة",
@@ -123,7 +123,7 @@
   },
   {
    "id": "science-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الرمز الكيميائي للذهب؟",
    "a": "Au",
@@ -138,7 +138,7 @@
   },
   {
    "id": "science-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو أقسى مادة طبيعية معروفة؟",
    "a": "الألماس",
@@ -153,7 +153,7 @@
   },
   {
    "id": "science-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الغاز الأكتر وجودًا بالهوا اللي بنتنفّسه؟",
    "a": "النيتروجين",
@@ -168,7 +168,7 @@
   },
   {
    "id": "science-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو أقرب نجم للأرض؟",
    "a": "الشمس",
@@ -181,7 +181,7 @@
   },
   {
    "id": "science-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "مين العالِم اللي اكتشف البنسلين سنة 1928؟",
    "a": "ألكسندر فليمنغ",
@@ -196,7 +196,7 @@
   },
   {
    "id": "science-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو الفيتامين اللي الجسم بيصنعه لما الجلد يتعرّض للشمس؟",
    "a": "فيتامين د",
@@ -211,7 +211,7 @@
   },
   {
    "id": "science-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم الطبقة بالغلاف الجوي اللي بتحمينا من الأشعة فوق البنفسجية؟",
    "a": "طبقة الأوزون",
@@ -226,7 +226,7 @@
   },
   {
    "id": "science-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو المعدن السائل اللي كانوا يحطّوه بموازين الحرارة القديمة؟",
    "a": "الزئبق",
@@ -241,7 +241,7 @@
   },
   {
    "id": "science-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو أطول عظمة بجسم الإنسان؟",
    "a": "عظمة الفخذ",
@@ -256,7 +256,7 @@
   },
   {
    "id": "science-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "قدّيش بيحتاج ضو الشمس تقريبًا ليوصل للأرض؟",
    "a": "8 دقائق",
@@ -271,7 +271,7 @@
   },
   {
    "id": "science-019",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو أسخن كوكب بالمجموعة الشمسية؟",
    "a": "الزهرة",
@@ -286,7 +286,7 @@
   },
   {
    "id": "science-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم أصغر عظمة بجسم الإنسان؟",
    "a": "الركاب",
@@ -301,7 +301,7 @@
   },
   {
    "id": "science-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو أكبر قمر بالمجموعة الشمسية؟",
    "a": "غانيميد",
@@ -316,7 +316,7 @@
   },
   {
    "id": "science-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو الكوكب اللي بيدور وهو نايم على جنبه تقريبًا؟",
    "a": "أورانوس",
@@ -331,7 +331,7 @@
   },
   {
    "id": "science-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو أكتر عنصر كيميائي موجود بالكون؟",
    "a": "الهيدروجين",
@@ -346,7 +346,7 @@
   },
   {
    "id": "science-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم أول قمر صناعي أطلقه الإنسان سنة 1957؟",
    "a": "سبوتنيك 1",
@@ -361,7 +361,7 @@
   },
   {
    "id": "science-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو الخلايا بالدم اللي بتوقّف النزيف لما ننجرح؟",
    "a": "الصفائح الدموية",

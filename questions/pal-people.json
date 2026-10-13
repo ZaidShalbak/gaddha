@@ -3,7 +3,7 @@
  "questions": [
   {
    "id": "pal-people-001",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "مين الشاعر اللي كتب «على هذه الأرض ما يستحق الحياة»؟",
    "a": "محمود درويش",
@@ -18,7 +18,7 @@
   },
   {
    "id": "pal-people-002",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "محمود درويش انولد بأي قرية بالجليل؟",
    "a": "البروة",
@@ -33,7 +33,7 @@
   },
   {
    "id": "pal-people-003",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "الأديب غسان كنفاني انولد بأي مدينة؟",
    "a": "عكا",
@@ -48,7 +48,7 @@
   },
   {
    "id": "pal-people-004",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "رواية «عائد إلى حيفا» لمين؟",
    "a": "غسان كنفاني",
@@ -63,7 +63,7 @@
   },
   {
    "id": "pal-people-005",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "ناجي العلي شو كانت مهنته؟",
    "a": "رسام كاريكاتير",
@@ -78,7 +78,7 @@
   },
   {
    "id": "pal-people-006",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "قدّيش عمر «حنظلة» اللي رسمه ناجي العلي؟",
    "a": "عشر سنين",
@@ -93,7 +93,7 @@
   },
   {
    "id": "pal-people-007",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "شو اسم كتاب إدوارد سعيد المشهور عن نظرة الغرب للشرق؟",
    "a": "الاستشراق",
@@ -108,7 +108,7 @@
   },
   {
    "id": "pal-people-008",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "المفكر إدوارد سعيد انولد بأي مدينة فلسطينية؟",
    "a": "القدس",
@@ -123,7 +123,7 @@
   },
   {
    "id": "pal-people-009",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "مين أخو الشاعرة فدوى طوقان اللي لقّبوه «شاعر فلسطين»؟",
    "a": "إبراهيم طوقان",
@@ -139,7 +139,7 @@
   },
   {
    "id": "pal-people-010",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "الشاعرة فدوى طوقان من أي مدينة؟",
    "a": "نابلس",
@@ -154,7 +154,7 @@
   },
   {
    "id": "pal-people-011",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "شو اسم السيرة الذاتية لفدوى طوقان؟",
    "a": "«رحلة جبلية، رحلة صعبة»",
@@ -169,7 +169,7 @@
   },
   {
    "id": "pal-people-012",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "المغنية ريم البنا من أي مدينة؟",
    "a": "الناصرة",
@@ -184,7 +184,7 @@
   },
   {
    "id": "pal-people-013",
-   "status": "draft",
+   "status": "published",
    "difficulty": 1,
    "q": "فيلم «يا طير الطاير» بيحكي قصة أي مطرب فلسطيني؟",
    "a": "محمد عساف",
@@ -200,7 +200,7 @@
   },
   {
    "id": "pal-people-014",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "مين كتب قصيدة «منتصب القامة أمشي»؟",
    "a": "سميح القاسم",
@@ -215,7 +215,7 @@
   },
   {
    "id": "pal-people-015",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "قصيدة «أناديكم» لأي شاعر فلسطيني؟",
    "a": "توفيق زياد",
@@ -231,7 +231,7 @@
   },
   {
    "id": "pal-people-016",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "مين كاتب رواية «المتشائل»؟",
    "a": "إميل حبيبي",
@@ -246,7 +246,7 @@
   },
   {
    "id": "pal-people-017",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "جبرا إبراهيم جبرا ترجم مسرحيات أي كاتب إنجليزي مشهور؟",
    "a": "شكسبير",
@@ -261,7 +261,7 @@
   },
   {
    "id": "pal-people-018",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "كتاب «رأيت رام الله» لأي شاعر؟",
    "a": "مريد البرغوثي",
@@ -275,23 +275,8 @@
    ]
   },
   {
-   "id": "pal-people-019",
-   "status": "draft",
-   "difficulty": 1,
-   "q": "الشاعر تميم البرغوثي اشتهر بقصيدة عن أي مدينة؟",
-   "a": "القدس",
-   "hints": [
-    "قرأها ببرنامج «أمير الشعراء».",
-    "مدينة فيها قبة الصخرة."
-   ],
-   "w": "حيفا",
-   "sources": [
-    "https://en.wikipedia.org/wiki/Tamim_al-Barghouti"
-   ]
-  },
-  {
    "id": "pal-people-020",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "أم الشاعر تميم البرغوثي روائية مصرية مشهورة، مين هي؟",
    "a": "رضوى عاشور",
@@ -306,7 +291,7 @@
   },
   {
    "id": "pal-people-021",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "رواية «الصبّار» لأي روائية من نابلس؟",
    "a": "سحر خليفة",
@@ -321,7 +306,7 @@
   },
   {
    "id": "pal-people-022",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "إبراهيم نصر الله ربح «البوكر العربية» سنة 2018 عن أي رواية؟",
    "a": "«حرب الكلب الثانية»",
@@ -336,7 +321,7 @@
   },
   {
    "id": "pal-people-023",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "مين أول رياضي فلسطيني شارك بالألعاب الأولمبية؟",
    "a": "ماجد أبو مراحيل",
@@ -351,7 +336,7 @@
   },
   {
    "id": "pal-people-024",
-   "status": "draft",
+   "status": "published",
    "difficulty": 2,
    "q": "مين ألّف كتاب القراءة القديم اللي أول درس فيه «راس، روس»؟",
    "a": "خليل السكاكيني",
@@ -366,7 +351,7 @@
   },
   {
    "id": "pal-people-025",
-   "status": "draft",
+   "status": "published",
    "difficulty": 3,
    "q": "فيلم «يد إلهية» للمخرج إيليا سليمان ربح جائزة بأي مهرجان سنة 2002؟",
    "a": "مهرجان كان",
