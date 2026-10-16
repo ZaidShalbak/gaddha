@@ -980,6 +980,28 @@ html[data-bg="glow"] body{background-color:#f7f5ef;background-attachment:fixed;b
 @media (min-width:600px){.grp-cards{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
 @media (min-width:900px){.grp-cards .cc{height:auto}.grp-cards{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}}
 @media (max-width:420px){.grp-cards .cc{height:auto}}
+/* drumroll before the answer */
+.drumov{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,rgba(20,83,45,.55),rgba(10,18,14,.82));backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);animation:dIn .18s ease-out;cursor:pointer}
+.drumbox{text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center}
+.drum svg{width:min(46vw,260px);height:auto;display:block;overflow:visible}
+.drumbox b{display:block;font-weight:900;font-size:clamp(30px,6vw,64px);margin-top:6px;text-shadow:0 4px 16px rgba(0,0,0,.4)}
+.drum .stk{transform-box:view-box}
+.drum .s1{transform-origin:152px 8px;animation:dHit1 .1s ease-in-out infinite alternate}
+.drum .s2{transform-origin:8px 8px;animation:dHit2 .1s ease-in-out infinite alternate;animation-delay:.05s}
+.drum .shell{transform-box:view-box;transform-origin:80px 100px;animation:dShake .06s linear infinite alternate}
+@keyframes dHit1{from{transform:rotate(-24deg)}to{transform:rotate(0deg)}}
+@keyframes dHit2{from{transform:rotate(24deg)}to{transform:rotate(0deg)}}
+@keyframes dShake{to{transform:translateY(1.6px) scale(1.01)}}
+.drumbox .dots i{font-style:normal;opacity:.15;animation:dDot .9s infinite}
+.drumbox .dots i:nth-child(2){animation-delay:.2s}.drumbox .dots i:nth-child(3){animation-delay:.4s}
+@keyframes dDot{40%{opacity:1}}
+@keyframes dIn{from{opacity:0}}
+.drumov.out{animation:dOut .3s ease-in forwards}
+.drumov.out .drum{animation:dPop .3s ease-out forwards}
+.drumov.out::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(255,240,190,.9),transparent 60%);animation:dFlash .3s ease-out forwards}
+@keyframes dOut{to{opacity:0}}
+@keyframes dPop{to{transform:scale(1.25)}}
+@keyframes dFlash{from{opacity:1}to{opacity:0}}
 /* TV-sized screens: last so it wins */
 @media (min-width:1400px) and (min-height:760px){
   .qcard{min-height:40vh}
@@ -1322,6 +1344,10 @@ const SFX={
   pop(){tone(520,.1,{vol:.28,to:880,att:.004,rev:.15})},
   // time up: a gentle ding-dong
   end(){bell(659,0,.14,1.2);bell(523,.32,.15,1.8)},
+  // drumroll: snare hits getting faster and louder
+  roll(sec=1.6){let t=0,i=0;while(t<sec-.05){const k=t/sec;noise(.06,{vol:.05+.2*k*k,freq:1700+600*k,q:.7,delay:t,att:.002,rev:.15});if(i%4===0)tone(150,.08,{vol:.05+.08*k,delay:t,att:.002,rev:0,to:120});t+=.065-.03*k;i++}},
+  // the reveal: kick + cymbal
+  crash(){tone(95,.45,{vol:.4,to:55,att:.002,rev:.1});noise(1.6,{vol:.22,freq:5200,q:.4,type:'highpass',att:.003,rev:.7})},
   // win: bell arpeggio, then a warm chord with a shimmer
   win(){[523,659,784,1047].forEach((f,i)=>bell(f,i*.11,.1,1));[523,659,784].forEach(f=>tone(f,1.8,{type:'triangle',vol:.06,delay:.46,att:.08,lp:2200,rev:.8}));tone(1047,1.8,{vol:.05,delay:.46,att:.08,rev:.8});noise(1.2,{vol:.05,freq:7000,q:.4,delay:.45,att:.3,type:'highpass',rev:.6})}
 };
@@ -2049,6 +2075,18 @@ function bidParty(){
   try{burst(c.bid.team);setTimeout(()=>burst(c.bid.team),500)}catch(e){}
   setTimeout(()=>{ov.remove();bidFinish()},2800);
 }
+/* the drumroll before an answer: on screen + sound, tap to skip */
+const DRUM='<svg viewBox="0 0 160 150" aria-hidden="true"><g class="shell"><path d="M20 72v42c0 10 27 18 60 18s60-8 60-18V72" fill="#f0475a" stroke="#161616" stroke-width="5" stroke-linejoin="round"/><path d="M24 80l14 40M48 86l14 42M72 88l14 42M96 88l14 40M120 84l12 34" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M20 112c0 10 27 18 60 18s60-8 60-18" fill="none" stroke="#161616" stroke-width="5"/><ellipse cx="80" cy="72" rx="60" ry="17" fill="#fff8e7" stroke="#161616" stroke-width="5"/></g><g class="stk s1"><path d="M152 8L100 66" stroke="#161616" stroke-width="12" stroke-linecap="round"/><path d="M152 8L100 66" stroke="#e0a92a" stroke-width="6" stroke-linecap="round"/><circle cx="100" cy="66" r="6" fill="#fff3d1" stroke="#161616" stroke-width="3"/></g><g class="stk s2"><path d="M8 8L60 66" stroke="#161616" stroke-width="12" stroke-linecap="round"/><path d="M8 8L60 66" stroke="#e0a92a" stroke-width="6" stroke-linecap="round"/><circle cx="60" cy="66" r="6" fill="#fff3d1" stroke="#161616" stroke-width="3"/></g></svg>';
+let SUSP=false;
+function suspense(done){
+  if(SUSP)return;SUSP=true;
+  const dur=matchMedia('(prefers-reduced-motion: reduce)').matches?700:1700;
+  const ov=document.createElement('div');ov.className='drumov';ov.setAttribute('role','status');
+  ov.innerHTML=`<div class="drumbox"><div class="drum">${DRUM}</div><b>الجواب هو<span class="dots"><i>.</i><i>.</i><i>.</i></span></b></div>`;
+  document.body.appendChild(ov);SFX.roll(dur/1000);
+  let fin=false;const end=()=>{if(fin)return;fin=true;clearTimeout(tm);SFX.crash();ov.classList.add('out');setTimeout(()=>ov.remove(),320);SUSP=false;done()};
+  const tm=setTimeout(end,dur);ov.addEventListener('click',end);
+}
 function bidFinish(){const c=S&&S.cur;if(!c||!c.bid||c.bid.phase!=='go')return;tStop();c.bid.phase='done';c.revealed=true;SFX.whoosh();render()}
 function bidStartCount(){const c=S.cur;c.bid.phase='go';SFX.whoosh();fx.go=true;render();sendJudge(true);tStart(BID_SEC,BID_SEC);setTimeout(()=>{const q=$('bidq');if(q&&matchMedia('(pointer: fine)').matches)q.focus()},50)}
 function bidPaintCount(){const c=S.cur,el=$('bidcount');if(el)el.textContent=`${bidScore(c.bid)} / ${c.bid.n}`;store.set(KEY,S);sendHost()}
@@ -2518,7 +2556,7 @@ const ACT={
   'bid-extra'(b){const c=S.cur;if(!c.bid||c.bid.phase!=='go')return;if(!b.dataset.ok&&!confirm('جواب صح بس مش بالقائمة؟ نقبلها إذا الفريقين متّفقين.'))return;c.bid.extra++;if(!c.bid.hit&&bidScore(c.bid)>=c.bid.n){c.bid.hit=true;SFX.stamp()}render();bidPaintCount()},
   'bid-stop'(){bidFinish()},
   steal(){SFX.whoosh();S.cur.mode='steal';fx.steal=true;render();tStart(STEAL_SEC)},
-  reveal(){const c=S.cur;if(isNum(S.cats[c.c].qs[c.i])){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');const el=document.querySelector(`[data-num="${g.indexOf(null)}"]`);el&&el.focus();return}c.g=g;SFX.whoosh()}if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;T.running=false;render()},
+  reveal(){const c=S.cur;if(isNum(S.cats[c.c].qs[c.i])){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');const el=document.querySelector(`[data-num="${g.indexOf(null)}"]`);el&&el.focus();return}c.g=g}if(c.revealed||SUSP)return;T.running=false;suspense(()=>{if(S.cats[c.c].qs[c.i].img)fx.zoom=zoomOf(c);c.revealed=true;render()})},
   back(){if(S.undo){S=JSON.parse(S.undo);render()}},
   undo(){if(S.undo){S=JSON.parse(S.undo);render()}},
   award(b){
@@ -2564,11 +2602,11 @@ const ACT={
   'final-lock'(b){const f=S.final;(f.lockAt||(f.lockAt=[null,null]))[+b.dataset.team]=Math.min(f.step||0,2);SFX.stamp();render()},
   'final-next'(){const f=S.final;if((f.step||0)<(f.clues||[]).length-1){f.step=(f.step||0)+1;fx.hint=true;SFX.hint();render();tStart(S.timerSec?30:0)}},
   tiebreak(){tbPick();S.screen='tiebreak';render()},
-  'tb-reveal'(){const t=S.tb;if(t.n!=null){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');return}t.g=g;SFX.whoosh()}t.revealed=true;markSeen(t.id);render()},
+  'tb-reveal'(){const t=S.tb;if(t.n!=null){const g=readNums();if(g.some(v=>v==null)){toast('اكتبوا رقم الفريقين أول.');return}t.g=g}if(t.revealed||SUSP)return;suspense(()=>{t.revealed=true;markSeen(t.id);render()})},
   'tb-win'(b){const i=+b.dataset.team;S.teams[i].score+=1;shown=S.teams.map(x=>x.score);ACT['to-end']()},
   'tb-again'(){SFX.fail();tbPick();render()},
   'final-show'(){const f=S.final;f.step=0;f.lockAt=[null,null];S.screen='final-q';render();tStart(S.timerSec?(f.clues&&f.clues.length?30:S.timerSec):0)},
-  'final-reveal'(){const f=S.final,lk=f.lockAt||(f.lockAt=[null,null]);lk.forEach((x,i)=>{if(x==null)lk[i]=Math.min(f.step||0,2)});tStop();S.screen='final-score';render()},
+  'final-reveal'(){const f=S.final,lk=f.lockAt||(f.lockAt=[null,null]);if(SUSP)return;lk.forEach((x,i)=>{if(x==null)lk[i]=Math.min(f.step||0,2)});tStop();suspense(()=>{S.screen='final-score';render()})},
   wager(b){const i=+b.dataset.team,max=Math.max(0,S.teams[i].score);S.final.wager[i]=Math.min(max,Math.max(0,S.final.wager[i]+(+b.dataset.d)));render()},
   'wager-max'(b){const i=+b.dataset.team;S.final.wager[i]=Math.max(0,S.teams[i].score);render()},
   'wager-lock'(b){(S.final.locked||(S.final.locked=[false,false]))[+b.dataset.team]=true;render()},
