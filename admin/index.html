@@ -32,6 +32,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .top .end{margin-inline-start:auto;display:flex;gap:8px;align-items:center}
 .dirty{font-size:.8em;font-weight:700;color:var(--amb)}
 main{max-width:1300px;margin:auto;padding:20px}
+.incbar{display:flex;flex-direction:column;gap:6px;margin:12px 20px 0;border:2px solid #2f9e5f}
 .card{background:#fff;border-radius:20px;box-shadow:var(--sh);padding:16px 18px}
 .login{max-width:560px;margin:40px auto;display:flex;flex-direction:column;gap:14px}
 .login ol{margin:0;padding-inline-start:1.3em;color:var(--mut);font-size:.9em;display:flex;flex-direction:column;gap:4px}
@@ -213,7 +214,27 @@ async function load(){
   fixFiles();
   $('tabs').hidden=false;$('topend').hidden=false;paintDirty();
   if(!cur||!catMeta(cur))cur=idx().categories[0]&&idx().categories[0].id;
-  paint();
+  paint();checkIncoming();
+}
+/* new questions Claude commits to questions/incoming.json: {"<category id>":[question,…]} — one click adds the ones not already there */
+let INC=null;
+const qkey=x=>String(x.q||x.s||'').replace(/[\u064B-\u0652\u0640«»"؟?.!،,:\s]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+function incomingFresh(){
+  if(!INC)return {n:0,by:{}};const by={};let n=0;
+  Object.entries(INC.cats||{}).forEach(([id,arr])=>{if(!catMeta(id)||!Array.isArray(arr))return;const have=new Set(listOf(id).map(qkey));
+    const f=arr.filter(x=>x&&!have.has(qkey(x)));if(f.length){by[id]=f;n+=f.length}});
+  return {n,by};
+}
+async function checkIncoming(){
+  try{const r=await fetch('/questions/incoming.json',{cache:'no-store'});INC=r.ok?await r.json():null}catch(e){INC=null}
+  paintIncoming();
+}
+function paintIncoming(){
+  let el=$('incbar');const {n,by}=incomingFresh();
+  if(!n){if(el)el.remove();return}
+  if(!el){el=document.createElement('div');el.id='incbar';el.className='card incbar';$('main').before(el)}
+  el.innerHTML=`<b>في ${n} سؤال جديد جاهز${INC.title?` · ${esc(INC.title)}`:''}</b><span class="mut" style="font-size:.85em">على ${Object.keys(by).length} فئة: ${Object.keys(by).map(id=>esc(catMeta(id).name)+' ('+by[id].length+')').join('، ')}</span>
+    <div class="row"><button type="button" class="btn solid sm" data-a="inc-add">زيدهم كلهم</button></div>`;
 }
 /* one time: copy the question files that ship with the site into the database */
 function paintImport(err){
@@ -498,6 +519,9 @@ const A={
     KD.busy=true;KD.err='';paint();GADDHA_SB.rpc('create_codes',{p_count:n,p_nights:k[2],p_days:k[3],p_note:note||k[1]}).then(v=>{KD.busy=false;KD.made=v||[];toast(`انعمل ${KD.made.length} كود`);return kList()}).catch(e=>{KD.busy=false;KD.err=e&&e.message||'ما زبط';paint()})},
   'k-copy'(b){const t=kshare(b.dataset.c);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('انتسخت الرسالة')).catch(()=>prompt('انسخ:',t))},
   cat(b){cur=b.dataset.id;editing=null;filter='all';bulk=false;paint()},
+  'inc-add'(){const {n,by}=incomingFresh();if(!n)return;
+    Object.entries(by).forEach(([id,arr])=>{const d=catData(id),k=d.items?'items':'questions';arr.forEach(o=>{d[k].push(Object.assign(d.items?{k:'',b:[]}:{difficulty:3,a:'',hints:[],w:'',sources:[]},JSON.parse(JSON.stringify(o)),{id:nextId(id,d[k]),status:o.status||'published'}))});touch(catFile(id))});
+    paintIncoming();paint();toast(`انضافوا ${n} سؤال. اضغط «احفظ وانشر».`)},
   bulk(){bulk=!bulk;paint();const t=$('bulktxt');t&&t.focus()},
   'bulk-x'(){bulk=false;paint()},
   'bulk-add'(){const m=catMeta(cur),d=catData(cur),k=d.items?'items':'questions',L=d[k];
