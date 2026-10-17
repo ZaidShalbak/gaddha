@@ -7,30 +7,30 @@
 <title>قدّها · السر</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700;800;900&display=swap">
 <style>
-:root{--bg:#1d1913;--ink:#f4ecdc;--mut:#c9bda6;--g1:#14532d;--g2:#2f9e5f;--b:#f0475a;color-scheme:dark}
+:root{--bg:#f7f5ef;--ink:#161616;--mut:#5b5a55;--g1:#14532d;--g2:#2f9e5f;--b:#f0475a;color-scheme:light}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Alexandria','Segoe UI',Tahoma,sans-serif;display:grid;place-items:center;padding:24px 16px}
-.card{width:100%;max-width:460px;display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 22px;border-radius:28px;background:#2a241c;box-shadow:0 10px 30px rgba(0,0,0,.35);text-align:center}
+.card{width:100%;max-width:460px;display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 22px;border-radius:28px;background:#fff;box-shadow:0 10px 30px rgba(22,22,22,.1);text-align:center}
 .card.blurred>*:not(button){filter:blur(16px)}
 .brand{margin:0;font-weight:900;font-size:1.7rem;line-height:1.1;background:linear-gradient(90deg,#2f9e5f,#14532d);-webkit-background-clip:text;background-clip:text;color:transparent}
-.type{margin:0;font-weight:800;background:rgba(47,158,95,.2);color:#5fd08f;padding:4px 14px;border-radius:99px}
+.type{margin:0;font-weight:800;background:#e6f2ea;color:var(--g1);padding:4px 14px;border-radius:99px}
 .word{margin:0;font-weight:900;font-size:clamp(2.4rem,12vw,4.2rem);line-height:1.2;overflow-wrap:anywhere}
 .extra{margin:0;font-weight:800;font-size:1.05rem}
 .ban{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
 .ban small{width:100%;font-weight:800;color:var(--b)}
-.ban span{padding:2px 12px;border-radius:99px;background:rgba(240,71,90,.2);color:#ff8a96;font-weight:800}
+.ban span{padding:2px 12px;border-radius:99px;background:#fde4e6;color:#b3263a;font-weight:800}
 .note{margin:0;font-size:.9rem;line-height:1.7;color:var(--mut)}
 button{font:inherit;font-weight:800;min-height:50px;padding:.4em 1.6em;border-radius:99px;border:0;background:linear-gradient(90deg,#2f9e5f,#14532d);color:#fff;cursor:pointer}
 .draw{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;gap:8px;padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px))}
 .draw-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .draw-top b{font-weight:900}
-.draw-top .peek{min-height:40px;padding:0 14px;font-size:.85rem;background:#2a241c;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12);user-select:none;-webkit-user-select:none}
+.draw-top .peek{min-height:40px;padding:0 14px;font-size:.85rem;background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12);user-select:none;-webkit-user-select:none}
 .draw-pad{flex:1;min-height:0;display:flex}
 .live{font-size:.72rem;font-weight:800;text-align:center;color:var(--mut)}
 .live.on{color:var(--g2)}
-.small{min-height:40px;padding:0 14px;font-size:.85rem;background:#2a241c;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12)}
+.small{min-height:40px;padding:0 14px;font-size:.85rem;background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(22,22,22,.12)}
 button:focus-visible{outline:3px solid var(--g2);outline-offset:3px}
 </style>
 </head>
