@@ -1361,12 +1361,13 @@ const CH={
 let PAD={key:'',strokes:[],inst:null};
 function makeChallenge(type,it){
   const n=it.s.trim().split(/\s+/).length;
-  const hints=type==='act'?[`نوعه: ${it.k} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الممثل صار بيقدر يقول كلمة وحدة من العنوان.']
+  const prov=type==='act'&&/مثل/.test(it.k||'');
+  const hints=type==='act'?[`نوعه: ${it.k} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,`الممثل صار بيقدر يقول كلمة وحدة من ${prov?'المثل':'العنوان'}.`]
     :type==='hum'?[`الصوت: ${it.k}`,`أول كلمة من الاسم: «${it.s.split(/\s+/)[0]}»`]
     :type==='words'?['صار مسموح كلمة رابعة.','وكمان حركة وحدة بالإيد (بلا كلام).']
     :type==='draw'?[`النوع: ${it.k||'شي'} · ${n===1?'كلمة وحدة':n===2?'كلمتين':n+' كلمات'}`,'الرسام صار بيقدر يأشّر بإيده (بلا كلام).']
     :[`صار مسموح يقول: «${it.b[0]}»`,`وكمان: «${it.b[1]}»`];
-  return{id:it.id,type,s:it.s,k:it.k||'',b:it.b||[],q:CH[type].prompt,a:type==='hum'?`${it.s} · ${it.k}`:it.s,x:'',hints,done:false,win:-1,how:''};
+  return{id:it.id,type,s:it.s,k:it.k||'',b:it.b||[],q:prov?'واحد من الفريق بيمسح الكود وبيمثّل المثل الشعبي… بدون ولا كلمة، وفريقه لازم يقول المثل كامل.':CH[type].prompt,a:type==='hum'?`${it.s} · ${it.k}`:it.s,x:'',hints,done:false,win:-1,how:''};
 }
 const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const b64d=s=>{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return decodeURIComponent(escape(atob(s)))};
