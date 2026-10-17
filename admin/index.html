@@ -224,17 +224,19 @@ function incomingFresh(){
   const willMake=id=>(INC.newCats||[]).some(c=>c.id===id);
   Object.entries(INC.cats||{}).forEach(([id,arr])=>{if((!catMeta(id)&&!willMake(id))||!Array.isArray(arr))return;const have=new Set(catMeta(id)?listOf(id).map(qkey):[]);
     const f=arr.filter(x=>x&&!have.has(qkey(x)));if(f.length){by[id]=f;n+=f.length}});
-  return {n,by};
+  const drop=(INC.dropCats||[]).filter(id=>catMeta(id));
+  return {n,by,drop};
 }
 async function checkIncoming(){
   try{const r=await fetch('/questions/incoming.json',{cache:'no-store'});INC=r.ok?await r.json():null}catch(e){INC=null}
   paintIncoming();
 }
 function paintIncoming(){
-  let el=$('incbar');const {n,by}=incomingFresh();
-  if(!n){if(el)el.remove();return}
+  let el=$('incbar');const {n,by,drop}=incomingFresh();
+  if(!n&&!drop.length){if(el)el.remove();return}
   if(!el){el=document.createElement('div');el.id='incbar';el.className='card incbar';$('main').before(el)}
   el.innerHTML=`<b>في ${n} سؤال جديد جاهز${INC.title?` · ${esc(INC.title)}`:''}</b><span class="mut" style="font-size:.85em">على ${Object.keys(by).length} فئة: ${Object.keys(by).map(id=>esc((catMeta(id)||(INC.newCats||[]).find(c=>c.id===id)||{}).name||id)+(catMeta(id)?'':' · جديدة')+' ('+by[id].length+')').join('، ')}</span>
+    ${drop.length?`<span class="mut" style="font-size:.85em">وبنشيل ${drop.length} فئة صارت مدموجة: ${drop.map(id=>esc(catMeta(id).name)).join('، ')}</span>`:''}
     <div class="row"><button type="button" class="btn solid sm" data-a="inc-add">زيدهم كلهم</button></div>`;
 }
 /* one time: copy the question files that ship with the site into the database */
@@ -520,13 +522,14 @@ const A={
     KD.busy=true;KD.err='';paint();GADDHA_SB.rpc('create_codes',{p_count:n,p_nights:k[2],p_days:k[3],p_note:note||k[1]}).then(v=>{KD.busy=false;KD.made=v||[];toast(`انعمل ${KD.made.length} كود`);return kList()}).catch(e=>{KD.busy=false;KD.err=e&&e.message||'ما زبط';paint()})},
   'k-copy'(b){const t=kshare(b.dataset.c);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('انتسخت الرسالة')).catch(()=>prompt('انسخ:',t))},
   cat(b){cur=b.dataset.id;editing=null;filter='all';bulk=false;paint()},
-  'inc-add'(){const {n,by}=incomingFresh();if(!n)return;
+  'inc-add'(){const {n,by,drop}=incomingFresh();if(!n&&!drop.length)return;
+    if(drop.length){const I=idx();I.categories=I.categories.filter(c=>!drop.includes(c.id));I.groups.forEach(g=>g.categories=g.categories.filter(id=>!drop.includes(id)));if(drop.includes(cur))cur=I.categories[0].id;touch('questions/index.json')}
     (INC.newCats||[]).forEach(c=>{if(catMeta(c.id)||!by[c.id])return;const I=idx();
       const meta={id:c.id,name:c.name,file:c.id+'.json',visible:true,art:c.art||'star',bg:c.bg||'#e7eef7'};if(c.desc)meta.desc=c.desc;if(c.type)meta.type=c.type;
       I.categories.push(meta);const g=I.groups.find(g=>g.name===c.group)||I.groups[I.groups.length-1];g.categories.push(c.id);
       files['questions/'+meta.file]=c.type?{category:c.id,type:c.type,items:[]}:{category:c.id,questions:[]};touch('questions/index.json')});
     Object.entries(by).forEach(([id,arr])=>{const d=catData(id),k=d.items?'items':'questions';arr.forEach(o=>{d[k].push(Object.assign(d.items?{k:'',b:[]}:{difficulty:3,a:'',hints:[],w:'',sources:[]},JSON.parse(JSON.stringify(o)),{id:nextId(id,d[k]),status:o.status||'published'}))});touch(catFile(id))});
-    paintIncoming();paint();toast(`انضافوا ${n} سؤال. اضغط «احفظ وانشر».`)},
+    paintIncoming();paint();toast(`${n?`انضافوا ${n} سؤال`:'تمام'}. اضغط «احفظ وانشر».`)},
   bulk(){bulk=!bulk;paint();const t=$('bulktxt');t&&t.focus()},
   'bulk-x'(){bulk=false;paint()},
   'bulk-add'(){const m=catMeta(cur),d=catData(cur),k=d.items?'items':'questions',L=d[k];
