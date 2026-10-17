@@ -282,14 +282,17 @@ function paintQuestions(){
     body=`<div class="qhead"><div><h2>${esc(m.name)}</h2><span class="mut" style="font-size:.85em">${TYPES[tkey(m)]} · ${all.length} ${m.type?'سر':'سؤال'} · اللعبة بتعرض «منشور» بس</span></div>
       <div class="row"><div class="chips">${[['all','الكل',all.length],['draft','مسودة',c.draft],['reviewed','تمت المراجعة',c.reviewed],['published','منشور',c.published]].map(([k,l,n])=>`<button type="button" data-a="filter" data-f="${k}" aria-pressed="${filter===k}">${l} ${n||0}</button>`).join('')}</div>
       ${c.reviewed?`<button type="button" class="btn sm" data-a="publish-reviewed">انشر كل المراجَعة (${c.reviewed})</button>`:''}
-      ${m.type?`<button type="button" class="btn sm" data-a="bulk">لصق قائمة</button>`:''}<button type="button" class="btn solid sm" data-a="new-q">+ ${m.type?'سر جديد':'سؤال جديد'}</button></div></div>
-      ${bulk&&m.type?bulkCard(m):''}
+      <button type="button" class="btn sm" data-a="bulk">لصق قائمة</button><button type="button" class="btn solid sm" data-a="new-q">+ ${m.type?'سر جديد':'سؤال جديد'}</button></div></div>
+      ${bulk?bulkCard(m):''}
       <div class="qlist">${list.length?list.slice().reverse().map(x=>qCard(x,m,answers)).join(''):'<p class="empty">ما في شي هون.</p>'}</div>`;
   }
   $('main').innerHTML=`<div class="qlayout"><aside class="side">${side}</aside><section>${body}</section></div>`;
 }
 const BULKHELP={act:'الاسم | النوع (فيلم، مسلسل، كرتون، مسرحية، برنامج)',hum:'اسم الأغنية | المغني',taboo:'الكلمة | ممنوع1، ممنوع2، ممنوع3',draw:'الكلمة | النوع (اختياري)',words:'الكلمة | النوع (اختياري)'};
 function bulkCard(m){
+  if(!m.type)return `<div class="card bulk"><b>لصق أسئلة</b><p class="mut" style="font-size:.85em;margin:4px 0 8px">الصق قائمة أسئلة جاهزة (JSON) زي اللي بيبعتلك إياها Claude. السؤال المكرر بنتجاهله. بينضافوا «منشور»، وبعدها اضغط «احفظ وانشر».</p>
+    <textarea id="bulktxt" rows="10" dir="ltr" style="width:100%;font-family:monospace;font-size:.85em" placeholder='[{"q":"…","l":["…"],"a":"…"}]'></textarea>
+    <div class="row" style="margin-top:8px"><button type="button" class="btn solid sm" data-a="bulk-add">زيدهم</button><button type="button" class="btn sm" data-a="bulk-x">إلغاء</button></div></div>`;
   return `<div class="card bulk"><b>لصق قائمة</b><p class="mut" style="font-size:.85em;margin:4px 0 8px">كل سطر سر واحد: <b>${BULKHELP[m.type]||'الكلمة | النوع'}</b>. المكرر بنتجاهله. بينضافوا «منشور»، وبعدها اضغط «احفظ وانشر».</p>
     <textarea id="bulktxt" rows="10" dir="rtl" style="width:100%" placeholder="${esc((BULKHELP[m.type]||'').split(' (')[0])}"></textarea>
     <div class="row" style="margin-top:8px"><button type="button" class="btn solid sm" data-a="bulk-add">زيدهم</button><button type="button" class="btn sm" data-a="bulk-x">إلغاء</button></div></div>`;
@@ -297,7 +300,7 @@ function bulkCard(m){
 function qCard(x,m,answers){
   const dup=answers[((m.type?x.s:x.a)||'').trim()]>1;
   const seg=`<span class="seg">${Object.keys(STATUS).map(s=>`<button type="button" class="${s}" data-a="status" data-id="${x.id}" data-s="${s}" aria-pressed="${x.status===s}">${STATUS[s]}</button>`).join('')}</span>`;
-  const acts=`<div class="actions">${seg}<span class="row"><button type="button" class="btn sm" data-a="edit" data-id="${x.id}">${editing===x.id?'خلصت':'تعديل'}</button><button type="button" class="btn sm danger" data-a="del" data-id="${x.id}">حذف</button></span></div>`;
+  const acts=`<div class="actions">${seg}<span class="row"><button type="button" class="btn sm" data-a="edit" data-id="${x.id}">${editing===x.id?'خلصت':'تعديل'}</button>${m.type?'':`<button type="button" class="btn sm" data-a="move" data-id="${x.id}">نقل</button>`}<button type="button" class="btn sm danger" data-a="del" data-id="${x.id}">حذف</button></span></div>`;
   if(editing===x.id)return `<article class="q s-${x.status}" id="q-${x.id}">${editForm(x,m)}${acts}</article>`;
   if(m.type)return `<article class="q s-${x.status}"><span class="qt">${esc(x.s)}</span>
     <div class="meta">${x.k?`<span><b>${m.type==='hum'?'المغني':'النوع'}:</b> ${esc(x.k)}</span>`:''}${(x.b||[]).length?`<span><b>ممنوع:</b> ${esc(x.b.join('، '))}</span>`:''}<span class="mut" style="font-size:.85em">${x.id}</span></div>
@@ -499,19 +502,33 @@ const A={
   'bulk-x'(){bulk=false;paint()},
   'bulk-add'(){const m=catMeta(cur),d=catData(cur),k=d.items?'items':'questions',L=d[k];
     const norm=v=>String(v||'').replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim();
-    const have=new Set(L.map(x=>norm(x.s)));let add=0,dup=0;
+    let add=0,dup=0;
+    if(!m.type){let arr;try{arr=JSON.parse($('bulktxt').value.trim());if(!Array.isArray(arr))arr=[arr]}catch(e){return toast('النص مش JSON سليم. انسخه كامل من [ لـ ]')}
+      const hq=new Set(L.map(x=>norm(x.q)));
+      arr.forEach(o=>{if(!o||typeof o!=='object'||!String(o.q||'').trim())return;if(hq.has(norm(o.q))){dup++;return}hq.add(norm(o.q));
+        L.push(Object.assign({difficulty:null,a:'',hints:[],w:'',sources:[]},o,{id:nextId(cur,L),status:o.status||'published'}));add++});
+    }else{
+    const have=new Set(L.map(x=>norm(x.s)));
     $('bulktxt').value.split(/\n/).map(l=>l.trim()).filter(Boolean).forEach(l=>{
       const [a,b='']=l.split(/\s*[|｜]\s*/);const sv=(a||'').replace(/^[-•*\d.)\s]+/,'').trim();if(!sv)return;
       if(have.has(norm(sv))){dup++;return}have.add(norm(sv));
       const it={id:nextId(cur,L),status:'published',s:sv,k:'',b:[]};
       if(m.type==='taboo')it.b=b.split(/[،,]/).map(x=>x.trim()).filter(Boolean);else it.k=b.trim();
       L.push(it);add++});
+    }
     if(add)touch(catFile(cur));bulk=!add;filter='all';paint();
     toast(add?`انضافوا ${add}${dup?` (و${dup} مكررين ما انضافوا)`:''}. اضغط «احفظ وانشر».`:(dup?`كلهم مكررين (${dup})`:'ما في ولا سطر'))},
   filter(b){filter=b.dataset.f;paint()},
   status(b){const x=findQ(b.dataset.id);x.status=b.dataset.s;touch(catFile(cur));paint()},
   'publish-reviewed'(){listOf(cur).forEach(x=>{if(x.status==='reviewed')x.status='published'});touch(catFile(cur));paint();toast('انتشروا. لا تنسى «احفظ وانشر».')},
   edit(b){editing=editing===b.dataset.id?null:b.dataset.id;paint();if(editing){const el=document.querySelector(`[data-id="${editing}"][data-e]`);el&&el.focus()}},
+  move(b){const m=catMeta(cur),opts=idx().categories.filter(c=>c.id!==cur&&!c.type&&(c.mode||'')===(m.mode||''));
+    if(!opts.length)return toast(m.mode==='bid'?'ما في فئة «بزايد عليك» تانية. اعمل وحدة من «الفئات والمجموعات».':'ما في فئة من نفس النوع');
+    modal(`<h2 style="font-weight:900">ننقل السؤال لوين؟</h2><label class="f">الفئة<select id="mv-to">${opts.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select></label>
+      <div class="row"><button type="button" class="btn solid" data-a="move-ok" data-id="${b.dataset.id}">انقل</button><button type="button" class="btn" data-a="close">إلغاء</button></div>`)},
+  'move-ok'(b){const to=$('mv-to').value,src=catData(cur),sk=src.items?'items':'questions',x=src[sk].find(q=>q.id===b.dataset.id);if(!x)return closeModal();
+    const dst=catData(to),dk=dst.items?'items':'questions';src[sk]=src[sk].filter(q=>q!==x);x.id=nextId(to,dst[dk]);dst[dk].push(x);
+    touch(catFile(cur));touch(catFile(to));closeModal();paint();toast('انتقل لـ«'+catMeta(to).name+'». اضغط «احفظ وانشر».')},
   del(b){if(!confirm('نحذف هالسؤال نهائيًا؟'))return;const d=catData(cur),k=d.items?'items':'questions';d[k]=d[k].filter(x=>x.id!==b.dataset.id);touch(catFile(cur));paint()},
   'new-q'(){const m=catMeta(cur),d=catData(cur),k=d.items?'items':'questions',id=nextId(cur,d[k]);
     d[k].push(m.type?{id,status:'draft',s:'',k:'',b:[]}:m.mode==='num'?{id,status:'draft',difficulty:null,q:'',n:null,unit:'',a:'',hints:[],w:'',sources:[]}:m.mode==='bid'?{id,status:'draft',difficulty:null,q:'',l:[],a:'',hints:[],w:'',sources:[]}:m.mode==='order'?{id,status:'draft',difficulty:null,q:'',dir:'من الأقدم للأحدث',o:[{t:'',v:''},{t:'',v:''},{t:'',v:''},{t:'',v:''}],a:'',hints:[],w:'',sources:[]}:{id,status:'draft',difficulty:null,q:'',a:'',hints:['',''],w:'',sources:[]});
@@ -536,7 +553,7 @@ const A={
     const art=g?'glyph:'+g:draftArt;
     const meta={id,name,file,visible:false,art,bg:draftBg};if(type==='num'||type==='order'||type==='bid')meta.mode=type;else if(type)meta.type=type;
     idx().categories.push(meta);idx().groups[gi].categories.push(id);
-    files['questions/'+file]=type&&type!=='num'&&type!=='order'?{category:id,type,items:[]}:{category:id,questions:[]};
+    files['questions/'+file]=type&&type!=='num'&&type!=='order'&&type!=='bid'?{category:id,type,items:[]}:{category:id,questions:[]};
     touch('questions/index.json');touch('questions/'+file);closeModal();cur=id;tab='q';paint();toast('انضافت. أضف أسئلة، انشرها، وبعدين ظهّر الفئة.')},
   art(b){const m=catMeta(b.dataset.id);draftArt=m.art||m.id;draftBg=m.bg||GA.CBG[m.id]||GA.BGS[0];
     modal(`<h2 style="font-weight:900">صورة «${esc(m.name)}»</h2><div id="artbox">${artPicker(draftArt,draftBg)}</div>
