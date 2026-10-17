@@ -154,7 +154,7 @@ const TYPES={'':'أسئلة عادية',num:'أقرب رقم',order:'رتّبه�
 const tkey=m=>m.type||(m.mode==='num'||m.mode==='order'||m.mode==='bid'?m.mode:'');
 const fmtN=n=>n==null||n===''?'':Number(n).toLocaleString('en-US',{maximumFractionDigits:3});
 const GCOLORS=['#f0475a','#14532d','#161616','#c48a12','#2f9e5f','#1d4e89','#7b4dff','#c8743a'];
-let ffilter='all',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
+let bulk=false,ffilter='all',files={},dirty=new Set(),uploads={},previews={},tab='q',cur=null,filter='all',editing=null,toastT;
 
 function toast(m){const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,3200)}
 /* questions live in Supabase (supabase/questions.sql). Only admins can read drafts or save. */
@@ -282,10 +282,17 @@ function paintQuestions(){
     body=`<div class="qhead"><div><h2>${esc(m.name)}</h2><span class="mut" style="font-size:.85em">${TYPES[tkey(m)]} · ${all.length} ${m.type?'سر':'سؤال'} · اللعبة بتعرض «منشور» بس</span></div>
       <div class="row"><div class="chips">${[['all','الكل',all.length],['draft','مسودة',c.draft],['reviewed','تمت المراجعة',c.reviewed],['published','منشور',c.published]].map(([k,l,n])=>`<button type="button" data-a="filter" data-f="${k}" aria-pressed="${filter===k}">${l} ${n||0}</button>`).join('')}</div>
       ${c.reviewed?`<button type="button" class="btn sm" data-a="publish-reviewed">انشر كل المراجَعة (${c.reviewed})</button>`:''}
-      <button type="button" class="btn solid sm" data-a="new-q">+ ${m.type?'سر جديد':'سؤال جديد'}</button></div></div>
+      ${m.type?`<button type="button" class="btn sm" data-a="bulk">لصق قائمة</button>`:''}<button type="button" class="btn solid sm" data-a="new-q">+ ${m.type?'سر جديد':'سؤال جديد'}</button></div></div>
+      ${bulk&&m.type?bulkCard(m):''}
       <div class="qlist">${list.length?list.slice().reverse().map(x=>qCard(x,m,answers)).join(''):'<p class="empty">ما في شي هون.</p>'}</div>`;
   }
   $('main').innerHTML=`<div class="qlayout"><aside class="side">${side}</aside><section>${body}</section></div>`;
+}
+const BULKHELP={act:'الاسم | النوع (فيلم، مسلسل، كرتون، مسرحية، برنامج)',hum:'اسم الأغنية | المغني',taboo:'الكلمة | ممنوع1، ممنوع2، ممنوع3',draw:'الكلمة | النوع (اختياري)',words:'الكلمة | النوع (اختياري)'};
+function bulkCard(m){
+  return `<div class="card bulk"><b>لصق قائمة</b><p class="mut" style="font-size:.85em;margin:4px 0 8px">كل سطر سر واحد: <b>${BULKHELP[m.type]||'الكلمة | النوع'}</b>. المكرر بنتجاهله. بينضافوا «منشور»، وبعدها اضغط «احفظ وانشر».</p>
+    <textarea id="bulktxt" rows="10" dir="rtl" style="width:100%" placeholder="${esc((BULKHELP[m.type]||'').split(' (')[0])}"></textarea>
+    <div class="row" style="margin-top:8px"><button type="button" class="btn solid sm" data-a="bulk-add">زيدهم</button><button type="button" class="btn sm" data-a="bulk-x">إلغاء</button></div></div>`;
 }
 function qCard(x,m,answers){
   const dup=answers[((m.type?x.s:x.a)||'').trim()]>1;
@@ -487,7 +494,20 @@ const A={
   'k-make'(){const k=KINDS.find(x=>x[0]===$('kkind').value)||KINDS[0],n=Math.max(1,Math.min(50,+$('kcount').value||1)),note=($('knote').value||'').trim();
     KD.busy=true;KD.err='';paint();GADDHA_SB.rpc('create_codes',{p_count:n,p_nights:k[2],p_days:k[3],p_note:note||k[1]}).then(v=>{KD.busy=false;KD.made=v||[];toast(`انعمل ${KD.made.length} كود`);return kList()}).catch(e=>{KD.busy=false;KD.err=e&&e.message||'ما زبط';paint()})},
   'k-copy'(b){const t=kshare(b.dataset.c);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('انتسخت الرسالة')).catch(()=>prompt('انسخ:',t))},
-  cat(b){cur=b.dataset.id;editing=null;filter='all';paint()},
+  cat(b){cur=b.dataset.id;editing=null;filter='all';bulk=false;paint()},
+  bulk(){bulk=!bulk;paint();const t=$('bulktxt');t&&t.focus()},
+  'bulk-x'(){bulk=false;paint()},
+  'bulk-add'(){const m=catMeta(cur),d=catData(cur),k=d.items?'items':'questions',L=d[k];
+    const norm=v=>String(v||'').replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim();
+    const have=new Set(L.map(x=>norm(x.s)));let add=0,dup=0;
+    $('bulktxt').value.split(/\n/).map(l=>l.trim()).filter(Boolean).forEach(l=>{
+      const [a,b='']=l.split(/\s*[|｜]\s*/);const sv=(a||'').replace(/^[-•*\d.)\s]+/,'').trim();if(!sv)return;
+      if(have.has(norm(sv))){dup++;return}have.add(norm(sv));
+      const it={id:nextId(cur,L),status:'published',s:sv,k:'',b:[]};
+      if(m.type==='taboo')it.b=b.split(/[،,]/).map(x=>x.trim()).filter(Boolean);else it.k=b.trim();
+      L.push(it);add++});
+    if(add)touch(catFile(cur));bulk=!add;filter='all';paint();
+    toast(add?`انضافوا ${add}${dup?` (و${dup} مكررين ما انضافوا)`:''}. اضغط «احفظ وانشر».`:(dup?`كلهم مكررين (${dup})`:'ما في ولا سطر'))},
   filter(b){filter=b.dataset.f;paint()},
   status(b){const x=findQ(b.dataset.id);x.status=b.dataset.s;touch(catFile(cur));paint()},
   'publish-reviewed'(){listOf(cur).forEach(x=>{if(x.status==='reviewed')x.status='published'});touch(catFile(cur));paint();toast('انتشروا. لا تنسى «احفظ وانشر».')},
