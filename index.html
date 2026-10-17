@@ -1133,6 +1133,7 @@ html.adjust .adj button{width:44px;height:40px;font-size:1.1em;opacity:.9;border
           <button type="button" class="btn sm acct" data-act="acct" role="menuitem" hidden>دخول</button>
           <button type="button" class="btn sm" id="adjbtn" data-act="adjust" role="menuitem" hidden>تعديل النتيجة</button>
           <button type="button" class="btn sm" id="fs" data-act="fs" role="menuitem">ملء الشاشة</button>
+          <button type="button" class="btn sm" id="seenbtn" data-act="reset-seen" role="menuitem" hidden>رجّع كل الأسئلة جديدة</button>
           <button type="button" class="btn sm quit" id="quitbtn" data-act="quit" role="menuitem" hidden>إنهاء اللعبة</button>
         </span></span></span>
   </header>
@@ -2487,7 +2488,7 @@ function render(){
   $('scorebar').hidden=scr==='draft'||scr==='final-tally';
   $('quitbtn').hidden=!S||scr==='end';
   $('hostbtn').hidden=!S||scr==='end'||!ONLINE();
-  $('adjbtn').hidden=!S||scr==='end';$('adjbtn').textContent=document.documentElement.classList.contains('adjust')?'خلصنا تعديل النتيجة':'تعديل النتيجة';
+  $('adjbtn').hidden=!S||scr==='end';{const sb=$('seenbtn');if(sb)sb.hidden=!seen.size||!!(S&&scr!=='end');}$('adjbtn').textContent=document.documentElement.classList.contains('adjust')?'خلصنا تعديل النتيجة':'تعديل النتيجة';
   paintAcctBtns();
   if(scr!=='question'&&scr!=='final-q')tStop();
   if(scr==='home'){}
@@ -2514,7 +2515,7 @@ const ACT={
   home(){if(!S){view='home';render();window.scrollTo(0,0)}},
   mute(){setMute(!muted);if(!muted)SFX.pop()},
   menu(b){const m=$('topmenu'),open=m.hidden;m.hidden=!open;b.setAttribute('aria-expanded',String(open))},
-  'reset-seen'(){if(!confirm('نرجّع كل الأسئلة كأنها جديدة؟'))return;seen=new Set();try{localStorage.removeItem('gaddha.seen')}catch(e){}paintSetup();toast('رجعت كل الأسئلة جديدة.')},
+  'reset-seen'(){if(!confirm('نرجّع كل الأسئلة كأنها جديدة؟'))return;seen=new Set();try{localStorage.removeItem('gaddha.seen')}catch(e){}paintSetup();render();toast('رجعت كل الأسئلة جديدة.')},
   circle(b){circle=b.dataset.c;try{localStorage.setItem(CIR_KEY,circle)}catch(e){};famSync();SFX.pop();render()},
   'fam-open'(){view='family';render();window.scrollTo(0,0);if(REMOTE)famPull(true)},
   'fam-link'(){if(!ONLINE())return;toast('عم نعمل الرابط…');GADDHA_SB.rpc('create_circle',{p_kind:circle,p_title:null}).then(r=>{REMOTE={id:r.id,key:r.key,kind:circle};try{localStorage.setItem(REM_KEY,JSON.stringify(REMOTE))}catch(e){}render();toast('الرابط جاهز. ابعثوه على قروب العيلة!')}).catch(e=>{console.warn('create_circle',e);toast('ما قدرنا نعمل الرابط'+(e&&e.message?`: ${String(e.message).slice(0,80)}`:'. تأكدوا من الإنترنت.'))})},
