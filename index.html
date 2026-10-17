@@ -85,7 +85,15 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .grp.fam{box-shadow:0 0 0 2.5px #8a4fd6,0 10px 24px rgba(138,79,214,.15);background:linear-gradient(160deg,#fff,#f6effd)}
 .fam-row{display:flex;gap:14px;align-items:center;flex:1}
 .fam-row>.cc{width:clamp(96px,26vw,128px);height:clamp(110px,28vw,140px);flex:none}
-.fam-empty{cursor:default;opacity:.7}
+.fam-empty{border:2px dashed rgba(22,22,22,.22)!important;box-shadow:none}
+.fam-empty .nm small{color:#ffd166;font-weight:800;opacity:1}
+@media (min-width:900px){.panel .nm{flex:none;max-width:42%}.panel .helps{flex:1;min-width:0}}
+.btn.quiet{background:transparent;box-shadow:none;color:var(--mut);text-decoration:underline;text-underline-offset:4px;font-weight:700}
+.btn.quiet:hover{color:var(--ink)}
+.undobtn{color:var(--ink)}
+.undobtn svg{transform:scaleX(-1)}
+.startwhy{margin:8px 0 0;text-align:center;font-weight:800;font-size:max(12.5px,.82em);color:#c92a3a}
+.startwhy:empty{display:none}
 .fam-info{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0}
 .fam-info .mut{font-size:.78em;line-height:1.6}
 .fam-n{font-size:1.6em;font-weight:900;line-height:1}
@@ -215,7 +223,8 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(-
 .nr.win small{color:var(--teamc)}
 @keyframes grow{from{width:0}}
 /* sounds + titles */
-.iconbtn{width:42px;padding:0;min-height:40px}
+.btn.iconbtn{width:44px;padding:0;min-height:44px}
+.menubtn svg{display:block}
 .titles{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .ttl-chip{display:inline-flex;flex-direction:column;padding:5px 12px;border-radius:14px;background:var(--tint);line-height:1.35;animation:fadein .5s both}
 .ttl-chip b{font-size:.8em;font-weight:900;color:var(--teamc)}
@@ -294,7 +303,7 @@ html,body{overflow-x:hidden}
 .wrap{max-width:1360px;margin-inline:auto;padding-inline:clamp(14px,3vw,40px)}
 .hm-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px}
 .hm-top .acts{display:flex;align-items:center;gap:8px}
-.hm-top .acts .btn{min-height:42px}
+.hm-top .acts .btn{min-height:44px}
 .hm-hero{display:flex;flex-direction:column;gap:30px;padding-top:6px}
 .hero-text{display:flex;flex-direction:column;gap:16px}
 .hero-text .kick{align-self:flex-start;font-weight:800;font-size:.8em;color:var(--g1);background:var(--gt);padding:5px 14px;border-radius:99px}
@@ -1118,7 +1127,7 @@ html.adjust .adj button{width:44px;height:40px;font-size:1.1em;opacity:.9;border
   <header class="top" id="top">
     <button type="button" class="brand" data-act="home" aria-label="قدّها، الصفحة الرئيسية"><span class="wm">قدّها</span><small lang="en" dir="ltr">GADDHA</small></button>
     <span class="row topacts" style="gap:8px"><button type="button" class="btn sm iconbtn" data-act="mute"></button>
-      <span class="menuwrap"><button type="button" class="btn sm iconbtn menubtn" data-act="menu" aria-haspopup="true" aria-expanded="false" aria-label="القائمة">⋯</button>
+      <span class="menuwrap"><button type="button" class="btn sm iconbtn menubtn" data-act="menu" aria-haspopup="true" aria-expanded="false" aria-label="القائمة"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/></svg></button>
         <span class="menu" id="topmenu" hidden role="menu">
           <button type="button" class="btn sm" id="hostbtn" data-act="host" role="menuitem" hidden>جوال المضيف</button>
           <button type="button" class="btn sm acct" data-act="acct" role="menuitem" hidden>دخول</button>
@@ -1224,7 +1233,7 @@ html.adjust .adj button{width:44px;height:40px;font-size:1.1em;opacity:.9;border
           <button type="button" class="btn sm" data-act="time" data-s="90">90 ثانية</button>
           <button type="button" class="btn sm" data-act="time" data-s="0">بلا وقت</button>
         </div>
-        <button type="button" class="btn solid big" id="start" data-act="start">يلا نختار المساعدات</button>
+        <button type="button" class="btn solid big" id="start" data-act="start" aria-describedby="startwhy">يلا نختار المساعدات</button><p class="startwhy" id="startwhy" aria-live="polite"></p>
       </div>
       <div class="setup-main">
         <div class="head"><h2>اختاروا الفئات</h2><span class="mut" style="font-size:.82em;font-weight:700"><span id="count"></span> · <button type="button" class="linkbtn" data-act="random">اختيار عشوائي</button></span></div>
@@ -1310,6 +1319,7 @@ let GROUPS=[
 const catArt=id=>GA.svg((META[id]&&META[id].art)||id);
 const catIcon=catArt;
 const cbg=id=>(META[id]&&META[id].bg)||CBG[id]||'#f1ecdf';
+const UNDO_IC='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14l-4-4 4-4"/><path d="M5 10h9a5 5 0 0 1 0 10h-3"/></svg>';
 const CHECK='<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>';
 const HI={
   elder:'<circle cx="12" cy="9" r="5"/><path d="M8.5 12.5q3.5 2 7 0"/><path d="M4 22a8 8 0 0 1 16 0"/>',
@@ -1514,7 +1524,7 @@ function famCard(){
   const writers=[...new Set(L.map(x=>x.by))];
   const av=writers.slice(0,5).map((n,k)=>`<i style="background:${AVC[k%AVC.length]}">${esc(initial(n))}</i>`).join('')+(writers.length>5?`<i style="background:#161616">+${writers.length-5}</i>`:'');
   const card=L.length?`<button type="button" class="cc" data-act="cat" data-id="family" aria-pressed="${p}" style="--cbg:${cbg('family')}"><span class="ck">${CHECK}</span><span class="art">${famArt()}</span><span class="nm">${FAM_NAME}<small class="${fresh<5?'low':''}">${fresh?fresh+' جديد':'كلها انلعبت'}</small></span></button>`
-    :`<div class="cc fam-empty" style="--cbg:${cbg('family')}"><span class="art">${famArt()}</span><span class="nm">${FAM_NAME}<small>فاضية</small></span></div>`;
+    :`<button type="button" class="cc fam-empty" data-act="fam-open" style="--cbg:${cbg('family')}"><span class="art">${famArt()}</span><span class="nm">${FAM_NAME}<small>+ اكتبوا أول سر</small></span></button>`;
   const t=CI().t;
   return `<section class="grp fam" aria-label="${FAM_NAME} أسرار ${t}">
     <div class="grp-head"><span class="gpill" style="--gc:${FAMC}">${FAM_NAME}</span><span class="gcount">أسرار ${t}، بتكتبوها إنتو</span>
@@ -1621,6 +1631,7 @@ function paintSetup(){
   $('groups').classList.toggle('full',sel.length>=MAX);
   $('count').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;
   $('start').disabled=sel.length<MIN;
+  $('startwhy').textContent=sel.length<MIN?`اختاروا ${({1:'فئة كمان',2:'فئتين كمان'})[MIN-sel.length]||(MIN-sel.length)+' فئات كمان'} عشان تبلّشوا`:'';
   {const sb=$('setbar');if(sb){sb.querySelector('span').textContent=`اخترتم ${sel.length} من ${MAX}${sel.length<MIN?` · أقل شي ${MIN}`:''}`;sb.querySelector('button').disabled=sel.length<MIN}}
   document.querySelectorAll('[data-act="time"]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.s===timerSec)));
   document.querySelectorAll('[data-act="qrmode"]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.m===qrMode)));
@@ -2067,7 +2078,7 @@ function paintBoard(){
   }).join('');
   const btns=confirmEnd
     ?`<span style="font-weight:800">نروح للسؤال الأخير ونترك الباقي؟</span><button type="button" class="btn solid sm" data-act="end-yes">إيه</button><button type="button" class="btn sm" data-act="end-no">لا، نكمّل</button>`
-    :`<button type="button" class="btn sm" data-act="undo" ${S.undo?'':'disabled'}>تراجع عن آخر سؤال</button><button type="button" class="btn sm line" data-act="end-ask">للسؤال الأخير</button>`;
+    :`${S.undo?`<button type="button" class="btn sm undobtn" data-act="undo">${UNDO_IC}تراجع عن آخر سؤال</button>`:''}<button type="button" class="btn sm quiet" data-act="end-ask">نروح للسؤال الأخير؟</button>`;
   $('stage').innerHTML=`<p class="turnline t${S.turn}">الدور على ${esc(t.name)} · اختاروا فئة… إذا قدّها${onFire(S.turn)?`<span class="fireln">على النار! كل جواب صح إله نقطة زيادة</span>`:''}</p>
     ${S.armed===S.turn?'<p class="armedline">«قدّها وقدود» مفعّلة: السؤال الجاي بـ6 أو ناقص 3، وبلا غشّ.</p>':''}
     <div class="board" style="--cols:${n<=4?2:3};--dcols:${n}">${tiles}</div>
