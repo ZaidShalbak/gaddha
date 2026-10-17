@@ -1026,42 +1026,6 @@ html.adjust .adj button{width:44px;height:40px;font-size:1.1em;opacity:.9;border
   .helps{display:flex}
   .qbtns [data-act="reveal"]{margin-top:0;margin-inline-start:20px}
 }
-/* ---------- night: the game screens on a laptop or TV look like a warm evening, not a daytime app ---------- */
-@media (min-width:900px){
-  html.night{--nb:#1d1913;--ns:#2a241c;--ns2:#352d23;--nln:rgba(244,236,220,.13);--nt:#f4ecdc;--nm:#c9bda6;color-scheme:dark}
-  html.night body{background:var(--nb) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg stroke='%23f4ecdc' stroke-width='1.6' stroke-linecap='round' opacity='.07'%3E%3Cpath d='M29 5l6 6M35 5l-6 6'/%3E%3Cpath d='M21 13l6 6M27 13l-6 6'/%3E%3Cpath d='M37 13l6 6M43 13l-6 6'/%3E%3Cpath d='M13 21l6 6M19 21l-6 6'/%3E%3Cpath d='M45 21l6 6M51 21l-6 6'/%3E%3Cpath d='M21 29l6 6M27 29l-6 6'/%3E%3Cpath d='M37 29l6 6M43 29l-6 6'/%3E%3Cpath d='M5 29l6 6M11 29l-6 6'/%3E%3Cpath d='M53 29l6 6M59 29l-6 6'/%3E%3Cpath d='M13 37l6 6M19 37l-6 6'/%3E%3Cpath d='M45 37l6 6M51 37l-6 6'/%3E%3Cpath d='M21 45l6 6M27 45l-6 6'/%3E%3Cpath d='M37 45l6 6M43 45l-6 6'/%3E%3Cpath d='M29 53l6 6M35 53l-6 6'/%3E%3Cpath d='M29 29l6 6M35 29l-6 6'/%3E%3C/g%3E%3C/svg%3E");background-size:64px 64px;color:var(--nt)}
-  html.night .top .brand small,html.night .mut,html.night .ord .orddir{color:var(--nm)}
-  html.night .top .btn,html.night #game .btn:not(.solid):not(.team):not(.alt):not(.fam-btn),html.night .tp{background:var(--ns2);color:var(--nt);box-shadow:inset 0 0 0 1.5px var(--nln)}
-  html.night #game .btn.alt{color:var(--nt);box-shadow:inset 0 0 0 2px var(--nln)}
-  html.night #game .btn.team.alt{color:var(--teamc);box-shadow:inset 0 0 0 2.5px var(--teamc)}
-  html.night #game .btn.line{color:var(--nt);box-shadow:inset 0 0 0 2px var(--nt)}
-  html.night .btn.cheat em{color:#ff8a96}
-  html.night #game .t0{--teamc:#5fd08f;--tint:rgba(47,158,95,.18)}
-  html.night #game .t1{--teamc:#ff7a89;--tint:rgba(240,71,90,.18)}
-  html.night .panel{background:var(--ns);color:var(--nt);box-shadow:0 10px 24px rgba(0,0,0,.35)}
-  html.night .panel.turn{background:var(--team);color:#fff}
-  html.night .vs{color:var(--nm)}
-  html.night .hl{background:rgba(244,236,220,.07)}
-  html.night .panel.turn .hl{background:rgba(255,255,255,.16)}
-  html.night .bcol{background:var(--ns);box-shadow:0 12px 26px rgba(0,0,0,.4)}
-  html.night .bcol .tiles{background:var(--ns)}
-  html.night .tl{background:#f6eedd;color:#1d1913;box-shadow:inset 0 -3px 0 rgba(0,0,0,.08)}
-  html.night .tl.w0{background:var(--grad);color:#fff}
-  html.night .tl.w1{background:#dc3348;color:#fff}
-  html.night .tl.wn{background:rgba(244,236,220,.08);color:var(--nm)}
-  html.night .qinfo,html.night .tring,html.night .wager,html.night .pill:not(.team),html.night .ladder span:not(.on),html.night .banner:not(.hot):not(.dark),html.night .opt{background:var(--ns);color:var(--nt);box-shadow:0 8px 20px rgba(0,0,0,.3)}
-  html.night .dial .trk{stroke:rgba(244,236,220,.12)}
-  html.night .qcard{background:#fbf5e8;color:#1d1913;box-shadow:0 18px 40px rgba(0,0,0,.45)}
-  html.night .ask{color:var(--nt)}
-  html.night .wager{box-shadow:0 0 0 3px var(--teamc),0 10px 24px rgba(0,0,0,.35)}
-  html.night .wager h3 small,html.night .wager .lbl{color:var(--nm)}
-  html.night .yn button{background:var(--ns2);color:var(--nt);box-shadow:inset 0 0 0 1.5px var(--nln)}
-  html.night .yn button[aria-pressed="true"]{background:var(--team);color:#fff;box-shadow:none}
-  html.night .darkstage{background:linear-gradient(160deg,#173d27,#0f2618)}
-  html.night .numin label{color:var(--teamc)}
-  html.night .ord .oi{background:var(--ns);color:var(--nt)}
-  html.night ::selection{background:#e0a92a;color:#1d1913}
-}
 /* ---------- timer bar: drains in the answering team's colour, turns red in the last 10 seconds ---------- */
 .tline{height:12px;border-radius:99px;background:rgba(22,22,22,.08);overflow:hidden;flex:none}
 .tline i{display:block;height:100%;width:100%;background:var(--team);border-radius:inherit;transition:width .25s linear,background-color .3s}
@@ -1101,7 +1065,6 @@ html.adjust .adj button{width:44px;height:40px;font-size:1.1em;opacity:.9;border
   .ladder span{font-size:1em;padding:6px 16px}
   .ladder span b{font-size:1.25em}
 }
-@media (min-width:900px){html.night .tline{background:rgba(244,236,220,.1)}}
 .champ,.note small,.ord.mine .no i{color:#c92a3a}
 .hm-legal{font-size:max(12.5px,.82em)}
 .setup-main .head>span{font-size:max(12.5px,.82em)!important}
@@ -2513,7 +2476,6 @@ function render(){
   $('quitbtn').hidden=!S||scr==='end';
   $('hostbtn').hidden=!S||scr==='end'||!ONLINE();
   $('adjbtn').hidden=!S||scr==='end';$('adjbtn').textContent=document.documentElement.classList.contains('adjust')?'خلصنا تعديل النتيجة':'تعديل النتيجة';
-  document.documentElement.classList.toggle('night',!!S&&!$('game').hidden&&scr!=='draft');
   paintAcctBtns();
   if(scr!=='question'&&scr!=='final-q')tStop();
   if(scr==='home'){}
