@@ -221,7 +221,8 @@ let INC=null;
 const qkey=x=>String(x.q||x.s||'').replace(/[\u064B-\u0652\u0640«»"؟?.!،,:\s]/g,'').replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
 function incomingFresh(){
   if(!INC)return {n:0,by:{}};const by={};let n=0;
-  Object.entries(INC.cats||{}).forEach(([id,arr])=>{if(!catMeta(id)||!Array.isArray(arr))return;const have=new Set(listOf(id).map(qkey));
+  const willMake=id=>(INC.newCats||[]).some(c=>c.id===id);
+  Object.entries(INC.cats||{}).forEach(([id,arr])=>{if((!catMeta(id)&&!willMake(id))||!Array.isArray(arr))return;const have=new Set(catMeta(id)?listOf(id).map(qkey):[]);
     const f=arr.filter(x=>x&&!have.has(qkey(x)));if(f.length){by[id]=f;n+=f.length}});
   return {n,by};
 }
@@ -233,7 +234,7 @@ function paintIncoming(){
   let el=$('incbar');const {n,by}=incomingFresh();
   if(!n){if(el)el.remove();return}
   if(!el){el=document.createElement('div');el.id='incbar';el.className='card incbar';$('main').before(el)}
-  el.innerHTML=`<b>في ${n} سؤال جديد جاهز${INC.title?` · ${esc(INC.title)}`:''}</b><span class="mut" style="font-size:.85em">على ${Object.keys(by).length} فئة: ${Object.keys(by).map(id=>esc(catMeta(id).name)+' ('+by[id].length+')').join('، ')}</span>
+  el.innerHTML=`<b>في ${n} سؤال جديد جاهز${INC.title?` · ${esc(INC.title)}`:''}</b><span class="mut" style="font-size:.85em">على ${Object.keys(by).length} فئة: ${Object.keys(by).map(id=>esc((catMeta(id)||(INC.newCats||[]).find(c=>c.id===id)||{}).name||id)+(catMeta(id)?'':' · جديدة')+' ('+by[id].length+')').join('، ')}</span>
     <div class="row"><button type="button" class="btn solid sm" data-a="inc-add">زيدهم كلهم</button></div>`;
 }
 /* one time: copy the question files that ship with the site into the database */
@@ -520,6 +521,10 @@ const A={
   'k-copy'(b){const t=kshare(b.dataset.c);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('انتسخت الرسالة')).catch(()=>prompt('انسخ:',t))},
   cat(b){cur=b.dataset.id;editing=null;filter='all';bulk=false;paint()},
   'inc-add'(){const {n,by}=incomingFresh();if(!n)return;
+    (INC.newCats||[]).forEach(c=>{if(catMeta(c.id)||!by[c.id])return;const I=idx();
+      const meta={id:c.id,name:c.name,file:c.id+'.json',visible:true,art:c.art||'star',bg:c.bg||'#e7eef7'};if(c.desc)meta.desc=c.desc;if(c.type)meta.type=c.type;
+      I.categories.push(meta);const g=I.groups.find(g=>g.name===c.group)||I.groups[I.groups.length-1];g.categories.push(c.id);
+      files['questions/'+meta.file]=c.type?{category:c.id,type:c.type,items:[]}:{category:c.id,questions:[]};touch('questions/index.json')});
     Object.entries(by).forEach(([id,arr])=>{const d=catData(id),k=d.items?'items':'questions';arr.forEach(o=>{d[k].push(Object.assign(d.items?{k:'',b:[]}:{difficulty:3,a:'',hints:[],w:'',sources:[]},JSON.parse(JSON.stringify(o)),{id:nextId(id,d[k]),status:o.status||'published'}))});touch(catFile(id))});
     paintIncoming();paint();toast(`انضافوا ${n} سؤال. اضغط «احفظ وانشر».`)},
   bulk(){bulk=!bulk;paint();const t=$('bulktxt');t&&t.focus()},
